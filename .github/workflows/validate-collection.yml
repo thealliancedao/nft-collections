@@ -1,0 +1,23 @@
+name: validate-collection
+on:
+  workflow_dispatch:
+    inputs:
+      slug: { description: "collection folder to validate", required: true }
+  pull_request:
+    paths: ['*/collection.json', '*/metadata/**', '*/rarity/**']
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: validate (dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        run: node .github/scripts/validate-collection.js "${{ github.event.inputs.slug }}"
+      - name: validate changed collections (PR)
+        if: github.event_name == 'pull_request'
+        run: |
+          for slug in $(git diff --name-only origin/${{ github.base_ref }} | cut -d/ -f1 | sort -u); do
+            [ -f "$slug/collection.json" ] && node .github/scripts/validate-collection.js "$slug"
+          done
