@@ -111,6 +111,8 @@ async function main() {
     note: 'BBL marketplace ranks mirrored 1:1; gated on 74 known anchors + exact trait-count reconciliation vs traits-reference.json',
     records: tokens.map(t => ({ token_id: String(t.id), rank: t.rank, top_percent: t.top_percent, rarity_score: t.rarity })),
   };
+  fs.mkdirSync(path.join(outDir, 'metadata'), { recursive: true });   // git can't track empty dirs — create on write
+  fs.mkdirSync(path.join(outDir, 'rarity'), { recursive: true });
   fs.writeFileSync(path.join(outDir, 'metadata/metadata.json'), JSON.stringify(metadata));
   fs.writeFileSync(path.join(outDir, 'rarity/rarity.json'), JSON.stringify(rarity));
   console.log(`✓ all gates green — metadata.json (${metadata.length} tokens) + rarity.json written`);
