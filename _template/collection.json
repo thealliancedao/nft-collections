@@ -1,0 +1,78 @@
+{
+ "schemaVersion": 1,
+ "_guide": "Copy this folder to <your-slug>/, fill every field, delete the _-prefixed guide keys, run the validator. null ALWAYS means off/not-applicable - never invent a value.",
+ "slug": "your-slug",
+ "name": "Your Collection",
+ "nft_contract": "terra1...",
+ "chain": "phoenix-1",
+ "supply": 0,
+ "traits": [
+  {
+   "name": "Background",
+   "filter": "multi-select",
+   "_filter_options": "multi-select | slider-direction (paired values like North/South - add split_suffixes) | chips"
+  },
+  {
+   "name": "Hat",
+   "filter": "multi-select"
+  }
+ ],
+ "traits_reference": "your-slug/metadata/traits-reference.json",
+ "metadata_file": "your-slug/metadata/metadata.json",
+ "rarity": {
+  "method": null,
+  "_method_options": "team-intended | statistical (we can compute from your trait counts) | <marketplace>-mirror",
+  "file": "your-slug/rarity/rarity.json"
+ },
+ "images": {
+  "cdn_pattern": "https://.../{id}.png",
+  "_note": "any host works - public IPFS gateway, your CDN, etc. Never a token-gated URL.",
+  "ipfs_cid": null,
+  "ipfs_fallback": true
+ },
+ "backing": null,
+ "_backing_if_backed": {
+  "treasury_address": "terra1...",
+  "token": {
+   "type": "cw20",
+   "address": "terra1...",
+   "symbol": "..."
+  },
+  "per_nft_rule": "treasury_balance / unbroken_count",
+  "break_mechanism": true,
+  "_note": "see adao/ for the live example; null disables the whole broken/unbroken vocabulary"
+ },
+ "governance": {
+  "dao_name": null,
+  "dao_address": null,
+  "dao_platform": null,
+  "_dao_platform_options": "daodao | enterprise | null (no DAO)",
+  "staking_contract": null,
+  "council_file": null,
+  "_council_note": "council roster lives in dao-originations/<slug>/governance/council.json"
+ },
+ "marketplaces": [
+  {
+   "key": "boost",
+   "token_url": "https://.../{contract}/{id}",
+   "collection_url": "https://.../{contract}",
+   "royalty_bps": null,
+   "_note": "any venue: bbl | boost | atrium | other. One, several, or an empty array are all valid."
+  }
+ ],
+ "features": {
+  "explorer": true,
+  "analytics": true,
+  "wallet_view": true,
+  "member_portfolio": {
+   "enabled": false,
+   "wallet_tracking": false,
+   "_note": "wallet_tracking true = you consent to public holder-holdings history being stored"
+  },
+  "member_name_registry": false,
+  "dao_audit": false,
+  "lore": false,
+  "tla_stats": false,
+  "trait_filters": true
+ }
+}
