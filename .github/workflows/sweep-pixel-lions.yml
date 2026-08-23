@@ -1,1 +1,21 @@
-
+name: sweep-pixel-lions
+# One-off: mirror pixeLions metadata + BBL ranks from warlock into this repo.
+# Gated (supply, exact trait-count reconciliation, 74 rank anchors) — refuses
+# to commit anything that doesn't reconcile. Re-run safe: full overwrite.
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node .github/scripts/sweep-pixel-lions.js
+      - run: |
+          git config user.name "collection-sweep"
+          git config user.email "bot@thealliancedao.com"
+          git add pixel-lions/metadata/metadata.json pixel-lions/rarity/rarity.json
+          git commit -m "pixel-lions: warlock mirror (metadata + BBL ranks, anchor-gated)" || echo "no changes"
+          git push
