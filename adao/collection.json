@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "slug": "adao",
+  "name": "The Alliance DAO",
+  "nft_contract": "terra1phr9fngjv7a8an4dhmhd0u0f98wazxfnzccqtyheq4zqrrp4fpuqw3apw9",
+  "chain": "phoenix-1",
+  "supply": 10000,
+  "traits": [
+    {
+      "name": "Planet",
+      "filter": "slider-direction",
+      "split_suffixes": [
+        " North",
+        " South"
+      ]
+    },
+    {
+      "name": "Inhabitant",
+      "filter": "slider-direction",
+      "split_suffixes": [
+        " M",
+        " F"
+      ]
+    },
+    {
+      "name": "Object",
+      "filter": "multi-select"
+    },
+    {
+      "name": "Weather",
+      "filter": "multi-select"
+    },
+    {
+      "name": "Light",
+      "filter": "multi-select"
+    },
+    {
+      "name": "Rarity",
+      "filter": "multi-select"
+    }
+  ],
+  "rarity": {
+    "method": "intended",
+    "file": "adao/rarity/adao-rarity-intended.json",
+    "note": "already in this repo - the analytics cron reads this exact file today",
+    "secondary": {
+      "label": "BBL",
+      "note": "mirrored from BackBone Labs; lazy-loaded"
+    }
+  },
+  "images": {
+    "note": "TODO: transcribe the CDN pattern from the site's getImageUrl when wiring the shim",
+    "ipfs_fallback": true
+  },
+  "metadata_file": "adao/metadata/",
+  "backing": {
+    "treasury_note": "ampLUNA treasury \u2014 per-NFT share published in nfts/adao/snapshots/summary.json backing.*",
+    "token": {
+      "type": "cw20",
+      "symbol": "ampLUNA"
+    },
+    "per_nft_rule": "treasury_balance / unbroken_count",
+    "break_mechanism": true
+  },
+  "governance": {
+    "dao_address": "terra1sffd4efk2jpdt894r04qwmtjqrrjfc52tmj6vkzjxqhd8qqu2drs3m5vzm",
+    "dao_platform": "daodao",
+    "staking_contract": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+    "council_address": null,
+    "council_members_source": "registry"
+  },
+  "marketplaces": [
+    {
+      "key": "bbl",
+      "token_url": "https://app.backbonelabs.io/nfts/marketplace/collections/{contract}/{id}",
+      "collection_url": "https://app.backbonelabs.io/nfts/marketplace/collections/{contract}",
+      "royalty_bps": 500
+    },
+    {
+      "key": "atrium",
+      "token_url": "https://atrium.markets/atrium/{contract}/{id}",
+      "collection_url": "https://atrium.markets/atrium/collection/{contract}?tab=listings",
+      "royalty_bps": null
+    },
+    {
+      "key": "boost",
+      "token_url": null,
+      "collection_url": null,
+      "royalty_bps": null
+    }
+  ],
+  "features": {
+    "explorer": true,
+    "analytics": true,
+    "wallet_view": true,
+    "member_portfolio": {
+      "enabled": true,
+      "wallet_tracking": true
+    },
+    "member_name_registry": true,
+    "dao_audit": true,
+    "lore": true,
+    "tla_stats": true,
+    "trait_filters": true
+  },
+  "metadata_note": "TODO: site currently serves metadata from aDAO-links-site assets; fold the canonical copy here when the registry path goes live"
+}
