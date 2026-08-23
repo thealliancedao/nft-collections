@@ -1,0 +1,98 @@
+{
+ "schemaVersion": 1,
+ "slug": "pixel-lions",
+ "name": "pixeLions",
+ "nft_contract": "terra17z7fpaa8kah698xn5tarrcucvualdy4wsztkfc404g3garucpu6qmxp50g",
+ "chain": "phoenix-1",
+ "supply": 5000,
+ "supply_note": "5,000 confirmed three ways: trait-count sums, BBL collection description, warlock pagination",
+ "traits": [
+  {
+   "name": "Back",
+   "filter": "multi-select"
+  },
+  {
+   "name": "Body",
+   "filter": "multi-select"
+  },
+  {
+   "name": "Eyes",
+   "filter": "multi-select"
+  },
+  {
+   "name": "Face",
+   "filter": "multi-select"
+  },
+  {
+   "name": "Mane",
+   "filter": "multi-select"
+  },
+  {
+   "name": "Prop",
+   "filter": "multi-select"
+  }
+ ],
+ "traits_reference": "pixel-lions/metadata/traits-reference.json",
+ "rarity": {
+  "method": "bbl-statistical-mirror",
+  "file": "pixel-lions/rarity/rarity.json",
+  "source": "warlock necropolis API (rank, top_percent, rarity score per token)",
+  "anchors": "pixel-lions/metadata/bbl-rank-anchors.json",
+  "sweep": ".github/workflows/sweep-pixel-lions.yml"
+ },
+ "images": {
+  "cdn_pattern": "https://ipfs.io/ipfs/bafybeihgrne4vcqirlb26rs4y2gpaka32dqssidwvx2qui2kx5osc6oxie/{id}.png",
+  "ipfs_cid": "bafybeihgrne4vcqirlb26rs4y2gpaka32dqssidwvx2qui2kx5osc6oxie",
+  "ipfs_fallback": true,
+  "origin_note": "BBL serves via ipfs.realityflux.io with a pinataGatewayToken (tokened gateway - do not hardcode); same CID resolves on public gateways"
+ },
+ "metadata_file": "pixel-lions/metadata/metadata.json",
+ "backing": null,
+ "backing_note": "no treasury-backed redemption known - null disables the broken/unbroken vocabulary entirely",
+ "governance": {
+  "dao_name": "pixeLions DAO",
+  "dao_address": null,
+  "dao_address_TODO": "copy from the daodao.zone URL of the pixeLions DAO page (screenshot 2026-08-23: 291 members, 2,930/5,000 staked = 58.54%, established Oct 2024, vetoer 'pixeLions a')",
+  "dao_platform": "daodao",
+  "staking_contract": null,
+  "staking_TODO": "the DAODAO NFT-staking (voting) module for this collection - visible in the DAO's contract list; unstaking period 1 second (vs aDAO's 7 days - pending-claim mechanics nearly instant)",
+  "enterprise_legacy": true,
+  "enterprise_note": "'Formerly of Enterprise' - historical Enterprise staking exists, same legacy-attribution challenge as aDAO's 81 unattributed",
+  "council_file": "../dao-originations/pixel-lions/governance/council.json",
+  "council_size": 5,
+  "parent_dao": {
+   "name": "Lion DAO",
+   "dao_address": "terra1tkersa2mqwy2h8exj799qx2xrhdu0dkymk9psp6v0k4kz4tkxucssgluec",
+   "dao_originations_folder": "lion-dao/"
+  }
+ },
+ "marketplaces": [
+  {
+   "key": "bbl",
+   "token_url": "https://app.backbonelabs.io/nfts/marketplace/collections/{contract}/{id}",
+   "collection_url": "https://app.backbonelabs.io/nfts/marketplace/collections/{contract}",
+   "royalty_bps": null,
+   "royalty_TODO": "still unknown - read from BBL collection config or a sale event at wiring time"
+  }
+ ],
+ "features": {
+  "explorer": true,
+  "analytics": true,
+  "wallet_view": true,
+  "member_portfolio": {
+   "enabled": false,
+   "wallet_tracking": false,
+   "note": "off until Lion DAO consents"
+  },
+  "member_name_registry": false,
+  "dao_audit": true,
+  "lore": false,
+  "tla_stats": true,
+  "tla_stats_note": "Lion DAO holds TLA positions - governance corpus already in dao-originations/lion-dao/",
+  "trait_filters": true
+ },
+ "metadata_source": {
+  "token_uri_cid": "bafybeia4wio2b4wi2neumzv6djcqa4lm3k4qytr2t5yuuytejjgzitkbqu",
+  "note": "per-token {id}.json on IPFS; the sweep mirrors attributes from warlock which serves the same data"
+ }
+}
