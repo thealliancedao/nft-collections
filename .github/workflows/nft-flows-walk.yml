@@ -1,14 +1,15 @@
-# nft-flows-walk — ONE-TIME: walk one collection's watch set over a height span (archive node for the pruned span
-# 13,737,811→21,481,530; a public rpc_url for anything in retention) → write-once raw parts under <collection>/raw/.
-# Self-chaining: dispatch once with from_height + final_height. Then run nft-flows-derive.
+# nft-flows-walk — ONE-TIME: fill a collection's ledger window. Defaults do the obvious thing: from = the last height
+# the collection's archives cover, to = the node head, chaining chunks until it gets there. Give heights only for a
+# specific span (e.g. the FCD-freeze day). Archive node by default (blank rpc_url); anything within the public node's
+# rolling window can use a public rpc_url. Then run nft-flows-derive.
 name: nft-flows-walk
 on:
   workflow_dispatch:
     inputs:
       collection: { description: 'collection slug (folder)', required: true, default: 'pixel-lions' }
-      from_height: { description: 'walk FROM (inclusive)', required: true }
-      final_height: { description: 'self-chain until (inclusive); blank = single chunk', required: false, default: '' }
-      to_height: { description: 'single-chunk override', required: false, default: '' }
+      from_height: { description: 'blank = resume from the last covered height', required: false, default: '' }
+      final_height: { description: 'blank = the node head (chains chunks until reached)', required: false, default: '' }
+      to_height: { description: 'single-chunk end (for a specific span, e.g. the freeze day)', required: false, default: '' }
       rpc_url: { description: 'public RPC (blank = ARCHIVE_RPC secret)', required: false, default: '' }
       pace_ms: { description: 'sleep after every node call (ms)', required: false, default: '250' }
       chunk_blocks: { description: 'blocks per run', required: false, default: '300000' }
@@ -29,6 +30,8 @@ jobs:
             .github/scripts
             venues.json
             ${{ inputs.collection }}/collection.json
+            ${{ inputs.collection }}/ledger/index.json
+            ${{ inputs.collection }}/raw
       - uses: actions/setup-node@v4
         with:
           node-version: 20
