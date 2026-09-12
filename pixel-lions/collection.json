@@ -135,5 +135,52 @@
     "coverage": "tla-flows capture set + BBL vocab (already fixture-locked, same necropolis contract)"
    }
   ]
+ },
+ "capture": {
+  "custodians": {
+   "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz": {
+    "role": "daodao_voting",
+    "label": "pixeLions DAO Voting Module",
+    "unbonding_seconds": 1
+   },
+   "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l": {
+    "role": "enterprise_staking",
+    "label": "Pixel Lions Enterprise NFT staking (legacy)"
+   }
+  },
+  "launchpad": {
+   "address": "terra1d2gjv4f4elh0hsgjl8rzymg857k4ys6af0lutz6gw6vwf2kny6dsdewwdw",
+   "label": "BBL launchpad holder — all 5,000 admin-minted here 2023-06-09 (h5,430,672–5,430,704); public mint = buyer executes `mint` on the holder with 10 LUNA per NFT attached, holder forwards to the project wallet and transfers the token (read from archive/fcd/pixel-collection 2026-09-12)",
+   "proceeds_wallet": "terra18qx2ql4nxlarqvkc6z3pmuhg0m48kpncxl8acc"
+  },
+  "minter": "terra18qx2ql4nxlarqvkc6z3pmuhg0m48kpncxl8acc",
+  "distribution_wallets": [
+   "terra1pyn0fg6r3y0ca5vkv3u60f94mwmne64ylunhsh"
+  ],
+  "distributor": "terra1krewrx5uye0ux786w9jd2qx4wqz5pz2y5mqxw2k58p4xjhnw5lfqm450m7",
+  "vetoer": "terra1xgg9cf94ws2mawr6lyrdvmyxt48xkwgp8gvtsrcg2yktqvk8w2rqxflq06",
+  "royalty_recipients": {
+   "bbl": "terra1xgg9cf94ws2mawr6lyrdvmyxt48xkwgp8gvtsrcg2yktqvk8w2rqxflq06",
+   "boost": "terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en",
+   "atrium": null
+  },
+  "venues": [
+   "bbl",
+   "atrium",
+   "boost",
+   "trades-2023",
+   "offers-2023"
+  ],
+  "handle_source": "DAODAO profile name (members export)",
+  "gate": "staked+handle",
+  "genesis_height": 5430672,
+  "archives": {
+   "fcd": [
+    "collection",
+    "voting",
+    "enterprise"
+   ],
+   "raw": "pixel-lions/raw"
+  }
  }
 }
