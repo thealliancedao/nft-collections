@@ -6,11 +6,19 @@ name: nft-flows-walk
 on:
   workflow_dispatch:
     inputs:
-      collection: { description: 'collection slug (folder)', required: true, default: 'pixel-lions' }
+      collection:
+        description: 'collection'
+        type: choice
+        default: pixel-lions
+        options: [adao, pixel-lions, tla-locks]
       from_height: { description: 'blank = resume from the last covered height', required: false, default: '' }
       final_height: { description: 'blank = the node head (chains chunks until reached)', required: false, default: '' }
       to_height: { description: 'single-chunk end (for a specific span, e.g. the freeze day)', required: false, default: '' }
-      rpc_url: { description: 'public RPC (blank = ARCHIVE_RPC secret)', required: false, default: '' }
+      node:
+        description: 'node — archive = ARCHIVE_RPC secret, paced, precious (pruned span < ~2.5 months old); public = free rolling window only'
+        type: choice
+        default: archive
+        options: [archive (secret · paced · needed for anything older than the public window), public publicnode (free · recent blocks only), public polkachu (free · recent blocks only)]
       pace_ms: { description: 'sleep after every node call (ms)', required: false, default: '250' }
       chunk_blocks: { description: 'blocks per run', required: false, default: '300000' }
 permissions:
@@ -39,8 +47,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
-          ARCHIVE_RPC: ${{ inputs.rpc_url == '' && secrets.ARCHIVE_RPC || '' }}
-          RPC_URL: ${{ inputs.rpc_url }}
+          ARCHIVE_RPC: ${{ startsWith(inputs.node, 'archive') && secrets.ARCHIVE_RPC || '' }}
+          NODE_CHOICE: ${{ inputs.node }}
+          RPC_URL: ${{ startsWith(inputs.node, 'public publicnode') && 'https://terra-rpc.publicnode.com' || startsWith(inputs.node, 'public polkachu') && 'https://terra-rpc.polkachu.com' || '' }}
           COLLECTION: ${{ inputs.collection }}
           WALK_FROM: ${{ inputs.from_height }}
           WALK_TO: ${{ inputs.to_height }}

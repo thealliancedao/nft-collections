@@ -4,8 +4,16 @@ name: fcd-harvest
 on:
   workflow_dispatch:
     inputs:
-      collection: { description: 'collection slug (folder)', required: true, default: 'pixel-lions' }
-      role: { description: 'label under <collection>/archive/fcd/ — collection | voting | enterprise | escrow | minter | custom', required: true, default: 'collection' }
+      collection:
+        description: 'collection'
+        type: choice
+        default: pixel-lions
+        options: [adao, pixel-lions, tla-locks]
+      role:
+        description: 'which contract — resolved from the collection.json capture block'
+        type: choice
+        default: collection
+        options: [collection, voting, enterprise, escrow, minter, custom]
       account: { description: 'address to harvest (blank = the address the role names in collection.json capture block)', required: false, default: '' }
       max_pages: { description: 'pages this run (100 txs/page); re-run to continue', required: false, default: '400' }
       page_delay_ms: { description: 'delay between FCD pages — FCD is a gift', required: false, default: '1100' }

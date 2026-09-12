@@ -6,13 +6,15 @@ on:
   workflow_dispatch:
     inputs:
       collections:
-        description: 'comma list of registry keys (blank = all)'
-        required: false
-        default: ''
-      rpc_url:
-        description: 'public RPC (retention span)'
-        required: false
-        default: 'https://terra-rpc.publicnode.com'
+        description: 'collection (all = every folder with a capture block)'
+        type: choice
+        default: all
+        options: [all, adao, pixel-lions, tla-locks]
+      node:
+        description: 'public node — this fill covers the rolling window only; older spans need nft-flows-walk on the archive'
+        type: choice
+        default: public publicnode
+        options: [public publicnode, public polkachu]
 permissions:
   contents: write
 concurrency:
@@ -33,8 +35,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
-          RPC_URL: ${{ inputs.rpc_url || 'https://terra-rpc.publicnode.com' }}
-          COLLECTIONS: ${{ inputs.collections }}
+          RPC_URL: ${{ inputs.node == 'public polkachu' && 'https://terra-rpc.polkachu.com' || 'https://terra-rpc.publicnode.com' }}
+          COLLECTIONS: ${{ inputs.collections == 'all' && '' || inputs.collections }}
           PACE_MS: '250'
         run: node .github/scripts/nft-flows/forward.js
       - name: pull the parts this run just wrote

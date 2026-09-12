@@ -5,7 +5,11 @@ name: nft-flows-derive
 on:
   workflow_dispatch:
     inputs:
-      collections: { description: 'comma list of slugs (blank = every folder with a capture block)', required: false, default: '' }
+      collections:
+        description: 'collection (all = every folder with a capture block)'
+        type: choice
+        default: all
+        options: [all, adao, pixel-lions, tla-locks]
 permissions:
   contents: write
 concurrency:
@@ -24,7 +28,7 @@ jobs:
         run: mkdir -p _shared && curl -sL https://raw.githubusercontent.com/thealliancedao/tla-core/main/nfts/adao/snapshots/luna-usd-daily.json -o _shared/luna-usd-daily.json
       - name: gate + derive
         env:
-          COLLECTIONS: ${{ inputs.collections }}
+          COLLECTIONS: ${{ inputs.collections == 'all' && '' || inputs.collections }}
         run: |
           node .github/scripts/nft-flows/gate-classify.mjs .
           node .github/scripts/nft-flows/derive.js
