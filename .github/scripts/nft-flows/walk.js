@@ -20,8 +20,9 @@ const crypto = require('crypto');
 const zlib  = require('zlib');
 const AGENT = new https.Agent({ keepAlive: true, maxSockets: 4 });
 const COLLECTION    = String(process.env.COLLECTION || 'pixel-lions');
-const ARCHIVE_RPC   = String(process.env.ARCHIVE_RPC || '').replace(/\/+$/, '');
-const RPC_URL       = String(process.env.RPC_URL || '').replace(/\/+$/, '');
+const cleanUrl      = (v) => String(v || '').trim().replace(/^['"]+|['"]+$/g, '').replace(/\/+$/, '');   // secrets pasted with a newline or quotes broke '/status' (2026-09-12)
+const ARCHIVE_RPC   = cleanUrl(process.env.ARCHIVE_RPC);
+const RPC_URL       = cleanUrl(process.env.RPC_URL);
 const RPC           = ARCHIVE_RPC || RPC_URL;
 const FROM_RAW      = process.env.WALK_FROM || process.argv[2] || '';
 const FINAL_RAW     = process.env.FINAL_HEIGHT || '';
@@ -40,6 +41,7 @@ const GITHUB_TOKEN  = process.env.GITHUB_TOKEN;
 const RAW_DIR       = () => `${COLLECTION}/raw/${FROM}-${TO}`;
 function fail(m) { console.error('FATAL: ' + m); process.exit(1); }
 if (!RPC) fail('no RPC: set ARCHIVE_RPC (secret) or RPC_URL');
+try { new URL(RPC); } catch { fail(`RPC is not a valid URL after cleanup (length ${RPC.length}, starts "${RPC.slice(0, 8)}") — re-save the secret as a bare https://host[:port] with no quotes or trailing newline`); }
 if (!GITHUB_TOKEN) fail('GITHUB_TOKEN missing');
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 function httpGet(url, t = 25000, hops = 0) {
@@ -206,7 +208,7 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
   if (FINAL && nextFrom <= FINAL) {
     const nextTo = Math.min(nextFrom + CHUNK - 1, FINAL);
     console.log(`self-chain: dispatching ${nextFrom} → ${nextTo} (final ${FINAL})`);
-    await ghReq('POST', `/repos/${GITHUB_REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`, { ref: GITHUB_BRANCH, inputs: { collection: COLLECTION, from_height: String(nextFrom), final_height: String(FINAL), to_height: '', rpc_url: RPC_URL } });
+    await ghReq('POST', `/repos/${GITHUB_REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`, { ref: GITHUB_BRANCH, inputs: { collection: COLLECTION, from_height: String(nextFrom), final_height: String(FINAL), to_height: '', node: process.env.NODE_CHOICE || 'archive (secret · paced · needed for anything older than the public window)' } });
     console.log('self-chain: dispatched.');
   } else console.log('walk complete for this dispatch chain.');
 })().catch(e => { console.error('FATAL', e); process.exit(1); });
