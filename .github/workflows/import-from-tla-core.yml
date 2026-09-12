@@ -1,11 +1,15 @@
-# import-from-tla-core — ONE-TIME move of the nft-flows outputs that were first built inside tla-core into their
-# collections' own folders here. Copies via raw.githubusercontent (tla-core is public), commits, never deletes anything
-# in tla-core (purge there is the owner's step, listed in the run summary). Re-run safe: identical files are no-ops.
+# import-from-tla-core — ONE-TIME copies from tla-core into the collections' own folders here. Never deletes anything
+# in tla-core. Re-run safe: a file is copied only when its content (git blob sha) differs; overwrites are listed.
+#   what=adao (default, 2026-09-12 aDAO migration): nfts/adao/{snapshots,flows,transfers,provenance,claims} +
+#     archive/fcd/adao-{collection,minter} → adao/…, then adao/collection.json declares the FCD archives local.
+#   what=ledgers|raw|fcd|all: the v1 nft-flows mappings (their tla-core sources are purged; they resolve to 0 files).
+# RUN ORDER for the aDAO flip: suspend org-nft-inventory · org-nft-adao-daily · org-tla-flows on Render → run this →
+#   set the env on those three services → resume.
 name: import-from-tla-core
 on:
   workflow_dispatch:
     inputs:
-      what: { description: 'all | ledgers | raw | fcd', required: false, default: 'all' }
+      what: { description: 'adao | all | ledgers | raw | fcd', required: false, default: 'adao' }
 permissions:
   contents: write
 jobs:
@@ -23,9 +27,11 @@ jobs:
           WHAT: ${{ inputs.what }}
         run: node .github/scripts/nft-flows/import-from-tla-core.js
       - name: commit
+        env:
+          WHAT: ${{ inputs.what }}
         run: |
           git config user.name "import-from-tla-core" && git config user.email "bot@thealliancedao.com"
           git add -A pixel-lions tla-locks adao
           if git diff --cached --quiet; then echo "nothing to import"; exit 0; fi
-          git commit -m "import nft-flows outputs from tla-core ($(date -u +%Y-%m-%dT%H:%M)Z)"
+          git commit -m "import from tla-core: ${WHAT:-adao} ($(date -u +%Y-%m-%dT%H:%M)Z)"
           for i in 1 2 3 4 5 6; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 15)); done; exit 1
