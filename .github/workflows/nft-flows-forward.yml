@@ -36,7 +36,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
           RPC_URL: ${{ inputs.node == 'public polkachu' && 'https://terra-rpc.polkachu.com' || 'https://terra-rpc.publicnode.com' }}
-          COLLECTIONS: ${{ inputs.collections == 'all' && '' || inputs.collections }}
+          COLLECTIONS: ${{ inputs.collections }}
           PACE_MS: '250'
         run: node .github/scripts/nft-flows/forward.js
       - name: pull the parts this run just wrote

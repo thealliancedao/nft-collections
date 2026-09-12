@@ -28,7 +28,7 @@ jobs:
         run: mkdir -p _shared && curl -sL https://raw.githubusercontent.com/thealliancedao/tla-core/main/nfts/adao/snapshots/luna-usd-daily.json -o _shared/luna-usd-daily.json
       - name: gate + derive
         env:
-          COLLECTIONS: ${{ inputs.collections == 'all' && '' || inputs.collections }}
+          COLLECTIONS: ${{ inputs.collections }}
         run: |
           node .github/scripts/nft-flows/gate-classify.mjs .
           node .github/scripts/nft-flows/derive.js
