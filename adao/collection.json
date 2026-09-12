@@ -135,25 +135,15 @@
     "minter"
    ],
    "raw": "adao/raw",
-   "note": "history derived in tla-core (tla-flows/raw + archive/fcd/adao-*) and IMPORTED here (ledger only); forward capture writes here",
+   "note": "FCD archives (collection, minter) live here under adao/archive/fcd/; the aDAO products (snapshots, flows, transfers, provenance, claims) live here under adao/ since the 2026-09-12 migration; forward capture writes here",
    "external_coverage": [
-    {
-     "source": "tla-core:archive/fcd/adao-collection",
-     "from": 8094215,
-     "to": 13730176
-    },
-    {
-     "source": "tla-core:archive/fcd/adao-minter",
-     "from": 8094215,
-     "to": 13570096
-    },
     {
      "source": "tla-core:tla-flows/raw",
      "from": 13737811,
      "to": 21481530
     }
    ],
-   "external_note": "archives that live in tla-core (the reference build); their ledger records were imported — these ranges are counted as covered"
+   "external_note": "tla-flows/raw stays in tla-core (TLA data, registry superset); its aDAO ledger records were imported — that range is counted as covered"
   }
  }
 }

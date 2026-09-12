@@ -1,0 +1,206 @@
+{
+  "schema_rev": 1,
+  "coverage": {
+    "from": "chain genesis (collection deployed in-window)",
+    "to_height_approx": 13736494,
+    "to_date_approx": "2025-01-07",
+    "source": "FCD frozen archive harvests: archive/fcd/adao-minter + adao-collection (both complete)"
+  },
+  "mint_story": {
+    "total_supply": 10000,
+    "free_goa_claims": 1191,
+    "minted_to_dao_treasury": 8809,
+    "mint_era_dao_treasury_address": "terra1g0mfrpswewteaf9ky4rlj09wh5njp6u9xxk94uszplw4qz2f9mzq3k27fm",
+    "paid_distributed_from_treasury_stock": 1952,
+    "phases": [
+      {
+        "phase_id": "goa-free",
+        "label": "Phase 0: Game of Alliance Claim",
+        "price_uluna": "0",
+        "expected": 1191,
+        "chain_count": 1191,
+        "proceeds_uluna": "0",
+        "proceeds_luna": 0
+      },
+      {
+        "phase_id": "sale-50",
+        "label": "Phase 1b: DAO Staker Mint",
+        "price_uluna": "50000000",
+        "expected": 127,
+        "chain_count": 127,
+        "proceeds_uluna": "6350000000",
+        "proceeds_luna": 6350
+      },
+      {
+        "phase_id": "sale-75",
+        "label": "Phase 2a: Terra NFT Communities",
+        "price_uluna": "75000000",
+        "expected": 525,
+        "chain_count": 525,
+        "proceeds_uluna": "39375000000",
+        "proceeds_luna": 39375
+      },
+      {
+        "phase_id": "sale-100",
+        "label": "Phase 2b: Alliance Stakers & Open Mint (round 1)",
+        "price_uluna": "100000000",
+        "expected": 197,
+        "chain_count": 197,
+        "proceeds_uluna": "19700000000",
+        "proceeds_luna": 19700
+      },
+      {
+        "phase_id": "sale-115",
+        "label": "Phase 2b: Alliance Stakers & Open Mint (round 2)",
+        "price_uluna": "115000000",
+        "expected": 459,
+        "chain_count": 459,
+        "proceeds_uluna": "52785000000",
+        "proceeds_luna": 52785
+      },
+      {
+        "phase_id": "sale-130",
+        "label": "Phase 2b: Alliance Stakers & Open Mint (round 3)",
+        "price_uluna": "130000000",
+        "expected": 644,
+        "chain_count": 644,
+        "proceeds_uluna": "83720000000",
+        "proceeds_luna": 83720
+      }
+    ],
+    "candy_machines": {
+      "terra182fvr6f2vamqvk4qxyeun0d893aje78l93r8ac67g6cyu7y2v22sp0g98h": "sale-50",
+      "terra17tg0lk3l9luhata3h03zcp2ecave5n4l5x8akpdzu5lrydegwdzqxyj09c": "sale-75",
+      "terra1jw84ef5qye2zykelyenchnfzkmrznguy5ym9aa4kxte7h0c5m4ysxfte89": "sale-100/115/130"
+    },
+    "distribution_reconciliation": {
+      "terra182fvr6f2vamqvk4qxyeun0d893aje78l93r8ac67g6cyu7y2v22sp0g98h": {
+        "machine": "sale-50",
+        "loaded": 352,
+        "sold": 127,
+        "ejected": 225,
+        "other_out": 0,
+        "note": "loaded = sold + ejected + other_out; ejects return unsold stock to the mint-era DAO treasury; other_out = governance-proposal moves"
+      },
+      "terra17tg0lk3l9luhata3h03zcp2ecave5n4l5x8akpdzu5lrydegwdzqxyj09c": {
+        "machine": "sale-75",
+        "loaded": 1000,
+        "sold": 525,
+        "ejected": 473,
+        "other_out": 2,
+        "note": "loaded = sold + ejected + other_out; ejects return unsold stock to the mint-era DAO treasury; other_out = governance-proposal moves"
+      },
+      "terra1jw84ef5qye2zykelyenchnfzkmrznguy5ym9aa4kxte7h0c5m4ysxfte89": {
+        "machine": "sale-100/115/130",
+        "loaded": 1300,
+        "sold": 1300,
+        "ejected": 0,
+        "other_out": 0,
+        "note": "loaded = sold + ejected + other_out; ejects return unsold stock to the mint-era DAO treasury; other_out = governance-proposal moves"
+      }
+    },
+    "total_primary_proceeds_luna": 201930
+  },
+  "secondary_market": {
+    "settles": 1151,
+    "by_denom": {
+      "LUNA": 1107,
+      "bLUNA": 44
+    }
+  },
+  "breaks": {
+    "count": 1010
+  },
+  "notable": {
+    "ampluna_backing": {
+      "note": "Origination of the collection ampLUNA backing, in-window facts only. Current per-NFT backing is owned by nfts/adao/snapshots (nft-inventory).",
+      "initial_bond": {
+        "height": 10777703,
+        "ts": "2024-06-15T10:31:26Z",
+        "txhash": "1E1ED91045745715DAD0447D96BD97D6C2A5647802590867096BC7B7154AB2B9",
+        "amount": {
+          "denom": "terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+          "amount": "128854666241",
+          "symbol": "ampLUNA",
+          "amount_display": 128854.666241
+        }
+      },
+      "inflow_events": 202,
+      "inflow_total": {
+        "denom": "terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "amount": "378608809702",
+        "symbol": "ampLUNA",
+        "amount_display": 378608.809702
+      },
+      "pattern": "initial proceeds bond 2024-06-15, then daily Alliance-reward compounding mints to the collection contract"
+    },
+    "unmapped_contract_destinations": {
+      "terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4": 22,
+      "terra1u348d9jyrxh64kpugh9htzaylukvtpu8kpc8qznqxmshxc35mpuqdfvyf4": 3,
+      "terra1ed3qw4y4ca3lpj82ugg2jqsjr9czd0yyldcpp5n5yd7hu6udqafslz0nmg": 3,
+      "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl": 1,
+      "terra1hasy9hfn0kpqkhnl9xrg26g24yle7249dpcrj4wj3vhmkxmu2hvqj57tn9": 1,
+      "terra1yv5fyftazjsy3uslzwrsaqcahn8mht87kf7jzlh50yfnu7mqxymsja06dz": 1,
+      "terra1tkersa2mqwy2h8exj799qx2xrhdu0dkymk9psp6v0k4kz4tkxucssgluec": 1,
+      "terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en": 1
+    },
+    "unmapped_note": "NFT movements to contracts outside the known custody/owner map — recorded as plain transfers (factual owner = the contract). Feed for the address-catalog rider. Known owners (aDAO Core, the two DAO NFT-custody wallets, mint-era DAO treasury) are excluded."
+  },
+  "release_history_verification": [
+    {
+      "claim": "break_nft count",
+      "page": 1000,
+      "chain": 1010,
+      "verdict": "page undercounts by 10"
+    },
+    {
+      "claim": "Phase 1b + 2a combined",
+      "page": 681,
+      "chain": 652,
+      "verdict": "page overcounts by 29; split is EXACT on-chain: 127 @ 50 LUNA (1b) + 525 @ 75 LUNA (2a) — stated uncertainty resolved"
+    },
+    {
+      "claim": "paid mints total",
+      "page": "~1981 (est.)",
+      "chain": 1952,
+      "verdict": "chain-exact 1952"
+    },
+    {
+      "claim": "Phase 2b LUNA raised",
+      "page": 148390,
+      "chain": 156205,
+      "verdict": "page appears back-computed from an estimated average"
+    },
+    {
+      "claim": "GoA claim window start",
+      "page": "per page narrative",
+      "chain": "2023-12-12",
+      "verdict": "first free claim 2023-12-12 (page implies Dec-14 era)"
+    }
+  ],
+  "anomalies": [
+    {
+      "kind": "raw_mint_count_10001_resolved",
+      "resolution": "The 10,001st action=mint in the minter harvest is the ampLUNA CW20 minting to the collection contract (proceeds bonded into NFT backing), not a cw721 NFT mint. Exactly 10,000 NFT mints exist."
+    },
+    {
+      "kind": "remove_token_resolved",
+      "detail": {
+        "height": 8100427,
+        "ts": "2023-12-11T18:19:33Z",
+        "txhash": "CEE7E796066BD0651F1221D0E1038C8BAAE0C87D5185361726BFD6B3B298143F",
+        "msg": "placeholderAddress"
+      },
+      "resolution": "remove_token('placeholderAddress') on 2023-12-11 — the day before GoA claims opened — removed a pre-launch placeholder config entry on the minter, not an NFT."
+    }
+  ],
+  "known_gaps": [
+    {
+      "stream": "nft provenance (transfers, sales, breaks, staking)",
+      "from_height_approx": 13736494,
+      "from_date_approx": "2025-01-07",
+      "to": "org nft-flows capture start (coverage check pending — open queue item)",
+      "note": "FCD freeze → forward-capture start. owner_at_freeze is NOT current ownership; live state = nfts/adao/snapshots (nft-inventory)."
+    }
+  ]
+}

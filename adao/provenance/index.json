@@ -1,0 +1,72 @@
+{
+  "module": "nfts",
+  "product": "adao/provenance",
+  "schema_rev": 1,
+  "description": "Per-token provenance ledgers + per-wallet cost basis derived from the FCD frozen-archive harvests (genesis → ~2025-01-07). One-shot re-runnable derive, not a cron. owner_at_freeze != current owner.",
+  "files": [
+    {
+      "file": "summary.json",
+      "what": "mint story, phases, verification vs release-history, anomalies, known_gaps"
+    },
+    {
+      "file": "tokens/part-00.json",
+      "tokens": "1-1000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-01.json",
+      "tokens": "1001-2000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-02.json",
+      "tokens": "2001-3000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-03.json",
+      "tokens": "3001-4000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-04.json",
+      "tokens": "4001-5000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-05.json",
+      "tokens": "5001-6000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-06.json",
+      "tokens": "6001-7000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-07.json",
+      "tokens": "7001-8000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-08.json",
+      "tokens": "8001-9000",
+      "records": 1000
+    },
+    {
+      "file": "tokens/part-09.json",
+      "tokens": "9001-10000",
+      "records": 1000
+    },
+    {
+      "file": "wallets/cost-basis.json",
+      "what": "per-wallet acquisitions/disposals/break-rewards/held_at_freeze"
+    },
+    {
+      "file": "heartbeat.json",
+      "what": "derive-run metadata"
+    }
+  ],
+  "spec": "docs/pending-changes/SPEC-adao-provenance.md",
+  "script": ".github/scripts/adao-provenance/derive.js"
+}
