@@ -12,7 +12,7 @@ const { spawnSync } = require('child_process');
 const ROOT = process.env.ROOT || process.cwd();
 const RPC = String(process.env.RPC_URL || '').replace(/\/+$/, '');
 const MIN = Number(process.env.MIN_BLOCKS || 300), LAG = Number(process.env.HEAD_LAG || 20), CHUNK = Number(process.env.CHUNK_BLOCKS || 400000);
-const ONLY = (process.env.COLLECTIONS || '').split(',').map(s => s.trim()).filter(Boolean);
+const ONLY = (process.env.COLLECTIONS || '').split(',').map(s => s.trim()).filter(x => x && x !== 'all');   // 'all' = no filter (the workflow dropdown)
 if (!RPC) { console.error('FATAL: RPC_URL missing'); process.exit(1); }
 const { loadRegistry, layout } = require('./registry.js');
 const reg = loadRegistry(ROOT);

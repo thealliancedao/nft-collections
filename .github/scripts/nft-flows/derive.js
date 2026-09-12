@@ -14,7 +14,7 @@ const fs = require('fs'), path = require('path'), zlib = require('zlib');
 const { classifyNftTx, buildIndex, recordKey, KIND } = require('./classify.js');
 const ROOT = process.env.ROOT || process.cwd();
 const DRY = /^1|true$/i.test(String(process.env.DRY || ''));
-const ONLY = (process.env.COLLECTIONS || '').split(',').map(s => s.trim()).filter(Boolean);
+const ONLY = (process.env.COLLECTIONS || '').split(',').map(s => s.trim()).filter(x => x && x !== 'all');   // 'all' = no filter (the workflow dropdown)
 const P = (...s) => path.join(ROOT, ...s);
 const rj = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const rgz = (p) => p.endsWith('.gz') ? JSON.parse(zlib.gunzipSync(fs.readFileSync(p))) : rj(p);
@@ -22,6 +22,7 @@ const wj = (p, o) => { if (DRY) return; fs.mkdirSync(path.dirname(p), { recursiv
 const { loadRegistry, layout } = require('./registry.js');
 const reg = loadRegistry(ROOT); const idx = buildIndex(reg);
 const cols = Object.keys(reg.collections).filter(k => !ONLY.length || ONLY.includes(k));
+if (!cols.length) { console.error(`FATAL: no collection matches COLLECTIONS="${process.env.COLLECTIONS}" (registered: ${Object.keys(reg.collections).join(', ')})`); process.exit(1); }
 
 // ---------------------------------------------------------------- price at time
 let LUNA = null; try { LUNA = rj(P('_shared', 'luna-usd-daily.json')).daily; } catch { console.warn('_shared/luna-usd-daily.json missing (the workflow fetches it from tla-core) — USD legs will be null'); }
