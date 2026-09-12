@@ -1,0 +1,56 @@
+# nft-flows-forward — ONE-TIME fill (dispatch only, never scheduled): walks a collection from the last height its own
+# archives cover → chain head on a public RPC, then derives. Run it once after a backfill so the Render cron
+# (org-nft-flows-<slug>) starts from today instead of walking months. Scheduled capture is a Render job by doctrine.
+name: nft-flows-forward
+on:
+  workflow_dispatch:
+    inputs:
+      collections:
+        description: 'comma list of registry keys (blank = all)'
+        required: false
+        default: ''
+      rpc_url:
+        description: 'public RPC (retention span)'
+        required: false
+        default: 'https://terra-rpc.publicnode.com'
+permissions:
+  contents: write
+concurrency:
+  group: nft-flows-forward
+  cancel-in-progress: false
+jobs:
+  forward:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: shared inputs from tla-core
+        run: mkdir -p _shared && curl -sL https://raw.githubusercontent.com/thealliancedao/tla-core/main/nfts/adao/snapshots/luna-usd-daily.json -o _shared/luna-usd-daily.json
+      - name: walk each collection to head (raw parts land on main via the API)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          RPC_URL: ${{ inputs.rpc_url || 'https://terra-rpc.publicnode.com' }}
+          COLLECTIONS: ${{ inputs.collections }}
+          PACE_MS: '250'
+        run: node .github/scripts/nft-flows/forward.js
+      - name: pull the parts this run just wrote
+        run: git pull --rebase origin main
+      - name: gate + derive
+        run: |
+          node .github/scripts/nft-flows/gate-classify.mjs .
+          node .github/scripts/nft-flows/derive.js
+      - name: commit (pull --rebase + retry)
+        run: |
+          git config user.name "nft-flows-forward" && git config user.email "bot@thealliancedao.com"
+          git add */ledger _shared/forward-summary.json
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git commit -m "nft-flows forward $(date -u +%Y-%m-%dT%H:%M)Z"
+          for i in 1 2 3 4 5 6; do
+            git pull --rebase origin main && git push origin HEAD:main && echo "pushed on try $i" && exit 0
+            echo "push try $i lost the race — retrying"; sleep $((i * 15))
+          done
+          exit 1

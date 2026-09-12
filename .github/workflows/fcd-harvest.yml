@@ -1,0 +1,46 @@
+# fcd-harvest — ONE-TIME deep-history capture from Terra's frozen FCD indexer (genesis → 2025-01-07) into THIS
+# collection's folder: <collection>/archive/fcd/<label>/part-*.json. Re-run the same inputs to continue a paused harvest.
+name: fcd-harvest
+on:
+  workflow_dispatch:
+    inputs:
+      collection: { description: 'collection slug (folder)', required: true, default: 'pixel-lions' }
+      role: { description: 'label under <collection>/archive/fcd/ — collection | voting | enterprise | escrow | minter | custom', required: true, default: 'collection' }
+      account: { description: 'address to harvest (blank = the address the role names in collection.json capture block)', required: false, default: '' }
+      max_pages: { description: 'pages this run (100 txs/page); re-run to continue', required: false, default: '400' }
+      page_delay_ms: { description: 'delay between FCD pages — FCD is a gift', required: false, default: '1100' }
+permissions:
+  contents: write
+concurrency:
+  group: fcd-harvest-${{ inputs.collection }}-${{ inputs.role }}
+  cancel-in-progress: false
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/scripts
+            venues.json
+            ${{ inputs.collection }}/collection.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - id: target
+        run: |
+          node -e "
+          const c=require('./${{ inputs.collection }}/collection.json'); const cap=c.capture||{}; const role='${{ inputs.role }}'; let a='${{ inputs.account }}';
+          if(!a){ if(role==='collection'||role==='escrow') a=c.nft_contract; else if(role==='minter') a=cap.minter; else { const roles={voting:'daodao_voting',enterprise:'enterprise_staking'}; a=Object.entries(cap.custodians||{}).find(([k,v])=>v.role===roles[role])?.[0]; } }
+          if(!a){console.error('no address for role '+role);process.exit(1)} console.log('account='+a); require('fs').appendFileSync(process.env.GITHUB_OUTPUT,'account='+a+'\n');"
+      - name: harvest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          ACCOUNT: ${{ steps.target.outputs.account }}
+          LABEL: ${{ inputs.role }}
+          OUT_DIR: ${{ inputs.collection }}/archive/fcd/${{ inputs.role }}
+          MAX_PAGES: ${{ inputs.max_pages }}
+          PAGE_DELAY_MS: ${{ inputs.page_delay_ms }}
+        run: node .github/scripts/fcd-harvest/fcd-harvest.js
