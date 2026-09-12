@@ -57,7 +57,7 @@ function txsOf(a) {
   const t0 = Date.now();
   const out = {}; for (const c of cols) out[c] = { byMonth: {}, coverage: {}, seen: new Set(), n: 0, dup: 0 };
   // load existing month files (never-shrink)
-  for (const c of cols) { const fr = layout(ROOT, c).ledger; if (!fs.existsSync(fr)) continue; for (const y of fs.readdirSync(fr).filter(d => /^\d{4}$/.test(d))) for (const m of fs.readdirSync(path.join(fr, y)).filter(f => /^\d{2}\.json$/.test(f))) { const recs = rj(path.join(fr, y, m)); if (!Array.isArray(recs)) { console.warn(`skip ${fr}/${y}/${m}: not a ledger month file`); continue; } const k = y + '/' + m.slice(0, 2); out[c].byMonth[k] = recs; recs.forEach(r => out[c].seen.add(recordKey(r))); } }
+  for (const c of cols) { const fr = layout(ROOT, c).ledger; if (!fs.existsSync(fr)) continue; for (const y of fs.readdirSync(fr).filter(d => /^\d{4}$/.test(d))) for (const m of fs.readdirSync(path.join(fr, y)).filter(f => /^\d{2}\.json$/.test(f))) { const raw = rj(path.join(fr, y, m)); if (!Array.isArray(raw)) { console.warn(`skip ${fr}/${y}/${m}: not a ledger month file`); continue; } const k = y + '/' + m.slice(0, 2); const recs = []; for (const r of raw) { r.collection = c; const key = recordKey(r); if (out[c].seen.has(key)) { out[c].dropped_dup = (out[c].dropped_dup || 0) + 1; continue; } out[c].seen.add(key); recs.push(r); } out[c].byMonth[k] = recs; /* a ledger is per collection: the slug is the folder; imported months keyed by an older name are the same records */ } }
   let partsRead = 0, txsRead = 0;
   for (const a of archives()) {
     let { txs, heights } = txsOf(a); partsRead++; txsRead += txs.length;
@@ -98,12 +98,13 @@ function txsOf(a) {
       wj(path.join(base, 'lineage.json'), { collection: c, edges, generatedAt: new Date().toISOString(), note: 'follow edges from an id to find its descendants; migrate/split/merge create or fold ids' });
     }
     // coverage + honest gaps: sorted ranges; anything between ranges (or before genesis / after the last range) is a gap
-    const ranges = Object.entries(o.coverage).map(([src, v]) => ({ source: src, from: v.from, to: v.to, parts: v.parts, partial: v.partial })).sort((a, b) => a.from - b.from);
+    let prior = []; try { const pi = rj(path.join(base, 'index.json')); prior = (pi.coverage || []).filter(cv => !cv.partial && !(cv.source in o.coverage) && !/^(fcd|tla-flows\/raw|nfts\/raw|imported):/.test('') && !fs.existsSync(path.join(ROOT, cv.source.split(':')[0]))).map(cv => Object.assign({}, cv, { imported: cv.imported || 'archive stays in tla-core; coverage carried from the imported index' })); } catch { }
+    const ranges = [...prior, ...Object.entries(o.coverage).map(([src, v]) => ({ source: src, from: v.from, to: v.to, parts: v.parts, partial: v.partial }))].sort((a, b) => a.from - b.from);
     const gaps = []; let cur = null; for (const r of ranges.filter(r => !r.partial)) { if (cur && r.from > cur + 1) gaps.push({ from_height: cur + 1, to_height: r.from - 1, reason: 'no archived part covers this span' }); cur = Math.max(cur || 0, r.to); }
     const index = { product: c + '/ledger', schema: 'nft-flows-1.0', classifier: 'NFT FLOWS CLASSIFIER v1', collection: c, label: col.label, total: all.length, by_kind: byKind, months: Object.keys(o.byMonth).sort(), coverage: ranges, known_gaps: gaps, forward_stream: `org-nft-flows-${c} (Render) → ${c}/raw/forward + this ledger`, added_this_run: o.n, skipped_duplicates: o.dup, generatedAt: new Date().toISOString() };
     wj(path.join(base, 'index.json'), index);
     wj(path.join(base, 'heartbeat.json'), { module: 'nft-flows', product: c + '/ledger', kind: 'derive', ran_at: new Date().toISOString(), parts_read: partsRead, txs_read: txsRead, records_total: all.length, added: o.n, ms: Date.now() - t0 });
-    console.log(`${c}: ${all.length} records (${o.n} new, ${o.dup} dup) · kinds ${JSON.stringify(byKind)} · coverage ${ranges.map(r => r.from + '–' + r.to).join(', ') || 'none'} · gaps ${gaps.length}`);
+    console.log(`${c}: ${all.length} records (${o.n} new, ${o.dup} dup${o.dropped_dup ? ', ' + o.dropped_dup + ' imported duplicates dropped' : ''}) · kinds ${JSON.stringify(byKind)} · coverage ${ranges.map(r => r.from + '–' + r.to).join(', ') || 'none'} · gaps ${gaps.length}`);
   }
   console.log(`derive done: ${partsRead} parts, ${txsRead} txs, ${Date.now() - t0} ms${DRY ? ' (DRY — nothing written)' : ''}`);
 })().catch(e => { console.error('FATAL', e); process.exit(1); });

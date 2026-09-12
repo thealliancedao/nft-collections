@@ -28,6 +28,8 @@ const get = (url, headers = {}) => new Promise((res, rej) => https.get(url, { he
       await new Promise(r => setTimeout(r, 40));
     }
   }
+  // ledger records carried the old collection key — rewrite to the folder slug (records are keyed by it)
+  for (const [slug, oldKey] of [['pixel-lions', 'pixel'], ['tla-locks', 'tla-locks'], ['adao', 'adao']]) { const lr = path.join(slug, 'ledger'); if (!fs.existsSync(lr)) continue; for (const y of fs.readdirSync(lr).filter(d => /^\d{4}$/.test(d))) for (const m of fs.readdirSync(path.join(lr, y))) { const fp = path.join(lr, y, m); const arr = JSON.parse(fs.readFileSync(fp, 'utf8')); if (!Array.isArray(arr)) continue; let ch = 0; arr.forEach(r => { if (r.collection !== slug) { r.collection = slug; ch++; } }); if (ch) fs.writeFileSync(fp, JSON.stringify(arr, null, 1) + '\n'); } }
   // ledgers were derived under the old paths — rewrite the two path-bearing fields so they read true here
   for (const slug of ['pixel-lions', 'tla-locks', 'adao']) { const p = path.join(slug, 'ledger', 'index.json'); if (!fs.existsSync(p)) continue; const ix = JSON.parse(fs.readFileSync(p, 'utf8')); ix.product = `${slug}/ledger`; ix.collection = slug; ix.imported_from = 'thealliancedao/tla-core (2026-09-12 backfill); coverage sources keep their original tla-core names'; ix.forward_stream = `org-nft-flows-${slug} (Render) → ${slug}/raw/forward + this ledger`; fs.writeFileSync(p, JSON.stringify(ix, null, 1) + '\n'); }
   console.log(`imported ${n} files, ${(bytes / 1048576).toFixed(1)} MB`);
