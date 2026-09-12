@@ -23,12 +23,12 @@ const COLLECTION    = String(process.env.COLLECTION || 'pixel-lions');
 const ARCHIVE_RPC   = String(process.env.ARCHIVE_RPC || '').replace(/\/+$/, '');
 const RPC_URL       = String(process.env.RPC_URL || '').replace(/\/+$/, '');
 const RPC           = ARCHIVE_RPC || RPC_URL;
-const FROM          = Number(process.env.WALK_FROM || process.argv[2]);
-const FINAL         = Number(process.env.FINAL_HEIGHT || 0);
+const FROM_RAW      = process.env.WALK_FROM || process.argv[2] || '';
+const FINAL_RAW     = process.env.FINAL_HEIGHT || '';
 const CHUNK         = Number(process.env.CHUNK_BLOCKS || 300000);
 const RUN_BUDGET_MS = Number(process.env.RUN_BUDGET_MIN || 320) * 60000;
-const TO_RAW        = process.env.WALK_TO || process.argv[3];
-const TO            = TO_RAW ? Number(TO_RAW) : (FINAL ? Math.min(FROM + CHUNK - 1, FINAL) : NaN);
+const TO_RAW        = process.env.WALK_TO || process.argv[3] || '';
+let FROM, FINAL, TO;   // resolved in main: blank FROM = resume from the last covered height; blank FINAL/TO = walk to the node head
 const PACE_MS       = Number(process.env.PACE_MS || 250);
 const CONC          = Number(process.env.WALK_CONCURRENCY || 2);
 const PART_TXS      = Number(process.env.RAW_PART_TXS || 1500);
@@ -40,7 +40,6 @@ const GITHUB_TOKEN  = process.env.GITHUB_TOKEN;
 const RAW_DIR       = () => `${COLLECTION}/raw/${FROM}-${TO}`;
 function fail(m) { console.error('FATAL: ' + m); process.exit(1); }
 if (!RPC) fail('no RPC: set ARCHIVE_RPC (secret) or RPC_URL');
-if (!Number.isFinite(FROM) || !Number.isFinite(TO) || TO < FROM) fail('bad range');
 if (!GITHUB_TOKEN) fail('GITHUB_TOKEN missing');
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 function httpGet(url, t = 25000, hops = 0) {
@@ -128,11 +127,27 @@ const { loadRegistry } = require('./registry.js');
 const REG = loadRegistry(process.env.ROOT || process.cwd());
 const col = REG.collections[COLLECTION]; if (!col) fail('unknown collection ' + COLLECTION);
 const WATCH = new Set([col.collection, ...Object.keys(col.custodians || {}), col.distributor, col.launchpad && col.launchpad.address, ...(col.distribution_wallets || [])].filter(Boolean));
-console.log(`nft-flows walk ${COLLECTION} ${FROM} → ${TO} (${TO - FROM + 1} blocks) via [${ARCHIVE_RPC ? 'ARCHIVE_RPC' : 'RPC_URL'}] · watch ${WATCH.size} addresses · pace ${PACE_MS}ms`);
+// last height this collection's archives cover: ledger index coverage (authoritative after a derive) ∪ raw range dirs (report.walked_to honored)
+function lastCovered() {
+  const root = process.env.ROOT || process.cwd(); let hi = 0;
+  try { const ix = JSON.parse(fs.readFileSync(path.join(root, COLLECTION, 'ledger', 'index.json'), 'utf8')); for (const c of ix.coverage || []) if (!c.partial) hi = Math.max(hi, Number(c.to) || 0); } catch { }
+  try { for (const d of fs.readdirSync(path.join(root, COLLECTION, 'raw'))) { const m = d.match(/^(\d+)-(\d+)$/); if (!m) continue; let to = Number(m[2]); try { const r = JSON.parse(fs.readFileSync(path.join(root, COLLECTION, 'raw', d, 'report.json'), 'utf8')); if (Number.isFinite(r.walked_to)) to = Math.min(to, r.walked_to); } catch { } hi = Math.max(hi, to); } } catch { }
+  return hi || (col.genesis_height ? col.genesis_height - 1 : 0);
+}
 function touches(events) { for (const e of events || []) { if (e.type !== 'wasm') continue; for (const a of e.attributes || []) if (a.key === '_contract_address' && WATCH.has(a.value)) return true; } return false; }
 
 (async () => {
   const t0 = Date.now(); const raw = []; let partN = 0, matched = 0, rawTotal = 0;
+  const st = await rpc('/status', 'status'); const HEAD = Number(st.result.sync_info.latest_block_height) - 10;
+  FROM = FROM_RAW ? Number(FROM_RAW) : lastCovered() + 1;
+  if (!FROM_RAW && FROM <= 1) fail(`${COLLECTION}: nothing covered yet and no genesis_height — give from_height for the first walk`);
+  FINAL = FINAL_RAW ? Number(FINAL_RAW) : (TO_RAW ? 0 : HEAD);
+  TO = TO_RAW ? Number(TO_RAW) : Math.min(FROM + CHUNK - 1, FINAL);
+  if (!Number.isFinite(FROM) || !Number.isFinite(TO) || TO < FROM) fail(`bad range ${FROM} → ${TO} (last covered ${FROM - 1}, head ${HEAD})`);
+  if (FROM > HEAD) fail(`FROM ${FROM} is beyond the node head ${HEAD} — nothing to walk yet`);
+  console.log(`nft-flows walk ${COLLECTION} ${FROM} → ${TO}${FROM_RAW ? '' : ' (resumed from last covered ' + (FROM - 1) + ')'} · final ${FINAL || TO} · head ${HEAD} · via [${ARCHIVE_RPC ? 'ARCHIVE_RPC' : 'RPC_URL'}] · watch ${WATCH.size} · pace ${PACE_MS}ms`);
+  if (TO > HEAD) console.log(`TO ${TO} clamped to node head ${HEAD} — a range past the tip is never recorded as walked`);
+  const TO_EFF = Math.min(TO, HEAD);
   async function flushRaw(final) {
     if (!raw.length || (!final && raw.length < PART_TXS)) return;
     const part = raw.splice(0, raw.length).sort((a, b) => a.h - b.h);
@@ -149,7 +164,7 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
     const timeOf = async (h) => { if (!timeCache.has(h)) timeCache.set(h, (await getBlock(h)).time); return timeCache.get(h); };
     try {
       for (const addr of WATCH) {
-        const q = encodeURIComponent(`wasm._contract_address='${addr}' AND tx.height>=${FROM} AND tx.height<=${TO}`);
+        const q = encodeURIComponent(`wasm._contract_address='${addr}' AND tx.height>=${FROM} AND tx.height<=${TO_EFF}`);
         for (let page = 1; ; page++) {
           if (Date.now() - t0 > RUN_BUDGET_MS) { budgetHit = true; break; }
           const r = await rpc(`/tx_search?query="${q}"&page=${page}&per_page=100&order_by="asc"`, `tx_search ${addr.slice(0, 12)} p${page}`);
@@ -161,7 +176,7 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
         }
         if (budgetHit) break;
       }
-      walkedTo = budgetHit ? FROM - 1 : TO;   // txsearch is all-or-nothing per range: a budget stop re-walks the range next run (parts are write-once, so no double-archive)
+      walkedTo = budgetHit ? FROM - 1 : TO_EFF;   // txsearch is all-or-nothing per range: a budget stop re-walks the range next run (parts are write-once, so no double-archive)
       if (budgetHit) console.log('⏱ budget hit mid-range in txsearch mode — range will be re-dispatched from FROM (raise CHUNK down or PACE up)');
     } catch (e) {
       if (MODE_FORCE) throw e;
@@ -170,10 +185,10 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
   }
   // ---- block mode: archive-walk's loop, narrowed to this collection's watch set, concurrency 2
   if (mode === 'blocks') {
-    const inFlight = new Map(); const launch = (h) => { if (h <= TO && !inFlight.has(h)) inFlight.set(h, getBlock(h)); };
-    for (let h = FROM; h < FROM + CONC && h <= TO; h++) launch(h);
+    const inFlight = new Map(); const launch = (h) => { if (h <= TO_EFF && !inFlight.has(h)) inFlight.set(h, getBlock(h)); };
+    for (let h = FROM; h < FROM + CONC && h <= TO_EFF; h++) launch(h);
     let lastLog = Date.now(); let processedTo = FROM - 1;
-    for (let N = FROM; N <= TO; N++) {
+    for (let N = FROM; N <= TO_EFF; N++) {
       if (Date.now() - t0 > RUN_BUDGET_MS) { console.log(`⏱ budget reached at ${N - 1} — publishing the walked span, chaining onward`); budgetHit = true; break; }
       const blk = await inFlight.get(N); inFlight.delete(N); launch(N + CONC);
       if (blk.txsB64.length) { const results = await getBlockResults(N); for (let i = 0; i < blk.txsB64.length; i++) { const res = results[i]; if (!res || !touches(res.events)) continue; matched++; raw.push({ h: N, x: txHashOf(blk.txsB64[i]), t: blk.time, c: res.code, e: res.events }); } await flushRaw(false); }
@@ -183,7 +198,7 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
     walkedTo = processedTo;
   }
   await flushRaw(true);
-  const report = { collection: COLLECTION, from: FROM, to: TO, walked_to: walkedTo, mode, matched, raw_txs: rawTotal, parts: partN, rpc: ARCHIVE_RPC ? 'archive' : 'public', pace_ms: PACE_MS, ran_at: new Date().toISOString(), ms: Date.now() - t0 };
+  const report = { collection: COLLECTION, from: FROM, to: TO, node_head: HEAD, walked_to: walkedTo, mode, matched, raw_txs: rawTotal, parts: partN, rpc: ARCHIVE_RPC ? 'archive' : 'public', pace_ms: PACE_MS, ran_at: new Date().toISOString(), ms: Date.now() - t0 };
   await putJson(`${RAW_DIR()}/report.json`, report, `nft-flows walk ${COLLECTION} ${FROM}-${TO} report (${matched} matched, ${mode})`);
   console.log('report:', JSON.stringify(report));
   // ---- self-chain
@@ -191,7 +206,7 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
   if (FINAL && nextFrom <= FINAL) {
     const nextTo = Math.min(nextFrom + CHUNK - 1, FINAL);
     console.log(`self-chain: dispatching ${nextFrom} → ${nextTo} (final ${FINAL})`);
-    await ghReq('POST', `/repos/${GITHUB_REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`, { ref: GITHUB_BRANCH, inputs: { collection: COLLECTION, from_height: String(nextFrom), final_height: String(FINAL), to_height: '' } });
+    await ghReq('POST', `/repos/${GITHUB_REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`, { ref: GITHUB_BRANCH, inputs: { collection: COLLECTION, from_height: String(nextFrom), final_height: String(FINAL), to_height: '', rpc_url: RPC_URL } });
     console.log('self-chain: dispatched.');
   } else console.log('walk complete for this dispatch chain.');
 })().catch(e => { console.error('FATAL', e); process.exit(1); });
