@@ -1824,7 +1824,56 @@
   "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
   "to": "terra1d0jq9l5narcgy46v5agnv8hqmn5m8kj3lkh93l",
   "note": "venue release without a known verb (expiry?)",
-  "source": "tla-flows/raw:15471073-15921072"
+  "source": "tla-flows/raw:15471073-15921072",
+  "superseded_by": "1045EE3298C85E37A980E96EFADC46DF5E40FC63D36029FDCB5DDC4E4460BCD0|0|sale|adao|1799|17362",
+  "repair": "buy-now-settle-1.1.4",
+  "repair_note": "this exit was a settled buy-now; see the sale record with the same txhash"
+ },
+ {
+  "txhash": "1045EE3298C85E37A980E96EFADC46DF5E40FC63D36029FDCB5DDC4E4460BCD0",
+  "height": 15839071,
+  "ts": "2025-05-30T18:39:35.170341709Z",
+  "msg_index": 0,
+  "kind": "sale",
+  "collection": "adao",
+  "token_id": "1799",
+  "venue": "bbl",
+  "from": "terra133x9gnkhnexjqkjhf872vlzs5y7hauczeh23sz",
+  "to": "terra1d0jq9l5narcgy46v5agnv8hqmn5m8kj3lkh93l",
+  "price": {
+   "amount": "168000000",
+   "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+  },
+  "split": {
+   "legs": [
+    {
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra1jgk8dhtv0qf5s08jxrwecf4a04hdmeznqpty75",
+     "amount": "3360000",
+     "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+    },
+    {
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra1sffd4efk2jpdt894r04qwmtjqrrjfc52tmj6vkzjxqhd8qqu2drs3m5vzm",
+     "amount": "8400000",
+     "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+    },
+    {
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra133x9gnkhnexjqkjhf872vlzs5y7hauczeh23sz",
+     "amount": "156240000",
+     "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+    }
+   ]
+  },
+  "via_offer": false,
+  "auction_id": "17362",
+  "source": "tla-flows/raw:15471073-15921072",
+  "repair": "buy-now-settle-1.1.4",
+  "repaired_at": "2026-09-14T01:20:59.747Z",
+  "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
+  "usd": null,
+  "usd_reason": "no_usd_series_for_denom:cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
  },
  {
   "txhash": "5E911963220EFC0B9BF3718A44F251A95D44B17C03C43FE3A7B32DDAD0EF4759",
