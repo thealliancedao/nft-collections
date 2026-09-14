@@ -1,1 +1,45 @@
-
+{
+ "repair": "buy-now-settle-1.1.4",
+ "at": "2026-09-14T01:20:59.747Z",
+ "collection": "adao",
+ "why": "BBL buy-now = place_bid + settle in one tx; classify.js <1.1.4 read only the venue's first event, so every buy-now was filed as a verb-less venue_out. Sale records re-derived from the held raw txs with classify.js 1.1.4 (no third copy); old venue_out records kept and marked superseded_by (never-shrink). aDAO: 135/135 recovered sales match nfts sales-enriched gross amounts.",
+ "report": {
+  "files": 19,
+  "sales_added": 135,
+  "superseded": 135,
+  "left_verbless": 2,
+  "dup_skipped": 0,
+  "usd_priced": 0,
+  "denoms": {
+   "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml": 135
+  },
+  "index": {
+   "total_before": 41466,
+   "total_after": 41601,
+   "sale_before": 1208,
+   "sale_after": 1343
+  }
+ },
+ "files": [
+  "adao/ledger/2025/01.json",
+  "adao/ledger/2025/02.json",
+  "adao/ledger/2025/03.json",
+  "adao/ledger/2025/04.json",
+  "adao/ledger/2025/05.json",
+  "adao/ledger/2025/06.json",
+  "adao/ledger/2025/07.json",
+  "adao/ledger/2025/08.json",
+  "adao/ledger/2025/09.json",
+  "adao/ledger/2025/10.json",
+  "adao/ledger/2025/11.json",
+  "adao/ledger/2025/12.json",
+  "adao/ledger/2026/01.json",
+  "adao/ledger/2026/02.json",
+  "adao/ledger/2026/03.json",
+  "adao/ledger/2026/04.json",
+  "adao/ledger/2026/05.json",
+  "adao/ledger/2026/06.json",
+  "adao/ledger/2026/09.json",
+  "adao/ledger/index.json"
+ ]
+}
