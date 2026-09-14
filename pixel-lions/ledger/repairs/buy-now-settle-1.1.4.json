@@ -1,1 +1,42 @@
-
+{
+ "repair": "buy-now-settle-1.1.4",
+ "at": "2026-09-14T01:20:59.747Z",
+ "collection": "pixel-lions",
+ "why": "BBL buy-now = place_bid + settle in one tx; classify.js <1.1.4 read only the venue's first event, so every buy-now was filed as a verb-less venue_out. Sale records re-derived from the held raw txs with classify.js 1.1.4 (no third copy); old venue_out records kept and marked superseded_by (never-shrink). aDAO: 135/135 recovered sales match nfts sales-enriched gross amounts.",
+ "report": {
+  "files": 15,
+  "sales_added": 182,
+  "superseded": 182,
+  "left_verbless": 0,
+  "dup_skipped": 0,
+  "usd_priced": 27,
+  "denoms": {
+   "uluna": 27,
+   "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml": 155
+  },
+  "index": {
+   "total_before": 46426,
+   "total_after": 46608,
+   "sale_before": 1829,
+   "sale_after": 2011
+  }
+ },
+ "files": [
+  "pixel-lions/ledger/2023/06.json",
+  "pixel-lions/ledger/2023/09.json",
+  "pixel-lions/ledger/2025/01.json",
+  "pixel-lions/ledger/2025/02.json",
+  "pixel-lions/ledger/2025/03.json",
+  "pixel-lions/ledger/2025/04.json",
+  "pixel-lions/ledger/2025/05.json",
+  "pixel-lions/ledger/2025/06.json",
+  "pixel-lions/ledger/2025/07.json",
+  "pixel-lions/ledger/2025/08.json",
+  "pixel-lions/ledger/2026/04.json",
+  "pixel-lions/ledger/2026/05.json",
+  "pixel-lions/ledger/2026/06.json",
+  "pixel-lions/ledger/2026/07.json",
+  "pixel-lions/ledger/2026/09.json",
+  "pixel-lions/ledger/index.json"
+ ]
+}
