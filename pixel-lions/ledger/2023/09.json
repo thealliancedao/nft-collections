@@ -11833,7 +11833,10 @@
   "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
   "to": "terra1650kgdtrglq4cal2ee88ta4es0zjhpdf23hsjqksuq3xyfp5x7ssl2rylh",
   "note": "venue release without a known verb (expiry?)",
-  "source": "fcd:pixel-collection"
+  "source": "fcd:pixel-collection",
+  "superseded_by": "082F4384BA5D489B1745840BE88891D41136F0351F033ACA16DD8F223F7A3EFD|1|sale|pixel-lions|3760|2386",
+  "repair": "buy-now-settle-1.1.4",
+  "repair_note": "this exit was a settled buy-now; see the sale record with the same txhash"
  },
  {
   "txhash": "082F4384BA5D489B1745840BE88891D41136F0351F033ACA16DD8F223F7A3EFD",
@@ -11846,6 +11849,31 @@
   "from": "terra1650kgdtrglq4cal2ee88ta4es0zjhpdf23hsjqksuq3xyfp5x7ssl2rylh",
   "to": "terra1247xf3nz6atlsmxdz43h37c83tcdnuknc80f48",
   "source": "fcd:pixel-collection"
+ },
+ {
+  "txhash": "082F4384BA5D489B1745840BE88891D41136F0351F033ACA16DD8F223F7A3EFD",
+  "height": 6901314,
+  "ts": "2023-09-19T15:15:16Z",
+  "msg_index": 1,
+  "kind": "sale",
+  "collection": "pixel-lions",
+  "token_id": "3760",
+  "venue": "bbl",
+  "from": "terra1cm3pavsswhswswhvezv2u8eudwf8grx5hwr2k4",
+  "to": "terra1650kgdtrglq4cal2ee88ta4es0zjhpdf23hsjqksuq3xyfp5x7ssl2rylh",
+  "price": {
+   "amount": "55000000",
+   "denom": "uluna"
+  },
+  "split": null,
+  "via_offer": false,
+  "auction_id": "2386",
+  "source": "fcd:pixel-collection",
+  "repair": "buy-now-settle-1.1.4",
+  "repaired_at": "2026-09-14T01:20:59.747Z",
+  "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
+  "usd": 21.44783877240997,
+  "luna_usd": 0.3899607049529085
  },
  {
   "txhash": "56E4B1B2DE88079E4478B444BF39A5510AF8DE7ABB0CE93DA6899E09E7ECDC60",
