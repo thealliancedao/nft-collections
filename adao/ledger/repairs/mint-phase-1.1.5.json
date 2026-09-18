@@ -1,0 +1,72 @@
+{
+ "repair": "mint-phase-1.1.5",
+ "at": "2026-09-18T21:33:56.162Z",
+ "collection": "adao",
+ "why": "aDAO sold through three candy machines (50 / 75 / 100-115-130 LUNA) fed from the mint-era treasury stock; the registry had the treasury stock as the launchpad, so its 3,653 stock moves were $0 mint_purchases and the 1,952 paid mints (candy machine → buyer with LUNA attached) were plain transfers. Registry: launchpad.addresses = the three candy machines, distribution_wallets = the treasury stock (classify.js 1.1.5). Records re-derived from the held FCD raw with classify.js 1.1.5 (no third copy); old records kept and marked superseded_by (never-shrink); USD from the org price oracle (tla-core/price-history).",
+ "report": {
+  "files": 3,
+  "superseded": 5607,
+  "added": 5607,
+  "by_change": {
+   "mint_purchase → transfer": 3653,
+   "transfer → mint_purchase": 1954
+  },
+  "paid_by_price_luna": {
+   "50": 127,
+   "75": 527,
+   "100": 197,
+   "115": 459,
+   "130": 644
+  },
+  "proceeds_luna": 202080,
+  "proceeds_usd": 135558.09086894974,
+  "provenance_check": {
+   "sale_primary": 1952,
+   "missing": 0,
+   "price_mismatch": 0,
+   "governance_executed_dao_mints_not_in_provenance_phase_table": [
+    {
+     "token_id": "3022",
+     "txhash": "D1A9E3D25BAE5C0787AA38D3CF295F1CF4FC3D5ACE5CD29DDD8F4E4A3E203FAD",
+     "buyer": "terra17c6ts8grcfrgquhj3haclg44le8s7qkx6l2yx33acguxhpf000xqhnl3je",
+     "luna": 75,
+     "ts": "2024-02-29T01:01:39Z"
+    },
+    {
+     "token_id": "1379",
+     "txhash": "E722973D6922E22733A9052275FE02C9C871E6A9330F767F1BA48042AFC51B68",
+     "buyer": "terra1vm3v334jttp7ur7n6cqcq3w6xq78t49q5n4sw4a7jkddzhfuqntqpcgamt",
+     "luna": 75,
+     "ts": "2024-02-28T22:00:47Z"
+    }
+   ],
+   "note": "adao/provenance filed these as transfer via:governance and its Phase 2a chain_count (525) is short by them; the ledger is the source — provenance re-derive queued, not repaired here"
+  },
+  "index": {
+   "total_before": 41608,
+   "total_after": 47215,
+   "mint_purchase_before": 3653,
+   "mint_purchase_after": 5607
+  }
+ },
+ "gates": [
+  "paid mint_purchases = provenance sale_primary (1952) + governance-executed DAO mints (2)",
+  "every paid mint outside provenance is a governance-executed DAO mint (provenance: transfer via governance from a candy machine)",
+  "every provenance sale_primary is a priced mint_purchase",
+  "price per token matches provenance",
+  "phase Phase 1b: DAO Staker Mint: 127 @ 50 LUNA",
+  "phase Phase 2a: Terra NFT Communities: 525 @ 75 LUNA + 2 via governance",
+  "phase Phase 2b: Alliance Stakers & Open Mint (round 1): 197 @ 100 LUNA",
+  "phase Phase 2b: Alliance Stakers & Open Mint (round 2): 459 @ 115 LUNA",
+  "phase Phase 2b: Alliance Stakers & Open Mint (round 3): 644 @ 130 LUNA",
+  "proceeds = provenance phase table (201930 LUNA) + governance mints",
+  "no $0 mint_purchase leaves the treasury stock",
+  "every paid mint is USD-priced from the oracle",
+  "superseded == added (one old row per new row) for the 1,952 + stock moves"
+ ],
+ "files": [
+  "adao/ledger/2024/02.json",
+  "adao/ledger/2024/03.json",
+  "adao/ledger/2024/06.json"
+ ]
+}
