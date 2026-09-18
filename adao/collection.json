@@ -57,7 +57,8 @@
   "treasury_note": "ampLUNA treasury — per-NFT share published in nfts/adao/snapshots/summary.json backing.*",
   "token": {
    "type": "cw20",
-   "symbol": "ampLUNA"
+   "symbol": "ampLUNA",
+   "address": "terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
   },
   "per_nft_rule": "treasury_balance / unbroken_count",
   "break_mechanism": true
@@ -163,6 +164,47 @@
   "distribution_wallet_labels": {
    "terra1g0mfrpswewteaf9ky4rlj09wh5njp6u9xxk94uszplw4qz2f9mzq3k27fm": "DAO treasury stock (mint era)",
    "terra1yqv0af22675wlcmgflxk4ve07vt8qlm999gk0cuw5l64r5xxgadsyg8ywv": "aDAO Council multisig (operator)"
+  }
+ },
+ "custody": {
+  "treasury_contract": "terra1h8psjgcsg9fef7w2yv0j6262sfcaszj8vs4tsy3uwla6zwtaspvqrp4l7v",
+  "council_wallet": "terra1yqv0af22675wlcmgflxk4ve07vt8qlm999gk0cuw5l64r5xxgadsyg8ywv",
+  "enterprise_operator": "terra1nn7yrgjzj6zvle7ms9vlpg4cj3kaxjls4g6ugw",
+  "note": "nft-inventory D.1 reads these (custody buckets treasury_held / dao_wallet_8ywv_held / the Enterprise-governance operator for dao-controlled). The DAO core and the DAODAO staking module come from `governance`; the Enterprise legacy custodian from `capture.custodians` by role."
+ },
+ "tiers": {
+  "phoenix": {
+   "label": "Phoenix",
+   "trait": "Object",
+   "value": "Phoenix Rising",
+   "token_ids": [
+    "16",
+    "183",
+    "1128",
+    "1131",
+    "1433",
+    "1546",
+    "1622",
+    "2068",
+    "2227",
+    "2605",
+    "2633",
+    "2639",
+    "3445",
+    "4736",
+    "4983",
+    "5048",
+    "5088",
+    "5247",
+    "6013",
+    "6067",
+    "6151",
+    "6479",
+    "7755",
+    "9057",
+    "9426"
+   ],
+   "note": "grade-40 set, immutable (fully minted); the inventory's third tier beside broken / base"
   }
  }
 }
