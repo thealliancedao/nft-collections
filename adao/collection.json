@@ -131,9 +131,10 @@
    "note": "2026-09-18 (classifier 1.1.5): the paid mints left these three candy machines with LUNA attached (transfer_nft, one token per tx) — they are the primary-sale sources; the treasury stock below fed them and took unsold tokens back. Phase table + proceeds: adao/provenance/summary.json mint_story (chain-exact)."
   },
   "distribution_wallets": [
-   "terra1g0mfrpswewteaf9ky4rlj09wh5njp6u9xxk94uszplw4qz2f9mzq3k27fm"
+   "terra1g0mfrpswewteaf9ky4rlj09wh5njp6u9xxk94uszplw4qz2f9mzq3k27fm",
+   "terra1yqv0af22675wlcmgflxk4ve07vt8qlm999gk0cuw5l64r5xxgadsyg8ywv"
   ],
-  "distribution_wallets_note": "mint-era DAO treasury stock — received 8,809 of the 10,000 mints, sent stock to the candy machines (and 1,000 to terra1h8psjg…, held), took 698 unsold back. Its moves are transfers, never sales. Was registered as the launchpad before 1.1.5.",
+  "distribution_wallets_note": "mint-era DAO treasury stock — received 8,809 of the 10,000 mints, sent stock to the candy machines (and 1,000 to terra1h8psjg…, held), took 698 unsold back. Its moves are transfers, never sales. Was registered as the launchpad before 1.1.5. 2026-09-18: the aDAO Council multisig (docs/curated: known_contracts · trusted-addresses · wallets) moved the 5,828 unsold tokens from the treasury stock into the DAODAO core in Oct–Nov 2024 as an approved OPERATOR (cw721 stamps the executor as sender; the tokens never sat in the multisig) plus 100 broken tokens to terra1nn7yrg… — admin moves, never sales, never a hand change.",
   "minter": "terra1m3ye6dl6s25el4xd8adg9lnquz88az9lur2ujztj9pfmzdyfz3xsm699r3",
   "break_action": "break_nft",
   "venues": [
@@ -158,6 +159,10 @@
     }
    ],
    "external_note": "tla-flows/raw stays in tla-core (TLA data, registry superset); its aDAO ledger records were imported — that range is counted as covered"
+  },
+  "distribution_wallet_labels": {
+   "terra1g0mfrpswewteaf9ky4rlj09wh5njp6u9xxk94uszplw4qz2f9mzq3k27fm": "DAO treasury stock (mint era)",
+   "terra1yqv0af22675wlcmgflxk4ve07vt8qlm999gk0cuw5l64r5xxgadsyg8ywv": "aDAO Council multisig (operator)"
   }
  }
 }
