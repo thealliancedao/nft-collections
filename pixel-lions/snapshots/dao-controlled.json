@@ -1,0 +1,56 @@
+{
+ "schemaVersion": 1,
+ "module": "nft-inventory",
+ "product": "dao-controlled",
+ "generatedAt": "2026-09-18T23:53:32.150Z",
+ "status": "violation",
+ "failed_guards": [
+  "ids_total",
+  "enterprise_operator_weight"
+ ],
+ "note": "The 1,000 governance NFTs the DAO holds broken, by token id. Custody: treasury contract, the enterprise-staked hundred (staked via the registered operator wallet), the small DAO wallet. Excluded from circulating/liquid supply everywhere; never double-counted as holder stakes.",
+ "custody": {
+  "treasury": {
+   "address": null,
+   "count": 0
+  },
+  "enterprise": {
+   "address": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+   "operator": null,
+   "count": 0
+  },
+  "dao_wallet_8ywv": {
+   "address": null,
+   "count": 0
+  }
+ },
+ "counts": {
+  "total": 0,
+  "treasury": 0,
+  "enterprise": 0,
+  "dao_wallet_8ywv": 0
+ },
+ "guards": {
+  "ids_total": {
+   "expected": 1000,
+   "measured": 0,
+   "ok": false
+  },
+  "all_broken": {
+   "expected": 0,
+   "measured": 0,
+   "ok": true
+  },
+  "enterprise_operator_weight": {
+   "expected": 0,
+   "measured": null,
+   "ok": false,
+   "note": "operator wallet absent from enterprise members{} this run (guard cannot judge)"
+  }
+ },
+ "ids": {
+  "treasury": [],
+  "enterprise": [],
+  "dao_wallet_8ywv": []
+ }
+}
