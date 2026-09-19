@@ -43,8 +43,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: platform-crons (tx-body.js — message bodies decoded by the cron's own decoder, walk 1.1)
+        uses: actions/checkout@v4
+        with:
+          repository: thealliancedao/platform-crons
+          path: _crons
+          sparse-checkout: |
+            nfts/nft-flows/lib
       - name: walk
         env:
+          CRONS_DIR: ${{ github.workspace }}/_crons
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPO: ${{ github.repository }}
           ARCHIVE_RPC: ${{ startsWith(inputs.node, 'archive') && secrets.ARCHIVE_RPC || '' }}

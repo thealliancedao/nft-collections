@@ -1,0 +1,66 @@
+# resolve-msg-bodies — ONE-TIME per collection (nft-flows 1.5.0, CHANGES_PENDING B.1): fetch the message bodies of the archived txs
+# whose raw part carries events only (Boost list prices · Atrium list denoms · DAODAO unstake token ids live in the body), by hash,
+# public RPC first then ARCHIVE_RPC (secret), decoded by platform-crons/nfts/nft-flows/lib/tx-body.js from a run-time checkout.
+# Writes <slug>/raw/msg-bodies.json (write-once per hash; re-runs skip what is there). Then run nft-flows-derive for the collection:
+# derive 1.2.1 attaches the bodies and repairs the rows in place (labeled). Walks from 1.1 / the forward cron from 1.5.0 archive
+# bodies themselves, so this backlog is finite.
+name: resolve-msg-bodies
+on:
+  workflow_dispatch:
+    inputs:
+      collection:
+        description: 'collection slug'
+        type: choice
+        default: pixel-lions
+        options: [adao, pixel-lions, tla-locks]
+      dry:
+        description: 'list what would be fetched, write nothing'
+        type: boolean
+        default: false
+      pace_ms:
+        description: 'sleep after every node call (ms)'
+        default: '250'
+permissions:
+  contents: write
+concurrency:
+  group: resolve-msg-bodies-${{ inputs.collection }}
+  cancel-in-progress: false
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/scripts
+            venues.json
+            ${{ inputs.collection }}/collection.json
+            ${{ inputs.collection }}/ledger
+            ${{ inputs.collection }}/raw/msg-bodies.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: platform-crons (tx-body.js, the decoder's one home)
+        uses: actions/checkout@v4
+        with:
+          repository: thealliancedao/platform-crons
+          path: _crons
+          sparse-checkout: |
+            nfts/nft-flows/lib
+      - name: resolve
+        env:
+          COLLECTION: ${{ inputs.collection }}
+          CRONS_DIR: ${{ github.workspace }}/_crons
+          ARCHIVE_RPC: ${{ secrets.ARCHIVE_RPC }}
+          RPC_URL: https://terra-rpc.publicnode.com
+          DRY: ${{ inputs.dry == true && '1' || '' }}
+          PACE_MS: ${{ inputs.pace_ms }}
+        run: node --max-old-space-size=200 .github/scripts/nft-flows/resolve-msg-bodies.js
+      - name: commit
+        run: |
+          git config user.name "resolve-msg-bodies" && git config user.email "bot@thealliancedao.com"
+          git add ${{ inputs.collection }}/raw/msg-bodies.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "resolve-msg-bodies ${{ inputs.collection }} $(date -u +%Y-%m-%dT%H:%M)Z"
+          for i in 1 2 3 4 5 6; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 15)); done; exit 1
