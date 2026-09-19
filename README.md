@@ -9,12 +9,14 @@ flows, transfers, provenance, claims, the two FCD archives and the ledger; `tla-
   + transfers/ (org-tla-flows NFT aux leg) + provenance/ + claims/ + archive/fcd/{collection,minter}. Readers: every
   site page, the app, member-data/dao-dashboard, system-health, help-agent (`read_product` accepts `nfts/adao/…` and
   `nft-collections/<slug>/…`).
-- `pixel-lions/` — pixeLions (5,000, own DAODAO DAO, BBL + Atrium + Boost).
+- `pixel-lions/` — pixeLions (5,000, own DAODAO DAO, BBL + Atrium + Boost). Ledger + by-token shards + snapshots/ (org-nft-inventory-liondao, since 2026-09-18) + claims/. Ally: Lion DAO (tenants.json `liondao`).
 - `tla-locks/` — TLA lock NFTs (vAMP escrow; open-ended supply; Atrium).
 
 ## Per-collection layout
 ```
 <slug>/
+├── ledger/by-token/           nft-flows 1.4.0: every live ledger row per token, 100 tokens per shard + index.json — the read
+│                              shape for "open an NFT → its journey" (explorer sheet, app, portfolio NFT leg)
 ├── collection.json            config: contract, supply, traits, images, rarity  + capture block (custodians, launchpad,
 │                              minter, distributor, vetoer, royalty per venue, venues, gate, handle source, archives)
 ├── metadata/  rarity/  lore/  reference data (FORMATS.md)
@@ -33,6 +35,17 @@ Shared, at the root: `venues.json` (BBL · Atrium · Boost · 2023 venues), `_sh
    self-chaining) → `nft-flows-derive` → `nft-flows-forward` once (public RPC, to today).
 3. Live: a Render service `org-nft-flows-<slug>` from `platform-crons/nfts/nft-flows` with `COLLECTION=<slug>`.
    Its own cursor, its own heartbeat, writes only in its own folder. Stop or delete it without touching the others.
+
+## Who runs what (2026-09-18)
+- The engines live in platform-crons (`nfts/nft-flows/`, `nfts/nft-inventory/`) and belong to no collection.
+- Allies and their collections: `tla-core/docs/curated/tenants.json`. One Render inventory service per ally
+  (`org-nft-inventory` = aDAO, `org-nft-inventory-liondao` = Pixel Lions + Burning Lions when onboarded) runs each collection
+  as its own process into its own folder here. Removing an ally never touches another folder.
+- `collection.json` is the ONLY per-collection input: contract, `governance` (DAO core, DAODAO module), `capture.custodians`
+  by ROLE (Enterprise legacy…), `capture.launchpad.addresses` + `distribution_wallets` (+ labels), `marketplaces` (every venue
+  the collection's tokens actually sit in — the chain is the oracle: PL was "bbl only" until the first inventory run found
+  Atrium 2 / Boost 6), `backing` (null = no backing / tiers vocabulary), `custody` / `tiers` (aDAO's treasury, council,
+  operator, Phoenix ids), `traits`, `rarity.file`, `metadata_file`.
 
 ## Rules
 - Actions = one-time (harvest, walk, derive, fill, `import-from-tla-core`). Render = scheduled. Both write the same paths.
