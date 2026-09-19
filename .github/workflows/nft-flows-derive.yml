@@ -10,6 +10,10 @@ on:
         type: choice
         default: all
         options: [all, adao, pixel-lions, tla-locks]
+      external_raw:
+        description: 'also re-read tla-core/tla-flows/raw (aDAO 2025 history lives there; ~1.4 GB sparse checkout, ~4 min derive)'
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -40,14 +44,17 @@ jobs:
           sparse-checkout: |
             price-history
             token-catalog/snapshots
+            ${{ inputs.external_raw && 'tla-flows/raw' || '' }}
       - name: gate + derive
         env:
           COLLECTIONS: ${{ inputs.collections }}
           CRONS_DIR: ${{ github.workspace }}/_crons
           TLA_CORE_DIR: ${{ github.workspace }}/_core
+          # derive 1.2: the tla-flows/raw parts (TLA superset) are up to 150 MB gz each — the Action heap is not the Render heap
+          EXTERNAL_RAW_DIRS: ${{ inputs.external_raw && format('tla-flows/raw={0}/_core/tla-flows/raw', github.workspace) || '' }}
         run: |
-          node .github/scripts/nft-flows/gate-classify.mjs .
-          node .github/scripts/nft-flows/derive.js
+          node --max-old-space-size=200 .github/scripts/nft-flows/gate-classify.mjs .
+          node --max-old-space-size=4096 .github/scripts/nft-flows/derive.js
       - name: commit (pull --rebase + retry)
         run: |
           git config user.name "nft-flows-derive" && git config user.email "bot@thealliancedao.com"
