@@ -33,10 +33,13 @@ labels you intend to harvest and `archives.raw: "nfts/raw/<key>"`. Add the FCD p
 Then the FCD-freeze day once: `nft-flows-walk` <slug> from `13728217` to `13737810` (to_height set, ~10k blocks), and
 `nft-flows-forward` once (public RPC) so the ledger reaches today.
 
-## 3b. ⚠ nft-flows-derive is BROKEN until repaired (2026-09-18)
-`nft-flows-derive.yml` still curls the deleted `tla-core/nfts/adao/snapshots/luna-usd-daily.json` and `derive.js` prices
-from it. Do NOT run it as is. Repair queued (CHANGES_PENDING B.4): derive.js prices from `tla-core/price-history/YYYY/MM.json`
-like nft-flows 1.3.0. The forward cron's reprice pass will also fill USD on a ledger derived unpriced, month by month.
+## 3b. How derive prices (repaired 2026-09-19, derive 1.1)
+`nft-flows-derive.yml` and `nft-flows-forward.yml` check out platform-crons (`_crons`) and a sparse tla-core (`_core`:
+`price-history/` + `token-catalog/snapshots/`) at run time; `derive.js` requires the cron's own
+`nfts/nft-flows/lib/oracle-usd.js` (+ `lib/denom-symbol.js`) — the same file org-nft-flows prices with, never a copy here.
+Every priced record carries `usd`, `usd_basis` (`price-history:<day> (<src>)` or `stable_1_1`), `denom_symbol`, or `usd:null`
+with the reason. A day the oracle has not written yet stays null; the forward cron's reprice pass fills it month by month.
+Gate: derive on Pixel Lions' real archives re-priced 14,276 rows identical to the ledger the cron had priced (0 disagreements).
 
 ## 4. Forward
 Render → new cron service `org-nft-flows-<slug>`: repo platform-crons, root `nfts/nft-flows`, start `node index.js`,
