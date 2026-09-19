@@ -1,5 +1,14 @@
 'use strict';
 // <<NFT FLOWS CLASSIFIER v1>> — 2026-09-12 — SPEC-nft-flows.md
+// 1.1.6 (2026-09-19, CHANGES_PENDING B.1): (a) msg_index read from the EVENT ATTRIBUTE when the event has no msg_index field —
+//   raw parts (tx_search / block walks, SDK 0.47+) carry it only as an attribute, so every multi-message tx was one group and
+//   each cw721 move paired with the venue's FIRST event: an Atrium price update (cancel + list in one tx) listed with no id
+//   and no price, a Boost multi-token listing gave every token the first token's listing id (market-history then dropped the
+//   rest as "ref already seen" → 16 PL listings never opened, closes unmatched); (b) the venue event that carries a token_id
+//   is paired to ITS token, never the first venue event of the group; (c) payment legs include cw20 `transfer_from` /
+//   `send_from` (Boost's allowance pull — 9 aDAO Boost sales had amount but no denom); (d) a 2023 offer-contract sale names
+//   the seller from the venue's payout leg (recipient of the offer contract's transfer), the same way Boost's seller is read.
+//   Records from a raw part now carry the true msg_index; derive 1.2 supersedes the mis-keyed 1.1.5 rows (labeled, never deleted).
 // 1.1.5 (2026-09-18): `launchpad.addresses` (several primary-sale holders per collection) + launchpad → distribution
 //   wallet / launchpad = TRANSFER (stock returned), never a $0 mint_purchase. aDAO sold through three candy machines
 //   (50 / 75 / 100-115-130 LUNA) fed from the treasury stock; the registry had the treasury as the launchpad, so 3,653
@@ -45,10 +54,15 @@ function buildIndex(reg) {
   return { venueByAddr, colByAddr, custByAddr, launchByAddr, distByAddr };
 }
 
-// Group a tx's events by msg_index (raw parts carry msg_index on each event; FCD parts too).
+// Group a tx's events by msg_index. FCD parts carry it as a field; raw parts (tx_search / block results, SDK 0.47+) carry it
+// ONLY as an attribute {key:'msg_index'} on each event (1.1.6) — the field wins when present, the attribute otherwise, else 0.
+function msgIndexOf(e) {
+  if (e.msg_index != null) return Number(e.msg_index);
+  const a = (e.attributes || []).find(x => x.key === 'msg_index'); return a && a.value !== '' && !isNaN(Number(a.value)) ? Number(a.value) : 0;
+}
 function byMsg(events) {
   const m = new Map();
-  for (const e of events || []) { const i = e.msg_index == null ? 0 : Number(e.msg_index); if (!m.has(i)) m.set(i, []); m.get(i).push(e); }
+  for (const e of events || []) { const i = msgIndexOf(e); if (!m.has(i)) m.set(i, []); m.get(i).push(e); }
   return m;
 }
 // Legacy (pre-0.47, 2023-era FCD) txs emit ONE flattened wasm event per message with every contract call's attributes
@@ -67,7 +81,7 @@ function paymentLegs(events) {
   const legs = [];
   for (const e of events || []) {
     if (e.type === 'transfer') { const a = attrsAll(e); const amt = first(a, 'amount'); const to = first(a, 'recipient'), from = first(a, 'sender'); if (amt && to) for (const part of amt.split(',')) { const m = part.match(/^(\d+)(.+)$/); if (m) legs.push({ from, to, amount: m[1], denom: m[2] }); } }
-    if (e.type === 'wasm') for (const se of splitLegacyWasm(e)) { const a = attrsAll(se); if ((a.action || []).some(x => x === 'transfer' || x === 'send') && a.amount && a.from && a.to && !a.token_id) legs.push({ from: first(a, 'from'), to: first(a, 'to'), amount: first(a, 'amount'), denom: 'cw20:' + first(a, '_contract_address') }); }
+    if (e.type === 'wasm') for (const se of splitLegacyWasm(e)) { const a = attrsAll(se); if ((a.action || []).some(x => x === 'transfer' || x === 'send' || x === 'transfer_from' || x === 'send_from') && a.amount && a.from && a.to && !a.token_id) legs.push({ from: first(a, 'from'), to: first(a, 'to'), amount: first(a, 'amount'), denom: 'cw20:' + first(a, '_contract_address') }); }
   }
   return legs;
 }
@@ -142,7 +156,9 @@ function classifyNftTx(tx, reg, idx) {
       const from = first(a, 'sender'), to = first(a, 'recipient');
       const vIn = idx.venueByAddr[to], vOut = idx.venueByAddr[from];
       const cuIn = idx.custByAddr[to], cuOut = idx.custByAddr[from];
-      const venueW = (addr) => W.find(x => contractOf(x) === addr);   // the venue's own wasm event in this msg
+      // 1.1.6: the venue's own wasm event for THIS token — an event that names a token_id must name this one (a Boost
+      // setup, an Atrium list_nft, a BBL create_auction each carry it); only a venue event with no token_id may pair by position
+      const venueW = (addr) => W.find(x => contractOf(x) === addr && (first(x.a, 'token_id') == null || first(x.a, 'token_id') === token)) || null;
 
       if (vIn) {   // ---- into a venue = listing (or 2023 trade/offer escrow)
         const vw = venueW(to); const va = vw ? vw.a : {}; const vacts = vw ? actionsOf(vw) : [];
@@ -160,7 +176,7 @@ function classifyNftTx(tx, reg, idx) {
         // since 2023 was filed "venue release without a known verb (expiry?)" — 135 aDAO + 182 Pixel Lions sales missing
         // from the ledgers while the older tla-flows classifier had them. The verb event supplies the attrs (amount,
         // denom, seller, auction_id); the action list is the union across the venue's events.
-        const vws = W.filter(x => contractOf(x) === from);
+        const vws = W.filter(x => contractOf(x) === from && (first(x.a, 'token_id') == null || first(x.a, 'token_id') === token));   // 1.1.6: this token's venue events
         const isVerb = (x) => actionsOf(x).some(a => ['settle', 'buy_nft', 'accept_offer'].includes(a) || /deposit_nft|cancel/.test(a));
         const vw = vws.find(isVerb) || vws[0] || null; const va = vw ? vw.a : {}; const vacts = vws.flatMap(actionsOf);
         if (vacts.includes('settle') || vacts.includes('buy_nft') || vacts.some(x => /launch-nft\/deposit_nft/.test(x)) || vacts.includes('accept_offer')) {
@@ -168,7 +184,7 @@ function classifyNftTx(tx, reg, idx) {
           if (vacts.includes('settle')) { price = { amount: first(va, 'amount'), denom: denomLabel(first(va, 'denom')) }; id = { auction_id: first(va, 'auction_id') }; const out3 = legs.filter(l => l.from === from); split = out3.length ? { legs: out3 } : null; }
           else if (vacts.includes('buy_nft')) { price = { amount: first(va, 'price'), denom: (legs.find(l => l.from === from) || {}).denom || null }; id = { listing_id: first(va, 'listing_id'), accepted_offer_id: first(va, 'accepted_offer_id') || null }; split = { fee: first(va, 'fee'), royalty: first(va, 'royalty'), seller: first(va, 'seller_receives'), fee_bps: first(va, 'effective_fee_bps') }; buyer = first(va, 'buyer') || to; }
           else if (vacts.some(x => /deposit_nft/.test(x))) { const denom = (legs.find(l => l.to === from) || {}).denom || null; price = { amount: first(va, 'deposit_amount'), denom }; id = { listing_id: first(va, 'id'), done: first(va, 'launch-nft/done') }; split = { fee: first(va, 'protocol_fee_amount'), royalty: first(va, 'royalty_amount'), seller: first(va, 'seller_amount') }; seller = (legs.find(l => l.from === from && l.amount === first(va, 'seller_amount')) || {}).to || null; }
-          else { price = (legs.find(l => l.from === from) || null) && { amount: legs.find(l => l.from === from).amount, denom: legs.find(l => l.from === from).denom }; id = { offer_id: first(va, 'offer_id') }; }
+          else { const pay = legs.find(l => l.from === from) || null; price = pay && { amount: pay.amount, denom: pay.denom }; id = { offer_id: first(va, 'offer_id') }; if (!seller && pay && pay.to && pay.to !== to) seller = pay.to; }   // 1.1.6: the offer contract pays the seller in the same msg — that recipient is the seller (the buyer is the token's recipient)
           push(Object.assign({ kind: KIND.SALE, collection: col.key, token_id: token, venue: vOut.key, from: seller, to: buyer, price, split, via_offer: !!(id.accepted_offer_id || id.offer_id) }, id));
         } else if (vacts.some(x => /cancel/.test(x))) {
           push({ kind: KIND.DELIST, collection: col.key, token_id: token, venue: vOut.key, from, to, listing_id: first(va, 'listing_id') || first(va, 'id') || null, auction_id: first(va, 'auction_id') || null, cancelled_by: first(va, 'cancelled_by') || null });

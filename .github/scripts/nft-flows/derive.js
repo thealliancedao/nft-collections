@@ -1,6 +1,15 @@
 'use strict';
-// derive.js — nft-flows derive 1.1 (SPEC-nft-flows.md). Runs inside the repo checkout (workflows nft-flows-derive.yml,
+// derive.js — nft-flows derive 1.2 (SPEC-nft-flows.md). Runs inside the repo checkout (workflows nft-flows-derive.yml,
 // nft-flows-forward.yml):
+//   1.2 (2026-09-19, CHANGES_PENDING B.1, classifier 1.1.6): LABELED REPAIRS instead of silent skips. A record the classifier
+//       now produces for a key already on disk fills that row's NULL fields in place (price.denom, price, from, to, split;
+//       USD re-read when the price became complete) and stamps `repaired_by` / `repaired_fields` — a value is never overwritten.
+//       A record the classifier now keys differently (true msg_index from the event attribute, the token's own listing id)
+//       is appended, and the 1.1.5 row it replaces — same tx, kind, collection, token, a key the classifier no longer
+//       produces — is labeled `superseded_by` + `superseded_reason`, never deleted (never-shrink; readers skip superseded).
+//       Env EXTERNAL_RAW_DIRS="<label>=<dir>[,…]" re-reads an archive that lives in another repo (aDAO's 2025 history is in
+//       tla-core/tla-flows/raw; the workflow's `external_raw` input checks it out sparse) — rows merge by key, coverage
+//       stays what collection.json capture.archives.external_coverage says (already counted).
 //   1.1 (2026-09-19, CHANGES_PENDING B.4): USD at the day comes from THE org price oracle (tla-core/price-history/YYYY/MM.json)
 //       through platform-crons/nfts/nft-flows/lib/oracle-usd.js — the SAME file the Render cron prices with, required from a
 //       run-time checkout (env CRONS_DIR), never copied here; symbols from the token-catalog (lib/denom-symbol.js). The deleted
@@ -55,6 +64,13 @@ const priceOf = (price, ts) => { const u = usdAt(price, ts); const o = {}; for (
 // ---------------------------------------------------------------- archives on disk
 function listParts(dir) { try { const all = fs.readdirSync(dir).filter(f => /^part-\d+\.json(\.gz)?$/.test(f)); const gz = new Set(all.filter(f => f.endsWith('.gz')).map(f => f.slice(0, -3))); return all.filter(f => f.endsWith('.gz') || !gz.has(f)).sort().map(f => path.join(dir, f)); } catch { return []; } }   // harvest writes .json; fcd-compact turns it into .json.gz — read either, never both
 function* archives() {
+  // 1.2: archives that live in another repo, named by label (rows keep the source label the 1.1 import wrote: `<label>:<range>`)
+  for (const spec of String(process.env.EXTERNAL_RAW_DIRS || '').split(',').map(x => x.trim()).filter(Boolean)) {
+    const [label, dir] = spec.split('='); if (!label || !dir || !fs.existsSync(dir)) { console.warn(`EXTERNAL_RAW_DIRS: ${spec} — directory missing, skipped`); continue; }
+    const owners = Object.keys(reg.collections).filter(c => (((reg.collections[c].archives || {}).external_coverage) || []).some(cv => String(cv.source || '').endsWith(label)));
+    if (!owners.length) { console.warn(`EXTERNAL_RAW_DIRS: no collection declares external_coverage source ending in "${label}" — skipped`); continue; }
+    for (const range of fs.readdirSync(dir).filter(d => /^\d+-\d+$/.test(d)).sort()) for (const f of listParts(path.join(dir, range))) yield { source: `${label}:${range}`, file: f, kind: 'raw', range, external: true, owner: null, only: owners };
+  }
   // everything under the collection's own folder: <slug>/archive/fcd/<label>/part-* and <slug>/raw/<from>-<to>/part-*
   for (const col of Object.keys(reg.collections)) {
     const L = layout(ROOT, col);
@@ -69,32 +85,64 @@ function txsOf(a) {
   return { txs, heights: txs.length ? [Math.min(...txs.map(t => t.height)), Math.max(...txs.map(t => t.height))] : null };
 }
 
+// ---------------------------------------------------------------- 1.2: labeled merge (repair in place · supersede re-keyed)
+const CLASSIFIER_REV = '1.1.6';
+const REPAIR_FIELDS = ['from', 'to', 'split', 'listing_type', 'auction_type', 'cancelled_by', 'accepted_offer_id'];
+function repairInPlace(o, e, r) {   // e: the row on disk, r: what the classifier now produces for the SAME key — fill nulls only
+  const filled = [];
+  for (const f of REPAIR_FIELDS) if ((e[f] === undefined || e[f] === null) && r[f] !== undefined && r[f] !== null) { e[f] = r[f]; filled.push(f); }
+  if (r.price && (r.price.amount != null || r.price.denom != null)) {
+    if (!e.price) { e.price = r.price; filled.push('price'); }
+    else { if (e.price.amount == null && r.price.amount != null) { e.price.amount = r.price.amount; filled.push('price.amount'); } if (e.price.denom == null && r.price.denom != null) { e.price.denom = r.price.denom; filled.push('price.denom'); } }
+  }
+  if (filled.some(f => f.startsWith('price'))) { for (const k of USD_KEYS) delete e[k]; Object.assign(e, usdAt(e.price, e.ts)); filled.push('usd'); if (e.price_reason && r.price_reason == null) { delete e.price_reason; filled.push('price_reason'); } }   // the USD fields are re-read as a set (a stale usd_reason never survives a repaired price)
+  if (!filled.length) return false;
+  e.repaired_by = 'classify-' + CLASSIFIER_REV; e.repaired_fields = [...new Set([...(e.repaired_fields || []), ...filled])]; e.repaired_at = new Date().toISOString();
+  o.repaired++; for (const f of filled) o.repaired_fields[f] = (o.repaired_fields[f] || 0) + 1;
+  return true;
+}
+function whatDiffers(e, r) { const d = []; if (e.msg_index !== r.msg_index) d.push(`msg_index ${e.msg_index}→${r.msg_index}`); for (const f of ['listing_id', 'auction_id', 'offer_id']) if ((e[f] || null) !== (r[f] || null)) d.push(`${f} ${e[f] || '-'}→${r[f] || '-'}`); return d.join(', ') || 'key'; }
+function mergeTx(o, txhash, list) {
+  const newKeys = new Set(list.map(recordKey));
+  // rows on disk for this tx whose key the classifier no longer produces = candidates to be superseded (1.1.5 mis-keyed twins)
+  const stale = (o.byTx.get(txhash) || []).filter(x => !x.superseded_by && !newKeys.has(recordKey(x)));
+  for (const r of list) {
+    const key = recordKey(r);
+    if (o.seen.has(key)) { const e = o.byKey.get(key); if (e && !e.superseded_by && repairInPlace(o, e, r)) continue; o.dup++; continue; }
+    const twinAt = stale.findIndex(x => x.kind === r.kind && x.collection === r.collection && String(x.token_id || '') === String(r.token_id || ''));
+    if (twinAt >= 0) { const t = stale.splice(twinAt, 1)[0]; const why = whatDiffers(t, r); t.superseded_by = key; t.superseded_reason = `classify-${CLASSIFIER_REV}: ${why}`; t.superseded_at = new Date().toISOString(); o.superseded++; o.superseded_why[why.replace(/\d+/g, 'n')] = (o.superseded_why[why.replace(/\d+/g, 'n')] || 0) + 1; }
+    o.seen.add(key); o.byKey.set(key, r); (o.byTx.get(txhash) || o.byTx.set(txhash, []).get(txhash)).push(r);
+    const mk = String(r.ts).slice(0, 7).replace('-', '/'); (o.byMonth[mk] ||= []).push(r); o.n++;
+  }
+}
+
 // ---------------------------------------------------------------- run
 (async () => {
   const t0 = Date.now(); await loadOracle();
-  const out = {}; for (const c of cols) out[c] = { byMonth: {}, coverage: {}, seen: new Set(), n: 0, dup: 0 };
+  const out = {}; for (const c of cols) out[c] = { byMonth: {}, coverage: {}, seen: new Set(), byKey: new Map(), byTx: new Map(), n: 0, dup: 0, repaired: 0, superseded: 0, repaired_fields: {}, superseded_why: {} };
   // load existing month files (never-shrink)
-  for (const c of cols) { const fr = layout(ROOT, c).ledger; if (!fs.existsSync(fr)) continue; for (const y of fs.readdirSync(fr).filter(d => /^\d{4}$/.test(d))) for (const m of fs.readdirSync(path.join(fr, y)).filter(f => /^\d{2}\.json$/.test(f))) { const raw = rj(path.join(fr, y, m)); if (!Array.isArray(raw)) { console.warn(`skip ${fr}/${y}/${m}: not a ledger month file`); continue; } const k = y + '/' + m.slice(0, 2); const recs = []; for (const r of raw) { r.collection = c; const key = recordKey(r); if (out[c].seen.has(key)) { out[c].dropped_dup = (out[c].dropped_dup || 0) + 1; continue; } out[c].seen.add(key); recs.push(r); } out[c].byMonth[k] = recs; /* a ledger is per collection: the slug is the folder; imported months keyed by an older name are the same records */ } }
+  for (const c of cols) { const fr = layout(ROOT, c).ledger; if (!fs.existsSync(fr)) continue; for (const y of fs.readdirSync(fr).filter(d => /^\d{4}$/.test(d))) for (const m of fs.readdirSync(path.join(fr, y)).filter(f => /^\d{2}\.json$/.test(f))) { const raw = rj(path.join(fr, y, m)); if (!Array.isArray(raw)) { console.warn(`skip ${fr}/${y}/${m}: not a ledger month file`); continue; } const k = y + '/' + m.slice(0, 2); const recs = []; for (const r of raw) { r.collection = c; const key = recordKey(r); if (out[c].seen.has(key)) { out[c].dropped_dup = (out[c].dropped_dup || 0) + 1; continue; } out[c].seen.add(key); out[c].byKey.set(key, r); (out[c].byTx.get(r.txhash) || out[c].byTx.set(r.txhash, []).get(r.txhash)).push(r); recs.push(r); } out[c].byMonth[k] = recs; /* a ledger is per collection: the slug is the folder; imported months keyed by an older name are the same records */ } }
   let partsRead = 0, txsRead = 0;
   for (const a of archives()) {
     let { txs, heights } = txsOf(a); partsRead++; txsRead += txs.length;
     for (const tx of txs) {
       const recs = classifyNftTx(tx, reg, idx);
+      // 1.2: every record this tx yields per collection, priced, THEN merged against what is on disk for the same tx
+      const perCol = {};
       for (const r of recs) {
-        const c = r.collection; if (!c || !out[c]) continue;   // venue-level records (deposit/withdraw/offers without a token) are attached below
-        r.source = a.source;
-        if (r.price) Object.assign(r, usdAt(r.price, r.ts));
-        const key = recordKey(r); if (out[c].seen.has(key)) { out[c].dup++; continue; }
-        out[c].seen.add(key); const mk = String(r.ts).slice(0, 7).replace('-', '/'); (out[c].byMonth[mk] ||= []).push(r); out[c].n++;
+        const c = r.collection; if (!c || !out[c] || (a.only && !a.only.includes(c))) continue;   // venue-level records (deposit/withdraw/offers without a token) are attached below
+        r.source = a.source; if (r.price) Object.assign(r, usdAt(r.price, r.ts)); (perCol[c] ||= []).push(r);
       }
       // venue-level (collection null) → every collection that lists on that venue keeps a copy under its own tree, so a wallet's BBL balance is visible from any collection page
-      for (const r of recs.filter(x => !x.collection && x.venue)) for (const c of cols) { const cv = reg.collections[c].venues || []; if (!cv.includes(r.venue)) continue; const rr = Object.assign({}, r, { collection: c, source: a.source }); if (rr.price) Object.assign(rr, usdAt(rr.price, rr.ts)); const key = recordKey(rr); if (out[c].seen.has(key)) continue; out[c].seen.add(key); const mk = String(rr.ts).slice(0, 7).replace('-', '/'); (out[c].byMonth[mk] ||= []).push(rr); out[c].n++; }
+      for (const r of recs.filter(x => !x.collection && x.venue)) for (const c of cols) { if (a.only && !a.only.includes(c)) continue; const cv = reg.collections[c].venues || []; if (!cv.includes(r.venue)) continue; const rr = Object.assign({}, r, { collection: c, source: a.source }); if (rr.price) Object.assign(rr, usdAt(rr.price, rr.ts)); (perCol[c] ||= []).push(rr); }
+      for (const [c, list] of Object.entries(perCol)) mergeTx(out[c], tx.txhash, list);
     }
     if (a.kind === 'raw' && a.range) { const m = a.range.match(/^(\d+)-(\d+)$/); if (m) { let to = Number(m[2]); try { const r = rj(path.join(path.dirname(a.file), 'report.json')); if (Number.isFinite(r.walked_to)) to = Math.min(to, r.walked_to); } catch { } heights = to >= Number(m[1]) ? [Number(m[1]), to] : null; } }   // walked span per report.walked_to (a budget-stopped walk leaves a tail), never the matched-tx span
-    if (heights) for (const c of cols) { const cfg = reg.collections[c].archives || {}; const mine = a.owner === c; const partial = false; /* every archive lives in its owner's folder — no cross-collection partial coverage */ if (mine || partial) { const cv = (out[c].coverage[a.source] ||= { from: Infinity, to: 0, parts: 0, partial: partial ? 'venue txs only — this collection was not in the archive walk watch set' : undefined }); cv.from = Math.min(cv.from, heights[0]); cv.to = Math.max(cv.to, heights[1]); cv.parts++; } }
+    if (heights && !a.external) for (const c of cols) { const cfg = reg.collections[c].archives || {}; const mine = a.owner === c; const partial = false; /* every archive lives in its owner's folder — no cross-collection partial coverage */ if (mine || partial) { const cv = (out[c].coverage[a.source] ||= { from: Infinity, to: 0, parts: 0, partial: partial ? 'venue txs only — this collection was not in the archive walk watch set' : undefined }); cv.from = Math.min(cv.from, heights[0]); cv.to = Math.max(cv.to, heights[1]); cv.parts++; } }
   }
   for (const c of cols) {
     const o = out[c]; const col = reg.collections[c]; const base = layout(ROOT, c).ledger;
+    { const prior = (() => { try { return rj(path.join(base, 'index.json')).total; } catch { return 0; } })(); const now = Object.values(o.byMonth).flat().length; if (now < prior) { console.error(`FATAL ${c}: ledger would SHRINK ${prior} → ${now} — refusing (never-shrink)`); process.exit(1); } }   // 1.2: before any month is written
     for (const [mk, recs] of Object.entries(o.byMonth)) { recs.sort((a, b) => a.height - b.height || a.msg_index - b.msg_index); wj(path.join(base, mk + '.json'), recs); }
     const all = Object.values(o.byMonth).flat();
     const byKind = {}; all.forEach(r => { byKind[r.kind] = (byKind[r.kind] || 0) + 1; });
@@ -118,10 +166,10 @@ function txsOf(a) {
     const prior = (((col.archives || {}).external_coverage) || []).map(cv => ({ source: cv.source, from: cv.from, to: cv.to, parts: 0, imported: 'archive lives in tla-core; records imported (collection.json capture.archives.external_coverage)' }));
     const ranges = [...prior, ...Object.entries(o.coverage).map(([src, v]) => ({ source: src, from: v.from, to: v.to, parts: v.parts, partial: v.partial }))].sort((a, b) => a.from - b.from);
     const gaps = []; let cur = null; for (const r of ranges.filter(r => !r.partial)) { if (cur && r.from > cur + 1) gaps.push({ from_height: cur + 1, to_height: r.from - 1, reason: 'no archived part covers this span' }); cur = Math.max(cur || 0, r.to); }
-    const index = { product: c + '/ledger', schema: 'nft-flows-1.0', classifier: 'NFT FLOWS CLASSIFIER v1', collection: c, label: col.label, total: all.length, by_kind: byKind, months: Object.keys(o.byMonth).sort(), coverage: ranges, known_gaps: gaps, forward_stream: `org-nft-flows-${c} (Render) → ${c}/raw/forward + this ledger`, added_this_run: o.n, skipped_duplicates: o.dup, generatedAt: new Date().toISOString() };
+    const index = { product: c + '/ledger', schema: 'nft-flows-1.0', classifier: 'NFT FLOWS CLASSIFIER v1 (' + CLASSIFIER_REV + ')', collection: c, label: col.label, total: all.length, by_kind: byKind, months: Object.keys(o.byMonth).sort(), coverage: ranges, known_gaps: gaps, forward_stream: `org-nft-flows-${c} (Render) → ${c}/raw/forward + this ledger`, added_this_run: o.n, skipped_duplicates: o.dup, repaired_this_run: o.repaired, repaired_fields: o.repaired_fields, superseded_this_run: o.superseded, superseded_why: o.superseded_why, superseded_total: all.filter(r => r.superseded_by).length, generatedAt: new Date().toISOString() };
     wj(path.join(base, 'index.json'), index);
-    wj(path.join(base, 'heartbeat.json'), { module: 'nft-flows', product: c + '/ledger', kind: 'derive', ran_at: new Date().toISOString(), parts_read: partsRead, txs_read: txsRead, records_total: all.length, added: o.n, ms: Date.now() - t0 });
-    console.log(`${c}: ${all.length} records (${o.n} new, ${o.dup} dup${o.dropped_dup ? ', ' + o.dropped_dup + ' imported duplicates dropped' : ''}) · kinds ${JSON.stringify(byKind)} · coverage ${ranges.map(r => r.from + '–' + r.to).join(', ') || 'none'} · gaps ${gaps.length}`);
+    wj(path.join(base, 'heartbeat.json'), { module: 'nft-flows', product: c + '/ledger', kind: 'derive', ran_at: new Date().toISOString(), parts_read: partsRead, txs_read: txsRead, records_total: all.length, added: o.n, repaired: o.repaired, superseded: o.superseded, classifier: CLASSIFIER_REV, ms: Date.now() - t0 });
+    console.log(`${c}: ${all.length} records (${o.n} new, ${o.dup} dup, ${o.repaired} repaired in place ${JSON.stringify(o.repaired_fields)}, ${o.superseded} superseded ${JSON.stringify(o.superseded_why)}${o.dropped_dup ? ', ' + o.dropped_dup + ' imported duplicates dropped' : ''}) · kinds ${JSON.stringify(byKind)} · coverage ${ranges.map(r => r.from + '–' + r.to).join(', ') || 'none'} · gaps ${gaps.length}`);
   }
   console.log(`derive done: ${partsRead} parts, ${txsRead} txs, ${Date.now() - t0} ms${DRY ? ' (DRY — nothing written)' : ''}`);
 })().catch(e => { console.error('FATAL', e); process.exit(1); });

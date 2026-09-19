@@ -1,5 +1,6 @@
 // gate-classify.mjs — node gate-classify.mjs <tla-core root>
-// Fixtures = the owner's 2026-09-11/12 Pixel Lions + escrow test txs (events transcribed from Chainscope),
+// Fixtures = the owner's 2026-09-11/12 Pixel Lions + escrow test txs (events transcribed from Chainscope), the 1.1.6 real txs
+// (Atrium 301EB8…, Boost 01264EDF… / 01558E…, offers F99054… — events verbatim from the committed raw / FCD parts),
 // plus one committed raw part and one committed FCD part when present at the given root.
 import fs from 'node:fs'; import path from 'node:path'; import zlib from 'node:zlib'; import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
@@ -122,6 +123,46 @@ console.log('\n== 1.1.5: several launchpads + stock returns (aDAO candy machines
   ok(hop.length === 1 && hop[0].kind === KIND.TRANSFER && /returned/.test(hop[0].note), 'candy machine → another candy machine = transfer', hop);
   const free = run(tx('FREE', 10700002, '2024-06-20T00:00:02Z', [wasm(ADAO, { action: 'transfer_nft', sender: CM130, recipient: 'terra1someone', token_id: 2224 })]));
   ok(free.length === 1 && free[0].kind === KIND.MINT_PURCHASE && free[0].price.amount === '0' && /free_or_admin/.test(free[0].price_reason), 'candy machine → a wallet with no payment leg stays a $0 mint_purchase with price_reason (never invents a price)', free);
+}
+console.log('\n== 1.1.6: msg_index from the event ATTRIBUTE (raw parts) · venue event paired to its token · cw20 transfer_from legs · offer seller ==');
+{ // raw-shaped events: NO msg_index field, the index rides as an attribute (tx_search / block results, SDK 0.47+)
+  const rev = (c, o, mi) => ({ type: 'wasm', attributes: Object.entries(Object.assign({ _contract_address: c }, o, mi == null ? {} : { msg_index: mi })).map(([k, v]) => ({ key: k, value: String(v) })) });
+  const rbank = (from, to, amt, mi) => ({ type: 'transfer', attributes: Object.entries(Object.assign({ recipient: to, sender: from, amount: amt }, mi == null ? {} : { msg_index: mi })).map(([k, v]) => ({ key: k, value: String(v) })) });
+  const ADAO = 'terra1phr9fngjv7a8an4dhmhd0u0f98wazxfnzccqtyheq4zqrrp4fpuqw3apw9', SELLER = 'terra1eykdj5xp2tgcauryaj65dc0d7dnu0ze2gt72wy';
+  // real tx 301EB8… (2026-08-21): Atrium price update = cancel_listing 546 (msg 0) + list_nft 547 (msg 1) in ONE tx
+  const atr = run(tx('301EB8', 22456000, '2026-08-21T14:35:25Z', [rbank(SELLER, 'terra17xpfvakm2amg962yls6f84z3kell8c5lkaeqfa', '9320uluna'),
+    rev(ATR, { action: 'cancel_listing', listing_id: 546, seller: SELLER, cancelled_by: 'seller' }, 0), rev(ADAO, { action: 'transfer_nft', recipient: SELLER, sender: ATR, token_id: 6192 }, 0),
+    rev(ADAO, { action: 'send_nft', sender: SELLER, recipient: ATR, token_id: 6192 }, 1), rev(ATR, { action: 'list_nft', listing_id: 547, nft_contract: ADAO, price: 49900000, seller: SELLER, token_id: 6192 }, 1)]));
+  const ad = one(atr, KIND.DELIST)[0], al = one(atr, KIND.LIST)[0];
+  ok(ad && ad.msg_index === 0 && ad.listing_id === '546', 'Atrium cancel (msg 0) keeps id 546', ad);
+  ok(al && al.msg_index === 1 && al.listing_id === '547' && al.price && al.price.amount === '49900000', 'Atrium list (msg 1) reads ITS list_nft: id 547, 49.9 — not the cancel event (1.1.5: no id, no price)', al);
+  ok(al && al.price.denom === null && al.price_reason === 'msg_body_not_archived:denom', 'list_nft carries no denom in events → null + reason (msg body only; resolve-msg-bodies)', al);
+  // real tx 01264EDF… (2025-04-01): six Boost setups in one tx, NO msg_index at all (pre-attribute era) — each token gets its own id
+  const toks = [[1436, 246], [1959, 247], [3920, 248], [4953, 249], [4089, 250], [2941, 251], [121, 252]];
+  const bst = run(tx('01264E', 14968225, '2025-04-01T07:53:54Z', [rbank('terra1aaxprs78gfa6xnahm8jp73eps75kfe4grt2uy8', 'terra1xx', '31807uluna'),
+    ...toks.flatMap(([t, id]) => [rev(PL, { action: 'send_nft', sender: 'terra1aaxprs78gfa6xnahm8jp73eps75kfe4grt2uy8', recipient: BST, token_id: t }), rev(BST, { action: 'launch-nft/setup', collection: PL, id, token_id: t })])]));
+  ok(bst.length === 7 && bst.every(r => r.kind === KIND.LIST && r.venue === 'boost'), 'Boost multi-token tx → 7 lists', bst.map(r => r.kind));
+  ok(toks.every(([t, id]) => bst.some(r => r.token_id === String(t) && r.listing_id === String(id))), 'every token paired to ITS setup id (1.1.5 gave all seven id 246 → market-history dropped six as "ref seen")', bst.map(r => [r.token_id, r.listing_id]));
+  // real tx 01558E… (2025-08-13): Boost sale paid in SOLID through cw20 transfer_from (allowance pull) — the denom is that leg's contract
+  const BUYER = 'terra1t2v52y6sazlewjpxg6vdy62u9dn23txl7hrn8m';
+  const sol = run(tx('01558E', 16900000, '2025-08-13T00:07:48Z', [rev(SOLID, { action: 'increase_allowance', owner: BUYER, spender: BST, amount: 1000000 }, 0),
+    rev(BST, { action: 'launch-nft/deposit_nft', id: 395, deposit_amount: 1000000, 'launch-nft/done': 1, protocol_fee_amount: 20000, royalty_amount: 50000, seller_amount: 930000 }, 1),
+    rev(SOLID, { action: 'transfer_from', amount: 1000000, by: BST, from: BUYER, to: BST }, 1), rev(ADAO, { action: 'transfer_nft', recipient: BUYER, sender: BST, token_id: 8149 }, 1),
+    rev(SOLID, { action: 'transfer', amount: 20000, from: BST, to: 'terra1rppeahhmtvy4fs9xr9zkjrf4xs9ak4ygy62slq' }, 1), rev(SOLID, { action: 'transfer', amount: 50000, from: BST, to: 'terra1sffd4efk2jpdt894r04qwmtjqrrjfc52tmj6vkzjxqhd8qqu2drs3m5vzm' }, 1), rev(SOLID, { action: 'transfer', amount: 930000, from: BST, to: ME }, 1)]));
+  const ss = one(sol, KIND.SALE)[0];
+  ok(sol.length === 1 && ss && ss.msg_index === 1 && ss.token_id === '8149' && ss.listing_id === '395', 'Boost cw20 sale is one record at msg 1 (the allowance msg yields nothing)', sol.map(r => [r.kind, r.msg_index]));
+  ok(ss && ss.price.amount === '1000000' && ss.price.denom === 'cw20:' + SOLID && ss.from === ME && ss.to === BUYER, 'price 1 SOLID from the transfer_from leg (1.1.5: denom null → unpriced); seller from the 930000 payout; buyer = recipient', ss && ss.price);
+  // real tx F99054… (2023-06-10): 2023 offers contract accept_offer — the seller is whom the contract pays (legacy flattened event, FCD msg_index field)
+  const OFF = 'terra1jg2fkptul8mmzd5rw32pgatrq2dly579sam3yqexufjvqhwaqa5sxf7z7v', OSELLER = 'terra140233z883n43vfqky3klae87n5k7qm3pq2e9eg', OBUYER = 'terra16vkwszhw877vz0lc2glyx56hs4r0sy7v3h2plt';
+  const off = run(tx('F99054', 5449456, '2023-06-10T13:25:44Z', [wasm(PL, { action: 'approve', sender: OSELLER, spender: OFF, token_id: 4044 }, 0), bank(OFF, OSELLER, '15000000uluna', 1),
+    { type: 'wasm', msg_index: 1, attributes: [['_contract_address', OFF], ['action', 'accept_offer'], ['offer_id', '18'], ['token_id', '4044'], ['_contract_address', PL], ['action', 'transfer_nft'], ['recipient', OBUYER], ['sender', OFF], ['token_id', '4044']].map(([key, value]) => ({ key, value })) }]));
+  const os = one(off, KIND.SALE)[0];
+  ok(os && os.from === OSELLER && os.to === OBUYER && os.price.amount === '15000000' && os.offer_id === '18', 'accept_offer sale names the seller = payout recipient (1.1.5: from null)', os);
+  // the field still wins when both are present, and a tx with neither groups as msg 0
+  const both = run(tx('BOTH', 1, '2026-01-01T00:00:00Z', [{ type: 'wasm', msg_index: 2, attributes: [{ key: '_contract_address', value: PL }, { key: 'action', value: 'transfer_nft' }, { key: 'sender', value: 'terra1a' }, { key: 'recipient', value: 'terra1b' }, { key: 'token_id', value: '7' }, { key: 'msg_index', value: '5' }] }]));
+  ok(both.length === 1 && both[0].msg_index === 2, 'msg_index FIELD wins over the attribute when both exist', both);
+  const none = run(tx('NONE', 1, '2026-01-01T00:00:00Z', [rev(PL, { action: 'transfer_nft', sender: 'terra1a', recipient: 'terra1b', token_id: 8 })]));
+  ok(none.length === 1 && none[0].msg_index === 0, 'no field, no attribute → msg 0 (pre-attribute raw parts unchanged)', none);
 }
 console.log('\n== committed archives (when present) ==');
 { const rawDir = path.join(ROOT, 'tla-locks/raw/17005824-17455823'); const fcd = path.join(ROOT, 'adao/archive/fcd/collection/part-00001.json.gz');
