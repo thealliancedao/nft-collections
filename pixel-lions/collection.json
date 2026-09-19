@@ -42,13 +42,13 @@
   "sweep": ".github/workflows/sweep-pixel-lions.yml"
  },
  "images": {
-  "cdn_pattern": "https://nft.openfields.app/api/image/terra17z7fpaa8kah698xn5tarrcucvualdy4wsztkfc404g3garucpu6qmxp50g/{id}",
+  "cdn_pattern": "https://cdn.jsdelivr.net/gh/thealliancedao/nft-collections@main/pixel-lions/images/{id}.png",
   "ipfs_cid": "bafybeihgrne4vcqirlb26rs4y2gpaka32dqssidwvx2qui2kx5osc6oxie",
   "ipfs_fallback": true,
   "origin_note": "BBL serves via ipfs.realityflux.io with a pinataGatewayToken (tokened gateway - do not hardcode); same CID resolves on public gateways",
   "mark": "/assets/images/pixelions-pfp.webp",
   "mark_note": "the collection's own mark on the site (tenant logo ≠ collection mark); a site asset path",
-  "cdn_fallback": "https://ipfs.io/ipfs/bafybeihgrne4vcqirlb26rs4y2gpaka32dqssidwvx2qui2kx5osc6oxie/{id}.png",
+  "cdn_fallback": "https://raw.githubusercontent.com/thealliancedao/nft-collections/main/pixel-lions/images/{id}.png",
   "cdn_note": "2026-09-19 (HAR): public IPFS gateways refuse a gallery of hot-linked images (ipfs.io 403, dweb.link 429); Atrium serves every token through its own un-tokened image proxy (api/image/<contract>/<id>), so that is the interim source. Permanent home = this repo (mirror-images → <slug>/images/<id>.png via jsDelivr); when the mirror lands, cdn_pattern moves there and the Atrium proxy becomes the fallback."
  },
  "metadata_file": "pixel-lions/metadata/metadata.json",
