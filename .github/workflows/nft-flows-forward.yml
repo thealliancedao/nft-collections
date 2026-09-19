@@ -29,8 +29,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: shared inputs from tla-core
-        run: mkdir -p _shared && curl -sL https://raw.githubusercontent.com/thealliancedao/tla-core/main/nfts/adao/snapshots/luna-usd-daily.json -o _shared/luna-usd-daily.json
+      # derive 1.1 (2026-09-19): USD at the day from THE org price oracle through the cron's own pricing rule — two run-time
+      # checkouts, nothing copied into this repo: platform-crons (nfts/nft-flows/lib/oracle-usd.js + lib/denom-symbol.js) and
+      # a sparse tla-core (price-history months + the token-catalog snapshot). The deleted luna-usd-daily.json is gone.
+      - name: platform-crons (the pricing rule, required at run time)
+        uses: actions/checkout@v4
+        with:
+          repository: thealliancedao/platform-crons
+          path: _crons
+      - name: tla-core (price-history + token-catalog, sparse)
+        uses: actions/checkout@v4
+        with:
+          repository: thealliancedao/tla-core
+          path: _core
+          sparse-checkout: |
+            price-history
+            token-catalog/snapshots
       - name: walk each collection to head (raw parts land on main via the API)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -42,6 +56,9 @@ jobs:
       - name: pull the parts this run just wrote
         run: git pull --rebase origin main
       - name: gate + derive
+        env:
+          CRONS_DIR: ${{ github.workspace }}/_crons
+          TLA_CORE_DIR: ${{ github.workspace }}/_core
         run: |
           node .github/scripts/nft-flows/gate-classify.mjs .
           node .github/scripts/nft-flows/derive.js
