@@ -1,25 +1,25 @@
 {
  "product": "adao/ledger",
  "schema": "nft-flows-1.0",
- "classifier": "NFT FLOWS CLASSIFIER v1",
+ "classifier": "NFT FLOWS CLASSIFIER v1 (1.1.6)",
  "collection": "adao",
  "label": "The Alliance DAO",
- "total": 47216,
+ "total": 47665,
  "by_kind": {
   "mint": 10000,
-  "transfer": 13668,
+  "transfer": 13685,
   "stake_enterprise": 3176,
-  "list": 3299,
+  "list": 3363,
   "unstake_enterprise": 2673,
   "delist": 1918,
   "bid": 1287,
-  "sale": 1343,
+  "sale": 1445,
   "venue_in": 22,
-  "venue_out": 159,
+  "venue_out": 161,
   "mint_purchase": 5607,
   "break": 1093,
   "backing_add": 811,
-  "stake": 1911,
+  "stake": 2175,
   "claim": 245,
   "unstake": 4
  },
@@ -61,18 +61,16 @@
  ],
  "coverage": [
   {
-   "source": "tla-core:archive/fcd/adao-collection",
+   "source": "adao/archive/fcd:collection",
    "from": 8094215,
    "to": 13730176,
-   "parts": 0,
-   "imported": "archive lives in tla-core; records imported (collection.json capture.archives.external_coverage)"
+   "parts": 26
   },
   {
-   "source": "tla-core:archive/fcd/adao-minter",
+   "source": "adao/archive/fcd:minter",
    "from": 8094215,
    "to": 13570096,
-   "parts": 0,
-   "imported": "archive lives in tla-core; records imported (collection.json capture.archives.external_coverage)"
+   "parts": 4
   },
   {
    "source": "adao/raw:13728217-13737810",
@@ -116,53 +114,25 @@
    "from": 22681531,
    "to": 22809971,
    "parts": 1
-  },
-  {
-   "source": "forward:org-nft-flows",
-   "from": 22809972,
-   "to": 22912879,
-   "parts": 0
   }
  ],
  "known_gaps": [],
- "forward_stream": "org-nft-flows-adao (Render, hourly) → adao/raw/forward + this ledger",
- "added_this_run": 0,
- "skipped_duplicates": 225,
- "generatedAt": "2026-09-12T21:13:12.148Z",
- "updatedAt": "2026-09-19T17:06:26.871Z",
- "repairs": [
-  {
-   "id": "buy-now-settle-1.1.4",
-   "at": "2026-09-14T01:20:59.747Z",
-   "sales_added": 135,
-   "superseded": 135,
-   "files": 19
-  },
-  {
-   "id": "mint-phase-1.1.5",
-   "at": "2026-09-18T21:33:56.162Z",
-   "superseded": 5607,
-   "added": 5607,
-   "files": 3
-  }
- ],
- "by_kind_live": {
-  "mint": 10000,
-  "transfer": 11714,
-  "stake_enterprise": 3176,
-  "list": 3299,
-  "unstake_enterprise": 2673,
-  "delist": 1918,
-  "bid": 1287,
-  "sale": 1343,
-  "venue_in": 22,
-  "venue_out": 24,
-  "break": 1093,
-  "mint_purchase": 1954,
-  "backing_add": 810,
-  "stake": 1911,
-  "claim": 245,
-  "unstake": 4
+ "forward_stream": "org-nft-flows-adao (Render) → adao/raw/forward + this ledger",
+ "added_this_run": 449,
+ "skipped_duplicates": 51015,
+ "repaired_this_run": 13,
+ "repaired_fields": {
+  "price.denom": 1,
+  "usd": 1,
+  "from": 12
  },
- "superseded": 5742
+ "superseded_this_run": 449,
+ "superseded_why": {
+  "listing_id n→n": 33,
+  "msg_index n→n": 385,
+  "msg_index n→n, listing_id n→n": 28,
+  "msg_index n→n, listing_id -→n": 3
+ },
+ "superseded_total": 6191,
+ "generatedAt": "2026-09-19T17:12:18.102Z"
 }
