@@ -1,23 +1,23 @@
 {
  "product": "pixel-lions/ledger",
  "schema": "nft-flows-1.0",
- "classifier": "NFT FLOWS CLASSIFIER v1",
+ "classifier": "NFT FLOWS CLASSIFIER v1 (1.1.6)",
  "collection": "pixel-lions",
  "label": "pixeLions",
- "total": 46611,
+ "total": 46937,
  "by_kind": {
   "mint": 5000,
   "mint_purchase": 5000,
-  "list": 4978,
-  "transfer": 9204,
+  "list": 4996,
+  "transfer": 9235,
   "venue_in": 4,
-  "sale": 2012,
+  "sale": 2050,
   "delist": 2894,
-  "bid": 2354,
+  "bid": 2360,
   "venue_out": 185,
   "stake_enterprise": 5429,
   "unstake_enterprise": 4753,
-  "stake": 3725,
+  "stake": 3958,
   "unstake": 305,
   "claim": 768
  },
@@ -279,27 +279,23 @@
    "from": 22801000,
    "to": 22810000,
    "parts": 1
-  },
-  {
-   "source": "forward:org-nft-flows",
-   "from": 22810001,
-   "to": 22912463,
-   "parts": 0
   }
  ],
  "known_gaps": [],
- "forward_stream": "org-nft-flows-pixel-lions (Render, hourly) → pixel-lions/raw/forward + this ledger",
- "added_this_run": 0,
- "skipped_duplicates": 59958,
- "generatedAt": "2026-09-12T21:13:12.306Z",
- "updatedAt": "2026-09-19T16:26:07.660Z",
- "repairs": [
-  {
-   "id": "buy-now-settle-1.1.4",
-   "at": "2026-09-14T01:20:59.747Z",
-   "sales_added": 182,
-   "superseded": 182,
-   "files": 15
-  }
- ]
+ "forward_stream": "org-nft-flows-pixel-lions (Render) → pixel-lions/raw/forward + this ledger",
+ "added_this_run": 326,
+ "skipped_duplicates": 59638,
+ "repaired_this_run": 9,
+ "repaired_fields": {
+  "from": 9
+ },
+ "superseded_this_run": 316,
+ "superseded_why": {
+  "listing_id n→n": 14,
+  "msg_index n→n": 298,
+  "msg_index n→n, listing_id n→n": 3,
+  "msg_index n→n, listing_id -→n": 1
+ },
+ "superseded_total": 498,
+ "generatedAt": "2026-09-19T17:02:48.980Z"
 }
