@@ -1,8 +1,14 @@
 'use strict';
-// derive.js — nft-flows derive 1.0 (SPEC-nft-flows.md). Runs inside the repo checkout (workflow nft-flows-derive.yml):
-//   inputs : docs/curated/nft-collections.json · archive/fcd/<label>/part-*.json.gz (FCD era, events + decoded msgs)
-//            tla-flows/raw/<from>-<to>/part-*.json.gz (archive walk, events only) · nfts/raw/<collection>/<from>-<to>/part-*.json.gz (nft-flows walk)
-//            nfts/adao/snapshots/luna-usd-daily.json (LUNA USD by day, 2022-05-28 →)
+// derive.js — nft-flows derive 1.1 (SPEC-nft-flows.md). Runs inside the repo checkout (workflows nft-flows-derive.yml,
+// nft-flows-forward.yml):
+//   1.1 (2026-09-19, CHANGES_PENDING B.4): USD at the day comes from THE org price oracle (tla-core/price-history/YYYY/MM.json)
+//       through platform-crons/nfts/nft-flows/lib/oracle-usd.js — the SAME file the Render cron prices with, required from a
+//       run-time checkout (env CRONS_DIR), never copied here; symbols from the token-catalog (lib/denom-symbol.js). The deleted
+//       tla-core/nfts/adao/snapshots/luna-usd-daily.json is gone from this script and both workflows; a ledger derived with
+//       no oracle on disk prices to null WITH the reason, and the forward cron's reprice pass fills it month by month.
+//   inputs : <slug>/collection.json (capture block) + venues.json · <slug>/archive/fcd/<label>/part-*.json.gz (FCD era)
+//            <slug>/raw/<from>-<to>/part-*.json.gz (archive / forward walks)
+//            env TLA_CORE_DIR (a tla-core checkout with price-history/ + token-catalog/snapshots/) · env CRONS_DIR (platform-crons)
 //   outputs: nfts/<collection>/ledger/YYYY/MM.json   (NOT nfts/<collection>/flows/ — that path is the daily state-diff product of nfts/adao/flows.js)  (records; write-once per key, merge idempotent)
 //            nfts/<collection>/ledger/primary-sales.json (per token: first exit from the launchpad, price, USD at that day)
 //            nfts/<collection>/ledger/lineage.json (locks only: id graph from migrate/split/merge)
@@ -24,16 +30,27 @@ const reg = loadRegistry(ROOT); const idx = buildIndex(reg);
 const cols = Object.keys(reg.collections).filter(k => !ONLY.length || ONLY.includes(k));
 if (!cols.length) { console.error(`FATAL: no collection matches COLLECTIONS="${process.env.COLLECTIONS}" (registered: ${Object.keys(reg.collections).join(', ')})`); process.exit(1); }
 
-// ---------------------------------------------------------------- price at time
-let LUNA = null; try { LUNA = rj(P('_shared', 'luna-usd-daily.json')).daily; } catch { console.warn('_shared/luna-usd-daily.json missing (the workflow fetches it from tla-core) — USD legs will be null'); }
-const USDC_IBC = /^ibc\/2C962DAB9F57FE0921435426AE75196009FAA1981BF86991203C8411F8980FDB$/;
-function usdAt(price, ts) {
-  if (!price || price.amount == null || !price.denom) return { usd: null, usd_reason: 'no_price' };
-  const day = String(ts).slice(0, 10); const amt = Number(price.amount) / 1e6;
-  if (price.denom === 'uluna') { const px = LUNA && LUNA[day]; return px != null ? { usd: amt * px, usd_reason: undefined, luna_usd: px } : { usd: null, usd_reason: 'luna_usd_daily_missing:' + day }; }
-  if (USDC_IBC.test(price.denom)) return { usd: amt, usd_reason: undefined };
-  return { usd: null, usd_reason: 'no_usd_series_for_denom:' + price.denom };   // LST / SOLID legs: fold in when a dated series exists
+// ---------------------------------------------------------------- price at time (1.1: THE oracle, THE resolver — no copy)
+const CRONS = process.env.CRONS_DIR || P('_crons'), CORE = process.env.TLA_CORE_DIR || P('_core');
+let O = null, RESOLVE = null;
+{
+  const libp = path.join(CRONS, 'nfts/nft-flows/lib/oracle-usd.js');
+  if (!fs.existsSync(libp)) { console.error(`FATAL: ${libp} missing — the workflow checks platform-crons out at _crons (env CRONS_DIR); derive prices with the cron's rule, not its own`); process.exit(1); }
+  const OU = require(libp); const DS = require(path.join(CRONS, 'lib/denom-symbol.js'));
+  try { RESOLVE = DS.buildResolver(rj(path.join(CORE, 'token-catalog/snapshots/current.json'))); console.log(`token-catalog: ${RESOLVE.size} denoms resolvable`); }
+  catch (e) { console.warn(`token-catalog/snapshots/current.json unreadable at ${CORE} (${e.message}) — only uluna resolves; every other priced leg is labeled catalog_unavailable`); }
+  O = OU.makeOracle({ fetchMonth: async (mk) => rj(path.join(CORE, 'price-history', mk + '.json')), resolve: () => RESOLVE });
 }
+// every oracle month on disk, loaded once (the Action runner's heap is not the Render heap; derive holds the whole ledger anyway)
+async function loadOracle() {
+  const root = path.join(CORE, 'price-history'); let n = 0;
+  for (const y of (fs.existsSync(root) ? fs.readdirSync(root) : []).filter(d => /^\d{4}$/.test(d)).sort()) for (const m of fs.readdirSync(path.join(root, y)).filter(x => /^\d{2}\.json$/.test(x)).sort()) { if (await O.loadMonth(y + '/' + m.slice(0, 2))) n++; }
+  if (!n) console.warn(`price-history has no months at ${root} — USD legs will be null (price_history_month_missing), the forward cron's reprice pass fills them`);
+  else console.log(`price-history: ${n} months loaded, latest day ${O.latest()}`);
+}
+const usdAt = (price, ts) => O.usdAt(price, ts);   // same call sites as 1.0; the record now carries usd_basis / denom_symbol like the cron writes
+const USD_KEYS = ['usd', 'usd_reason', 'usd_basis', 'unit_usd', 'luna_usd', 'denom_symbol', 'denom_decimals', 'denom_symbol_reason'];
+const priceOf = (price, ts) => { const u = usdAt(price, ts); const o = {}; for (const k of USD_KEYS) o[k] = u[k] === undefined ? null : u[k]; return o; };   // primary-sales rows: every USD field present (null when absent) so a reader never guesses
 
 // ---------------------------------------------------------------- archives on disk
 function listParts(dir) { try { const all = fs.readdirSync(dir).filter(f => /^part-\d+\.json(\.gz)?$/.test(f)); const gz = new Set(all.filter(f => f.endsWith('.gz')).map(f => f.slice(0, -3))); return all.filter(f => f.endsWith('.gz') || !gz.has(f)).sort().map(f => path.join(dir, f)); } catch { return []; } }   // harvest writes .json; fcd-compact turns it into .json.gz — read either, never both
@@ -54,7 +71,7 @@ function txsOf(a) {
 
 // ---------------------------------------------------------------- run
 (async () => {
-  const t0 = Date.now();
+  const t0 = Date.now(); await loadOracle();
   const out = {}; for (const c of cols) out[c] = { byMonth: {}, coverage: {}, seen: new Set(), n: 0, dup: 0 };
   // load existing month files (never-shrink)
   for (const c of cols) { const fr = layout(ROOT, c).ledger; if (!fs.existsSync(fr)) continue; for (const y of fs.readdirSync(fr).filter(d => /^\d{4}$/.test(d))) for (const m of fs.readdirSync(path.join(fr, y)).filter(f => /^\d{2}\.json$/.test(f))) { const raw = rj(path.join(fr, y, m)); if (!Array.isArray(raw)) { console.warn(`skip ${fr}/${y}/${m}: not a ledger month file`); continue; } const k = y + '/' + m.slice(0, 2); const recs = []; for (const r of raw) { r.collection = c; const key = recordKey(r); if (out[c].seen.has(key)) { out[c].dropped_dup = (out[c].dropped_dup || 0) + 1; continue; } out[c].seen.add(key); recs.push(r); } out[c].byMonth[k] = recs; /* a ledger is per collection: the slug is the folder; imported months keyed by an older name are the same records */ } }
@@ -84,11 +101,11 @@ function txsOf(a) {
     // primary sales: first launchpad exit per token (aDAO: the provenance product is authoritative; this file is derived only when a launchpad address is registered)
     const provDir = P(c, 'provenance', 'tokens');
     if (fs.existsSync(provDir)) {   // provenance product is authoritative: sale_primary (paid phases) + mint_free (free claims); mint_treasury/stock moves are not sales
-      const first = {}; for (const f of fs.readdirSync(provDir).filter(x => /\.json$/.test(x)).sort()) for (const t of rj(path.join(provDir, f))) { const e = (t.events || []).find(x => x.type === 'sale_primary' || x.type === 'mint_free'); if (!e) continue; const price = e.cost ? { amount: e.cost.amount, denom: e.cost.denom } : { amount: '0', denom: null }; const u = usdAt(price, e.ts); first[t.token_id] = { token_id: t.token_id, buyer: e.to, ts: e.ts, height: e.height, txhash: e.txhash, phase: e.phase_id || null, price, usd: u.usd, usd_reason: u.usd_reason, luna_usd: u.luna_usd ?? null }; }
+      const first = {}; for (const f of fs.readdirSync(provDir).filter(x => /\.json$/.test(x)).sort()) for (const t of rj(path.join(provDir, f))) { const e = (t.events || []).find(x => x.type === 'sale_primary' || x.type === 'mint_free'); if (!e) continue; const price = e.cost ? { amount: e.cost.amount, denom: e.cost.denom } : { amount: '0', denom: null }; const u = priceOf(price, e.ts); first[t.token_id] = Object.assign({ token_id: t.token_id, buyer: e.to, ts: e.ts, height: e.height, txhash: e.txhash, phase: e.phase_id || null, price }, u); }
       const paid = Object.values(first).filter(x => Number(x.price.amount) > 0);
       wj(path.join(base, 'primary-sales.json'), { collection: c, source: 'nfts/' + c + '/provenance (authoritative)', tokens: Object.keys(first).length, paid: paid.length, free_or_admin: Object.keys(first).length - paid.length, total_luna: paid.reduce((s, x) => s + Number(x.price.amount) / 1e6, 0), total_usd: paid.reduce((s, x) => s + (x.usd || 0), 0), usd_unpriced: paid.filter(x => x.usd == null).length, by_token: first, generatedAt: new Date().toISOString() });
     } else if (col.launchpad && col.launchpad.address) {
-      const first = {}; all.filter(r => r.kind === KIND.MINT_PURCHASE).sort((a, b) => a.height - b.height).forEach(r => { if (!first[r.token_id]) first[r.token_id] = { token_id: r.token_id, buyer: r.to, ts: r.ts, height: r.height, txhash: r.txhash, price: r.price, usd: r.usd ?? null, usd_reason: r.usd_reason, luna_usd: r.luna_usd ?? null }; });
+      const first = {}; all.filter(r => r.kind === KIND.MINT_PURCHASE).sort((a, b) => a.height - b.height).forEach(r => { if (!first[r.token_id]) { const o = { token_id: r.token_id, buyer: r.to, ts: r.ts, height: r.height, txhash: r.txhash, price: r.price }; for (const k of USD_KEYS) o[k] = r[k] === undefined ? null : r[k]; first[r.token_id] = o; } });   // 1.1: the record's USD fields verbatim (basis, symbol), null when absent
       const paid = Object.values(first).filter(x => x.price && Number(x.price.amount) > 0);
       wj(path.join(base, 'primary-sales.json'), { collection: c, launchpad: col.launchpad.address, tokens: Object.keys(first).length, paid: paid.length, free_or_admin: Object.keys(first).length - paid.length, total_usd: paid.reduce((s, x) => s + (x.usd || 0), 0), usd_unpriced: paid.filter(x => x.usd == null).length, by_token: first, generatedAt: new Date().toISOString() });
     }
