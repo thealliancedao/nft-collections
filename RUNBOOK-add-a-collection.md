@@ -41,6 +41,13 @@ Every priced record carries `usd`, `usd_basis` (`price-history:<day> (<src>)` or
 with the reason. A day the oracle has not written yet stays null; the forward cron's reprice pass fills it month by month.
 Gate: derive on Pixel Lions' real archives re-priced 14,276 rows identical to the ledger the cron had priced (0 disagreements).
 
+## 3c. Images (one time, before the collection goes live on the site)
+Public IPFS gateways refuse a gallery's worth of hot-linked images (2026-09-19: ipfs.io 403, dweb.link 429). Run
+`mirror-images` (Actions; secrets CF_ACCOUNT_ID · CF_IMAGES_TOKEN · CF_ACCOUNT_HASH · IPFS_GATEWAY — a tokened gateway URL template
+with `{cid}` and `{path}`) with the collection slug; it copies `<cid>/<id>.png` to the site's Cloudflare Images account as
+`<slug_underscored>/<id>.png`, writes `<slug>/images/mirror-report.json` (write-once per id, re-runs skip), and prints the
+`images.cdn_pattern` to set in `collection.json`. The explorer images through the manifest, so nothing else changes.
+
 ## 4. Forward
 Render → new cron service `org-nft-flows-<slug>`: repo platform-crons, root `nfts/nft-flows`, start `node index.js`,
 schedule `17 * * * *` (stagger minutes across collections), env `COLLECTION=<slug>`, `GITHUB_TOKEN` (nft-collections
