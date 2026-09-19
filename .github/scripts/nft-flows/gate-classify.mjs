@@ -164,6 +164,25 @@ console.log('\n== 1.1.6: msg_index from the event ATTRIBUTE (raw parts) · venue
   const none = run(tx('NONE', 1, '2026-01-01T00:00:00Z', [rev(PL, { action: 'transfer_nft', sender: 'terra1a', recipient: 'terra1b', token_id: 8 })]));
   ok(none.length === 1 && none[0].msg_index === 0, 'no field, no attribute → msg 0 (pre-attribute raw parts unchanged)', none);
 }
+console.log('\n== 1.1.6 (e): msg bodies paired by token / position (resolve-msg-bodies, walks ≥ 1.5.0) ==');
+{ const rev = (c, o, mi) => ({ type: 'wasm', attributes: Object.entries(Object.assign({ _contract_address: c }, o, mi == null ? {} : { msg_index: mi })).map(([k, v]) => ({ key: k, value: String(v) })) });
+  const S = 'terra1aaxprs78gfa6xnahm8jp73eps75kfe4grt2uy8'; const setup = (amt) => ({ setup: { to_info: { native: 'uluna' }, setup: { nft: { to_amount: String(amt) } } } });
+  const toks = [[1436, 246, 25000000], [1959, 247, 30000000], [121, 252, 99000000]];
+  // pre-attribute part (no msg_index anywhere) + bodies fetched by hash: every token must price from ITS send_nft body
+  const t = tx('01264E', 14968225, '2025-04-01T07:53:54Z', toks.flatMap(([id, lid]) => [rev(PL, { action: 'send_nft', sender: S, recipient: BST, token_id: id }), rev(BST, { action: 'launch-nft/setup', collection: PL, id: lid, token_id: id })]),
+    toks.map(([id, , amt]) => ({ '@type': '/cosmwasm.wasm.v1.MsgExecuteContract', sender: S, contract: PL, msg: { send_nft: { contract: BST, token_id: String(id), msg: b64(setup(amt)) } }, funds: [] })));
+  const r = run(t);
+  ok(r.length === 3 && toks.every(([id, lid, amt]) => r.some(x => x.kind === KIND.LIST && x.token_id === String(id) && x.listing_id === String(lid) && x.price && x.price.amount === String(amt) && x.price.denom === 'uluna' && !x.price_reason)), 'Boost multi-token listing in ONE group: each token priced from its own body (25 / 30 / 99 LUNA), not messages[0] for all', r.map(x => [x.token_id, x.listing_id, x.price && x.price.amount]));
+  // the same bodies with attribute-era msg_index: identical result (the token lookup does not depend on the index)
+  const t2 = tx('01264F', 14968225, '2025-04-01T07:53:54Z', toks.flatMap(([id, lid], i) => [rev(PL, { action: 'send_nft', sender: S, recipient: BST, token_id: id }, i), rev(BST, { action: 'launch-nft/setup', collection: PL, id: lid, token_id: id }, i)]), t.messages);
+  const r2 = run(t2); ok(r2.length === 3 && r2.every((x, i) => x.msg_index === i) && toks.every(([id, , amt]) => r2.some(x => x.token_id === String(id) && x.price.amount === String(amt))), 'same tx with msg_index attributes → three groups, same prices, true indices', r2.map(x => [x.msg_index, x.token_id, x.price && x.price.amount]));
+  // two DAODAO unstakes in one pre-attribute group: k-th unstake event ↔ k-th unstake message
+  const u = run(tx('9FE074', 13783553, '2025-01-10T00:00:00Z', [rev(PLV, { action: 'unstake', from: 'terra1rerw0v', claim_duration: '604800' }), rev(PLV, { action: 'unstake', from: 'terra1rerw0v', claim_duration: '604800' })],
+    [{ '@type': '/cosmwasm.wasm.v1.MsgExecuteContract', sender: 'terra1rerw0v', contract: PLV, msg: { unstake: { token_ids: ['77', '78'] } }, funds: [] }, { '@type': '/cosmwasm.wasm.v1.MsgExecuteContract', sender: 'terra1rerw0v', contract: PLV, msg: { unstake: { token_ids: ['900'] } }, funds: [] }]));
+  ok(u.length === 3 && u.map(x => x.token_id).join() === '77,78,900' && u.every(x => x.kind === KIND.UNSTAKE && !x.note), 'two unstake events in one group → 77, 78 from the first message, 900 from the second (no duplicated ids, no "resolve at claim" note)', u.map(x => [x.token_id, x.note]));
+  const u0 = run(tx('9FE075', 13783553, '2025-01-10T00:00:00Z', [rev(PLV, { action: 'unstake', from: 'terra1rerw0v', claim_duration: '604800' })]));
+  ok(u0.length === 1 && u0[0].token_id === null && /msg body/.test(u0[0].note), 'no body at all → one token-less unstake with the honest note (unchanged)', u0);
+}
 console.log('\n== committed archives (when present) ==');
 { const rawDir = path.join(ROOT, 'tla-locks/raw/17005824-17455823'); const fcd = path.join(ROOT, 'adao/archive/fcd/collection/part-00001.json.gz');
   if (fs.existsSync(path.join(rawDir, 'part-00000.json.gz'))) { const part = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(rawDir, 'part-00000.json.gz')))); const recs = part.flatMap(p => classifyNftTx({ txhash: p.x, height: p.h, timestamp: p.t, code: p.c, events: p.e }, reg, idx)); const by = {}; recs.forEach(r => { by[r.collection + ':' + r.kind] = (by[r.collection + ':' + r.kind] || 0) + 1; }); console.log('    raw part 2025-08:', JSON.stringify(by)); ok(recs.some(r => r.collection === 'tla-locks') && recs.some(r => r.collection === 'adao' && r.kind === 'backing_add' && r.backing.lst_minted === '1024898249'), 'raw part yields lock records + the aDAO backing_add (1,024.9 ampLUNA)'); ok(recs.every(r => r.kind !== KIND.SALE || r.price), 'every sale from raw carries a price'); }

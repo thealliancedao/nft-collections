@@ -9,6 +9,9 @@
 //   `send_from` (Boost's allowance pull — 9 aDAO Boost sales had amount but no denom); (d) a 2023 offer-contract sale names
 //   the seller from the venue's payout leg (recipient of the offer contract's transfer), the same way Boost's seller is read.
 //   Records from a raw part now carry the true msg_index; derive 1.2 supersedes the mis-keyed 1.1.5 rows (labeled, never deleted).
+//   (e) msg BODIES by token: a send_nft body is looked up by ITS token_id across the tx's messages (a pre-attribute part groups a
+//   7-token Boost listing as one msg — messages[0] would price every token like the first); several DAODAO unstake events in one
+//   group pair positionally with the tx's unstake messages. Bodies come from FCD parts, from walks ≥ 1.5.0, or msg-bodies.json.
 // 1.1.5 (2026-09-18): `launchpad.addresses` (several primary-sale holders per collection) + launchpad → distribution
 //   wallet / launchpad = TRANSFER (stock returned), never a $0 mint_purchase. aDAO sold through three candy machines
 //   (50 / 75 / 100-115-130 LUNA) fed from the treasury stock; the registry had the treasury as the launchpad, so 3,653
@@ -87,6 +90,8 @@ function paymentLegs(events) {
 }
 
 function msgBodyFor(tx, msgIndex) { const m = tx.messages && tx.messages[msgIndex]; return m && m.msg ? m.msg : null; }
+// 1.1.6 (e): the send_nft body for THIS token — any message of the tx whose send_nft names it; else the msg-index body
+function sendBodyForToken(tx, msgIndex, token) { for (const m of (tx.messages || [])) { const b = m && m.msg; const s = b && (b.send_nft || b.send); if (s && token != null && String(s.token_id) === String(token)) return b; } return msgBodyFor(tx, msgIndex); }
 function innerSendNftMsg(body) { const s = body && (body.send_nft || body.send); return s && s.msg ? b64json(s.msg) : null; }
 function denomLabel(d) { if (!d) return null; if (d.startsWith('cw20:')) return d; if (/^terra1[0-9a-z]{58}$/.test(d)) return 'cw20:' + d; return d; }   // BBL settle emits a bare cw20 address; create_auction emits cw20:… — one spelling
 
@@ -162,6 +167,7 @@ function classifyNftTx(tx, reg, idx) {
 
       if (vIn) {   // ---- into a venue = listing (or 2023 trade/offer escrow)
         const vw = venueW(to); const va = vw ? vw.a : {}; const vacts = vw ? actionsOf(vw) : [];
+        const inner = innerSendNftMsg(sendBodyForToken(tx, mi, token));   // 1.1.6 (e): this token's own send_nft body
         let price = null, reason, id = {};
         if (vacts.includes('create_auction')) { price = { amount: first(va, 'reserve'), denom: denomLabel(first(va, 'denom')) }; id = { auction_id: first(va, 'auction_id'), auction_type: first(va, 'auction_type') }; }
         else if (vacts.includes('list_nft')) { const pay = inner && inner.payment; price = { amount: first(va, 'price'), denom: pay ? (pay.Cw20 ? 'cw20:' + pay.Cw20.contract_addr : pay.Native ? pay.Native.denom : null) : null }; if (!price.denom) reason = 'msg_body_not_archived:denom'; id = { listing_id: first(va, 'listing_id'), expires_in_blocks: inner && inner.expires_in_blocks != null ? inner.expires_in_blocks : null }; }
@@ -215,7 +221,10 @@ function classifyNftTx(tx, reg, idx) {
     // ----- custodian events with no cw721 move: DAODAO unstake (token ids only in the msg body)
     for (const w of W) {
       const c = contractOf(w); const cu = idx.custByAddr[c]; if (!cu || cu.role !== 'daodao_voting') continue;
-      if (actionsOf(w).includes('unstake')) { const ids = body && body.unstake && Array.isArray(body.unstake.token_ids) ? body.unstake.token_ids : null; for (const t of (ids || [null])) push({ kind: KIND.UNSTAKE, collection: cu.collection, token_id: t, from: c, to: first(w.a, 'from'), custodian: cu.role, claim_duration: first(w.a, 'claim_duration') || null, note: t ? undefined : 'token ids live in the msg body (not archived in raw parts) — resolve at claim' }); }
+      if (actionsOf(w).includes('unstake')) {
+        const ubodies = (tx.messages || []).map(m => m && m.msg).filter(b => b && b.unstake); const uevs = W.filter(x => idx.custByAddr[contractOf(x)] && actionsOf(x).includes('unstake'));
+        const ub = uevs.length > 1 && ubodies.length === uevs.length ? ubodies[uevs.indexOf(w)] : body;   // 1.1.6 (e): k-th unstake event ↔ k-th unstake message when a pre-attribute group holds several
+        const ids = ub && ub.unstake && Array.isArray(ub.unstake.token_ids) ? ub.unstake.token_ids : null; for (const t of (ids || [null])) push({ kind: KIND.UNSTAKE, collection: cu.collection, token_id: t, from: c, to: first(w.a, 'from'), custodian: cu.role, claim_duration: first(w.a, 'claim_duration') || null, note: t ? undefined : 'token ids live in the msg body (not archived in raw parts) — resolve at claim' }); }
     }
   }
   return out;

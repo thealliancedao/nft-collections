@@ -1,6 +1,11 @@
 
 'use strict';
-// walk.js — nft-flows walk 1.0 (SPEC-nft-flows.md). Walks ONE collection's watch set over [FROM,TO] against an RPC
+// walk.js — nft-flows walk 1.1 (SPEC-nft-flows.md).
+//   1.1 (2026-09-19, B.1): MESSAGE BODIES archived beside the events — `m` on every matched raw record, decoded from the tx
+//   bytes (tx_search's `tx`, a block's data.txs) by platform-crons/nfts/nft-flows/lib/tx-body.js, required from the run-time
+//   checkout (env CRONS_DIR; the walk workflow checks platform-crons out at _crons). A collection walked from 1.1 on never
+//   needs resolve-msg-bodies: Boost list prices, Atrium list denoms and DAODAO unstake ids classify at derive.
+// Walks ONE collection's watch set over [FROM,TO] against an RPC
 // (secret ARCHIVE_RPC for the pruned span; RPC_URL for the public retained span) and archives every matched tx's
 // events as write-once raw parts under nfts/raw/<collection>/<FROM>-<TO>/part-NNNNN.json.gz — the SAME part shape as
 // tla-flows/raw ({h,x,t,c,e}) so derive.js reads both. Nothing is classified here: raw is truth, derive is opinion.
@@ -22,6 +27,10 @@ const AGENT = new https.Agent({ keepAlive: true, maxSockets: 4 });
 const COLLECTION    = String(process.env.COLLECTION || 'pixel-lions');
 const cleanUrl      = (v) => String(v || '').trim().replace(/^['"]+|['"]+$/g, '').replace(/\/+$/, '');   // secrets pasted with a newline or quotes broke '/status' (2026-09-12)
 const ARCHIVE_RPC   = cleanUrl(process.env.ARCHIVE_RPC);
+const CRONS_DIR = process.env.CRONS_DIR || path.join(process.cwd(), '_crons');   // 1.1
+const TXB = path.join(CRONS_DIR, 'nfts/nft-flows/lib/tx-body.js'); if (!fs.existsSync(TXB)) { console.error(`FATAL: ${TXB} missing — the walk workflow checks platform-crons out at _crons (CRONS_DIR); message bodies are decoded by the cron's own decoder, never a copy`); process.exit(1); }
+const { decodeTxMessages } = require(TXB);
+const bodiesOf = (b64) => { try { const m = decodeTxMessages(b64); return m.length ? m : undefined; } catch (e) { return undefined; } };   // undecodable bytes → no `m` (events still archive), never guessed
 const RPC_URL       = cleanUrl(process.env.RPC_URL);
 const RPC           = ARCHIVE_RPC || RPC_URL;
 const FROM_RAW      = process.env.WALK_FROM || process.argv[2] || '';
@@ -171,7 +180,7 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
           if (Date.now() - t0 > RUN_BUDGET_MS) { budgetHit = true; break; }
           const r = await rpc(`/tx_search?query="${q}"&page=${page}&per_page=100&order_by="asc"`, `tx_search ${addr.slice(0, 12)} p${page}`);
           const txs = (r.result && r.result.txs) || []; const total = Number(r.result && r.result.total_count || 0);
-          for (const t of txs) { const x = String(t.hash).toUpperCase(); if (seen.has(x)) continue; seen.add(x); const ev = (t.tx_result && t.tx_result.events) || []; if (!touches(ev)) continue; matched++; raw.push({ h: Number(t.height), x, t: await timeOf(Number(t.height)), c: (t.tx_result && t.tx_result.code) || 0, e: ev }); }
+          for (const t of txs) { const x = String(t.hash).toUpperCase(); if (seen.has(x)) continue; seen.add(x); const ev = (t.tx_result && t.tx_result.events) || []; if (!touches(ev)) continue; matched++; raw.push({ h: Number(t.height), x, t: await timeOf(Number(t.height)), c: (t.tx_result && t.tx_result.code) || 0, e: ev, m: t.tx ? bodiesOf(t.tx) : undefined }); }
           await flushRaw(false);
           if (page === 1) console.log(`  ${addr.slice(0, 16)}…: ${total} txs indexed in range`);
           if (txs.length < 100 || page * 100 >= total) break;
@@ -193,7 +202,7 @@ function touches(events) { for (const e of events || []) { if (e.type !== 'wasm'
     for (let N = FROM; N <= TO_EFF; N++) {
       if (Date.now() - t0 > RUN_BUDGET_MS) { console.log(`⏱ budget reached at ${N - 1} — publishing the walked span, chaining onward`); budgetHit = true; break; }
       const blk = await inFlight.get(N); inFlight.delete(N); launch(N + CONC);
-      if (blk.txsB64.length) { const results = await getBlockResults(N); for (let i = 0; i < blk.txsB64.length; i++) { const res = results[i]; if (!res || !touches(res.events)) continue; matched++; raw.push({ h: N, x: txHashOf(blk.txsB64[i]), t: blk.time, c: res.code, e: res.events }); } await flushRaw(false); }
+      if (blk.txsB64.length) { const results = await getBlockResults(N); for (let i = 0; i < blk.txsB64.length; i++) { const res = results[i]; if (!res || !touches(res.events)) continue; matched++; raw.push({ h: N, x: txHashOf(blk.txsB64[i]), t: blk.time, c: res.code, e: res.events, m: bodiesOf(blk.txsB64[i]) }); } await flushRaw(false); }
       processedTo = N;
       if (Date.now() - lastLog > 15000) { console.log(`  at ${N} (${TO - N} to go · ${matched} matched)`); lastLog = Date.now(); }
     }
