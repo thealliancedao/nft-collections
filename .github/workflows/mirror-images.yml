@@ -1,0 +1,55 @@
+# mirror-images — ONE-TIME per collection: copy its images from IPFS (a tokened gateway in a secret) to the site's Cloudflare
+# Images account, the way aDAO's are served. Public gateways refuse a gallery's worth of hot-linked images (2026-09-19 HAR:
+# ipfs.io 403, dweb.link 429). Re-runs skip ids already mirrored (mirror-report.json is write-once per id).
+# Secrets: CF_ACCOUNT_ID · CF_IMAGES_TOKEN (Images: edit) · CF_ACCOUNT_HASH · IPFS_GATEWAY (template with {cid} and {path}).
+name: mirror-images
+on:
+  workflow_dispatch:
+    inputs:
+      collection:
+        description: 'collection slug'
+        type: choice
+        default: pixel-lions
+        options: [pixel-lions, burning-lions]
+      from:
+        description: 'first token id (default 1)'
+        default: '1'
+      to:
+        description: 'last token id (default: supply)'
+        default: ''
+      dry:
+        description: 'list only, upload nothing'
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: mirror-images-${{ inputs.collection }}
+  cancel-in-progress: false
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: mirror
+        env:
+          COLLECTION: ${{ inputs.collection }}
+          FROM: ${{ inputs.from }}
+          TO: ${{ inputs.to }}
+          DRY: ${{ inputs.dry && '1' || '' }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_IMAGES_TOKEN: ${{ secrets.CF_IMAGES_TOKEN }}
+          CF_ACCOUNT_HASH: ${{ secrets.CF_ACCOUNT_HASH }}
+          IPFS_GATEWAY: ${{ secrets.IPFS_GATEWAY }}
+        run: node .github/scripts/mirror-images/mirror.js
+      - name: commit the report
+        run: |
+          git config user.name "mirror-images" && git config user.email "bot@thealliancedao.com"
+          git add */images/mirror-report.json
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git commit -m "mirror-images ${{ inputs.collection }} $(date -u +%Y-%m-%dT%H:%M)Z"
+          for i in 1 2 3 4 5 6; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 15)); done; exit 1
