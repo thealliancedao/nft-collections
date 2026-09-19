@@ -1,7 +1,9 @@
-# mirror-images — ONE-TIME per collection: copy its images from IPFS (a tokened gateway in a secret) to the site's Cloudflare
-# Images account, the way aDAO's are served. Public gateways refuse a gallery's worth of hot-linked images (2026-09-19 HAR:
-# ipfs.io 403, dweb.link 429). Re-runs skip ids already mirrored (mirror-report.json is write-once per id).
-# Secrets: CF_ACCOUNT_ID · CF_IMAGES_TOKEN (Images: edit) · CF_ACCOUNT_HASH · IPFS_GATEWAY (template with {cid} and {path}).
+# mirror-images — ONE-TIME per collection: copy its images from IPFS (a tokened gateway in a secret) to where the site can serve
+# them. Public gateways refuse a gallery's worth of hot-linked images (2026-09-19 HAR: ipfs.io 403, dweb.link 429).
+#   target repo (default, no account): files land in <slug>/images/<id>.png in this repo, committed in batches of 500, served
+#     through jsDelivr's GitHub CDN (raw.githubusercontent as fallback). ~5,000 small PNGs.
+#   target cloudflare: Cloudflare Images (secrets CF_ACCOUNT_ID · CF_IMAGES_TOKEN · CF_ACCOUNT_HASH).
+# Secret IPFS_GATEWAY: a gateway URL template with {cid} and {path}. Re-runs skip ids already mirrored (mirror-report.json).
 name: mirror-images
 on:
   workflow_dispatch:
@@ -11,6 +13,11 @@ on:
         type: choice
         default: pixel-lions
         options: [pixel-lions, burning-lions]
+      target:
+        description: 'where the images go'
+        type: choice
+        default: repo
+        options: [repo, cloudflare]
       from:
         description: 'first token id (default 1)'
         default: '1'
@@ -34,22 +41,35 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: mirror
+          node-version: 24
+      - name: mirror (batches of 500 ids; target repo commits after each batch)
         env:
           COLLECTION: ${{ inputs.collection }}
-          FROM: ${{ inputs.from }}
-          TO: ${{ inputs.to }}
-          DRY: ${{ inputs.dry && '1' || '' }}
+          TARGET: ${{ inputs.target }}
+          DRY: ${{ inputs.dry == true && '1' || '' }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_IMAGES_TOKEN: ${{ secrets.CF_IMAGES_TOKEN }}
           CF_ACCOUNT_HASH: ${{ secrets.CF_ACCOUNT_HASH }}
           IPFS_GATEWAY: ${{ secrets.IPFS_GATEWAY }}
-        run: node .github/scripts/mirror-images/mirror.js
-      - name: commit the report
         run: |
           git config user.name "mirror-images" && git config user.email "bot@thealliancedao.com"
-          git add */images/mirror-report.json
-          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
-          git commit -m "mirror-images ${{ inputs.collection }} $(date -u +%Y-%m-%dT%H:%M)Z"
+          SUPPLY=$(node -e "console.log(JSON.parse(require('fs').readFileSync('${{ inputs.collection }}/collection.json')).supply)")
+          FROM_ID=${{ inputs.from }}; TO_ID="${{ inputs.to }}"; TO_ID=${TO_ID:-$SUPPLY}
+          for ((B=FROM_ID; B<=TO_ID; B+=500)); do
+            E=$((B+499)); if [ $E -gt $TO_ID ]; then E=$TO_ID; fi
+            echo "=== batch $B..$E ==="
+            FROM=$B TO=$E node .github/scripts/mirror-images/mirror.js
+            if [ "$TARGET" = "repo" ] && [ -z "$DRY" ]; then
+              git add ${{ inputs.collection }}/images
+              if ! git diff --cached --quiet; then
+                git commit -q -m "mirror-images ${{ inputs.collection }} $B-$E"
+                for i in 1 2 3 4 5 6; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; echo "push try $i lost the race — retrying"; sleep $((i * 15)); done
+              fi
+            fi
+          done
+      - name: commit the report (cloudflare target, or a dry run leaves nothing)
+        run: |
+          git add */images/mirror-report.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nothing further to commit"; exit 0; fi
+          git commit -m "mirror-images ${{ inputs.collection }} report $(date -u +%Y-%m-%dT%H:%M)Z"
           for i in 1 2 3 4 5 6; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 15)); done; exit 1
