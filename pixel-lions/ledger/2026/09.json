@@ -634,7 +634,24 @@
   "custodian": "daodao_voting",
   "claim_duration": "time: 1",
   "note": "token ids live in the msg body (not archived in raw parts) — resolve at claim",
-  "source": "nfts/raw/pixel:22681531-22810000"
+  "source": "nfts/raw/pixel:22681531-22810000",
+  "superseded_by": "1A2008DAD619CCB25AEA08A082BA987D475E2F643427CC432754537C5C176593|0|unstake|pixel-lions|1065|-",
+  "superseded_reason": "classify-1.1.6: token_id -→n",
+  "superseded_at": "2026-09-19T18:13:03.925Z"
+ },
+ {
+  "txhash": "1A2008DAD619CCB25AEA08A082BA987D475E2F643427CC432754537C5C176593",
+  "height": 22795553,
+  "ts": "2026-09-11T20:57:31.705502078Z",
+  "msg_index": 0,
+  "kind": "unstake",
+  "collection": "pixel-lions",
+  "token_id": "1065",
+  "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+  "to": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
+  "custodian": "daodao_voting",
+  "claim_duration": "time: 1",
+  "source": "pixel-lions/raw:22681531-22810000"
  },
  {
   "txhash": "9249A4E98C89DD5183F6AFA2659E817591B1D3FFEFF50E6100CA36EB3FCF5E37",
@@ -672,10 +689,25 @@
   "venue": "boost",
   "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
   "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-  "price": null,
-  "price_reason": "msg_body_not_archived:price",
+  "price": {
+   "amount": "25000000",
+   "denom": "uluna"
+  },
   "listing_id": "497",
-  "source": "nfts/raw/pixel:22681531-22810000"
+  "source": "nfts/raw/pixel:22681531-22810000",
+  "denom_symbol": "LUNA",
+  "denom_decimals": 6,
+  "usd": 1.1840105,
+  "usd_basis": "price-history:2026-09-12 (tla)",
+  "unit_usd": 0.04736042,
+  "luna_usd": 0.04736042,
+  "repaired_by": "classify-1.1.6",
+  "repaired_fields": [
+   "price",
+   "usd",
+   "price_reason"
+  ],
+  "repaired_at": "2026-09-19T18:13:03.925Z"
  },
  {
   "txhash": "A58EF42E0BA5806C31D64131C36CBC9DFF041BDFE816B1E3DE07D03DC468864F",
@@ -718,10 +750,24 @@
   "venue": "boost",
   "from": "terra1d0jq9l5narcgy46v5agnv8hqmn5m8kj3lkh93l",
   "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-  "price": null,
-  "price_reason": "msg_body_not_archived:price",
+  "price": {
+   "amount": "10000000",
+   "denom": "ibc/2C962DAB9F57FE0921435426AE75196009FAA1981BF86991203C8411F8980FDB"
+  },
   "listing_id": "498",
-  "source": "nfts/raw/pixel:22681531-22810000"
+  "source": "nfts/raw/pixel:22681531-22810000",
+  "denom_symbol": "USDC.n",
+  "denom_decimals": 6,
+  "usd": 9.99916,
+  "usd_basis": "price-history:2026-09-12 (tla)",
+  "unit_usd": 0.999916,
+  "repaired_by": "classify-1.1.6",
+  "repaired_fields": [
+   "price",
+   "usd",
+   "price_reason"
+  ],
+  "repaired_at": "2026-09-19T18:13:03.925Z"
  },
  {
   "txhash": "AB16BEB2B67364267D034E6AAB584227647CAA6F259A91795772462FEF1E0FC5",
@@ -752,14 +798,23 @@
   "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
   "price": {
    "amount": "25000000",
-   "denom": null
+   "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
   },
-  "price_reason": "msg_body_not_archived:denom",
   "listing_id": "556",
   "expires_in_blocks": null,
   "source": "nfts/raw/pixel:22681531-22810000",
-  "usd": null,
-  "usd_reason": "no_price"
+  "denom_symbol": "SOLID",
+  "denom_decimals": 6,
+  "usd": 25.321228075494034,
+  "usd_basis": "price-history:2026-09-12 (tla)",
+  "unit_usd": 1.0128491230197614,
+  "repaired_by": "classify-1.1.6",
+  "repaired_fields": [
+   "price.denom",
+   "usd",
+   "price_reason"
+  ],
+  "repaired_at": "2026-09-19T18:13:03.925Z"
  },
  {
   "txhash": "D9363F2F030185DCA12D32C86F4778154878407EC8C553980B1D303C46807335",
@@ -807,14 +862,23 @@
   "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
   "price": {
    "amount": "2000000",
-   "denom": null
+   "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
   },
-  "price_reason": "msg_body_not_archived:denom",
   "listing_id": "557",
   "expires_in_blocks": null,
   "source": "pixel-lions/raw:22681531-22810000",
-  "usd": null,
-  "usd_reason": "no_price"
+  "denom_symbol": "SOLID",
+  "denom_decimals": 6,
+  "usd": 2.0256982460395228,
+  "usd_basis": "price-history:2026-09-12 (tla)",
+  "unit_usd": 1.0128491230197614,
+  "repaired_by": "classify-1.1.6",
+  "repaired_fields": [
+   "price.denom",
+   "usd",
+   "price_reason"
+  ],
+  "repaired_at": "2026-09-19T18:13:03.925Z"
  },
  {
   "txhash": "9F7021644D137BC194FD93F2CB23D1E724931EE11569CA609698BF92B37B6B75",
@@ -1162,14 +1226,23 @@
   "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
   "price": {
    "amount": "50000000",
-   "denom": null
+   "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
   },
-  "price_reason": "msg_body_not_archived:denom",
   "listing_id": "559",
   "expires_in_blocks": null,
   "source": "nfts/raw/pixel:22681531-22810000",
-  "usd": null,
-  "usd_reason": "no_price"
+  "denom_symbol": "SOLID",
+  "denom_decimals": 6,
+  "usd": 50.64245615098807,
+  "usd_basis": "price-history:2026-09-12 (tla)",
+  "unit_usd": 1.0128491230197614,
+  "repaired_by": "classify-1.1.6",
+  "repaired_fields": [
+   "price.denom",
+   "usd",
+   "price_reason"
+  ],
+  "repaired_at": "2026-09-19T18:13:03.925Z"
  },
  {
   "txhash": "3144DF23A8B9A99EB70DFEC578F54DB0FCDB67D4E91D33235C42DBBE485460DA",

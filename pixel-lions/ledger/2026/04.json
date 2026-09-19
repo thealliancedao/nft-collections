@@ -54,7 +54,24 @@
   "custodian": "daodao_voting",
   "claim_duration": "time: 1",
   "note": "token ids live in the msg body (not archived in raw parts) — resolve at claim",
-  "source": "nfts/raw/pixel:20337811-20637810"
+  "source": "nfts/raw/pixel:20337811-20637810",
+  "superseded_by": "F89690D5FC2BA4CC25D23091A2DBFBFDA399C02C183BF4AC4F17B7B0D10FBCCE|0|unstake|pixel-lions|4878|-",
+  "superseded_reason": "classify-1.1.6: token_id -→n",
+  "superseded_at": "2026-09-19T18:13:03.914Z"
+ },
+ {
+  "txhash": "F89690D5FC2BA4CC25D23091A2DBFBFDA399C02C183BF4AC4F17B7B0D10FBCCE",
+  "height": 20417685,
+  "ts": "2026-04-05T15:37:37.46218661Z",
+  "msg_index": 0,
+  "kind": "unstake",
+  "collection": "pixel-lions",
+  "token_id": "4878",
+  "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+  "to": "terra1rr0mlysgrclyhl0mau2uhjsftjtwm9j3g8tan8",
+  "custodian": "daodao_voting",
+  "claim_duration": "time: 1",
+  "source": "pixel-lions/raw:20337811-20637810"
  },
  {
   "txhash": "D740136483D21B3B8776C18E6F291DBED26093FB8612F44BAC3E4611E7DBCE15",
@@ -1584,10 +1601,23 @@
   "venue": "boost",
   "from": "terra1rnwr9zjgf6204lyk37w0l6hhtaptke5m2cfpmf",
   "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-  "price": null,
-  "price_reason": "msg_body_not_archived:price",
+  "price": {
+   "amount": "420000000",
+   "denom": "ibc/2C962DAB9F57FE0921435426AE75196009FAA1981BF86991203C8411F8980FDB"
+  },
   "listing_id": "468",
-  "source": "nfts/raw/pixel:20337811-20637810"
+  "source": "nfts/raw/pixel:20337811-20637810",
+  "denom_symbol": "USDC.n",
+  "denom_decimals": 6,
+  "usd": 420,
+  "usd_basis": "stable_1_1",
+  "repaired_by": "classify-1.1.6",
+  "repaired_fields": [
+   "price",
+   "usd",
+   "price_reason"
+  ],
+  "repaired_at": "2026-09-19T18:13:03.914Z"
  },
  {
   "txhash": "E47CD5CD42FA367CD9C00B69C24957BB721AB5E3328EC3D4E209D84CC621D9BE",
