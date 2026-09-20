@@ -5,9 +5,9 @@
  "nft_contract": "terra1phr9fngjv7a8an4dhmhd0u0f98wazxfnzccqtyheq4zqrrp4fpuqw3apw9",
  "note": "One record per marketplace listing. BBL price changes are cancel+recreate on-chain, so each auction_id is one price segment. Outcomes: sold (matched sale), delisted (token left the marketplace, no sale), active (still escrowed + live), unknown.",
  "counts": {
-  "delisted": 2000,
+  "delisted": 2002,
   "sold": 1255,
-  "active": 46,
+  "active": 44,
   "unknown": 3
  },
  "live_listings_missing_create": [],
@@ -67234,13 +67234,15 @@
      "denom": null,
      "from_ts": "2026-04-17T22:46:48Z",
      "from_height": 20600981,
-     "to_ts": null,
-     "end_reason": "still_listed"
+     "to_ts": "2026-09-20T22:53:01Z",
+     "end_reason": "delist",
+     "to_height": 22931419
     }
    ],
    "listing_type": "launch-nft/setup",
-   "outcome": "active",
-   "create_tx": "937021A967AC67F150461D4E6F6B1F474D3F0FE7B9D273B80B9EE42E795DA0DF"
+   "outcome": "delisted",
+   "create_tx": "937021A967AC67F150461D4E6F6B1F474D3F0FE7B9D273B80B9EE42E795DA0DF",
+   "closed_by": "nft-market-history-1.6.0"
   },
   {
    "token_id": "4291",
@@ -67381,13 +67383,15 @@
      "denom": null,
      "from_ts": "2026-04-28T13:12:59Z",
      "from_height": 20759391,
-     "to_ts": null,
-     "end_reason": "still_listed"
+     "to_ts": "2026-09-20T22:52:49Z",
+     "end_reason": "delist",
+     "to_height": 22931417
     }
    ],
    "listing_type": "launch-nft/setup",
-   "outcome": "active",
-   "create_tx": "4680B7F6FB3E9804A2C9801A273B4AF143A8947E35811F75EFE7771750487DF3"
+   "outcome": "delisted",
+   "create_tx": "4680B7F6FB3E9804A2C9801A273B4AF143A8947E35811F75EFE7771750487DF3",
+   "closed_by": "nft-market-history-1.6.0"
   },
   {
    "token_id": "3389",
@@ -68246,5 +68250,5 @@
  ],
  "updatedBy": "nft-forward-incremental.js",
  "maintained_by": "nft-market-history-1.6.0",
- "maintained_at": "2026-09-19T23:43:08.597Z"
+ "maintained_at": "2026-09-20T23:44:03.754Z"
 }
