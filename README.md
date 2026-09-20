@@ -17,6 +17,9 @@ flows, transfers, provenance, claims, the two FCD archives and the ledger; `tla-
 <slug>/
 ├── ledger/by-token/           nft-flows 1.4.0: every live ledger row per token, 100 tokens per shard + index.json — the read
 │                              shape for "open an NFT → its journey" (explorer sheet, app, portfolio NFT leg)
+├── ledger/by-wallet/          nft-flows 1.5.1: the ledger replayed per ADDRESS — <last bech32 char of the address>.json →
+│                              wallets[<address>] = holdings now by state, past holdings with P&L two ways, counts, events;
+│                              index.json lists the system addresses (no block). Help agent nft_wallet, journey sheet (next)
 ├── collection.json            config: contract, supply, traits, images, rarity  + capture block (custodians, launchpad,
 │                              minter, distributor, vetoer, royalty per venue, venues, gate, handle source, archives)
 ├── metadata/  rarity/  lore/  reference data (FORMATS.md)
