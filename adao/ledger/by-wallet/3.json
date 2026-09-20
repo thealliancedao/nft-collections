@@ -4,7 +4,7 @@
  "shard": "3",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 62,
- "records": 1510,
+ "records": 1512,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -20746,8 +20746,8 @@
   "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53": {
    "address": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
    "first_seen": "2024-02-01T03:04:41Z",
-   "last_seen": "2026-09-12T06:18:17.125136327Z",
-   "events_count": 405,
+   "last_seen": "2026-09-20T22:53:01.461008052Z",
+   "events_count": 407,
    "counts": {
     "bought": 25,
     "bids": 25,
@@ -20755,7 +20755,7 @@
     "minted": 23,
     "transfers_out": 1,
     "listings": 84,
-    "delists": 55,
+    "delists": 57,
     "unstakes_enterprise": 73,
     "sold": 10,
     "transfers_in": 35
@@ -20763,9 +20763,8 @@
    "holdings_now": {
     "total": 72,
     "by_state": {
-     "liquid": 54,
-     "listed:bbl": 16,
-     "listed:boost": 2
+     "liquid": 56,
+     "listed:bbl": 16
     },
     "tokens": [
      {
@@ -20929,9 +20928,9 @@
      },
      {
       "token_id": "1169",
-      "state": "listed:boost",
-      "since": "2026-04-17T22:46:48.376050398Z",
-      "since_height": 20600981,
+      "state": "liquid",
+      "since": "2026-09-20T22:53:01.461008052Z",
+      "since_height": 22931419,
       "acquired": {
        "kind": "transfer",
        "ts": "2024-06-04T02:31:55Z",
@@ -20942,9 +20941,9 @@
      },
      {
       "token_id": "1258",
-      "state": "listed:boost",
-      "since": "2026-04-28T13:12:59.408557142Z",
-      "since_height": 20759391,
+      "state": "liquid",
+      "since": "2026-09-20T22:52:49.54727572Z",
+      "since_height": 22931417,
       "acquired": {
        "kind": "transfer",
        "ts": "2024-06-04T02:32:31Z",
@@ -31087,6 +31086,40 @@
      "auction_id": "17857",
      "cancelled_by": null,
      "source": "adao/raw:22681531-22809971",
+     "role": "to"
+    },
+    {
+     "txhash": "DFC55913F4C90B1FAC79340EC2E244810324726F03F5B3BCCE7BFCFBE2DB1A84",
+     "height": 22931417,
+     "ts": "2026-09-20T22:52:49.54727572Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "adao",
+     "token_id": "1258",
+     "venue": "boost",
+     "from": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
+     "to": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+     "listing_id": "478",
+     "auction_id": null,
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6BFFB673B184F3A04245F19F624ACA23BDFF6E749C44D60C67EAE4A83B6AC8C0",
+     "height": 22931419,
+     "ts": "2026-09-20T22:53:01.461008052Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "adao",
+     "token_id": "1169",
+     "venue": "boost",
+     "from": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
+     "to": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+     "listing_id": "470",
+     "auction_id": null,
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
      "role": "to"
     }
    ]
