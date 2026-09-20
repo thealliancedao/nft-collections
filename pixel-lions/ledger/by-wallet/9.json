@@ -4,8 +4,8 @@
  "shard": "9",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 28,
- "records": 505,
- "system_addresses_excluded": 15,
+ "records": 550,
+ "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
   "custodian_moves": "a wallet's transfer/stake into a registry custodian = state change (staked / staked_enterprise / staked:<role>), the custodian's transfer back = liquid, a custodian→custodian move re-labels the holder's state (role: holder)",
@@ -55,7 +55,7 @@
    "address": "terra10dnl5f9zzlycfcc5usqexatz3xpst8zh0k4rq9",
    "first_seen": "2023-06-09T22:43:11Z",
    "last_seen": "2024-10-20T14:49:44Z",
-   "events_count": 5,
+   "events_count": 6,
    "counts": {
     "minted": 2,
     "transfers_out": 2,
@@ -72,23 +72,6 @@
       "state": "liquid",
       "since": "2024-10-20T14:49:44Z",
       "since_height": 12587554,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-20T14:49:44Z",
-       "height": 12587554,
-       "txhash": "D96EC53F2BEE843BD8A1D8A9A5BFA301A8F54392388D6845A4F7A385BA852362"
-      },
-      "broken": false
-     }
-    ]
-   },
-   "held_past": {
-    "total": 2,
-    "distinct_tokens": 2,
-    "tokens": [
-     {
-      "token_id": "819",
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-09T22:43:11Z",
@@ -103,14 +86,14 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T16:06:52Z",
-       "height": 5494114,
-       "txhash": "B0D7B60B0E407D840A9FCA14459C51CCD7381BCCD23B08D81F5AC35E16CBE626"
-      },
-      "held_days": 3.7
-     },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 1,
+    "distinct_tokens": 1,
+    "tokens": [
      {
       "token_id": "564",
       "acquired": {
@@ -223,6 +206,20 @@
      "role": "from"
     },
     {
+     "txhash": "C6DC8DF14356F8779629138FA60696BC0B11639E0814FD16CDE1ADA3C4517F05",
+     "height": 7858279,
+     "ts": "2023-11-25T00:17:18Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "819",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
      "txhash": "D96EC53F2BEE843BD8A1D8A9A5BFA301A8F54392388D6845A4F7A385BA852362",
      "height": 12587554,
      "ts": "2024-10-20T14:49:44Z",
@@ -242,7 +239,7 @@
    "address": "terra1289stkem0gx8xpvzeugf7clsqwpyhmdqm8p4e9",
    "first_seen": "2023-06-09T22:15:28Z",
    "last_seen": "2024-12-03T15:47:14Z",
-   "events_count": 14,
+   "events_count": 17,
    "counts": {
     "minted": 3,
     "transfers_out": 3,
@@ -263,12 +260,19 @@
       "state": "staked",
       "since": "2024-10-12T17:13:49Z",
       "since_height": 12473038,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-12T17:08:39Z",
-       "height": 12472986,
-       "txhash": "EA0658A994142A73FD378A33DE848248074E62E87629D251C31EC468139D333E"
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-09T22:15:28Z",
+       "height": 5440385,
+       "txhash": "29B01E34DC003F502835FB2D7751979394004F97BCB6873C928720C327824610",
+       "price": {
+        "amount": "10000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.6328150906286885,
+        "usd_basis": null
+       }
       },
       "broken": false
      },
@@ -277,12 +281,19 @@
       "state": "liquid",
       "since": "2024-12-03T15:47:14Z",
       "since_height": 13232188,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-12T17:08:39Z",
-       "height": 12472986,
-       "txhash": "EA0658A994142A73FD378A33DE848248074E62E87629D251C31EC468139D333E"
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-09T22:15:28Z",
+       "height": 5440385,
+       "txhash": "29B01E34DC003F502835FB2D7751979394004F97BCB6873C928720C327824610",
+       "price": {
+        "amount": "10000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.6328150906286885,
+        "usd_basis": null
+       }
       },
       "broken": false,
       "claim_duration": "time: 1"
@@ -292,71 +303,6 @@
       "state": "staked",
       "since": "2024-10-12T17:13:49Z",
       "since_height": 12473038,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-12T17:08:39Z",
-       "height": 12472986,
-       "txhash": "EA0658A994142A73FD378A33DE848248074E62E87629D251C31EC468139D333E"
-      },
-      "broken": false
-     }
-    ]
-   },
-   "held_past": {
-    "total": 3,
-    "distinct_tokens": 3,
-    "tokens": [
-     {
-      "token_id": "4025",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-09T22:15:28Z",
-       "height": 5440385,
-       "txhash": "29B01E34DC003F502835FB2D7751979394004F97BCB6873C928720C327824610",
-       "price": {
-        "amount": "10000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.6328150906286885,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T03:15:19Z",
-       "height": 5472052,
-       "txhash": "03DE639D12EA64DCA2C21DE34E140AE2EAD703277FB58BE4FCF7B3C856E445EC"
-      },
-      "held_days": 2.2
-     },
-     {
-      "token_id": "87",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-09T22:15:28Z",
-       "height": 5440385,
-       "txhash": "29B01E34DC003F502835FB2D7751979394004F97BCB6873C928720C327824610",
-       "price": {
-        "amount": "10000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.6328150906286885,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T03:15:19Z",
-       "height": 5472052,
-       "txhash": "03DE639D12EA64DCA2C21DE34E140AE2EAD703277FB58BE4FCF7B3C856E445EC"
-      },
-      "held_days": 2.2
-     },
-     {
-      "token_id": "4383",
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-10T23:07:51Z",
@@ -371,15 +317,14 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T03:15:19Z",
-       "height": 5472052,
-       "txhash": "03DE639D12EA64DCA2C21DE34E140AE2EAD703277FB58BE4FCF7B3C856E445EC"
-      },
-      "held_days": 1.2
+      "broken": false
      }
     ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 3,
@@ -500,6 +445,48 @@
      "to": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
      "source": "fcd:pixel-collection",
      "role": "from"
+    },
+    {
+     "txhash": "65A817E08405FA0B429D00AEAD364F8C049CE21657F83F92D23067E08878D985",
+     "height": 7857942,
+     "ts": "2023-11-24T23:43:45Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4025",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "A83B960F2E963062D95C9CFC563B9FA2EAFB2011A238BE853BB56CB7B215BF25",
+     "height": 7858039,
+     "ts": "2023-11-24T23:53:29Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4383",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "E92FB66D48EE7034D14302C7614BECB8633435189BF7EB1FAAD94B19B3C41866",
+     "height": 7858293,
+     "ts": "2023-11-25T00:18:40Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "87",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
     },
     {
      "txhash": "EA0658A994142A73FD378A33DE848248074E62E87629D251C31EC468139D333E",
@@ -1124,7 +1111,7 @@
    "address": "terra12n97r7mutuydv8gx0ltfa2ns0x69gf6f3ucl49",
    "first_seen": "2023-06-10T08:45:07Z",
    "last_seen": "2024-12-21T08:29:50Z",
-   "events_count": 33,
+   "events_count": 44,
    "counts": {
     "minted": 11,
     "transfers_out": 11,
@@ -1141,163 +1128,6 @@
       "state": "liquid",
       "since": "2024-12-21T08:29:50Z",
       "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1784",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1785",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1790",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1803",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "2063",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "3777",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "3786",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "3795",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "4790",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "4801",
-      "state": "liquid",
-      "since": "2024-12-21T08:29:50Z",
-      "since_height": 13491512,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-21T08:29:50Z",
-       "height": 13491512,
-       "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3"
-      },
-      "broken": false
-     }
-    ]
-   },
-   "held_past": {
-    "total": 11,
-    "distinct_tokens": 11,
-    "tokens": [
-     {
-      "token_id": "1782",
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:37:12Z",
@@ -1312,64 +1142,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
-     },
-     {
-      "token_id": "1785",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-11T00:38:06Z",
-       "height": 5456152,
-       "txhash": "0B594C046F39C76429E7AB7DEB448E502561525C76E83F4720676FEEFBF05DCA",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.286458440574506,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
-     },
-     {
-      "token_id": "1803",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-11T00:47:31Z",
-       "height": 5456245,
-       "txhash": "EAF9CAB975757C66AA9FD5D4B5062283C724BC7786518A8456ABADD3CE65F03C",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.286458440574506,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
+      "broken": false
      },
      {
       "token_id": "1784",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:37:42Z",
@@ -1384,16 +1163,34 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
+      "broken": false
+     },
+     {
+      "token_id": "1785",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-11T00:38:06Z",
+       "height": 5456152,
+       "txhash": "0B594C046F39C76429E7AB7DEB448E502561525C76E83F4720676FEEFBF05DCA",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.286458440574506,
+        "usd_basis": null
+       }
       },
-      "held_days": 12.4
+      "broken": false
      },
      {
       "token_id": "1790",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:38:24Z",
@@ -1408,16 +1205,34 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
+      "broken": false
+     },
+     {
+      "token_id": "1803",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-11T00:47:31Z",
+       "height": 5456245,
+       "txhash": "EAF9CAB975757C66AA9FD5D4B5062283C724BC7786518A8456ABADD3CE65F03C",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.286458440574506,
+        "usd_basis": null
+       }
       },
-      "held_days": 12.4
+      "broken": false
      },
      {
       "token_id": "2063",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-10T08:45:07Z",
@@ -1432,16 +1247,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 13
+      "broken": false
      },
      {
       "token_id": "3777",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:39:06Z",
@@ -1456,16 +1268,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
+      "broken": false
      },
      {
       "token_id": "3786",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:46:54Z",
@@ -1480,16 +1289,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
+      "broken": false
      },
      {
       "token_id": "3795",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:38:42Z",
@@ -1504,16 +1310,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
+      "broken": false
      },
      {
       "token_id": "4790",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:47:12Z",
@@ -1528,16 +1331,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
+      "broken": false
      },
      {
       "token_id": "4801",
+      "state": "liquid",
+      "since": "2024-12-21T08:29:50Z",
+      "since_height": 13491512,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T00:47:49Z",
@@ -1552,15 +1352,14 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-23T09:29:25Z",
-       "height": 5633671,
-       "txhash": "FCDF81655BC4423004D3ADDAB4348F5C515BF74F36F60018FBCB2F27B92E84E7"
-      },
-      "held_days": 12.4
+      "broken": false
      }
     ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 11,
@@ -1963,6 +1762,160 @@
      "role": "from"
     },
     {
+     "txhash": "657B5EBBAB448C36C9902F733A774794FE8D26746D4C31EAF8FE2F7099B8C749",
+     "height": 7857447,
+     "ts": "2023-11-24T22:54:29Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1782",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "657B5EBBAB448C36C9902F733A774794FE8D26746D4C31EAF8FE2F7099B8C749",
+     "height": 7857447,
+     "ts": "2023-11-24T22:54:29Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1784",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "657B5EBBAB448C36C9902F733A774794FE8D26746D4C31EAF8FE2F7099B8C749",
+     "height": 7857447,
+     "ts": "2023-11-24T22:54:29Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1785",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "657B5EBBAB448C36C9902F733A774794FE8D26746D4C31EAF8FE2F7099B8C749",
+     "height": 7857447,
+     "ts": "2023-11-24T22:54:29Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1790",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "35A1795F6BF42EBE9EDC363B3E374030313736ABEA9A43F50040C830BE6B0148",
+     "height": 7857453,
+     "ts": "2023-11-24T22:55:04Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1803",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "C4498CF567055C7ED17C2640EFDFB8D30A92F0A0E4CFA25D43D77CB97D22AF49",
+     "height": 7857519,
+     "ts": "2023-11-24T23:01:36Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2063",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "86B331C2BE2C552A3C53F1BA2A829E9AD1D12E3D428439FB3FFE763D0F872CF9",
+     "height": 7857892,
+     "ts": "2023-11-24T23:38:45Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "3777",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "C0EE927F263670BFB3CC81D4D8D8748302C6696FA45001535C82E18F929E8F2A",
+     "height": 7857897,
+     "ts": "2023-11-24T23:39:14Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "3786",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "C0EE927F263670BFB3CC81D4D8D8748302C6696FA45001535C82E18F929E8F2A",
+     "height": 7857897,
+     "ts": "2023-11-24T23:39:14Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "3795",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "B61BC03C3F6DE846BDDFEFF471A92918A3BD79B2071B2429A34F492E6E16F0C8",
+     "height": 7858147,
+     "ts": "2023-11-25T00:04:09Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4790",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "B61BC03C3F6DE846BDDFEFF471A92918A3BD79B2071B2429A34F492E6E16F0C8",
+     "height": 7858147,
+     "ts": "2023-11-25T00:04:09Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4801",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
      "txhash": "F456A85BAB5B3A7CA2067563FADE1EFEB7249EFCB35E4F580D76FB5CFEF781B3",
      "height": 13491512,
      "ts": "2024-12-21T08:29:50Z",
@@ -2122,7 +2075,7 @@
    "address": "terra14cr2qm7haac4y2rgndlvuvtgqykc8tayvxxjz9",
    "first_seen": "2023-06-09T22:02:14Z",
    "last_seen": "2024-12-12T10:16:33Z",
-   "events_count": 6,
+   "events_count": 7,
    "counts": {
     "minted": 2,
     "listings": 1,
@@ -2141,23 +2094,6 @@
       "state": "liquid",
       "since": "2024-12-12T10:16:33Z",
       "since_height": 13360877,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-12-12T10:16:33Z",
-       "height": 13360877,
-       "txhash": "D30D9470E0744B752CD56EC1CF53988435CE159CDB889E03E44093AA5CF2C8D2"
-      },
-      "broken": false
-     }
-    ]
-   },
-   "held_past": {
-    "total": 2,
-    "distinct_tokens": 2,
-    "tokens": [
-     {
-      "token_id": "2009",
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-09T22:02:14Z",
@@ -2172,14 +2108,14 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:56:18Z",
-       "height": 5481448,
-       "txhash": "04F315E4914A8006BCB1414DE92D0896ECF8A070B394DEFB6A546121008B51A9"
-      },
-      "held_days": 2.9
-     },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 1,
+    "distinct_tokens": 1,
+    "tokens": [
      {
       "token_id": "620",
       "acquired": {
@@ -2353,6 +2289,20 @@
      "denom_symbol": "LUNA",
      "denom_decimals": 6,
      "role": "from"
+    },
+    {
+     "txhash": "E64609A4FB52FF829E5B26A61F0AFAD60EA5ECCB675C3AA40B46B42969465DE0",
+     "height": 7857497,
+     "ts": "2023-11-24T22:59:24Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2009",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
     },
     {
      "txhash": "D30D9470E0744B752CD56EC1CF53988435CE159CDB889E03E44093AA5CF2C8D2",
@@ -4758,7 +4708,7 @@
    "address": "terra1a9znuftu275ucs6sd9wm4jmfc9npuntxmds6e9",
    "first_seen": "2023-06-10T17:06:55Z",
    "last_seen": "2024-10-11T18:28:42Z",
-   "events_count": 31,
+   "events_count": 34,
    "counts": {
     "minted": 6,
     "listings": 8,
@@ -4773,7 +4723,7 @@
     "tokens": []
    },
    "held_past": {
-    "total": 9,
+    "total": 6,
     "distinct_tokens": 6,
     "tokens": [
      {
@@ -4861,78 +4811,6 @@
       }
      },
      {
-      "token_id": "217",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T17:06:55Z",
-       "height": 5451663,
-       "txhash": "0CE78069BE9E28506761CD9A383213F9DB451769680EE0D0D2945B21D239F3EF",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-17T17:22:39Z",
-       "height": 5552180,
-       "txhash": "69FB4A15A920E1647E068E96752E080767F5B41FF830C51EC3CE48FDB8DEDC53"
-      },
-      "held_days": 7
-     },
-     {
-      "token_id": "3878",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-11T01:19:29Z",
-       "height": 5456562,
-       "txhash": "E3B93EA6E87ADF7D4D14AAC37ECA6924C791CAB79198D56FD73F2C52E3A8C813",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.286458440574506,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-17T17:30:27Z",
-       "height": 5552258,
-       "txhash": "BC2A619F79BD6010BC12B6271CBA63C7D14AF8912EC1013947D3BD3351D0366D"
-      },
-      "held_days": 6.7
-     },
-     {
-      "token_id": "4401",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:12:07Z",
-       "height": 5455298,
-       "txhash": "3AC661DB8FA4FDCCD86EF437FAAAEF41B35A30E2E6A1375EAADDB52E92B3266C",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-07-03T02:54:26Z",
-       "height": 5772813,
-       "txhash": "039F59912652F0CE51A014BF625319AA24DAEAF62CE354ED26B41998F8951DCA"
-      },
-      "held_days": 22.2
-     },
-     {
       "token_id": "3499",
       "acquired": {
        "kind": "mint_purchase",
@@ -4976,12 +4854,19 @@
      },
      {
       "token_id": "217",
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-11T17:33:09Z",
-       "height": 12458810,
-       "txhash": "D3883E607DDD8D4B2EA5C0564779E01B1E8A120AED972F488A36200E8DBF0572"
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T17:06:55Z",
+       "height": 5451663,
+       "txhash": "0CE78069BE9E28506761CD9A383213F9DB451769680EE0D0D2945B21D239F3EF",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "transfer",
@@ -4989,16 +4874,23 @@
        "height": 12459364,
        "txhash": "6C52A043B69F2030FBF13EFAD1444659DE9FB1D72252288409951D03D62DD183"
       },
-      "held_days": 0
+      "held_days": 489.1
      },
      {
       "token_id": "3878",
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-11T17:33:09Z",
-       "height": 12458810,
-       "txhash": "D3883E607DDD8D4B2EA5C0564779E01B1E8A120AED972F488A36200E8DBF0572"
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-11T01:19:29Z",
+       "height": 5456562,
+       "txhash": "E3B93EA6E87ADF7D4D14AAC37ECA6924C791CAB79198D56FD73F2C52E3A8C813",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.286458440574506,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "transfer",
@@ -5006,16 +4898,23 @@
        "height": 12459364,
        "txhash": "6C52A043B69F2030FBF13EFAD1444659DE9FB1D72252288409951D03D62DD183"
       },
-      "held_days": 0
+      "held_days": 488.7
      },
      {
       "token_id": "4401",
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-11T17:33:09Z",
-       "height": 12458810,
-       "txhash": "D3883E607DDD8D4B2EA5C0564779E01B1E8A120AED972F488A36200E8DBF0572"
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:12:07Z",
+       "height": 5455298,
+       "txhash": "3AC661DB8FA4FDCCD86EF437FAAAEF41B35A30E2E6A1375EAADDB52E92B3266C",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "transfer",
@@ -5023,7 +4922,7 @@
        "height": 12459364,
        "txhash": "6C52A043B69F2030FBF13EFAD1444659DE9FB1D72252288409951D03D62DD183"
       },
-      "held_days": 0
+      "held_days": 488.8
      }
     ]
    },
@@ -5593,6 +5492,48 @@
      "role": "from"
     },
     {
+     "txhash": "C6687437D008862B4D758665571A375D24730DD56B75949B0FB141E0BE3ED4F0",
+     "height": 7857533,
+     "ts": "2023-11-24T23:03:05Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "217",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "EB0D688A26893C47C45719150FF444C2074F9E16942B2DCC4434C732581732B5",
+     "height": 7857910,
+     "ts": "2023-11-24T23:40:32Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "3878",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "A5E251FE533931F4C62803D042680F716AEA58F2F7A1E1C4736E3B8620BE4F39",
+     "height": 7858051,
+     "ts": "2023-11-24T23:54:37Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4401",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
      "txhash": "D3883E607DDD8D4B2EA5C0564779E01B1E8A120AED972F488A36200E8DBF0572",
      "height": 12458810,
      "ts": "2024-10-11T17:33:09Z",
@@ -5678,23 +5619,23 @@
   "terra1cn3jyane9sd7t5anmuqknlzvhn2q2m24famx49": {
    "address": "terra1cn3jyane9sd7t5anmuqknlzvhn2q2m24famx49",
    "first_seen": "2023-06-11T01:58:12Z",
-   "last_seen": "2023-06-12T18:35:17Z",
-   "events_count": 20,
+   "last_seen": "2023-11-25T00:04:57Z",
+   "events_count": 30,
    "counts": {
     "minted": 10,
     "transfers_out": 10
    },
    "holdings_now": {
-    "total": 0,
-    "by_state": {},
-    "tokens": []
-   },
-   "held_past": {
     "total": 10,
-    "distinct_tokens": 10,
+    "by_state": {
+     "staked_enterprise": 10
+    },
     "tokens": [
      {
       "token_id": "2809",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:12:48Z",
+      "since_height": 7857630,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5709,16 +5650,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "2850",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:13:18Z",
+      "since_height": 7857635,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5733,16 +5671,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "2859",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:13:18Z",
+      "since_height": 7857635,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5757,16 +5692,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "2870",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:13:42Z",
+      "since_height": 7857639,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5781,16 +5713,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "2875",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:13:42Z",
+      "since_height": 7857639,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5805,16 +5734,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "2879",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:13:42Z",
+      "since_height": 7857639,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5829,16 +5755,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "2885",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:15:13Z",
+      "since_height": 7857654,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5853,16 +5776,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "3934",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:41:57Z",
+      "since_height": 7857924,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5877,16 +5797,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "3954",
+      "state": "staked_enterprise",
+      "since": "2023-11-24T23:42:21Z",
+      "since_height": 7857928,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5901,16 +5818,13 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      },
      {
       "token_id": "4844",
+      "state": "staked_enterprise",
+      "since": "2023-11-25T00:04:57Z",
+      "since_height": 7858155,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-11T01:58:12Z",
@@ -5925,15 +5839,14 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T18:35:17Z",
-       "height": 5481239,
-       "txhash": "49B3AAC6583B2277751E364E7221E97247890D99D67A797AA68A450B93FD6071"
-      },
-      "held_days": 1.7
+      "broken": false
      }
     ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 10,
@@ -6299,6 +6212,146 @@
      "to": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
      "source": "fcd:pixel-collection",
      "role": "from"
+    },
+    {
+     "txhash": "1CAED4B0C0145A1AB5E7FAB2C6502B862EF62C418B0EA33701404FF020605BA0",
+     "height": 7857630,
+     "ts": "2023-11-24T23:12:48Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2809",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "0E21E8ADE64D7E0B32CE4C0CDC931577718D728ACC83274F0530DA6690DAB694",
+     "height": 7857635,
+     "ts": "2023-11-24T23:13:18Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2850",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "0E21E8ADE64D7E0B32CE4C0CDC931577718D728ACC83274F0530DA6690DAB694",
+     "height": 7857635,
+     "ts": "2023-11-24T23:13:18Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2859",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "F43C23C5B9A956CF9738D3F84AE0967C64C9695AB2FE3A09EF940C410F96EDD4",
+     "height": 7857639,
+     "ts": "2023-11-24T23:13:42Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2870",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "F43C23C5B9A956CF9738D3F84AE0967C64C9695AB2FE3A09EF940C410F96EDD4",
+     "height": 7857639,
+     "ts": "2023-11-24T23:13:42Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2875",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "F43C23C5B9A956CF9738D3F84AE0967C64C9695AB2FE3A09EF940C410F96EDD4",
+     "height": 7857639,
+     "ts": "2023-11-24T23:13:42Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2879",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "96D9F606A24CB0CFAA66C51946F15BD01A16334344390C0D0FBBF93263776097",
+     "height": 7857654,
+     "ts": "2023-11-24T23:15:13Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2885",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "07145C11B362A0709FEF88149B18AEB2667E8641E28D7144942A0A12C8A84489",
+     "height": 7857924,
+     "ts": "2023-11-24T23:41:57Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "3934",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "2A4AC54E660C233E6FD1871FE9A5423E1FEA3E910241D7077583D60FF3849B2F",
+     "height": 7857928,
+     "ts": "2023-11-24T23:42:21Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "3954",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "7436EBEE4621AD32C28F275AF40A201C51003139127A3555A112EE6D0794EB8E",
+     "height": 7858155,
+     "ts": "2023-11-25T00:04:57Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4844",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
     }
    ]
   },
@@ -6933,7 +6986,7 @@
    "address": "terra1entlju0gjthydgjqtfnunwnndmxx0kdgpaklf9",
    "first_seen": "2023-06-09T22:01:37Z",
    "last_seen": "2024-09-01T01:29:42Z",
-   "events_count": 39,
+   "events_count": 40,
    "counts": {
     "minted": 5,
     "transfers_out": 5,
@@ -6950,105 +7003,9 @@
     "tokens": []
    },
    "held_past": {
-    "total": 10,
+    "total": 5,
     "distinct_tokens": 5,
     "tokens": [
-     {
-      "token_id": "305",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-09T22:07:05Z",
-       "height": 5440301,
-       "txhash": "A3826C6716A2CF305DCB238505DD78CE42982CCC9726891DB09EE10BF71172BF",
-       "price": {
-        "amount": "10000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.6328150906286885,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T00:51:11Z",
-       "height": 5470613,
-       "txhash": "E3FE8BF51B0C2A65F377751311F36588DC3123F372B229EE0BAC53EEF512A344"
-      },
-      "held_days": 2.1
-     },
-     {
-      "token_id": "4265",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:15Z",
-       "height": 5455189,
-       "txhash": "3BB21AB99B00368F1DB7FB700999DC5714796FFD40C9FAF3B95D9452CE13DE02",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T00:51:11Z",
-       "height": 5470613,
-       "txhash": "E3FE8BF51B0C2A65F377751311F36588DC3123F372B229EE0BAC53EEF512A344"
-      },
-      "held_days": 1.1
-     },
-     {
-      "token_id": "4584",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:36:59Z",
-       "height": 5455544,
-       "txhash": "B7F18CF00A25573EAF87E87054CC335BA915B39EA158723060857DB601D96EF7",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T00:51:11Z",
-       "height": 5470613,
-       "txhash": "E3FE8BF51B0C2A65F377751311F36588DC3123F372B229EE0BAC53EEF512A344"
-      },
-      "held_days": 1.1
-     },
-     {
-      "token_id": "3031",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-09T22:01:37Z",
-       "height": 5440247,
-       "txhash": "BF5FFFAE45098715A0D1B164CEAE932DDEC39EE023908DE07C9E67C0708992BD",
-       "price": {
-        "amount": "10000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.6328150906286885,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T00:51:11Z",
-       "height": 5470613,
-       "txhash": "E3FE8BF51B0C2A65F377751311F36588DC3123F372B229EE0BAC53EEF512A344"
-      },
-      "held_days": 2.1
-     },
      {
       "token_id": "1398",
       "acquired": {
@@ -7092,28 +7049,20 @@
       }
      },
      {
-      "token_id": "305",
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-06-27T09:57:23Z",
-       "height": 5691317,
-       "txhash": "62D045735A0E49380E3F1088AC580C74F9399E91710BD5B81B819A18E4A5D4FA"
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-07-04T11:59:37Z",
-       "height": 5792632,
-       "txhash": "FA57A65C1A905AAA4134424E3FAED3FF08E3267100988C66794737B9F98C3B67"
-      },
-      "held_days": 7.1
-     },
-     {
       "token_id": "3031",
       "acquired": {
-       "kind": "transfer",
-       "ts": "2023-06-27T09:57:23Z",
-       "height": 5691317,
-       "txhash": "62D045735A0E49380E3F1088AC580C74F9399E91710BD5B81B819A18E4A5D4FA"
+       "kind": "mint_purchase",
+       "ts": "2023-06-09T22:01:37Z",
+       "height": 5440247,
+       "txhash": "BF5FFFAE45098715A0D1B164CEAE932DDEC39EE023908DE07C9E67C0708992BD",
+       "price": {
+        "amount": "10000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.6328150906286885,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "sale",
@@ -7130,15 +7079,32 @@
         "usd_basis": null
        }
       },
-      "held_days": 9.6
+      "held_days": 27.1,
+      "pnl": {
+       "usd": 21.43,
+       "token": {
+        "symbol": "LUNA",
+        "delta": 40,
+        "paid": 10,
+        "received": 50
+       }
+      }
      },
      {
       "token_id": "4265",
       "acquired": {
-       "kind": "transfer",
-       "ts": "2023-09-19T21:33:29Z",
-       "height": 6905103,
-       "txhash": "E79C29B2B243824F1556BBCE27EDA72A81920BAB2526BEF16BB50E0C7C1DB00A"
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:15Z",
+       "height": 5455189,
+       "txhash": "3BB21AB99B00368F1DB7FB700999DC5714796FFD40C9FAF3B95D9452CE13DE02",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "sale",
@@ -7155,15 +7121,32 @@
         "usd_basis": null
        }
       },
-      "held_days": 0.6
+      "held_days": 101.5,
+      "pnl": {
+       "usd": 10.57,
+       "token": {
+        "symbol": "LUNA",
+        "delta": 38,
+        "paid": 12,
+        "received": 50
+       }
+      }
      },
      {
       "token_id": "305",
       "acquired": {
-       "kind": "transfer",
-       "ts": "2023-09-19T21:33:29Z",
-       "height": 6905103,
-       "txhash": "E79C29B2B243824F1556BBCE27EDA72A81920BAB2526BEF16BB50E0C7C1DB00A"
+       "kind": "mint_purchase",
+       "ts": "2023-06-09T22:07:05Z",
+       "height": 5440301,
+       "txhash": "A3826C6716A2CF305DCB238505DD78CE42982CCC9726891DB09EE10BF71172BF",
+       "price": {
+        "amount": "10000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.6328150906286885,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "sale",
@@ -7180,16 +7163,32 @@
         "usd_basis": null
        }
       },
-      "held_days": 2
+      "held_days": 104,
+      "pnl": {
+       "usd": 13.86,
+       "token": {
+        "symbol": "LUNA",
+        "delta": 45,
+        "paid": 10,
+        "received": 55
+       }
+      }
      },
      {
       "token_id": "4584",
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-04-13T09:24:48Z",
-       "height": 9873043,
-       "txhash": "5BCCC30B90CEB2D49AA3E06F4128BDE6B5C4018BAA204BEAE60AFC241E17E7BB"
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:36:59Z",
+       "height": 5455544,
+       "txhash": "B7F18CF00A25573EAF87E87054CC335BA915B39EA158723060857DB601D96EF7",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "sale",
@@ -7206,21 +7205,30 @@
         "usd_basis": null
        }
       },
-      "held_days": 18.2
+      "held_days": 448.1,
+      "pnl": {
+       "usd": 15.19,
+       "token": {
+        "symbol": "LUNA",
+        "delta": 58,
+        "paid": 12,
+        "received": 70
+       }
+      }
      }
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 5,
    "realized": {
-    "round_trips": 1,
+    "round_trips": 5,
     "usd": {
-     "priced": 1,
-     "total": 11.31
+     "priced": 5,
+     "total": 72.36
     },
     "luna": {
-     "priced": 1,
-     "total": 22
+     "priced": 5,
+     "total": 203
     },
     "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
    },
@@ -7929,6 +7937,20 @@
      "denom_symbol": "LUNA",
      "denom_decimals": 6,
      "role": "from"
+    },
+    {
+     "txhash": "0D64DF4F259960ECDEE2001D572D6BD65167668E926C3CCCE7C843BD5C61335A",
+     "height": 7858095,
+     "ts": "2023-11-24T23:58:59Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4584",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
     },
     {
      "txhash": "5BCCC30B90CEB2D49AA3E06F4128BDE6B5C4018BAA204BEAE60AFC241E17E7BB",
@@ -9545,7 +9567,7 @@
    "address": "terra1ggx3feptwzn9f6y826tzq5q9c5sxrtaw2fa2p9",
    "first_seen": "2023-06-09T22:02:20Z",
    "last_seen": "2024-10-13T20:11:00Z",
-   "events_count": 36,
+   "events_count": 48,
    "counts": {
     "minted": 11,
     "transfers_out": 12,
@@ -9563,393 +9585,6 @@
       "state": "liquid",
       "since": "2024-10-13T20:11:00Z",
       "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "966",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1265",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1272",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1282",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1304",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1309",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "2220",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "2239",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "2264",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "3298",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "4007",
-      "state": "liquid",
-      "since": "2024-10-13T20:11:00Z",
-      "since_height": 12489218,
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-13T20:11:00Z",
-       "height": 12489218,
-       "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B"
-      },
-      "broken": false
-     }
-    ]
-   },
-   "held_past": {
-    "total": 12,
-    "distinct_tokens": 12,
-    "tokens": [
-     {
-      "token_id": "1265",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "1272",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "1282",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "1304",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "1309",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "2220",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "2239",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "2264",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "3298",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T23:01:27Z",
-       "height": 5455191,
-       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 3
-     },
-     {
-      "token_id": "4007",
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-09T22:02:20Z",
@@ -9964,55 +9599,237 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 4.1
-     },
-     {
-      "token_id": "840",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-09T22:02:20Z",
-       "height": 5440254,
-       "txhash": "C72D1BE29D82D23BF45B0731CD30C0BDA1B2B6EB253AFB4570F492833BCFF844",
-       "price": {
-        "amount": "10000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.6328150906286885,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-13T23:18:33Z",
-       "height": 5498419,
-       "txhash": "D454CB6AA58D1D17490C87C4C456B85EF7785098D01562508DC5B2166E6A0433"
-      },
-      "held_days": 4.1
+      "broken": false
      },
      {
       "token_id": "966",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
       "acquired": {
        "kind": "transfer",
        "ts": "2023-08-19T12:45:10Z",
        "height": 6453502,
        "txhash": "9D0740CE9258A75E00D6942C50FB3166A63474EC6C83C02AD215CA9BC9F11B07"
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-08-19T12:48:53Z",
-       "height": 6453539,
-       "txhash": "1A86564161EA0B62369744E5F2370FD48FF46EA7073ADB3D9D23D4999BAB5D1B"
+      "broken": false
+     },
+     {
+      "token_id": "1265",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
       },
-      "held_days": 0
+      "broken": false
+     },
+     {
+      "token_id": "1272",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "1282",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "1304",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "1309",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "2220",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "2239",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "2264",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3298",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T23:01:27Z",
+       "height": 5455191,
+       "txhash": "03A14BF02B87FFEC72049D2C9EB413223BB7CA1E033428552670F902BFA5DB4D",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "4007",
+      "state": "liquid",
+      "since": "2024-10-13T20:11:00Z",
+      "since_height": 12489218,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-09T22:02:20Z",
+       "height": 5440254,
+       "txhash": "C72D1BE29D82D23BF45B0731CD30C0BDA1B2B6EB253AFB4570F492833BCFF844",
+       "price": {
+        "amount": "10000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.6328150906286885,
+        "usd_basis": null
+       }
+      },
+      "broken": false
      }
     ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 12,
@@ -10441,6 +10258,174 @@
      "role": "from"
     },
     {
+     "txhash": "0B0C6C42C728E214854423547B7E167DCEDC3BD9AB871E6372339F7629930065",
+     "height": 7857193,
+     "ts": "2023-11-24T22:29:11Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1265",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "5496C0DBB7D1BD69BDF8DBBB569C3BEE63E933E7155C16715C49BD4FF06106CC",
+     "height": 7857204,
+     "ts": "2023-11-24T22:30:16Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1272",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "5496C0DBB7D1BD69BDF8DBBB569C3BEE63E933E7155C16715C49BD4FF06106CC",
+     "height": 7857204,
+     "ts": "2023-11-24T22:30:16Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1282",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "0D468820B78D911D175F14707C38603E041762A5BE51262E7121017448D36DD8",
+     "height": 7857214,
+     "ts": "2023-11-24T22:31:16Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1304",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "C431B421C7FAE7309F5C191B75C54C6094324B50ED1CF43F7759BB72AA050875",
+     "height": 7857224,
+     "ts": "2023-11-24T22:32:16Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "1309",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "E6601DAE8AC22B38DD0F05BFEC6697DC49BD25E703591FD65B67AF66B8F92D04",
+     "height": 7857548,
+     "ts": "2023-11-24T23:04:34Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2220",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "9781FB224826F955C3DE82FF30E1EAADF29592BB6F63B062DDDA2DF2BAE2BF8A",
+     "height": 7857551,
+     "ts": "2023-11-24T23:04:54Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2239",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "A2CADE2A3926B298AF2D54EAFA0CCE3CF5EA5624D11C85FD0F89FC7800D6FD46",
+     "height": 7857557,
+     "ts": "2023-11-24T23:05:29Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "2264",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "3CA4C7DDBD6A8A57BFAC4BA40DD7EDC72897B5FFCF5A18F0B98EE780579A2D2E",
+     "height": 7857772,
+     "ts": "2023-11-24T23:26:53Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "3298",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "9DF8574854DFD7F52CDF0119FA259D512AA688D48F253AEFF0043AC2C69124C6",
+     "height": 7857937,
+     "ts": "2023-11-24T23:43:15Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4007",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "3C8E600CEF3442DEE6494B148D9E38AF01855B20EE9E74FABDC29718E65456F9",
+     "height": 7858284,
+     "ts": "2023-11-25T00:17:47Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "840",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "94F1A4CB1D5ADAF2C3326CCF99E97D66278E328A0DF21C6FCF242F3AAAED2AC7",
+     "height": 7858306,
+     "ts": "2023-11-25T00:19:59Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "966",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
      "txhash": "46B87ACFCA3F4E9F02EE3863169A4F07184024F72F1D4B637CAF8E26826FED9B",
      "height": 12489218,
      "ts": "2024-10-13T20:11:00Z",
@@ -10613,8 +10598,8 @@
   "terra1ht45l7f00stenjxk4k65v28wtz4syt8yeqgzj9": {
    "address": "terra1ht45l7f00stenjxk4k65v28wtz4syt8yeqgzj9",
    "first_seen": "2023-06-09T22:05:41Z",
-   "last_seen": "2023-06-22T14:44:18Z",
-   "events_count": 6,
+   "last_seen": "2023-11-25T00:17:18Z",
+   "events_count": 8,
    "counts": {
     "minted": 2,
     "listings": 1,
@@ -10622,40 +10607,16 @@
     "delists": 1
    },
    "holdings_now": {
-    "total": 0,
-    "by_state": {},
-    "tokens": []
-   },
-   "held_past": {
     "total": 2,
-    "distinct_tokens": 2,
+    "by_state": {
+     "staked_enterprise": 2
+    },
     "tokens": [
      {
-      "token_id": "824",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-09T22:05:41Z",
-       "height": 5440287,
-       "txhash": "67D6AE5EE330F6403B4B84E7604D46E45538DF1DC7584F9D23340AEE74B4CB4D",
-       "price": {
-        "amount": "10000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 7.6328150906286885,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T02:27:51Z",
-       "height": 5471578,
-       "txhash": "FCF0DBA5454C782BCEF94890B7511E19894D51776CA7E19FE986AE628B716B08"
-      },
-      "held_days": 2.2
-     },
-     {
       "token_id": "744",
+      "state": "staked_enterprise",
+      "since": "2023-11-25T00:15:06Z",
+      "since_height": 7858257,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-09T22:07:34Z",
@@ -10670,15 +10631,35 @@
         "usd_basis": null
        }
       },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-22T14:44:18Z",
-       "height": 5622468,
-       "txhash": "C4C65A911829BECC45112C86353FC9F06213B636E5A0BB436A7F0213F0C26E70"
+      "broken": false
+     },
+     {
+      "token_id": "824",
+      "state": "staked_enterprise",
+      "since": "2023-11-25T00:17:18Z",
+      "since_height": 7858279,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-09T22:05:41Z",
+       "height": 5440287,
+       "txhash": "67D6AE5EE330F6403B4B84E7604D46E45538DF1DC7584F9D23340AEE74B4CB4D",
+       "price": {
+        "amount": "10000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 7.6328150906286885,
+        "usd_basis": null
+       }
       },
-      "held_days": 12.7
+      "broken": false
      }
     ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 2,
@@ -10805,6 +10786,34 @@
      "to": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
      "source": "fcd:pixel-collection",
      "role": "from"
+    },
+    {
+     "txhash": "4954272086DDFB5F6CF9EB29F5EA860474522BF964FAD589727C3A99DA67AD70",
+     "height": 7858257,
+     "ts": "2023-11-25T00:15:06Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "744",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
+    },
+    {
+     "txhash": "C6DC8DF14356F8779629138FA60696BC0B11639E0814FD16CDE1ADA3C4517F05",
+     "height": 7858279,
+     "ts": "2023-11-25T00:17:18Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "824",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
     }
    ]
   },
@@ -13223,7 +13232,7 @@
    "address": "terra1r7ltvpcllpxdz586nv28zfa7xlqe2te52nslg9",
    "first_seen": "2023-06-10T19:51:39Z",
    "last_seen": "2024-10-22T13:05:07Z",
-   "events_count": 26,
+   "events_count": 27,
    "counts": {
     "minted": 12,
     "transfers_out": 13,
@@ -13235,33 +13244,9 @@
     "tokens": []
    },
    "held_past": {
-    "total": 13,
+    "total": 12,
     "distinct_tokens": 12,
     "tokens": [
-     {
-      "token_id": "4156",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2023-06-10T19:51:39Z",
-       "height": 5453304,
-       "txhash": "B6954B755E1208F7D7C62B9E43B3114C08A6B0B5AA436E9C355DDA1950E4FCCF",
-       "price": {
-        "amount": "12000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 9.052180136563218,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "transfer",
-       "ts": "2023-06-12T00:30:07Z",
-       "height": 5470403,
-       "txhash": "7AC2CE223FFFFBC922C0F18485684029D10B9C4665B3471E4C692A12714433BE"
-      },
-      "held_days": 1.2
-     },
      {
       "token_id": "1216",
       "acquired": {
@@ -13528,12 +13513,19 @@
      },
      {
       "token_id": "4156",
-      "acquired": null,
-      "opened_by": {
-       "kind": "unstake_enterprise",
-       "ts": "2024-10-22T12:42:12Z",
-       "height": 12615280,
-       "txhash": "0EDB1F44C0E6F63AFC60FE56205471E7414BF8A64C4034DD40EE498A06B01959"
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2023-06-10T19:51:39Z",
+       "height": 5453304,
+       "txhash": "B6954B755E1208F7D7C62B9E43B3114C08A6B0B5AA436E9C355DDA1950E4FCCF",
+       "price": {
+        "amount": "12000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 9.052180136563218,
+        "usd_basis": null
+       }
       },
       "released": {
        "kind": "transfer",
@@ -13541,7 +13533,7 @@
        "height": 12615511,
        "txhash": "F2ECD7C82E735A2FCB64ED569199A8AB4A1F1F99CB72AD806F8B218E1E898998"
       },
-      "held_days": 0
+      "held_days": 499.7
      }
     ]
    },
@@ -13979,6 +13971,20 @@
      "to": "terra1emr8z0l5d42w5d2hz4gh0k03x2tnyp36zml9vp",
      "source": "fcd:pixel-collection",
      "role": "from"
+    },
+    {
+     "txhash": "10B541E5FE760001F554F8F45A1994961413F8575CA8FD2BF82E833AD4AF6912",
+     "height": 7857980,
+     "ts": "2023-11-24T23:47:33Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "pixel-lions",
+     "token_id": "4156",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1qcmnsdfdx8fj2mykmxtk7nk5gd35gsduz4krpx8ga6p9v5x5p6wsc5g06l",
+     "custodian": "enterprise_staking",
+     "source": "fcd:pixel-collection",
+     "role": "holder"
     },
     {
      "txhash": "0EDB1F44C0E6F63AFC60FE56205471E7414BF8A64C4034DD40EE498A06B01959",
