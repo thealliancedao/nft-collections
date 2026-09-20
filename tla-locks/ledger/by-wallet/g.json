@@ -1,0 +1,860 @@
+{
+ "product": "tla-locks/ledger/by-wallet",
+ "collection": "tla-locks",
+ "shard": "g",
+ "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
+ "wallets_in_shard": 4,
+ "records": 24,
+ "system_addresses_excluded": 7,
+ "rules": {
+  "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
+  "custodian_moves": "a wallet's transfer/stake into a registry custodian = state change (staked / staked_enterprise / staked:<role>), the custodian's transfer back = liquid, a custodian→custodian move re-labels the holder's state (role: holder)",
+  "acquire_when_to": [
+   "lock_create",
+   "lock_split",
+   "lock_transfer",
+   "mint",
+   "mint_purchase",
+   "sale",
+   "transfer"
+  ],
+  "release_when_from": [
+   "burn",
+   "lock_transfer",
+   "lock_withdraw",
+   "sale",
+   "transfer"
+  ],
+  "state_when_from": [
+   "list",
+   "stake",
+   "stake_enterprise",
+   "venue_in",
+   "break"
+  ],
+  "state_when_to": [
+   "delist",
+   "claim",
+   "unstake",
+   "unstake_enterprise",
+   "venue_out"
+  ],
+  "states": [
+   "liquid",
+   "listed:<venue>",
+   "staked",
+   "staked_enterprise",
+   "unstaking",
+   "escrow:<venue>",
+   "locked"
+  ]
+ },
+ "note": "every live ledger record naming this address as from or to (superseded rows excluded), + its positions replayed: holdings_now (state per token), held_past (closed positions with P&L two ways), counts. A position with acquired:null was opened by a custody move the ledger saw without the acquisition (pre-ledger) — labeled, never invented.",
+ "wallets": {
+  "terra1462ur7tvt98xwl33sexux59cp974ct4x2fxzng": {
+   "address": "terra1462ur7tvt98xwl33sexux59cp974ct4x2fxzng",
+   "first_seen": "2024-09-07T22:11:55Z",
+   "last_seen": "2025-12-10T09:59:30.678283444Z",
+   "events_count": 3,
+   "counts": {
+    "locks_created": 2
+   },
+   "holdings_now": {
+    "total": 2,
+    "by_state": {
+     "locked": 2
+    },
+    "tokens": [
+     {
+      "token_id": "171",
+      "state": "locked",
+      "since": "2024-09-07T22:11:55Z",
+      "since_height": 11982549,
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2024-09-07T22:11:55Z",
+       "height": 11982549,
+       "txhash": "489105430E782A7F498BFE05A8A21F4569BAC87A78D8681C8309820CC6C3F28D"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "472",
+      "state": "locked",
+      "since": "2024-11-22T20:59:16Z",
+      "since_height": 13073694,
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2024-11-22T20:59:16Z",
+       "height": 13073694,
+       "txhash": "0F775A3042408B7B0B74680B298CF8EFC8B8F5C0D2D78ACC054314AD8D9D9F5D"
+      },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 2,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "489105430E782A7F498BFE05A8A21F4569BAC87A78D8681C8309820CC6C3F28D",
+     "height": 11982549,
+     "ts": "2024-09-07T22:11:55Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "171",
+     "to": "terra1462ur7tvt98xwl33sexux59cp974ct4x2fxzng",
+     "lock": {
+      "fixed_power": "333000000",
+      "voting_power": "2996999928",
+      "lock_end": "200",
+      "asset": null
+     },
+     "source": "fcd:tla-escrow",
+     "role": "to"
+    },
+    {
+     "txhash": "0F775A3042408B7B0B74680B298CF8EFC8B8F5C0D2D78ACC054314AD8D9D9F5D",
+     "height": 13073694,
+     "ts": "2024-11-22T20:59:16Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "472",
+     "to": "terra1462ur7tvt98xwl33sexux59cp974ct4x2fxzng",
+     "lock": {
+      "fixed_power": "554811",
+      "voting_power": "4993299",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "source": "fcd:tla-escrow",
+     "role": "to"
+    },
+    {
+     "txhash": "A0B5633C63240A4A149E5DCDF942D2342B0EDA8379EF6B476C6C049B507CC491",
+     "height": 18686931,
+     "ts": "2025-12-10T09:59:30.678283444Z",
+     "msg_index": 0,
+     "kind": "lock_migrate",
+     "collection": "tla-locks",
+     "token_id": "171",
+     "from": "terra1462ur7tvt98xwl33sexux59cp974ct4x2fxzng",
+     "lineage": {
+      "from_ids": [
+       "171"
+      ],
+      "to_ids": [
+       "171"
+      ]
+     },
+     "migrate": {
+      "amount_before": "native:uluna:333000000",
+      "fixed_power_before": "333000000",
+      "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:126574477"
+     },
+     "lock": {
+      "fixed_power": "332999998",
+      "voting_power": "1095057666",
+      "lock_end": "200",
+      "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:126574477"
+     },
+     "source": "tla-flows/raw:18536865-18986864",
+     "role": "from"
+    }
+   ]
+  },
+  "terra1eqaq2kuntl3jh4xd5sjxcf9ncpuk2plml0dgsg": {
+   "address": "terra1eqaq2kuntl3jh4xd5sjxcf9ncpuk2plml0dgsg",
+   "first_seen": "2024-09-01T16:01:03Z",
+   "last_seen": "2024-09-19T13:58:38Z",
+   "events_count": 2,
+   "counts": {
+    "locks_created": 2
+   },
+   "holdings_now": {
+    "total": 2,
+    "by_state": {
+     "locked": 2
+    },
+    "tokens": [
+     {
+      "token_id": "80",
+      "state": "locked",
+      "since": "2024-09-01T16:01:03Z",
+      "since_height": 11892555,
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2024-09-01T16:01:03Z",
+       "height": 11892555,
+       "txhash": "F577753A807A876DD15E93360AADA13DF2D827BDB249CD054EF99FAFBEBF5F96"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "267",
+      "state": "locked",
+      "since": "2024-09-19T13:58:38Z",
+      "since_height": 12150021,
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2024-09-19T13:58:38Z",
+       "height": 12150021,
+       "txhash": "A2E87E0D2206B0DD2CEFCE71237F6ACA32B917A4AD74AFF1FF6F6F1978820E0A"
+      },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 2,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "F577753A807A876DD15E93360AADA13DF2D827BDB249CD054EF99FAFBEBF5F96",
+     "height": 11892555,
+     "ts": "2024-09-01T16:01:03Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "80",
+     "to": "terra1eqaq2kuntl3jh4xd5sjxcf9ncpuk2plml0dgsg",
+     "lock": {
+      "fixed_power": "930004682",
+      "voting_power": "965774088",
+      "lock_end": "107",
+      "asset": null
+     },
+     "source": "fcd:tla-escrow",
+     "role": "to"
+    },
+    {
+     "txhash": "A2E87E0D2206B0DD2CEFCE71237F6ACA32B917A4AD74AFF1FF6F6F1978820E0A",
+     "height": 12150021,
+     "ts": "2024-09-19T13:58:38Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "267",
+     "to": "terra1eqaq2kuntl3jh4xd5sjxcf9ncpuk2plml0dgsg",
+     "lock": {
+      "fixed_power": "521015165",
+      "voting_power": "541054200",
+      "lock_end": "110",
+      "asset": null
+     },
+     "source": "fcd:tla-escrow",
+     "role": "to"
+    }
+   ]
+  },
+  "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg": {
+   "address": "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg",
+   "first_seen": "2026-06-16T23:38:19.745543929Z",
+   "last_seen": "2026-06-18T15:34:40.102476326Z",
+   "events_count": 6,
+   "counts": {
+    "locks_received": 2,
+    "lock_merges": 1,
+    "locks_sent": 2
+   },
+   "holdings_now": {
+    "total": 0,
+    "by_state": {},
+    "tokens": []
+   },
+   "held_past": {
+    "total": 3,
+    "distinct_tokens": 3,
+    "tokens": [
+     {
+      "token_id": "1276",
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2026-06-16T23:38:19.745543929Z",
+       "height": 21496689,
+       "txhash": "1FEE5DA7F5B44F3137965D1F5E235EB2A983FEE053FA8D3EBAC27DCEC09566AB"
+      },
+      "released": {
+       "kind": "lock_merge",
+       "ts": "2026-06-16T23:48:54.68336673Z",
+       "height": 21496799,
+       "txhash": "69D57E61CB1618AA8CC87D3DC5F61993BCB28BDE79A58975DCDC51E123C20E89",
+       "note": "merged into 1000"
+      },
+      "held_days": 0
+     },
+     {
+      "token_id": "1279",
+      "acquired": {
+       "kind": "lock_split",
+       "ts": "2026-06-18T15:33:29.810022609Z",
+       "height": 21521493,
+       "txhash": "54C60015CA4B710DF984C1E5EAD9DC00772B3BF93CC0119F919C7AC2574F6A79"
+      },
+      "released": {
+       "kind": "lock_transfer",
+       "ts": "2026-06-18T15:33:58.827499047Z",
+       "height": 21521498,
+       "txhash": "742BF7EDC4C28DC129A83ED84B7DAFB6EFE5F90D2A031A527F01F4EBCFBCA4F3"
+      },
+      "held_days": 0
+     },
+     {
+      "token_id": "1000",
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2026-06-16T23:39:29.686996219Z",
+       "height": 21496701,
+       "txhash": "AA6563C68F8A42A1A3AFB8563DA50292D3CE369EAA32B15924E99460F74DC8B2"
+      },
+      "released": {
+       "kind": "lock_transfer",
+       "ts": "2026-06-18T15:34:40.102476326Z",
+       "height": 21521505,
+       "txhash": "C0B8D9E94DC4AB5DFD0CAFE616512B6973EF42A36C8E9804F8954190C53EC5C8"
+      },
+      "held_days": 1.7
+     }
+    ]
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 3,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "1FEE5DA7F5B44F3137965D1F5E235EB2A983FEE053FA8D3EBAC27DCEC09566AB",
+     "height": 21496689,
+     "ts": "2026-06-16T23:38:19.745543929Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "1276",
+     "from": "terra14mrnuwhh76lg8mfnmstm6sv4yk6ps3kfvj9zgp",
+     "to": "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg",
+     "source": "tla-locks/raw:21481531-21781530",
+     "role": "to"
+    },
+    {
+     "txhash": "AA6563C68F8A42A1A3AFB8563DA50292D3CE369EAA32B15924E99460F74DC8B2",
+     "height": 21496701,
+     "ts": "2026-06-16T23:39:29.686996219Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "1000",
+     "from": "terra14mrnuwhh76lg8mfnmstm6sv4yk6ps3kfvj9zgp",
+     "to": "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg",
+     "source": "tla-locks/raw:21481531-21781530",
+     "role": "to"
+    },
+    {
+     "txhash": "69D57E61CB1618AA8CC87D3DC5F61993BCB28BDE79A58975DCDC51E123C20E89",
+     "height": 21496799,
+     "ts": "2026-06-16T23:48:54.68336673Z",
+     "msg_index": 0,
+     "kind": "lock_merge",
+     "collection": "tla-locks",
+     "token_id": "1000",
+     "from": "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg",
+     "lineage": {
+      "from_ids": [
+       "1000",
+       "1276"
+      ],
+      "to_ids": [
+       "1000"
+      ],
+      "burned": [
+       "1276"
+      ]
+     },
+     "lock": {
+      "fixed_power": "588116654654",
+      "voting_power": "5293049891886",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "source": "tla-locks/raw:21481531-21781530",
+     "role": "from"
+    },
+    {
+     "txhash": "54C60015CA4B710DF984C1E5EAD9DC00772B3BF93CC0119F919C7AC2574F6A79",
+     "height": 21521493,
+     "ts": "2026-06-18T15:33:29.810022609Z",
+     "msg_index": 0,
+     "kind": "lock_split",
+     "collection": "tla-locks",
+     "token_id": "1279",
+     "to": "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg",
+     "lineage": {
+      "from_ids": [
+       "1000"
+      ],
+      "to_ids": [
+       "1279"
+      ],
+      "source_unknown": "msg body not archived — parent id from wasm-metadata_changed"
+     },
+     "lock": {
+      "fixed_power": "588137402286",
+      "voting_power": "5293236620574",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:10000000"
+     },
+     "source": "tla-locks/raw:21481531-21781530",
+     "role": "to"
+    },
+    {
+     "txhash": "742BF7EDC4C28DC129A83ED84B7DAFB6EFE5F90D2A031A527F01F4EBCFBCA4F3",
+     "height": 21521498,
+     "ts": "2026-06-18T15:33:58.827499047Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "1279",
+     "from": "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg",
+     "to": "terra14eajsez3w8qweedjnfc429tfmsezk3439u0umm",
+     "source": "tla-locks/raw:21481531-21781530",
+     "role": "from"
+    },
+    {
+     "txhash": "C0B8D9E94DC4AB5DFD0CAFE616512B6973EF42A36C8E9804F8954190C53EC5C8",
+     "height": 21521505,
+     "ts": "2026-06-18T15:34:40.102476326Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "1000",
+     "from": "terra1madnhysnr6amat5qpnu5qdfsq8j36r4v9hsnpg",
+     "to": "terra14eajsez3w8qweedjnfc429tfmsezk3439u0umm",
+     "source": "tla-locks/raw:21481531-21781530",
+     "role": "from"
+    }
+   ]
+  },
+  "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg": {
+   "address": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+   "first_seen": "2025-11-14T18:25:32.649145179Z",
+   "last_seen": "2025-12-01T01:51:33.866301432Z",
+   "events_count": 13,
+   "counts": {
+    "locks_received": 12,
+    "lock_adds": 1
+   },
+   "holdings_now": {
+    "total": 12,
+    "by_state": {
+     "locked": 12
+    },
+    "tokens": [
+     {
+      "token_id": "45",
+      "state": "locked",
+      "since": "2025-11-14T18:28:19.162418577Z",
+      "since_height": 18308434,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:28:19.162418577Z",
+       "height": 18308434,
+       "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "486",
+      "state": "locked",
+      "since": "2025-11-14T18:28:19.162418577Z",
+      "since_height": 18308434,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:28:19.162418577Z",
+       "height": 18308434,
+       "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "489",
+      "state": "locked",
+      "since": "2025-11-14T18:28:19.162418577Z",
+      "since_height": 18308434,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:28:19.162418577Z",
+       "height": 18308434,
+       "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "500",
+      "state": "locked",
+      "since": "2025-11-14T18:25:32.649145179Z",
+      "since_height": 18308406,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:25:32.649145179Z",
+       "height": 18308406,
+       "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "506",
+      "state": "locked",
+      "since": "2025-11-14T18:28:19.162418577Z",
+      "since_height": 18308434,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:28:19.162418577Z",
+       "height": 18308434,
+       "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "524",
+      "state": "locked",
+      "since": "2025-11-14T18:25:32.649145179Z",
+      "since_height": 18308406,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:25:32.649145179Z",
+       "height": 18308406,
+       "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "546",
+      "state": "locked",
+      "since": "2025-11-14T18:28:19.162418577Z",
+      "since_height": 18308434,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:28:19.162418577Z",
+       "height": 18308434,
+       "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "554",
+      "state": "locked",
+      "since": "2025-11-14T18:28:19.162418577Z",
+      "since_height": 18308434,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:28:19.162418577Z",
+       "height": 18308434,
+       "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "569",
+      "state": "locked",
+      "since": "2025-11-14T18:25:32.649145179Z",
+      "since_height": 18308406,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:25:32.649145179Z",
+       "height": 18308406,
+       "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "582",
+      "state": "locked",
+      "since": "2025-11-14T18:25:32.649145179Z",
+      "since_height": 18308406,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:25:32.649145179Z",
+       "height": 18308406,
+       "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "594",
+      "state": "locked",
+      "since": "2025-11-14T18:25:32.649145179Z",
+      "since_height": 18308406,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:25:32.649145179Z",
+       "height": 18308406,
+       "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "606",
+      "state": "locked",
+      "since": "2025-11-14T18:25:32.649145179Z",
+      "since_height": 18308406,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2025-11-14T18:25:32.649145179Z",
+       "height": 18308406,
+       "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311"
+      },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 12,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311",
+     "height": 18308406,
+     "ts": "2025-11-14T18:25:32.649145179Z",
+     "msg_index": 1,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "594",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311",
+     "height": 18308406,
+     "ts": "2025-11-14T18:25:32.649145179Z",
+     "msg_index": 2,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "606",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311",
+     "height": 18308406,
+     "ts": "2025-11-14T18:25:32.649145179Z",
+     "msg_index": 3,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "500",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311",
+     "height": 18308406,
+     "ts": "2025-11-14T18:25:32.649145179Z",
+     "msg_index": 4,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "582",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311",
+     "height": 18308406,
+     "ts": "2025-11-14T18:25:32.649145179Z",
+     "msg_index": 5,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "524",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "422D14724E7D51B20CF50E4EA6295DAACAE5D2F43B13692A32F33314874E2311",
+     "height": 18308406,
+     "ts": "2025-11-14T18:25:32.649145179Z",
+     "msg_index": 6,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "569",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015",
+     "height": 18308434,
+     "ts": "2025-11-14T18:28:19.162418577Z",
+     "msg_index": 1,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "554",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015",
+     "height": 18308434,
+     "ts": "2025-11-14T18:28:19.162418577Z",
+     "msg_index": 2,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "506",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015",
+     "height": 18308434,
+     "ts": "2025-11-14T18:28:19.162418577Z",
+     "msg_index": 3,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "546",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015",
+     "height": 18308434,
+     "ts": "2025-11-14T18:28:19.162418577Z",
+     "msg_index": 4,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "45",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015",
+     "height": 18308434,
+     "ts": "2025-11-14T18:28:19.162418577Z",
+     "msg_index": 5,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "486",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "29A16E6E172FC9C60003504EA2DBD82BBB7035DB50829EA273CB255EE2A33015",
+     "height": 18308434,
+     "ts": "2025-11-14T18:28:19.162418577Z",
+     "msg_index": 6,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "489",
+     "from": "terra1yu2wca4v3kkx8sq58ury249lkzhq5y43rk557srsqrnawtfcl3yqe9j895",
+     "to": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "source": "tla-flows/raw:18197174-18647173",
+     "role": "to"
+    },
+    {
+     "txhash": "C72B8879591A8EA9EF95A1A6525A580D88EB05A37F556EFEACA10067E5C40251",
+     "height": 18549541,
+     "ts": "2025-12-01T01:51:33.866301432Z",
+     "msg_index": 5,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "token_id": "45",
+     "from": "terra1nmnrcrvsxkrcylzmkn55ghjr3xe8z58x3ntcl97kgm4r7tq9wukslh68dg",
+     "price": {
+      "amount": "226398114",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "192121766415",
+      "voting_power": "1729095897735",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "source": "tla-flows/raw:18536865-18986864",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 32.39087099320674,
+     "usd_basis": "price-history:2025-12-01 (LUNA×ratio(interpolated))",
+     "unit_usd": 0.14307041,
+     "role": "from"
+    }
+   ]
+  }
+ }
+}
