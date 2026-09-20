@@ -5,7 +5,7 @@
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 45,
  "records": 1230,
- "system_addresses_excluded": 15,
+ "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
   "custodian_moves": "a wallet's transfer/stake into a registry custodian = state change (staked / staked_enterprise / staked:<role>), the custodian's transfer back = liquid, a custodian→custodian move re-labels the holder's state (role: holder)",
@@ -65,14 +65,13 @@
     "listings": 86,
     "sold": 17,
     "delists": 69,
-    "gap_closed": 1,
     "unstakes_enterprise": 8,
     "stakes_enterprise": 6
    },
    "holdings_now": {
-    "total": 1,
+    "total": 2,
     "by_state": {
-     "liquid": 1
+     "liquid": 2
     },
     "tokens": [
      {
@@ -87,11 +86,24 @@
        "txhash": "314407B5AEC0C4DAAFA6704A59B14040B50438D307EA675E13F2D38FE24F7016"
       },
       "broken": false
+     },
+     {
+      "token_id": "4371",
+      "state": "liquid",
+      "since": "2023-09-11T07:21:56Z",
+      "since_height": 6781146,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-09-04T12:00:24Z",
+       "height": 6683057,
+       "txhash": "F70DE836F48703DC5291E24C7E2B5AB4048639B843A9362BBC8876264EDD5075"
+      },
+      "broken": false
      }
     ]
    },
    "held_past": {
-    "total": 39,
+    "total": 38,
     "distinct_tokens": 20,
     "tokens": [
      {
@@ -898,23 +910,6 @@
        }
       },
       "held_days": 7.1
-     },
-     {
-      "token_id": "4371",
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-09-04T12:00:24Z",
-       "height": 6683057,
-       "txhash": "F70DE836F48703DC5291E24C7E2B5AB4048639B843A9362BBC8876264EDD5075"
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2023-10-11T16:55:08Z",
-       "height": 7218155,
-       "txhash": "16643C9850209FB800190285DA6E3AE1D6C4E3D009209C105CA97F0009C60E33",
-       "note": "next seen with terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl (transfer from terra10yhe0gxaq97ccqmgteggfqr9cl3dgckjjg6n5y); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 37.2
      },
      {
       "token_id": "1158",
