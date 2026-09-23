@@ -4,7 +4,7 @@
  "shard": "c",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 65,
- "records": 622,
+ "records": 623,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -9585,8 +9585,8 @@
   "terra1kcpara8gj58huh9yn6dj7rxd764desdsrfppfc": {
    "address": "terra1kcpara8gj58huh9yn6dj7rxd764desdsrfppfc",
    "first_seen": "2024-02-29T19:31:21Z",
-   "last_seen": "2026-09-10T03:07:06.280243705Z",
-   "events_count": 7,
+   "last_seen": "2026-09-23T03:26:21.523641092Z",
+   "events_count": 8,
    "counts": {
     "minted": 1,
     "stakes_enterprise": 1,
@@ -9594,19 +9594,20 @@
     "listings": 1,
     "delists": 1,
     "stakes": 1,
-    "unstakes": 1
+    "unstakes": 1,
+    "claims": 1
    },
    "holdings_now": {
     "total": 1,
     "by_state": {
-     "unstaking": 1
+     "liquid": 1
     },
     "tokens": [
      {
       "token_id": "7597",
-      "state": "unstaking",
-      "since": "2026-09-10T03:07:06.280243705Z",
-      "since_height": 22769370,
+      "state": "liquid",
+      "since": "2026-09-23T03:26:21.523641092Z",
+      "since_height": 22962918,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-29T19:31:21Z",
@@ -9770,6 +9771,20 @@
      "custodian": "daodao_voting",
      "claim_duration": "time: 604800",
      "source": "adao/raw:22681531-22809971",
+     "role": "to"
+    },
+    {
+     "txhash": "088F8A214983221A00D882FD512D72FEEA8BAEAB70A22351F890280555970238",
+     "height": 22962918,
+     "ts": "2026-09-23T03:26:21.523641092Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "adao",
+     "token_id": "7597",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra1kcpara8gj58huh9yn6dj7rxd764desdsrfppfc",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
      "role": "to"
     }
    ]
