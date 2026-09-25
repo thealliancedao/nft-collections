@@ -4,7 +4,7 @@
  "shard": "q",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 11,
- "records": 1178,
+ "records": 1179,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -723,11 +723,11 @@
   "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq": {
    "address": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
    "first_seen": "2024-08-31T16:09:55Z",
-   "last_seen": "2026-09-25T14:04:03.007275767Z",
-   "events_count": 421,
+   "last_seen": "2026-09-25T15:03:44.756512037Z",
+   "events_count": 422,
    "counts": {
     "locks_created": 95,
-    "lock_adds": 95,
+    "lock_adds": 96,
     "locks_withdrawn": 40,
     "lock_merges": 80,
     "locks_sent": 2
@@ -13928,8 +13928,37 @@
      "source": "forward:org-nft-flows",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd": null,
-     "usd_reason": "price_history_month_missing:2026/09",
+     "usd": 14.435682956144332,
+     "usd_basis": "price-history:2026-09-25 (tla)",
+     "unit_usd": 0.12253107183798473,
+     "usd_repriced_at": "2026-09-25T15:44:25.347Z",
+     "role": "from"
+    },
+    {
+     "txhash": "1C4AD991248461F4B635C524B61E37D1D676A3ED2262F425527EFC15FC0592AE",
+     "height": 23000063,
+     "ts": "2026-09-25T15:03:44.756512037Z",
+     "msg_index": 1,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "token_id": "2567",
+     "from": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
+     "price": {
+      "amount": "8895456",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "16772173520",
+      "voting_power": "150949561680",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1.0899697581676322,
+     "usd_basis": "price-history:2026-09-25 (tla)",
+     "unit_usd": 0.12253107183798473,
      "role": "from"
     }
    ]
