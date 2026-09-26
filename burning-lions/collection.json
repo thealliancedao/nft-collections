@@ -15,7 +15,20 @@
  "minter_note": "the Enterprise treasury / festival receiver (cw721 minter query)",
  "kind": "one_of_one",
  "animated": true,
- "traits": [],
+ "traits": [
+  {
+   "name": "Name",
+   "filter": "multi-select",
+   "from": "name",
+   "missing": "Unknown"
+  },
+  {
+   "name": "Animated",
+   "filter": "multi-select",
+   "from": "animated",
+   "missing": "Unknown"
+  }
+ ],
  "rarity": null,
  "rarity_note": "one-of-ones: every token is unique, so no rarity rank. If the metadata carries attributes they are shown as descriptions, not ranked.",
  "images": {
@@ -73,11 +86,13 @@
  ],
  "marketplaces_note": "listed where the pixeLions trade; whether Burning Lions are actually listed on each is not verified yet",
  "features": {
-  "explorer": false,
+  "explorer": true,
   "analytics": false,
   "wallet_view": true,
-  "trait_filters": false,
+  "trait_filters": true,
   "lore": false,
-  "tla_stats": false
- }
+  "tla_stats": false,
+  "analytics_note": "the explorer's Analytics tab shows the live inventory (holders, listings, traits) until the sales ledger exists (nft-flows for burning-lions); then nft-analytics.json replaces it"
+ },
+ "traits_note": "1/1s: each lion's own name is its trait, and whether its artwork moves. Derived by collection-context 1.2.0 from the media index (metadata/metadata.json tokens[]): Name ← name, Animated ← a gif / animated png / animation file. A token with no metadata reads 'Unknown' until its file is found."
 }
