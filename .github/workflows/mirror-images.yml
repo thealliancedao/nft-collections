@@ -4,6 +4,9 @@
 #     through jsDelivr's GitHub CDN (raw.githubusercontent as fallback). ~5,000 small PNGs.
 #   target cloudflare: Cloudflare Images (secrets CF_ACCOUNT_ID · CF_IMAGES_TOKEN · CF_ACCOUNT_HASH).
 # Secret IPFS_GATEWAY: a gateway URL template with {cid} and {path}. Re-runs skip ids already mirrored (mirror-report.json).
+# Collections with images.mode = token_uri (Burning Lions: one ipfs:// file per token, animated) read each token's token_uri from
+# the chain, try every gateway it knows (the secret is optional there), keep each file's real type (gif/mp4/…), and also commit
+# <slug>/metadata (per-token JSON + metadata.json, the index the site reads).
 name: mirror-images
 on:
   workflow_dispatch:
@@ -61,6 +64,7 @@ jobs:
             FROM=$B TO=$E node .github/scripts/mirror-images/mirror.js
             if [ "$TARGET" = "repo" ] && [ -z "$DRY" ]; then
               git add ${{ inputs.collection }}/images
+              [ -d ${{ inputs.collection }}/metadata ] && git add ${{ inputs.collection }}/metadata || true
               if ! git diff --cached --quiet; then
                 git commit -q -m "mirror-images ${{ inputs.collection }} $B-$E"
                 for i in 1 2 3 4 5 6; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; echo "push try $i lost the race — retrying"; sleep $((i * 15)); done
@@ -70,6 +74,7 @@ jobs:
       - name: commit the report (cloudflare target, or a dry run leaves nothing)
         run: |
           git add */images/mirror-report.json 2>/dev/null || true
+          [ -d ${{ inputs.collection }}/metadata ] && git add ${{ inputs.collection }}/metadata || true
           if git diff --cached --quiet; then echo "nothing further to commit"; exit 0; fi
           git commit -m "mirror-images ${{ inputs.collection }} report $(date -u +%Y-%m-%dT%H:%M)Z"
           for i in 1 2 3 4 5 6; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 15)); done; exit 1
