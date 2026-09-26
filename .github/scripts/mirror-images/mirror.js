@@ -34,7 +34,7 @@
 //        writes <slug>/images/mirror-report.json (per id: ok / exists / failed) — write-once per id, re-runs skip what exists
 //        prints the cdn_pattern to put in collection.json: https://imagedelivery.net/<hash>/<slug_underscored>/{id}.png/public
 const fs = require('fs'), path = require('path');
-const VERSION = '1.2.0';
+const VERSION = '1.2.1';   // 1.2.1: an APNG is found by walking the chunks to IDAT (an iCCP profile pushed acTL past the first 256 bytes, so 1.2.0 called the animated lions stills); metadata properties.files is searched for the animation
 const ROOT = process.env.ROOT || process.cwd();
 const SLUG = String(process.env.COLLECTION || '').trim(); if (!SLUG) { console.error('COLLECTION missing'); process.exit(2); }
 const { CF_ACCOUNT_ID, CF_IMAGES_TOKEN, CF_ACCOUNT_HASH, IPFS_GATEWAY } = process.env;
@@ -110,7 +110,7 @@ async function resolve(uri) {   // → { buf, type, via } or throws with every a
 function sniff(buf, type) {
   const h = buf.subarray(0, 16), s = h.toString('latin1');
   if (s.startsWith('GIF8')) return ['gif', 'image'];
-  if (h[0] === 0x89 && s.slice(1, 4) === 'PNG') return /acTL/.test(buf.subarray(0, 256).toString('latin1')) ? ['png', 'image-animated'] : ['png', 'image'];
+  if (h[0] === 0x89 && s.slice(1, 4) === 'PNG') { let o = 8, anim = false; while (o + 8 <= buf.length) { const len = buf.readUInt32BE(o), typ = buf.toString('latin1', o + 4, o + 8); if (typ === 'acTL') { anim = true; break; } if (typ === 'IDAT' || typ === 'IEND') break; o += 12 + len; } return ['png', anim ? 'image-animated' : 'image']; }
   if (h[0] === 0xff && h[1] === 0xd8) return ['jpg', 'image'];
   if (s.startsWith('RIFF') && s.slice(8, 12) === 'WEBP') return /ANIM/.test(buf.subarray(0, 64).toString('latin1')) ? ['webp', 'image-animated'] : ['webp', 'image'];
   if (s.slice(4, 8) === 'ftyp') return /qt {2}/.test(s.slice(8, 12)) ? ['mov', 'video'] : ['mp4', 'video'];
@@ -143,7 +143,8 @@ async function mirrorTokenUri(id) {
   if (meta) {
     row.name = meta.name || row.name; row.description = meta.description || row.description; row.attributes = Array.isArray(meta.attributes) ? meta.attributes : row.attributes;
     const imageUri = meta.image || meta.image_url || (meta.properties && meta.properties.image) || ext.image || null;
-    const animUri = meta.animation_url || meta.animation || (meta.properties && meta.properties.animation_url) || ext.animation_url || null;
+    const files = meta.properties && Array.isArray(meta.properties.files) ? meta.properties.files : []; const fAnim = files.find(f => f && /video|gif/i.test(String(f.type || f.mime || '')) && (f.uri || f.url));
+    const animUri = meta.animation_url || meta.animation || (meta.properties && meta.properties.animation_url) || ext.animation_url || (fAnim ? (fAnim.uri || fAnim.url) : null);
     if (imageUri) { try { const s = save(id, '', await resolve(imageUri)); row.image_file = s.file; row.image_kind = s.kind; row.sources.image = s.via; row.image_uri = imageUri; } catch (e) { errs.push('image: ' + e.message); } }
     if (animUri && animUri !== imageUri) { try { const s = save(id, '.anim', await resolve(animUri)); row.animation_file = s.file; row.animation_kind = s.kind; row.sources.animation = s.via; row.animation_uri = animUri; } catch (e) { errs.push('animation_url: ' + e.message); } }
   } else if (!row.image_file && ext.image) { try { const s = save(id, '', await resolve(ext.image)); row.image_file = s.file; row.image_kind = s.kind; row.sources.image = s.via; } catch (e) { errs.push('extension.image: ' + e.message); } }
