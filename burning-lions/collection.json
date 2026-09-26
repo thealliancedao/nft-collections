@@ -1,1 +1,83 @@
-
+{
+ "schemaVersion": 1,
+ "slug": "burning-lions",
+ "name": "Burning Lions",
+ "contract_name": "pixeLions: Burning Lion Festival",
+ "symbol": "PYRO",
+ "token_name_pattern": "Burning Lion #{id}",
+ "nft_contract": "terra1cfk54jzu6wsr7c7eqhvs3znkkuxc7pvr7awdvheg7szvnlmduvus95a0q0",
+ "chain": "phoenix-1",
+ "supply": 7,
+ "supply_note": "7 = cw721 num_tokens / all_tokens [1..7] (Chainscope, owner 2026-09-26). The mirror walks 1…supply, so this is the minted count.",
+ "stated_supply": 12,
+ "stated_supply_note": "12 one-of-ones per the pride (owner 2026-09-22). Five are not on this contract. The minter is the Enterprise treasury, now retired, so they were most likely never minted — pending Lion DAO confirmation.",
+ "minter": "terra17c6ts8grcfrgquhj3haclg44le8s7qkx6l2yx33acguxhpf000xqhnl3je",
+ "minter_note": "the Enterprise treasury / festival receiver (cw721 minter query)",
+ "kind": "one_of_one",
+ "animated": true,
+ "traits": [],
+ "rarity": null,
+ "rarity_note": "one-of-ones: every token is unique, so no rarity rank. If the metadata carries attributes they are shown as descriptions, not ranked.",
+ "images": {
+  "mode": "token_uri",
+  "mode_note": "each token carries its own token_uri (ipfs://bafkrei…, extension empty), not a folder CID. mirror-images 1.2.0 reads nft_info per token, follows token_uri → metadata → image / animation_url, and keeps each file's real type.",
+  "ipfs_cid": null,
+  "cdn_base": "https://cdn.jsdelivr.net/gh/thealliancedao/nft-collections@main/burning-lions/images/",
+  "cdn_fallback_base": "https://raw.githubusercontent.com/thealliancedao/nft-collections/main/burning-lions/images/",
+  "media_index": "burning-lions/metadata/metadata.json",
+  "media_note": "file names differ per token (1.gif, 3.mp4, 3.anim.mp4 …), so the site reads media_index for them instead of a {id}.png pattern. gif/png/webp render as <img>; mp4/webm/mov render as <video autoplay muted loop playsinline> with the still as poster.",
+  "lcd": [
+   "https://terra-lcd.publicnode.com",
+   "https://terra-api.polkachu.com",
+   "https://lcd-terra.tfl.foundation"
+  ],
+  "gateways": [],
+  "gateways_note": "extra {cid}/{path} gateway templates tried before the public list — a gateway that pins these files (Lion DAO's, if they have one) goes here, or in the IPFS_GATEWAY secret when it needs a token",
+  "proxies": [
+   "https://nft.openfields.app/api/image/{contract}/{id}"
+  ],
+  "proxies_note": "last resort when IPFS serves nothing: Atrium's un-tokened image proxy (the same one that served Pixel Lions before the mirror). A proxy copy is labeled in metadata.json and may be a still, not the animation.",
+  "availability_note": "2026-09-26: public IPFS gateways time out on #1's token_uri with 'No providers were found' — nobody on the network is pinning the file right now. If the Action cannot fetch it either, the files have to come from whoever holds the originals (Lion DAO / the artist) or a marketplace cache."
+ },
+ "metadata_file": "burning-lions/metadata/metadata.json",
+ "backing": null,
+ "governance": {
+  "parent_dao": {
+   "name": "Lion DAO",
+   "dao_address": "terra1tkersa2mqwy2h8exj799qx2xrhdu0dkymk9psp6v0k4kz4tkxucssgluec",
+   "dao_originations_folder": "lion-dao/"
+  },
+  "staking": null,
+  "staking_note": "no staking module known for Burning Lions"
+ },
+ "origin": {
+  "event": "Burning Lion Festival (ROAR burn festival)",
+  "how_won": "raffle weighted by each wallet's own ROAR burn; Lion DAO matched community burns 10x from its treasury (capped 8B a month)",
+  "mechanics": "tla-core/docs/curated/tenants.json liondao.burn.mechanics",
+  "original_winners": null,
+  "original_winners_note": "each token's first transfer out of the minter = its winner. Needs the contract's transfer history (archive node); until then the site shows today's holder only."
+ },
+ "marketplaces": [
+  {
+   "key": "bbl",
+   "token_url": "https://app.backbonelabs.io/nfts/marketplace/collections/{contract}/{id}",
+   "collection_url": "https://app.backbonelabs.io/nfts/marketplace/collections/{contract}",
+   "royalty_bps": null
+  },
+  {
+   "key": "atrium",
+   "token_url": "https://atrium.markets/atrium/{contract}/{id}",
+   "collection_url": "https://atrium.markets/atrium/collection/{contract}?tab=listings",
+   "royalty_bps": null
+  }
+ ],
+ "marketplaces_note": "listed where the pixeLions trade; whether Burning Lions are actually listed on each is not verified yet",
+ "features": {
+  "explorer": false,
+  "analytics": false,
+  "wallet_view": true,
+  "trait_filters": false,
+  "lore": false,
+  "tla_stats": false
+ }
+}
