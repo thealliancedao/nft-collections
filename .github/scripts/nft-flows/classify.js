@@ -1,5 +1,19 @@
 'use strict';
 // <<NFT FLOWS CLASSIFIER v1>> — 2026-09-12 — SPEC-nft-flows.md
+// 1.2.0 (2026-09-27, SPEC-portfolio-locks L1): the lock rows name their lock and carry what went in.
+//   (a) ve/lock_permanent · ve/unlock_permanent · ve/extend_lock_time: the escrow's wasm event names no token — the id rides in
+//       the sibling `wasm-metadata_changed` event of the SAME msg (exactly one distinct id there, else not guessed); failing
+//       that, the archived msg body ({lock_permanent:{token_id}} …). Was: token_id null on 100% of these rows (1,928).
+//   (b) ve/deposit_for: when the msg has no metadata_changed (the FCD era), the id comes from the msg body — the cw20 send's
+//       inner {extend_lock_amount:{token_id}}, a direct body, or the gauge's {claim_rebase:{token_id}} (the rebase compounds into
+//       the lock: from = the gauge — income to the lock, not the owner's deposit). Was: 1,698 FCD-era adds with token_id null.
+//   (c) ve/create_lock: `price` = the payment into the escrow for THIS event — the last cw20 send to the escrow before it
+//       (native funds: the msg's bank leg into the escrow); none → price null + price_reason. deposit_for uses the same rule
+//       (was: the msg's first leg, which priced a deposit with the gauge rebase before it). Was: 0 of 2,104 creates priced.
+//   (d) the lock id of a token-less ve/* event is the metadata_changed emitted right after it (positional), then the msg's
+//       single id, then the body — a Votion deposit (permanent + merge in one msg) names two ids. deposit_for too: a DAO
+//       proposal depositing into two locks in one msg keyed BOTH deposits to the first lock (one row lost as a duplicate key).
+//   Every id not read from the escrow's own wasm event names where it came from: token_id_from 'metadata_changed' | 'msg_body'.
 // 1.1.6 (2026-09-19, CHANGES_PENDING B.1): (a) msg_index read from the EVENT ATTRIBUTE when the event has no msg_index field —
 //   raw parts (tx_search / block walks, SDK 0.47+) carry it only as an attribute, so every multi-message tx was one group and
 //   each cw721 move paired with the venue's FIRST event: an Atrium price update (cancel + list in one tx) listed with no id
@@ -133,14 +147,26 @@ function classifyNftTx(tx, reg, idx) {
       if (isEscrow) {
         const ve = acts.filter(x => x.startsWith('ve/'));
         const msgHasRestructure = W.some(x => contractOf(x) === c && actionsOf(x).some(y => y === 've/migrate_lock' || y === 've/split_lock'));   // create_lock inside a migrate/split is the child, not a new lock
+        // 1.2.0: the lock a token-less ve/* event acts on — metadata_changed of THIS msg (one distinct id), else the msg body
+        const mdIds = [...new Set(evs.filter(e => e.type === 'wasm-metadata_changed').map(e => attrsAll(e)).filter(x => !first(x, '_contract_address') || first(x, '_contract_address') === c).map(x => first(x, 'token_id')).filter(Boolean))];
+        const bodyTok = (verbs) => { const cands = [body, inner]; for (const o of cands) { if (!o) continue; for (const v of verbs) if (o[v] && o[v].token_id != null) return String(o[v].token_id); } return null; };   // body/inner are THIS msg's (inner = a cw20 send's decoded msg)
+        // the escrow emits metadata_changed right AFTER the ve/* event it belongs to — the first one before the escrow's next wasm
+        // event is this action's lock (a Votion deposit makes the lock permanent and merges it in ONE msg: two ids, positional wins)
+        const at = evs.indexOf(w.e);
+        const mdAfter = () => { if (at < 0) return null; for (let j = at + 1; j < evs.length; j++) { const e = evs[j]; const x = attrsAll(e); if (e.type === 'wasm' && first(x, '_contract_address') === c) return null; if (e.type === 'wasm-metadata_changed' && (!first(x, '_contract_address') || first(x, '_contract_address') === c) && first(x, 'token_id')) return first(x, 'token_id'); } return null; };
+        const idFor = (verbs, allowMd) => { if (token) return { token_id: token }; const pa = allowMd ? mdAfter() : null; if (pa) return { token_id: pa, token_id_from: 'metadata_changed' }; if (allowMd && mdIds.length === 1) return { token_id: mdIds[0], token_id_from: 'metadata_changed' }; const b = bodyTok(verbs); return b ? { token_id: b, token_id_from: 'msg_body' } : { token_id: null }; };
+        // the payment for THIS ve/* event: the last cw20 send into the escrow before it (after the escrow's previous wasm event);
+        // native funds (bank transfer events) have no position among wasm events → the msg's leg into the escrow
+        const legBefore = () => { if (at >= 0) for (let j = at - 1; j >= 0; j--) { const e = evs[j]; const x = attrsAll(e); if (e.type !== 'wasm') continue; if (first(x, '_contract_address') === c) break; if ((x.action || []).some(v => v === 'send' || v === 'transfer') && first(x, 'to') === c && first(x, 'amount') && !x.token_id) return { from: first(x, 'from'), amount: first(x, 'amount'), denom: 'cw20:' + first(x, '_contract_address') }; } return legs.find(l => l.to === c) || null; };
+        const legIn = legBefore();
         for (const act of ve) {
           const lock = { fixed_power: first(a, 'fixed_power') || null, voting_power: first(a, 'voting_power') || null, lock_end: first(a, 'lock_end') || null, asset: first(a, 'asset') || null };
-          if (act === 've/create_lock' && !msgHasRestructure) push({ kind: KIND.LOCK_CREATE, collection: col.key, token_id: token, to: first(a, 'owner'), lock });
+          if (act === 've/create_lock' && !msgHasRestructure) push(Object.assign({ kind: KIND.LOCK_CREATE, collection: col.key, token_id: token, to: first(a, 'owner'), lock }, legIn ? { price: { amount: legIn.amount, denom: legIn.denom } } : { price: null, price_reason: 'no payment leg into the escrow in this msg' }));
           if (act === 've/withdraw') push({ kind: KIND.LOCK_WITHDRAW, collection: col.key, token_id: token, from: first(a, 'sender'), price: (legs.find(l => l.from === c) || null) && { amount: legs.find(l => l.from === c).amount, denom: legs.find(l => l.from === c).denom } });
-          if (act === 've/deposit_for') { const md = evs.find(e => e.type === 'wasm-metadata_changed'); push({ kind: KIND.LOCK_ADD, collection: col.key, token_id: md ? first(attrsAll(md), 'token_id') : token || null, from: (legs.find(l => l.to === c) || {}).from || null, price: legs.find(l => l.to === c) ? { amount: legs.find(l => l.to === c).amount, denom: legs.find(l => l.to === c).denom } : null, lock }); }
-          if (/^ve\/extend_lock_time/.test(act)) push({ kind: KIND.LOCK_EXTEND, collection: col.key, token_id: token || null, lock });
-          if (/^ve\/(lock_permanent|make_permanent)/.test(act)) push({ kind: KIND.LOCK_PERMANENT, collection: col.key, token_id: token || null, lock });
-          if (/^ve\/(unlock_permanent|remove_permanent)/.test(act)) push({ kind: KIND.LOCK_UNPERMANENT, collection: col.key, token_id: token || null, lock });
+          if (act === 've/deposit_for') { const pa = mdAfter(); const md = evs.find(e => e.type === 'wasm-metadata_changed'); const id = pa ? { token_id: pa, token_id_from: 'metadata_changed' } : md ? { token_id: first(attrsAll(md), 'token_id') || null, token_id_from: 'metadata_changed' } : (token ? { token_id: token } : idFor(['extend_lock_amount', 'deposit_for', 'increase_amount', 'claim_rebase'], false)); push(Object.assign({ kind: KIND.LOCK_ADD, collection: col.key, from: (legIn || {}).from || null, price: legIn ? { amount: legIn.amount, denom: legIn.denom } : null, lock }, id)); }   // 1.1.x rule kept first (md of this msg), the body only when the msg has none; 1.2.0: the payment is the send just before THIS event (an IBC-proxy msg carried a gauge rebase and a deposit — the first leg priced both)
+          if (/^ve\/extend_lock_time/.test(act)) push(Object.assign({ kind: KIND.LOCK_EXTEND, collection: col.key, lock }, idFor(['extend_lock_time'], true)));
+          if (/^ve\/(lock_permanent|make_permanent)/.test(act)) push(Object.assign({ kind: KIND.LOCK_PERMANENT, collection: col.key, lock }, idFor(['lock_permanent', 'make_permanent'], true)));
+          if (/^ve\/(unlock_permanent|remove_permanent)/.test(act)) push(Object.assign({ kind: KIND.LOCK_UNPERMANENT, collection: col.key, lock }, idFor(['unlock_permanent', 'remove_permanent'], true)));
           if (act === 've/merge_lock') { const ids = (first(a, 'merge') || '').split(',').filter(Boolean); push({ kind: KIND.LOCK_MERGE, collection: col.key, token_id: ids[0] || null, from: first(a, 'sender'), lineage: { from_ids: ids, to_ids: ids.slice(0, 1), burned: ids.slice(1) }, lock }); }
           if (act === 've/split_lock') { const newId = first(a, 'token_id'); const srcId = (body && body.split_lock && body.split_lock.token_id) || null; push({ kind: KIND.LOCK_SPLIT, collection: col.key, token_id: newId || null, to: first(a, 'owner'), lineage: { from_ids: srcId ? [srcId] : [], to_ids: newId ? [newId] : [], source_unknown: !srcId ? 'msg body not archived — parent id from wasm-metadata_changed' : undefined }, lock }); const md = evs.filter(e => e.type === 'wasm-metadata_changed').map(e => first(attrsAll(e), 'token_id')).filter(x => x && x !== newId); if (!srcId && md.length) out[out.length - 1].lineage.from_ids = md; }
           if (act === 've/migrate_lock') { const oldId = first(a, 'token_id'); const mint = a.token_id && a.token_id.length > 1 ? a.token_id[1] : null; const cl = W.find(x => contractOf(x) === c && actionsOf(x).includes('ve/create_lock') && x !== w); const newId = mint || (cl && first(cl.a, 'token_id')) || null; push({ kind: KIND.LOCK_MIGRATE, collection: col.key, token_id: newId || oldId, from: first(a, 'sender'), lineage: { from_ids: [oldId], to_ids: newId ? [newId] : [] }, migrate: { amount_before: first(a, 'migrate_amount') || null, fixed_power_before: first(a, 'fixed_power_before') || null, into: (cl && first(cl.a, 'asset')) || null }, lock: cl ? { fixed_power: first(cl.a, 'fixed_power'), voting_power: first(cl.a, 'voting_power'), lock_end: first(cl.a, 'lock_end'), asset: first(cl.a, 'asset') } : lock }); }

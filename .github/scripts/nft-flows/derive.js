@@ -1,6 +1,13 @@
 'use strict';
-// derive.js — nft-flows derive 1.2.1 (SPEC-nft-flows.md). Runs inside the repo checkout (workflows nft-flows-derive.yml,
+// derive.js — nft-flows derive 1.3.0 (SPEC-nft-flows.md). Runs inside the repo checkout (workflows nft-flows-derive.yml,
 // nft-flows-forward.yml):
+//   1.3.0 (2026-09-27, SPEC-portfolio-locks L1, classifier 1.2.0): (a) <slug>/raw/forward/*.json.gz (the Render cron's daily
+//       parts, same {h,x,t,c,e} shape) are re-read too, so rows the forward stream wrote under an older classifier are repaired
+//       or superseded like any archive's — they add NO coverage (the forward stream owns that span). (b) lock rows the 1.1.x
+//       classifier left token-less (permanent / unpermanent / extend, FCD-era adds) are superseded by the per-lock row through
+//       the 1.2.1 twin rule (reason "classify-1.2.0: token_id -→n") — and a token-less row of the same (kind, msg) is superseded
+//       even when the per-token key is already on disk (a tx in both an FCD and a raw part); a lock_create gains `price` in
+//       place (repaired_by). (c) a lock deposit priced by the msg's first leg is corrected with `repair.was` (correctLockPrice).
 //   1.2.1 (2026-09-19, B.1): <slug>/raw/msg-bodies.json (resolve-msg-bodies) — message bodies fetched by hash for archived txs
 //       whose part carries events only; attached as tx.messages when the part has none, so Boost list prices, Atrium list
 //       denoms and DAODAO unstake token ids classify from the body exactly as an FCD part does. A 1.1.5 unstake row with
@@ -80,6 +87,8 @@ function* archives() {
     const L = layout(ROOT, col);
     for (const label of (fs.existsSync(L.fcd) ? fs.readdirSync(L.fcd) : [])) for (const f of listParts(path.join(L.fcd, label))) yield { source: `${col}/archive/fcd:${label}`, file: f, kind: 'fcd', owner: col };
     for (const range of (fs.existsSync(L.raw) ? fs.readdirSync(L.raw) : []).filter(d => /^\d+-\d+$/.test(d))) for (const f of listParts(path.join(L.raw, range))) yield { source: `${col}/raw:${range}`, file: f, kind: 'raw', range, walked_for: col, owner: col };
+    const fwd = path.join(L.raw, 'forward');   // 1.3.0: the forward stream's daily parts — re-classified, never counted as coverage
+    for (const f of (fs.existsSync(fwd) ? fs.readdirSync(fwd) : []).filter(x => /^\d{4}-\d{2}-\d{2}\.json(\.gz)?$/.test(x)).sort()) yield { source: `${col}/raw:forward`, file: path.join(fwd, f), kind: 'raw', forward: true, owner: col };
   }
 }
 const BODIES = {};   // 1.2.1: per collection, <slug>/raw/msg-bodies.json → { txhash: { messages } } (loaded once, small)
@@ -93,7 +102,7 @@ function txsOf(a) {
 }
 
 // ---------------------------------------------------------------- 1.2: labeled merge (repair in place · supersede re-keyed)
-const CLASSIFIER_REV = '1.1.6';
+const CLASSIFIER_REV = '1.2.0';
 const REPAIR_FIELDS = ['from', 'to', 'split', 'listing_type', 'auction_type', 'cancelled_by', 'accepted_offer_id'];
 function repairInPlace(o, e, r) {   // e: the row on disk, r: what the classifier now produces for the SAME key — fill nulls only
   const filled = [];
@@ -108,17 +117,33 @@ function repairInPlace(o, e, r) {   // e: the row on disk, r: what the classifie
   o.repaired++; for (const f of filled) o.repaired_fields[f] = (o.repaired_fields[f] || 0) + 1;
   return true;
 }
+// 1.3.0: the ONE value derive corrects instead of only filling — a lock deposit's payment, when classify 1.2.0 pairs it with the
+// send just before its own ve/* event and the 1.1.x row took the msg's first leg (an IBC-proxy msg: gauge rebase + deposit).
+// The old value stays on the row as repair.was; nothing else about the row changes.
+function correctLockPrice(o, e, r) {
+  if (!/^lock_(add|create)$/.test(e.kind) || !e.price || !r.price || e.price.amount == null || r.price.amount == null) return false;
+  if (e.price.amount === r.price.amount && e.price.denom === r.price.denom) return false;
+  const was = { price: e.price }; for (const k of USD_KEYS) if (e[k] !== undefined) was[k] = e[k];
+  for (const k of USD_KEYS) delete e[k]; e.price = r.price; if (r.from) { was.from = e.from; e.from = r.from; } Object.assign(e, usdAt(e.price, e.ts));
+  e.repair = { was, by: 'classify-' + CLASSIFIER_REV, why: 'the payment is the send into the escrow just before this deposit, not the msg\'s first leg', at: new Date().toISOString() };
+  o.corrected = (o.corrected || 0) + 1; return true;
+}
 function whatDiffers(e, r) { const d = []; if (e.msg_index !== r.msg_index) d.push(`msg_index ${e.msg_index}→${r.msg_index}`); if ((e.token_id == null) !== (r.token_id == null)) d.push(`token_id ${e.token_id == null ? '-' : 'n'}→${r.token_id == null ? '-' : 'n'}`); for (const f of ['listing_id', 'auction_id', 'offer_id']) if ((e[f] || null) !== (r[f] || null)) d.push(`${f} ${e[f] || '-'}→${r[f] || '-'}`); return d.join(', ') || 'key'; }
 function mergeTx(o, txhash, list) {
   const newKeys = new Set(list.map(recordKey));
   // rows on disk for this tx whose key the classifier no longer produces = candidates to be superseded (1.1.5 mis-keyed twins)
   const stale = (o.byTx.get(txhash) || []).filter(x => !x.superseded_by && !newKeys.has(recordKey(x)));
+  const sup = (t, key, why) => { t.superseded_by = key; t.superseded_reason = `classify-${CLASSIFIER_REV}: ${why}`; t.superseded_at = new Date().toISOString(); o.superseded++; o.superseded_why[why.replace(/\d+/g, 'n')] = (o.superseded_why[why.replace(/\d+/g, 'n')] || 0) + 1; };
+  // 1.3.0: a token-less row of the same (kind, msg) is the SAME event as a per-token row the classifier now yields — superseded
+  //        even when the tokened key is already on disk (an FCD part and a raw part of one tx both imported: one row each)
+  const nullTwin = (r, key) => { if (r.token_id == null) return; let j; while ((j = stale.findIndex(x => x.kind === r.kind && x.collection === r.collection && x.token_id == null && x.msg_index === r.msg_index)) >= 0) sup(stale.splice(j, 1)[0], key, 'token_id -→n'); };
   for (const r of list) {
     const key = recordKey(r);
-    if (o.seen.has(key)) { const e = o.byKey.get(key); if (e && !e.superseded_by && repairInPlace(o, e, r)) continue; o.dup++; continue; }
+    if (o.seen.has(key)) { nullTwin(r, key); const e = o.byKey.get(key); if (e && !e.superseded_by && correctLockPrice(o, e, r)) continue; if (e && !e.superseded_by && repairInPlace(o, e, r)) continue; o.dup++; continue; }
     let twinAt = stale.findIndex(x => x.kind === r.kind && x.collection === r.collection && String(x.token_id || '') === String(r.token_id || ''));
     if (twinAt < 0 && r.token_id != null) twinAt = stale.findIndex(x => x.kind === r.kind && x.collection === r.collection && x.token_id == null && (x.msg_index === r.msg_index || x.msg_index === 0));   // 1.2.1: the token-less 1.1.5 row (ids were in the body) is the twin of the first per-token row
-    if (twinAt >= 0) { const t = stale.splice(twinAt, 1)[0]; const why = whatDiffers(t, r); t.superseded_by = key; t.superseded_reason = `classify-${CLASSIFIER_REV}: ${why}`; t.superseded_at = new Date().toISOString(); o.superseded++; o.superseded_why[why.replace(/\d+/g, 'n')] = (o.superseded_why[why.replace(/\d+/g, 'n')] || 0) + 1; }
+    if (twinAt >= 0) { const t = stale.splice(twinAt, 1)[0]; sup(t, key, whatDiffers(t, r)); }
+    nullTwin(r, key);
     o.seen.add(key); o.byKey.set(key, r); (o.byTx.get(txhash) || o.byTx.set(txhash, []).get(txhash)).push(r);
     const mk = String(r.ts).slice(0, 7).replace('-', '/'); (o.byMonth[mk] ||= []).push(r); o.n++;
   }
@@ -146,7 +171,7 @@ function mergeTx(o, txhash, list) {
       for (const [c, list] of Object.entries(perCol)) mergeTx(out[c], tx.txhash, list);
     }
     if (a.kind === 'raw' && a.range) { const m = a.range.match(/^(\d+)-(\d+)$/); if (m) { let to = Number(m[2]); try { const r = rj(path.join(path.dirname(a.file), 'report.json')); if (Number.isFinite(r.walked_to)) to = Math.min(to, r.walked_to); } catch { } heights = to >= Number(m[1]) ? [Number(m[1]), to] : null; } }   // walked span per report.walked_to (a budget-stopped walk leaves a tail), never the matched-tx span
-    if (heights && !a.external) for (const c of cols) { const cfg = reg.collections[c].archives || {}; const mine = a.owner === c; const partial = false; /* every archive lives in its owner's folder — no cross-collection partial coverage */ if (mine || partial) { const cv = (out[c].coverage[a.source] ||= { from: Infinity, to: 0, parts: 0, partial: partial ? 'venue txs only — this collection was not in the archive walk watch set' : undefined }); cv.from = Math.min(cv.from, heights[0]); cv.to = Math.max(cv.to, heights[1]); cv.parts++; } }
+    if (heights && !a.external && !a.forward) for (const c of cols) { const cfg = reg.collections[c].archives || {}; const mine = a.owner === c; const partial = false; /* every archive lives in its owner's folder — no cross-collection partial coverage */ if (mine || partial) { const cv = (out[c].coverage[a.source] ||= { from: Infinity, to: 0, parts: 0, partial: partial ? 'venue txs only — this collection was not in the archive walk watch set' : undefined }); cv.from = Math.min(cv.from, heights[0]); cv.to = Math.max(cv.to, heights[1]); cv.parts++; } }
   }
   for (const c of cols) {
     const o = out[c]; const col = reg.collections[c]; const base = layout(ROOT, c).ledger;
@@ -174,10 +199,10 @@ function mergeTx(o, txhash, list) {
     const prior = (((col.archives || {}).external_coverage) || []).map(cv => ({ source: cv.source, from: cv.from, to: cv.to, parts: 0, imported: 'archive lives in tla-core; records imported (collection.json capture.archives.external_coverage)' }));
     const ranges = [...prior, ...Object.entries(o.coverage).map(([src, v]) => ({ source: src, from: v.from, to: v.to, parts: v.parts, partial: v.partial }))].sort((a, b) => a.from - b.from);
     const gaps = []; let cur = null; for (const r of ranges.filter(r => !r.partial)) { if (cur && r.from > cur + 1) gaps.push({ from_height: cur + 1, to_height: r.from - 1, reason: 'no archived part covers this span' }); cur = Math.max(cur || 0, r.to); }
-    const index = { product: c + '/ledger', schema: 'nft-flows-1.0', classifier: 'NFT FLOWS CLASSIFIER v1 (' + CLASSIFIER_REV + ')', collection: c, label: col.label, total: all.length, by_kind: byKind, months: Object.keys(o.byMonth).sort(), coverage: ranges, known_gaps: gaps, forward_stream: `org-nft-flows-${c} (Render) → ${c}/raw/forward + this ledger`, added_this_run: o.n, skipped_duplicates: o.dup, repaired_this_run: o.repaired, repaired_fields: o.repaired_fields, superseded_this_run: o.superseded, superseded_why: o.superseded_why, superseded_total: all.filter(r => r.superseded_by).length, generatedAt: new Date().toISOString() };
+    const index = { product: c + '/ledger', schema: 'nft-flows-1.0', classifier: 'NFT FLOWS CLASSIFIER v1 (' + CLASSIFIER_REV + ')', collection: c, label: col.label, total: all.length, by_kind: byKind, months: Object.keys(o.byMonth).sort(), coverage: ranges, known_gaps: gaps, forward_stream: `org-nft-flows-${c} (Render) → ${c}/raw/forward + this ledger`, added_this_run: o.n, skipped_duplicates: o.dup, repaired_this_run: o.repaired, repaired_fields: o.repaired_fields, superseded_this_run: o.superseded, superseded_why: o.superseded_why, corrected_this_run: o.corrected || 0, superseded_total: all.filter(r => r.superseded_by).length, generatedAt: new Date().toISOString() };
     wj(path.join(base, 'index.json'), index);
     wj(path.join(base, 'heartbeat.json'), { module: 'nft-flows', product: c + '/ledger', kind: 'derive', ran_at: new Date().toISOString(), parts_read: partsRead, txs_read: txsRead, records_total: all.length, added: o.n, repaired: o.repaired, superseded: o.superseded, classifier: CLASSIFIER_REV, ms: Date.now() - t0 });
-    console.log(`${c}: ${all.length} records (${o.n} new, ${o.dup} dup, ${o.repaired} repaired in place ${JSON.stringify(o.repaired_fields)}, ${o.superseded} superseded ${JSON.stringify(o.superseded_why)}${o.dropped_dup ? ', ' + o.dropped_dup + ' imported duplicates dropped' : ''}) · kinds ${JSON.stringify(byKind)} · coverage ${ranges.map(r => r.from + '–' + r.to).join(', ') || 'none'} · gaps ${gaps.length}`);
+    console.log(`${c}: ${all.length} records (${o.n} new, ${o.dup} dup, ${o.repaired} repaired in place ${JSON.stringify(o.repaired_fields)}, ${o.corrected || 0} corrected (repair.was), ${o.superseded} superseded ${JSON.stringify(o.superseded_why)}${o.dropped_dup ? ', ' + o.dropped_dup + ' imported duplicates dropped' : ''}) · kinds ${JSON.stringify(byKind)} · coverage ${ranges.map(r => r.from + '–' + r.to).join(', ') || 'none'} · gaps ${gaps.length}`);
   }
   console.log(`derive done: ${partsRead} parts, ${txsRead} txs, ${Date.now() - t0} ms${DRY ? ' (DRY — nothing written)' : ''}`);
 })().catch(e => { console.error('FATAL', e); process.exit(1); });
