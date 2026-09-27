@@ -55,6 +55,9 @@ jobs:
         run: |
           node --max-old-space-size=200 .github/scripts/nft-flows/gate-classify.mjs .
           node --max-old-space-size=4096 .github/scripts/nft-flows/derive.js
+          # derive 1.3.0 / classify 1.2.0 (SPEC-portfolio-locks L1): the tla-locks ledger is gated AFTER the derive and BEFORE the
+          # commit — every create priced, token-less lock rows ≤ 1 %, no double count, supersedes labelled, recovered ids name live locks
+          if [ "$COLLECTIONS" = "all" ] || [ "$COLLECTIONS" = "tla-locks" ]; then node --max-old-space-size=1500 .github/scripts/nft-flows/gate-locks-l1.mjs .; fi
       - name: commit (pull --rebase + retry)
         run: |
           git config user.name "nft-flows-derive" && git config user.email "bot@thealliancedao.com"
