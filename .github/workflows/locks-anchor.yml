@@ -1,0 +1,72 @@
+# locks-anchor — ONE-TIME (re-runnable) per SPEC-portfolio-locks L2: the escrow's own lock_info for every tla-locks lock at the
+# heights where an owner's basis starts or ends (create, transfer, split, migrate) and at the head for every lock alive now.
+# Archive RPC (secret ARCHIVE_RPC, the node nft-flows-walk uses) — a COURTESY: sequential, ≤ 4 rps (default 2), backs off on
+# 429/5xx, stops after 5 consecutive failures, capped by max_requests / max_minutes. Resumable: points on disk are never re-read,
+# so a stopped run is continued by running it again. Manual only.
+# Order: read → commit the anchors (the escrow's answers are facts, write-once) → gate-locks-l2 (the reconciles against the ledger:
+# creates = payment, splits conserve, migrates = the ledger's amount). A failed gate fails the job AFTER the answers are kept,
+# so a disagreement is looked at, never re-bought with another 4,000 reads.
+name: locks-anchor
+on:
+  workflow_dispatch:
+    inputs:
+      rps:
+        description: 'requests per second to the archive node (ceiling 4)'
+        default: '2'
+      max_minutes:
+        description: 'stop cleanly after this many minutes (ceiling 300)'
+        default: '100'
+      max_requests:
+        description: 'stop cleanly after this many requests (ceiling 20000)'
+        default: '6000'
+      retry_answers:
+        description: 'ask again where the node answered with an error last time'
+        type: boolean
+        default: false
+      dry:
+        description: 'plan only — print the point counts, read and write nothing'
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: locks-anchor
+  cancel-in-progress: false
+jobs:
+  anchor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/scripts
+            tla-locks/collection.json
+            tla-locks/ledger
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: mock gate (the reader against a mock node, real ledger month)
+        run: node .github/scripts/locks-anchor/mock-anchor.mjs .
+      - name: read
+        env:
+          RUN_MODE: manual
+          COLLECTION: tla-locks
+          ARCHIVE_RPC: ${{ secrets.ARCHIVE_RPC }}
+          RPS: ${{ inputs.rps }}
+          MAX_MINUTES: ${{ inputs.max_minutes }}
+          MAX_REQUESTS: ${{ inputs.max_requests }}
+          RETRY_ANSWERS: ${{ inputs.retry_answers == true && '1' || '' }}
+          DRY: ${{ inputs.dry == true && '1' || '' }}
+        run: node --max-old-space-size=1500 .github/scripts/locks-anchor/anchor.js
+      - name: commit the anchors
+        if: ${{ inputs.dry != true }}
+        run: |
+          git config user.name "locks-anchor" && git config user.email "bot@thealliancedao.com"
+          git add tla-locks/ledger/anchors
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "locks-anchor $(date -u +%Y-%m-%dT%H:%M)Z"
+          for i in 1 2 3 4 5 6; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((i * 15)); done; exit 1
+      - name: gate (reconcile the answers with the ledger)
+        if: ${{ inputs.dry != true }}
+        run: node --max-old-space-size=1500 .github/scripts/locks-anchor/gate-locks-l2.mjs . tla-locks
