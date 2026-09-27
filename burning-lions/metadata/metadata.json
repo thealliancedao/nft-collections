@@ -2,10 +2,10 @@
  "collection": "burning-lions",
  "contract": "terra1cfk54jzu6wsr7c7eqhvs3znkkuxc7pvr7awdvheg7szvnlmduvus95a0q0",
  "engine": "mirror-images 1.2.1",
- "updatedAt": "2026-09-26T10:17:23.738Z",
+ "updatedAt": "2026-09-27T03:40:31.000Z",
  "media_base": "https://cdn.jsdelivr.net/gh/thealliancedao/nft-collections@main/burning-lions/images/",
  "media_fallback_base": "https://raw.githubusercontent.com/thealliancedao/nft-collections/main/burning-lions/images/",
- "note": "one row per token, mirrored from each token_uri; image_file / animation_file are file names under media_base, typed by their bytes (gif/png/webp = <img>, mp4/webm/mov = <video>). A source ending \"(marketplace proxy …)\" is a cached still, not the original.",
+ "note": "one row per token, mirrored from each token_uri; image_file / animation_file are file names under media_base, typed by their bytes (gif/png/webp = <img>, mp4/webm/mov = <video>). A source ending \"(marketplace proxy \u2026)\" is a cached still, not the original.",
  "tokens": [
   {
    "id": "1",
@@ -53,10 +53,10 @@
    "animation_kind": null,
    "sources": {
     "metadata": "https://ipfs.filebase.io/ipfs/{cid}",
-    "image": "https://nft.openfields.app/api/image/terra1cfk54jzu6wsr7c7eqhvs3znkkuxc7pvr7awdvheg7szvnlmduvus95a0q0/2 (marketplace proxy — a cached copy, not the IPFS original)"
+    "image": "https://nft.openfields.app/api/image/terra1cfk54jzu6wsr7c7eqhvs3znkkuxc7pvr7awdvheg7szvnlmduvus95a0q0/2 (marketplace proxy \u2014 a cached copy, not the IPFS original)"
    },
    "errors": [
-    "image: no gateway served bafkreidudbt5z… — ipfs.realityflux.io HTTP 404 · ipfs.io HTTP 429 · dweb.link HTTP 429 · w3s.link HTTP 429 · nftstorage.link HTTP 429 · gateway.pinata.cloud HTTP 404 · 4everland.io HTTP 504 · ipfs.filebase.io timeout · cloudflare-ipfs.com fetch failed"
+    "image: no gateway served bafkreidudbt5z\u2026 \u2014 ipfs.realityflux.io HTTP 404 \u00b7 ipfs.io HTTP 429 \u00b7 dweb.link HTTP 429 \u00b7 w3s.link HTTP 429 \u00b7 nftstorage.link HTTP 429 \u00b7 gateway.pinata.cloud HTTP 404 \u00b7 4everland.io HTTP 504 \u00b7 ipfs.filebase.io timeout \u00b7 cloudflare-ipfs.com fetch failed"
    ]
   },
   {
@@ -108,7 +108,7 @@
     "image": "https://ipfs.filebase.io/ipfs/{cid}"
    },
    "errors": [
-    "image: no gateway served bafkreifakpkek… — ipfs.realityflux.io HTTP 404 · ipfs.io HTTP 429 · dweb.link HTTP 429 · w3s.link HTTP 429 · nftstorage.link HTTP 429 · gateway.pinata.cloud HTTP 404 · 4everland.io HTTP 504 · ipfs.filebase.io timeout · cloudflare-ipfs.com fetch failed"
+    "image: no gateway served bafkreifakpkek\u2026 \u2014 ipfs.realityflux.io HTTP 404 \u00b7 ipfs.io HTTP 429 \u00b7 dweb.link HTTP 429 \u00b7 w3s.link HTTP 429 \u00b7 nftstorage.link HTTP 429 \u00b7 gateway.pinata.cloud HTTP 404 \u00b7 4everland.io HTTP 504 \u00b7 ipfs.filebase.io timeout \u00b7 cloudflare-ipfs.com fetch failed"
    ],
    "image_uri": "ipfs://bafkreifakpkeki4ckdwy6wmtx7w46ima2xvwtjzqwcrop76hg5mbvyyz7q"
   },
@@ -140,18 +140,27 @@
   {
    "id": "6",
    "token_uri": "ipfs://bafkreigryefa5hjwnkwnswabfq24k54xrnkndolkzqrt5fppu2npidau4m",
-   "name": null,
+   "name": "Afterburn",
    "description": null,
-   "attributes": null,
-   "image_file": null,
+   "attributes": [
+    {
+     "trait_type": "name",
+     "value": "Afterburn"
+    }
+   ],
+   "image_file": "6.gif",
    "animation_file": null,
-   "image_kind": null,
+   "image_kind": "image",
    "animation_kind": null,
-   "sources": {},
-   "errors": [
-    "token_uri: no gateway served bafkreigryefa5… — ipfs.realityflux.io HTTP 404 · ipfs.io HTTP 429 · dweb.link HTTP 429 · w3s.link HTTP 429 · nftstorage.link HTTP 429 · gateway.pinata.cloud timeout · 4everland.io HTTP 504 · ipfs.filebase.io timeout · cloudflare-ipfs.com fetch failed",
-    "proxy nft.openfields.app HTTP 404"
-   ]
+   "sources": {
+    "metadata": "holder-supplied \u2014 the name from @PixeLionsDAO's release tweet (https://x.com/PixeLionsDAO/status/1771642450412548208, 2024-03-23: \"March's Burn Lion #6, 'Afterburn,' \u2026 first-ever ANIMATED LION\"); the token_uri JSON is served by no gateway",
+    "image": "holder-supplied \u2014 the video attached to that tweet (X's re-encode, 320\u00d7320, 13 frames at 10 fps) converted to a looping GIF; not the IPFS original"
+   },
+   "repair": {
+    "kind": "holder_supplied",
+    "at": "2026-09-27T03:40:31.000Z",
+    "note": "edition and description left blank \u2014 the tweet does not give the on-chain wording; fill them if the original token_uri JSON ever resurfaces"
+   }
   },
   {
    "id": "7",
