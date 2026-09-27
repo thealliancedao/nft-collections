@@ -4,7 +4,7 @@
  "shard": "w",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 628,
+ "records": 627,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -77,7 +77,15 @@
        "kind": "lock_create",
        "ts": "2025-07-12T00:48:39.706837042Z",
        "height": 16457440,
-       "txhash": "B6AE431BA70A2FB046512B6C2653A2B1653EC078EDD34EB3C1C72A2CCF59D0DA"
+       "txhash": "B6AE431BA70A2FB046512B6C2653A2B1653EC078EDD34EB3C1C72A2CCF59D0DA",
+       "price": {
+        "amount": "103521965",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 29.843695101470495,
+        "usd_basis": "price-history:2025-07-12 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -90,7 +98,15 @@
        "kind": "lock_create",
        "ts": "2026-05-04T23:34:05.867410781Z",
        "height": 20855445,
-       "txhash": "54A692CCB49EAE86FFE7953CCC83D0289824526D9E63320B4BBA3F6114595140"
+       "txhash": "54A692CCB49EAE86FFE7953CCC83D0289824526D9E63320B4BBA3F6114595140",
+       "price": {
+        "amount": "9370854",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 1.37215934527068,
+        "usd_basis": "price-history:2026-05-04 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -103,7 +119,15 @@
        "kind": "lock_create",
        "ts": "2026-05-26T00:08:48.140506468Z",
        "height": 21169223,
-       "txhash": "82A08B41060BD04D972C602BBAC7ED57035DF028A96595175E89EC14593E3BE5"
+       "txhash": "82A08B41060BD04D972C602BBAC7ED57035DF028A96595175E89EC14593E3BE5",
+       "price": {
+        "amount": "16162655",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 2.12900908234035,
+        "usd_basis": "price-history:2026-05-26 (LUNA×ratio(chain_exact))"
+       }
       },
       "broken": false
      }
@@ -180,6 +204,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:16327439-16777438",
+     "price": {
+      "amount": "103521965",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 29.843695101470495,
+     "usd_basis": "price-history:2025-07-12 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.2882837,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:30.030Z",
      "role": "to"
     },
     {
@@ -2528,6 +2567,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:9370854"
      },
      "source": "tla-flows/raw:20593431-21043430",
+     "price": {
+      "amount": "9370854",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1.37215934527068,
+     "usd_basis": "price-history:2026-05-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.14642842,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:23.265Z",
      "role": "to"
     },
     {
@@ -2546,6 +2600,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:16162655"
      },
      "source": "tla-flows/raw:21003435-21453434",
+     "price": {
+      "amount": "16162655",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 2.12900908234035,
+     "usd_basis": "price-history:2026-05-26 (LUNA×ratio(chain_exact))",
+     "unit_usd": 0.13172397,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:30.270Z",
      "role": "to"
     },
     {
@@ -2581,10 +2650,10 @@
    "address": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
    "first_seen": "2024-08-28T12:18:32Z",
    "last_seen": "2026-09-26T01:35:28.970090124Z",
-   "events_count": 230,
+   "events_count": 229,
    "counts": {
     "locks_created": 12,
-    "lock_adds": 197,
+    "lock_adds": 196,
     "locks_withdrawn": 7,
     "listings": 6,
     "delists": 4,
@@ -2620,7 +2689,15 @@
        "kind": "lock_create",
        "ts": "2025-12-28T00:39:31.711083151Z",
        "height": 18949075,
-       "txhash": "4EF8CEC89B6E5D390C50EF295A5CEB3EA13F59FB95FC2059DF019F33FDDFAD14"
+       "txhash": "4EF8CEC89B6E5D390C50EF295A5CEB3EA13F59FB95FC2059DF019F33FDDFAD14",
+       "price": {
+        "amount": "1839289",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.36485107748592,
+        "usd_basis": "price-history:2025-12-28 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -2633,7 +2710,15 @@
        "kind": "lock_create",
        "ts": "2026-02-16T14:21:24.899035352Z",
        "height": 19702079,
-       "txhash": "C5CDC46566384B3C11E11E4EB1D90AE169E6B110AC4182A10151A51BE58E0360"
+       "txhash": "C5CDC46566384B3C11E11E4EB1D90AE169E6B110AC4182A10151A51BE58E0360",
+       "price": {
+        "amount": "375314",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.050749677594500005,
+        "usd_basis": "price-history:2026-02-16 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -2646,7 +2731,15 @@
        "kind": "lock_create",
        "ts": "2026-03-01T02:32:45.213005449Z",
        "height": 19888138,
-       "txhash": "286D180EA579F569FC0FC28CF81BAA3F6E220DAB47591EF0EFB4DE77E90FA4E3"
+       "txhash": "286D180EA579F569FC0FC28CF81BAA3F6E220DAB47591EF0EFB4DE77E90FA4E3",
+       "price": {
+        "amount": "15323",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.00202983796323,
+        "usd_basis": "price-history:2026-03-01 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      }
@@ -2662,7 +2755,15 @@
        "kind": "lock_create",
        "ts": "2024-09-12T14:24:30Z",
        "height": 12049620,
-       "txhash": "3BDA29DE6AA406F0BC9FC0665494C791D45F7E9B64C8B76C81ADB1518FB421F3"
+       "txhash": "3BDA29DE6AA406F0BC9FC0665494C791D45F7E9B64C8B76C81ADB1518FB421F3",
+       "price": {
+        "amount": "3000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 1.6631019,
+        "usd_basis": "price-history:2024-09-12 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -2686,7 +2787,15 @@
        "kind": "lock_create",
        "ts": "2024-10-07T02:35:02Z",
        "height": 12392906,
-       "txhash": "443EF23A36A1AFDF2F588A8D196C38BE3594A8783F862E29A8533F79DC2BF506"
+       "txhash": "443EF23A36A1AFDF2F588A8D196C38BE3594A8783F862E29A8533F79DC2BF506",
+       "price": {
+        "amount": "50000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 27.840192000000002,
+        "usd_basis": "price-history:2024-10-07 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -2710,7 +2819,15 @@
        "kind": "lock_create",
        "ts": "2024-11-04T02:47:10Z",
        "height": 12798476,
-       "txhash": "D36D13B806CA96157893899C99D9D5EAC4C6D77DF5C49AD09C033D4CB3683719"
+       "txhash": "D36D13B806CA96157893899C99D9D5EAC4C6D77DF5C49AD09C033D4CB3683719",
+       "price": {
+        "amount": "1250000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.5713119625,
+        "usd_basis": "price-history:2024-11-04 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -2734,7 +2851,15 @@
        "kind": "lock_create",
        "ts": "2024-12-29T03:32:03Z",
        "height": 13605436,
-       "txhash": "DE057B0047D0AFDB2D7EBB7416C8936D9E86B651736DEED3211ACBD6DA263821"
+       "txhash": "DE057B0047D0AFDB2D7EBB7416C8936D9E86B651736DEED3211ACBD6DA263821",
+       "price": {
+        "amount": "6082573",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 4.88102177288292,
+        "usd_basis": "price-history:2024-12-29 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -2758,7 +2883,15 @@
        "kind": "lock_create",
        "ts": "2024-09-03T19:08:02Z",
        "height": 11923202,
-       "txhash": "B30B4DF1B05092D027ACF4866166F0E7D6A06559E8EF2AEF99C12AF0600ED0A5"
+       "txhash": "B30B4DF1B05092D027ACF4866166F0E7D6A06559E8EF2AEF99C12AF0600ED0A5",
+       "price": {
+        "amount": "2002007",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.98393743136864,
+        "usd_basis": "price-history:2024-09-03 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "gap",
@@ -2775,7 +2908,15 @@
        "kind": "lock_create",
        "ts": "2024-12-18T17:53:27Z",
        "height": 13453359,
-       "txhash": "90CE83884F8DA392F3A9FF4A84AEA78DC433FAAD1DC0A1ADAD83EBE7A1B5AA8B"
+       "txhash": "90CE83884F8DA392F3A9FF4A84AEA78DC433FAAD1DC0A1ADAD83EBE7A1B5AA8B",
+       "price": {
+        "amount": "2500000",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 2.2343486,
+        "usd_basis": "price-history:2024-12-18 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "gap",
@@ -2792,7 +2933,15 @@
        "kind": "lock_create",
        "ts": "2024-10-05T01:46:56Z",
        "height": 12365135,
-       "txhash": "3D845C1FD4C5C4FAD089C888A35AD185F500620EEA27A379E5A2911A771F3A83"
+       "txhash": "3D845C1FD4C5C4FAD089C888A35AD185F500620EEA27A379E5A2911A771F3A83",
+       "price": {
+        "amount": "2000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 1.0980747,
+        "usd_basis": "price-history:2024-10-05 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -2816,7 +2965,15 @@
        "kind": "lock_create",
        "ts": "2024-08-28T12:18:32Z",
        "height": 11833778,
-       "txhash": "73678834FA7091004F7B436E275FE608844C9758F845D7143059273A810B410C"
+       "txhash": "73678834FA7091004F7B436E275FE608844C9758F845D7143059273A810B410C",
+       "price": {
+        "amount": "20000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 10.351490000000002,
+        "usd_basis": "price-history:2024-08-28 (LUNA×ratio(interpolated_reanchored))"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -2840,7 +2997,15 @@
        "kind": "lock_create",
        "ts": "2026-01-18T01:18:04.935637144Z",
        "height": 19262943,
-       "txhash": "DD4824193021C9D8E4915CD7EFAEC04F134D4000490EBF735DA6BE4F5EC717AE"
+       "txhash": "DD4824193021C9D8E4915CD7EFAEC04F134D4000490EBF735DA6BE4F5EC717AE",
+       "price": {
+        "amount": "11267586",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 1.94983513761762,
+        "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -2908,6 +3073,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "20000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 10.351490000000002,
+     "usd_basis": "price-history:2024-08-28 (LUNA×ratio(interpolated_reanchored))",
+     "unit_usd": 0.5175745,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.032Z",
      "role": "to"
     },
     {
@@ -2917,7 +3097,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "10000000",
@@ -2929,13 +3108,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 5.7162897,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-08-28 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.57162897,
-     "usd_repriced_at": "2026-09-18T19:44:14.302Z",
+     "usd": 5.175745000000001,
+     "usd_basis": "price-history:2024-08-28 (LUNA×ratio(interpolated_reanchored))",
+     "unit_usd": 0.5175745,
      "role": "from"
     },
     {
@@ -2945,7 +3125,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "10000000",
@@ -2957,13 +3136,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 5.6519942,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-08-30 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.56519942,
-     "usd_repriced_at": "2026-09-18T19:44:14.302Z",
+     "usd": 5.1165852,
+     "usd_basis": "price-history:2024-08-30 (LUNA×ratio(interpolated_reanchored))",
+     "unit_usd": 0.51165852,
      "role": "from"
     },
     {
@@ -2973,7 +3153,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "20000000",
@@ -2985,13 +3164,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 11.3039884,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-08-30 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.56519942,
-     "usd_repriced_at": "2026-09-18T19:44:14.302Z",
+     "usd": 10.2331704,
+     "usd_basis": "price-history:2024-08-30 (LUNA×ratio(interpolated_reanchored))",
+     "unit_usd": 0.51165852,
      "role": "from"
     },
     {
@@ -3001,7 +3181,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "40000000",
@@ -3013,13 +3192,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 22.521694,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-08-31 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.56304235,
-     "usd_repriced_at": "2026-09-18T19:44:14.302Z",
+     "usd": 20.386359600000002,
+     "usd_basis": "price-history:2024-08-31 (LUNA×ratio(interpolated_reanchored))",
+     "unit_usd": 0.50965899,
      "role": "from"
     },
     {
@@ -3038,6 +3218,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "2002007",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.98393743136864,
+     "usd_basis": "price-history:2024-09-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.49147552,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.024Z",
      "role": "to"
     },
     {
@@ -3047,7 +3242,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "5000000",
@@ -3059,13 +3253,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.72275005,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-05 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.54455001,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 2.4641451500000002,
+     "usd_basis": "price-history:2024-09-05 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.49282903,
      "role": "from"
     },
     {
@@ -3075,7 +3270,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3087,13 +3281,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.08910002,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-05 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.54455001,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.98565806,
+     "usd_basis": "price-history:2024-09-05 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.49282903,
      "role": "from"
     },
     {
@@ -3103,7 +3298,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3000000",
@@ -3115,13 +3309,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.5764331299999998,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-06 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.52547771,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.4266863,
+     "usd_basis": "price-history:2024-09-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4755621,
      "role": "from"
     },
     {
@@ -3131,7 +3326,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "28167154",
@@ -3143,13 +3337,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 14.80121158113734,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-06 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.52547771,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 13.3952309072634,
+     "usd_basis": "price-history:2024-09-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4755621,
      "role": "from"
     },
     {
@@ -3159,7 +3354,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "691399",
@@ -3171,13 +3365,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.35132028348241995,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-07 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.50812958,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.3179440476839,
+     "usd_basis": "price-history:2024-09-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4598561,
      "role": "from"
     },
     {
@@ -3187,7 +3382,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1150000",
@@ -3199,13 +3393,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.5965354519999999,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-08 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.51872648,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.5398565635,
+     "usd_basis": "price-history:2024-09-08 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.46944049,
      "role": "from"
     },
     {
@@ -3224,6 +3419,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "3000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1.6631019,
+     "usd_basis": "price-history:2024-09-12 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5543673,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.019Z",
      "role": "to"
     },
     {
@@ -3233,7 +3443,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "40733524",
@@ -3245,13 +3454,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 24.953785319072484,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-12 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61261052,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 22.5813337193652,
+     "usd_basis": "price-history:2024-09-12 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5543673,
      "role": "from"
     },
     {
@@ -3261,7 +3471,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "6270000",
@@ -3273,13 +3482,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.9932865687,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-14 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63688781,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 3.6135097844999993,
+     "usd_basis": "price-history:2024-09-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57631735,
      "role": "from"
     },
     {
@@ -3289,7 +3499,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2500000",
@@ -3301,13 +3510,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.5872394749999998,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-16 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63489579,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.43623775,
+     "usd_basis": "price-history:2024-09-16 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5744951,
      "role": "from"
     },
     {
@@ -3317,7 +3527,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3329,13 +3538,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.20003774,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-17 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60001887,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.08585054,
+     "usd_basis": "price-history:2024-09-17 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54292527,
      "role": "from"
     },
     {
@@ -3345,7 +3555,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1500000",
@@ -3357,13 +3566,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.8994526350000001,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-18 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59963509,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.813850905,
+     "usd_basis": "price-history:2024-09-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54256727,
      "role": "from"
     },
     {
@@ -3373,7 +3583,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "500000",
@@ -3385,13 +3594,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.30378751,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60757502,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.274870405,
+     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54974081,
      "role": "from"
     },
     {
@@ -3401,7 +3611,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1000000",
@@ -3413,13 +3622,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.60757502,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60757502,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.54974081,
+     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54974081,
      "role": "from"
     },
     {
@@ -3429,7 +3639,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1000000",
@@ -3441,13 +3650,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.60757502,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60757502,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.54974081,
+     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54974081,
      "role": "from"
     },
     {
@@ -3457,7 +3667,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "500000",
@@ -3469,13 +3678,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.30378751,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60757502,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.274870405,
+     "usd_basis": "price-history:2024-09-19 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54974081,
      "role": "from"
     },
     {
@@ -3485,7 +3695,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3000000",
@@ -3497,13 +3706,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.90133388,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-20 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63377796,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.7203154999999999,
+     "usd_basis": "price-history:2024-09-20 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5734385,
      "role": "from"
     },
     {
@@ -3513,7 +3723,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "800000",
@@ -3525,13 +3734,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.50463356,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63079195,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.45658075200000003,
+     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57072594,
      "role": "from"
     },
     {
@@ -3541,7 +3751,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1200000",
@@ -3553,13 +3762,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.7569503399999999,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63079195,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.6848711279999999,
+     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57072594,
      "role": "from"
     },
     {
@@ -3569,7 +3779,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1900000",
@@ -3581,13 +3790,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.2065681339999998,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-22 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63503586,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.0916545,
+     "usd_basis": "price-history:2024-09-22 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.574555,
      "role": "from"
     },
     {
@@ -3597,7 +3807,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3500000",
@@ -3609,13 +3818,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.22262551,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-22 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63503586,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 2.0109425,
+     "usd_basis": "price-history:2024-09-22 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.574555,
      "role": "from"
     },
     {
@@ -3625,7 +3835,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3637,13 +3846,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.23763786,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-23 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61881893,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.11973114,
+     "usd_basis": "price-history:2024-09-23 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55986557,
      "role": "from"
     },
     {
@@ -3653,7 +3863,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1100000",
@@ -3665,13 +3874,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.6847669070000001,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-24 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.62251537,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.619504809,
+     "usd_basis": "price-history:2024-09-24 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.56318619,
      "role": "from"
     },
     {
@@ -3681,7 +3891,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "750000",
@@ -3693,13 +3902,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.47398785,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-25 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.6319838,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.42879627000000003,
+     "usd_basis": "price-history:2024-09-25 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57172836,
      "role": "from"
     },
     {
@@ -3709,7 +3919,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3721,13 +3930,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.2639676,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-25 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.6319838,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.14345672,
+     "usd_basis": "price-history:2024-09-25 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57172836,
      "role": "from"
     },
     {
@@ -3737,7 +3947,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1500000",
@@ -3749,13 +3958,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.9479757,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-25 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.6319838,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.8575925400000001,
+     "usd_basis": "price-history:2024-09-25 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57172836,
      "role": "from"
     },
     {
@@ -3765,7 +3975,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "480000",
@@ -3777,13 +3986,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.3075231888,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.64067331,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.2781799056,
+     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57954147,
      "role": "from"
     },
     {
@@ -3793,7 +4003,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3805,13 +4014,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.28134662,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.64067331,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.15908294,
+     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57954147,
      "role": "from"
     },
     {
@@ -3821,7 +4031,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3833,13 +4042,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.28134662,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.64067331,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.15908294,
+     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57954147,
      "role": "from"
     },
     {
@@ -3849,7 +4059,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3861,13 +4070,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.28134662,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.64067331,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.15908294,
+     "usd_basis": "price-history:2024-09-27 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57954147,
      "role": "from"
     },
     {
@@ -3877,7 +4087,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2500000",
@@ -3889,13 +4098,14 @@
       "lock_end": "100",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.6866558500000002,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-28 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.67466234,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.5256559,
+     "usd_basis": "price-history:2024-09-28 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.61026236,
      "role": "from"
     },
     {
@@ -3905,7 +4115,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1000000",
@@ -3917,13 +4126,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.66805302,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-29 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.66805302,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 0.60425937,
+     "usd_basis": "price-history:2024-09-29 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.60425937,
      "role": "from"
     },
     {
@@ -3933,7 +4143,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1750000",
@@ -3945,13 +4154,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.2682646025,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-30 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.72472263,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1.14708846,
+     "usd_basis": "price-history:2024-09-30 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.65547912,
      "role": "from"
     },
     {
@@ -3961,7 +4171,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -3973,13 +4182,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.22389646,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61194823,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.10679062,
+     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55339531,
      "role": "from"
     },
     {
@@ -3989,7 +4199,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "4000000",
@@ -4001,13 +4210,14 @@
       "lock_end": "101",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.44779292,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61194823,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 2.21358124,
+     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55339531,
      "role": "from"
     },
     {
@@ -4017,7 +4227,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3300000",
@@ -4029,13 +4238,14 @@
       "lock_end": "101",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.019429159,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61194823,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.826204523,
+     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55339531,
      "role": "from"
     },
     {
@@ -4045,7 +4255,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1250000",
@@ -4057,13 +4266,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.7649352875,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61194823,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.6917441375,
+     "usd_basis": "price-history:2024-10-02 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55339531,
      "role": "from"
     },
     {
@@ -4073,7 +4283,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -4085,13 +4294,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.18038664,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59019332,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.06736298,
+     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53368149,
      "role": "from"
     },
     {
@@ -4101,7 +4311,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1250000",
@@ -4113,13 +4322,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.73774165,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59019332,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.6671018625,
+     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53368149,
      "role": "from"
     },
     {
@@ -4129,7 +4339,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1700000",
@@ -4141,13 +4350,14 @@
       "lock_end": "101",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.003328644,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59019332,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.9072585329999999,
+     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53368149,
      "role": "from"
     },
     {
@@ -4157,7 +4367,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1250000",
@@ -4169,13 +4378,14 @@
       "lock_end": "101",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.73774165,
+     "token_id": "220",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59019332,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.6671018625,
+     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53368149,
      "role": "from"
     },
     {
@@ -4194,6 +4404,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "2000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1.0980747,
+     "usd_basis": "price-history:2024-10-05 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54903735,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.995Z",
      "role": "to"
     },
     {
@@ -4203,7 +4428,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -4215,13 +4439,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.21453372,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-05 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60726686,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.0980747,
+     "usd_basis": "price-history:2024-10-05 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54903735,
      "role": "from"
     },
     {
@@ -4231,7 +4456,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2500000",
@@ -4243,13 +4467,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.533459475,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-06 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61338379,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.3863153000000001,
+     "usd_basis": "price-history:2024-10-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55452612,
      "role": "from"
     },
     {
@@ -4281,7 +4506,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "23500000",
@@ -4293,13 +4517,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 14.47434278,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61592948,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 13.084890240000002,
+     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55680384,
      "role": "from"
     },
     {
@@ -4318,6 +4543,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "50000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 27.840192000000002,
+     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55680384,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.993Z",
      "role": "to"
     },
     {
@@ -4327,7 +4567,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "5000000",
@@ -4339,13 +4578,14 @@
       "lock_end": "103",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.0796474000000003,
+     "token_id": "348",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61592948,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 2.7840192000000004,
+     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55680384,
      "role": "from"
     },
     {
@@ -4355,7 +4595,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1500000",
@@ -4367,13 +4606,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.92389422,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61592948,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.83520576,
+     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55680384,
      "role": "from"
     },
     {
@@ -4383,7 +4623,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "45000000",
@@ -4395,13 +4634,14 @@
       "lock_end": "103",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 27.57006495,
+     "token_id": "348",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61266811,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 24.92324865,
+     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55384997,
      "role": "from"
     },
     {
@@ -4411,7 +4651,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "470000",
@@ -4423,13 +4662,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.28795401169999996,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61266811,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.26030948589999997,
+     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55384997,
      "role": "from"
     },
     {
@@ -4439,7 +4679,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3500000",
@@ -4451,13 +4690,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.144338385,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61266811,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.9384748950000001,
+     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55384997,
      "role": "from"
     },
     {
@@ -4467,7 +4707,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "5000000",
@@ -4479,13 +4718,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.06334055,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61266811,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 2.76924985,
+     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55384997,
      "role": "from"
     },
     {
@@ -4495,7 +4735,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3000000",
@@ -4507,13 +4746,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.83800433,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61266811,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.6615499100000002,
+     "usd_basis": "price-history:2024-10-08 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55384997,
      "role": "from"
     },
     {
@@ -4523,7 +4763,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1200000",
@@ -4535,13 +4774,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.714188256,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-09 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59515688,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.64561752,
+     "usd_basis": "price-history:2024-10-09 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5380146,
      "role": "from"
     },
     {
@@ -4551,7 +4791,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "300000",
@@ -4563,13 +4802,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.178547064,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-09 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59515688,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.16140438,
+     "usd_basis": "price-history:2024-10-09 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5380146,
      "role": "from"
     },
     {
@@ -4579,7 +4819,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1150000",
@@ -4591,13 +4830,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.684430412,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-09 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59515688,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.61871679,
+     "usd_basis": "price-history:2024-10-09 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5380146,
      "role": "from"
     },
     {
@@ -4607,7 +4847,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "850000",
@@ -4619,13 +4858,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.484630594,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-11 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.57015364,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.438091955,
+     "usd_basis": "price-history:2024-10-11 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5154023,
      "role": "from"
     },
     {
@@ -4635,7 +4875,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "8000000",
@@ -4647,13 +4886,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 4.56122912,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-11 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.57015364,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 4.1232184,
+     "usd_basis": "price-history:2024-10-11 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5154023,
      "role": "from"
     },
     {
@@ -4663,7 +4903,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -4675,13 +4914,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.1632945,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-14 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.58164725,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.05156578,
+     "usd_basis": "price-history:2024-10-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.52578289,
      "role": "from"
     },
     {
@@ -4691,7 +4931,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "410000",
@@ -4703,13 +4942,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.23847537249999998,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-14 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.58164725,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.21557098489999998,
+     "usd_basis": "price-history:2024-10-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.52578289,
      "role": "from"
     },
     {
@@ -4719,7 +4959,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2250000",
@@ -4731,13 +4970,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.3087063124999998,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-14 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.58164725,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.1830115025,
+     "usd_basis": "price-history:2024-10-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.52578289,
      "role": "from"
     },
     {
@@ -4747,7 +4987,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2200000",
@@ -4759,13 +4998,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.344896278,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-15 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61131649,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.21573628,
+     "usd_basis": "price-history:2024-10-15 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5526074,
      "role": "from"
     },
     {
@@ -4775,7 +5015,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2100000",
@@ -4787,13 +5026,14 @@
       "lock_end": "103",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.2612919830000002,
+     "token_id": "348",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-16 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60061523,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.1401713750000002,
+     "usd_basis": "price-history:2024-10-16 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54293875,
      "role": "from"
     },
     {
@@ -4803,7 +5043,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3550000",
@@ -4815,13 +5054,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.099577068,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-18 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59143016,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.897992661,
+     "usd_basis": "price-history:2024-10-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53464582,
      "role": "from"
     },
     {
@@ -4831,7 +5071,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1000000",
@@ -4843,13 +5082,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.59143016,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-18 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59143016,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.53464582,
+     "usd_basis": "price-history:2024-10-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53464582,
      "role": "from"
     },
     {
@@ -4859,7 +5099,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1510000",
@@ -4871,13 +5110,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.9122518379000001,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-19 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60414029,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.82467291,
+     "usd_basis": "price-history:2024-10-19 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.546141,
      "role": "from"
     },
     {
@@ -4887,7 +5127,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "5000000",
@@ -4899,13 +5138,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.0579243499999995,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-22 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61158487,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 2.7644081999999996,
+     "usd_basis": "price-history:2024-10-22 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55288164,
      "role": "from"
     },
     {
@@ -4915,7 +5155,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2500000",
@@ -4927,13 +5166,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.5289621749999998,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-22 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61158487,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.3822040999999998,
+     "usd_basis": "price-history:2024-10-22 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55288164,
      "role": "from"
     },
     {
@@ -4943,7 +5183,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "5000000",
@@ -4955,13 +5194,14 @@
       "lock_end": "105",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.9818864,
+     "token_id": "348",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-24 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59637728,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 2.6956862999999998,
+     "usd_basis": "price-history:2024-10-24 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53913726,
      "role": "from"
     },
     {
@@ -4971,7 +5211,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "60000",
@@ -4983,13 +5222,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.0358034052,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-25 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59672342,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.032367129599999996,
+     "usd_basis": "price-history:2024-10-25 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53945216,
      "role": "from"
     },
     {
@@ -4999,7 +5239,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "400000",
@@ -5011,13 +5250,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.238689368,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-25 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59672342,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.215780864,
+     "usd_basis": "price-history:2024-10-25 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53945216,
      "role": "from"
     },
     {
@@ -5027,7 +5267,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1000000",
@@ -5039,13 +5278,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.54685318,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-27 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.54685318,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.49437229,
+     "usd_basis": "price-history:2024-10-27 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.49437229,
      "role": "from"
     },
     {
@@ -5055,7 +5295,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2400000",
@@ -5067,13 +5306,14 @@
       "lock_end": "105",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.380359616,
+     "token_id": "348",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-30 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.57514984,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 1.247833416,
+     "usd_basis": "price-history:2024-10-30 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.51993059,
      "role": "from"
     },
     {
@@ -5083,7 +5323,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "450000",
@@ -5095,13 +5334,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.258817428,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-30 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.57514984,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 0.23396876549999998,
+     "usd_basis": "price-history:2024-10-30 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.51993059,
      "role": "from"
     },
     {
@@ -5111,7 +5351,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "14000000",
@@ -5123,13 +5362,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 7.07885304,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-04 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.50563236,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 6.39869398,
+     "usd_basis": "price-history:2024-11-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.45704957,
      "role": "from"
     },
     {
@@ -5161,7 +5401,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "19400636",
@@ -5173,13 +5412,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 9.80958936618096,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-04 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.50563236,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 8.86705234152652,
+     "usd_basis": "price-history:2024-11-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.45704957,
      "role": "from"
     },
     {
@@ -5189,7 +5429,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "350000",
@@ -5201,13 +5440,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.17697132599999998,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-04 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.50563236,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.1599673495,
+     "usd_basis": "price-history:2024-11-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.45704957,
      "role": "from"
     },
     {
@@ -5226,6 +5466,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "1250000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.5713119625,
+     "usd_basis": "price-history:2024-11-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.45704957,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.961Z",
      "role": "to"
     },
     {
@@ -5235,7 +5490,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1250000",
@@ -5247,13 +5501,14 @@
       "lock_end": "109",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.6424808625,
+     "token_id": "425",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-06 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.51398469,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.5807399,
+     "usd_basis": "price-history:2024-11-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.46459192,
      "role": "from"
     },
     {
@@ -5263,7 +5518,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "250000",
@@ -5275,13 +5529,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.1284961725,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-06 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.51398469,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.11614798,
+     "usd_basis": "price-history:2024-11-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.46459192,
      "role": "from"
     },
     {
@@ -5291,7 +5546,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1000000",
@@ -5303,13 +5557,14 @@
       "lock_end": "109",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.56201596,
+     "token_id": "425",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-07 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.56201596,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.50800361,
+     "usd_basis": "price-history:2024-11-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.50800361,
      "role": "from"
     },
     {
@@ -5319,7 +5574,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -5331,13 +5585,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.20473644,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-10 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.60236822,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 1.0889324,
+     "usd_basis": "price-history:2024-11-10 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5444662,
      "role": "from"
     },
     {
@@ -5347,7 +5602,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1300000",
@@ -5359,13 +5613,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.855685012,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-12 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.65821924,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.773439199,
+     "usd_basis": "price-history:2024-11-12 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.59495323,
      "role": "from"
     },
     {
@@ -5375,7 +5630,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "4300000",
@@ -5387,13 +5641,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.648265209,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-14 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61587563,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 2.39375969,
+     "usd_basis": "price-history:2024-11-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5566883,
      "role": "from"
     },
     {
@@ -5403,7 +5658,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3700000",
@@ -5415,13 +5669,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.284944435,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-16 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61755255,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 2.065389691,
+     "usd_basis": "price-history:2024-11-16 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55821343,
      "role": "from"
     },
     {
@@ -5431,7 +5686,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "790000",
@@ -5443,13 +5697,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.4878665145,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-16 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61755255,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.44098860970000003,
+     "usd_basis": "price-history:2024-11-16 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55821343,
      "role": "from"
     },
     {
@@ -5459,7 +5714,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "250000",
@@ -5471,13 +5725,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.1924154475,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-23 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.76966179,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.1739248225,
+     "usd_basis": "price-history:2024-11-23 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.69569929,
      "role": "from"
     },
     {
@@ -5487,7 +5742,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "600000",
@@ -5499,13 +5753,14 @@
       "lock_end": "109",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.461797074,
+     "token_id": "425",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-23 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.76966179,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 0.41741957399999996,
+     "usd_basis": "price-history:2024-11-23 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.69569929,
      "role": "from"
     },
     {
@@ -5515,7 +5770,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3000000",
@@ -5527,13 +5781,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.57503782,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-24 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.85834594,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 2.32757508,
+     "usd_basis": "price-history:2024-11-24 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.77585836,
      "role": "from"
     },
     {
@@ -5543,7 +5798,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "4030000",
@@ -5555,13 +5809,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.4591341382,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-24 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.85834594,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 3.1267091908,
+     "usd_basis": "price-history:2024-11-24 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.77585836,
      "role": "from"
     },
     {
@@ -5571,7 +5826,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "4250000",
@@ -5583,13 +5837,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.3299755125,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-27 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.78352365,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 3.0099548900000004,
+     "usd_basis": "price-history:2024-11-27 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.70822468,
      "role": "from"
     },
     {
@@ -5599,7 +5854,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "6750000",
@@ -5611,13 +5865,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 6.73055838,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-01 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.99711976,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 6.0837427349999995,
+     "usd_basis": "price-history:2024-12-01 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.90129522,
      "role": "from"
     },
     {
@@ -5627,7 +5882,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "1500000",
@@ -5639,13 +5893,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.440347085,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-02 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.96023139,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 1.30193793,
+     "usd_basis": "price-history:2024-12-02 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.86795862,
      "role": "from"
     },
     {
@@ -5655,7 +5910,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3250000",
@@ -5667,13 +5921,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.5107535125000005,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-04 (LUNA×ratio(interpolated))",
-     "unit_usd": 1.08023185,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 3.17348421,
+     "usd_basis": "price-history:2024-12-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.97645668,
      "role": "from"
     },
     {
@@ -5683,7 +5938,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3750000",
@@ -5695,13 +5949,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 4.472468662500001,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-05 (LUNA×ratio(interpolated))",
-     "unit_usd": 1.19265831,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 4.042871287500001,
+     "usd_basis": "price-history:2024-12-05 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 1.07809901,
      "role": "from"
     },
     {
@@ -5711,7 +5966,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "6770512",
@@ -5723,13 +5977,14 @@
       "lock_end": "110",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 8.50125947207264,
+     "token_id": "425",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-06 (LUNA×ratio(interpolated))",
-     "unit_usd": 1.25563022,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 7.68480051867248,
+     "usd_basis": "price-history:2024-12-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 1.13503979,
      "role": "from"
     },
     {
@@ -5761,7 +6016,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "6000000",
@@ -5773,13 +6027,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 5.5904205000000005,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-10 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.93173675,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 5.05375662,
+     "usd_basis": "price-history:2024-12-10 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.84229277,
      "role": "from"
     },
     {
@@ -5789,7 +6044,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3000000",
@@ -5801,13 +6055,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.85924012,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-13 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.95308004,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 2.58480453,
+     "usd_basis": "price-history:2024-12-13 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.86160151,
      "role": "from"
     },
     {
@@ -5817,7 +6072,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "4000000",
@@ -5829,13 +6083,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 3.81742104,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-14 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.95435526,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 3.45103824,
+     "usd_basis": "price-history:2024-12-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.86275956,
      "role": "from"
     },
     {
@@ -5845,7 +6100,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "800000",
@@ -5857,13 +6111,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.72202084,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-15 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.90252605,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 0.652727912,
+     "usd_basis": "price-history:2024-12-15 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.81590989,
      "role": "from"
     },
     {
@@ -5873,7 +6128,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "700000",
@@ -5885,13 +6139,14 @@
       "lock_end": "164",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.6317682349999999,
+     "token_id": "25",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-15 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.90252605,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 0.571136923,
+     "usd_basis": "price-history:2024-12-15 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.81590989,
      "role": "from"
     },
     {
@@ -5910,6 +6165,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "2500000",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 2.2343486,
+     "usd_basis": "price-history:2024-12-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.89373944,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.924Z",
      "role": "to"
     },
     {
@@ -5919,7 +6189,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "7500000",
@@ -5931,13 +6200,14 @@
       "lock_end": "125",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 6.3770286,
+     "token_id": "334",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-18 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.85027048,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 5.765297025000001,
+     "usd_basis": "price-history:2024-12-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.76870627,
      "role": "from"
     },
     {
@@ -5947,7 +6217,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "500000",
@@ -5959,13 +6228,14 @@
       "lock_end": "211",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.36178545,
+     "token_id": "513",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "arbLUNA",
      "denom_decimals": 6,
+     "usd": 0.36178545,
      "usd_basis": "price-history:2024-12-22 (LUNA×ratio(chain_anchored))",
      "unit_usd": 0.7235709,
-     "usd_repriced_at": "2026-09-27T11:44:16.812Z",
      "role": "from"
     },
     {
@@ -5975,7 +6245,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "175000",
@@ -5987,13 +6256,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.1321813465,
+     "token_id": "118",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-29 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.75532198,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 0.11952118149999999,
+     "usd_basis": "price-history:2024-12-29 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.68297818,
      "role": "from"
     },
     {
@@ -6012,6 +6282,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "6082573",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 4.88102177288292,
+     "usd_basis": "price-history:2024-12-29 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.80246004,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.918Z",
      "role": "to"
     },
     {
@@ -6021,7 +6306,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "2000000",
@@ -6033,13 +6317,14 @@
       "lock_end": "211",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.60492008,
+     "token_id": "513",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "arbLUNA",
      "denom_decimals": 6,
+     "usd": 1.60492008,
      "usd_basis": "price-history:2024-12-29 (LUNA×ratio(chain_anchored))",
      "unit_usd": 0.80246004,
-     "usd_repriced_at": "2026-09-27T11:44:16.812Z",
      "role": "from"
     },
     {
@@ -6049,7 +6334,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "3420000",
@@ -6061,13 +6345,14 @@
       "lock_end": "115",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2.7444133368,
+     "token_id": "549",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "arbLUNA",
      "denom_decimals": 6,
+     "usd": 2.7444133368,
      "usd_basis": "price-history:2024-12-29 (LUNA×ratio(chain_anchored))",
      "unit_usd": 0.80246004,
-     "usd_repriced_at": "2026-09-27T11:44:16.812Z",
      "role": "from"
     },
     {
@@ -6077,7 +6362,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "10000000",
@@ -6089,13 +6373,14 @@
       "lock_end": "211",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 8.4793988,
+     "token_id": "513",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "arbLUNA",
      "denom_decimals": 6,
+     "usd": 8.4793988,
      "usd_basis": "price-history:2025-01-04 (LUNA×ratio(chain_anchored))",
      "unit_usd": 0.84793988,
-     "usd_repriced_at": "2026-09-27T11:44:19.230Z",
      "role": "from"
     },
     {
@@ -6105,7 +6390,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "707908",
@@ -6117,41 +6401,14 @@
       "lock_end": "115",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.60026342457104,
+     "token_id": "549",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "arbLUNA",
      "denom_decimals": 6,
+     "usd": 0.60026342457104,
      "usd_basis": "price-history:2025-01-04 (LUNA×ratio(chain_anchored))",
      "unit_usd": 0.84793988,
-     "usd_repriced_at": "2026-09-27T11:44:19.230Z",
-     "role": "from"
-    },
-    {
-     "txhash": "FF9751DFAB14D5503727ECBF42B262E56AF12C758224B1535EAB03757433F509",
-     "height": 13736494,
-     "ts": "2025-01-07T04:14:22Z",
-     "msg_index": 0,
-     "kind": "lock_add",
-     "collection": "tla-locks",
-     "token_id": null,
-     "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
-     "price": {
-      "amount": "1000000",
-      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
-     },
-     "lock": {
-      "fixed_power": "29066375",
-      "voting_power": "243989629",
-      "lock_end": "211",
-      "asset": null
-     },
-     "source": "fcd:tla-escrow",
-     "usd": 0.90158619,
-     "denom_symbol": "arbLUNA",
-     "denom_decimals": 6,
-     "usd_basis": "price-history:2025-01-07 (LUNA×ratio(chain_anchored))",
-     "unit_usd": 0.90158619,
-     "usd_repriced_at": "2026-09-27T11:44:19.230Z",
      "role": "from"
     },
     {
@@ -7050,6 +7307,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:1839289"
      },
      "source": "tla-flows/raw:18828556-19278555",
+     "price": {
+      "amount": "1839289",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.36485107748592,
+     "usd_basis": "price-history:2025-12-28 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.19836528,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:51:41.736Z",
      "role": "to"
     },
     {
@@ -7155,6 +7427,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:11267586"
      },
      "source": "tla-flows/raw:19094034-19544033",
+     "price": {
+      "amount": "11267586",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1.94983513761762,
+     "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.17304817,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:51:48.147Z",
      "role": "to"
     },
     {
@@ -7335,6 +7622,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:375314"
      },
      "source": "tla-flows/raw:19634718-20084717",
+     "price": {
+      "amount": "375314",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.050749677594500005,
+     "usd_basis": "price-history:2026-02-16 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.13521925,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:00.291Z",
      "role": "to"
     },
     {
@@ -7633,6 +7935,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:15323"
      },
      "source": "tla-flows/raw:19875589-20325588",
+     "price": {
+      "amount": "15323",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.00202983796323,
+     "usd_basis": "price-history:2026-03-01 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.13247001,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:05.364Z",
      "role": "to"
     },
     {
@@ -8797,10 +9114,9 @@
      "txhash": "A357FACA694991324AC960F568DBEBB605D14686D415F855A306B1AF072AC2DD",
      "height": 22815296,
      "ts": "2026-09-13T04:34:46.593381674Z",
-     "msg_index": 0,
+     "msg_index": 1,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": "1199",
      "from": "terra15cpnqu2xwu2kcjn89hkajyuwnv8eadqxrllrsw",
      "price": {
       "amount": "681049",
@@ -8812,13 +9128,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "forward:org-nft-flows",
-     "usd": 0.072195212127476,
+     "token_id": "1199",
+     "token_id_from": "metadata_changed",
+     "source": "tla-locks/raw:forward",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
+     "usd": 0.072195212127476,
      "usd_basis": "price-history:2026-09-13 (tla)",
      "unit_usd": 0.10600589990951605,
-     "usd_repriced_at": "2026-09-18T19:45:01.439Z",
      "role": "from"
     },
     {
@@ -9043,7 +9360,15 @@
        "kind": "lock_create",
        "ts": "2025-01-24T09:09:39.4345842Z",
        "height": 13989674,
-       "txhash": "9564EEE3E8FB0DD78BCA6A4BF14FA61561C2CB7EAC0286D80D5B8836C36FE9C3"
+       "txhash": "9564EEE3E8FB0DD78BCA6A4BF14FA61561C2CB7EAC0286D80D5B8836C36FE9C3",
+       "price": {
+        "amount": "1000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.53606043,
+        "usd_basis": "price-history:2025-01-24 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -9059,7 +9384,15 @@
        "kind": "lock_create",
        "ts": "2024-11-05T01:45:54Z",
        "height": 12812605,
-       "txhash": "D660FD12E7A5408EEA9B855B5BF91404E5F2734287D4D2D1D1F96326A2684AA6"
+       "txhash": "D660FD12E7A5408EEA9B855B5BF91404E5F2734287D4D2D1D1F96326A2684AA6",
+       "price": {
+        "amount": "20750000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 9180.636225,
+        "usd_basis": "price-history:2024-11-05 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -9102,6 +9435,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "20750000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 9180.636225,
+     "usd_basis": "price-history:2024-11-05 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4424403,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.951Z",
      "role": "to"
     },
     {
@@ -9120,6 +9468,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:13737811-14187810",
+     "price": {
+      "amount": "1000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.53606043,
+     "usd_basis": "price-history:2025-01-24 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53606043,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:49:43.898Z",
      "role": "to"
     },
     {
@@ -9174,7 +9537,15 @@
        "kind": "lock_create",
        "ts": "2025-02-10T07:30:25.860454519Z",
        "height": 14237871,
-       "txhash": "3CD3FACB7BD321AE7CC8C963972A21A1D5E2469919571ED861CA0A1EEFFF09FD"
+       "txhash": "3CD3FACB7BD321AE7CC8C963972A21A1D5E2469919571ED861CA0A1EEFFF09FD",
+       "price": {
+        "amount": "26921356",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 12.7506258894322,
+        "usd_basis": "price-history:2025-02-10 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -9217,6 +9588,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:14098866-14548865",
+     "price": {
+      "amount": "26921356",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 12.7506258894322,
+     "usd_basis": "price-history:2025-02-10 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.47362495,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:49:49.897Z",
      "role": "to"
     },
     {
@@ -9257,7 +9643,15 @@
        "kind": "lock_create",
        "ts": "2024-09-04T13:15:54Z",
        "height": 11934074,
-       "txhash": "E732C9FC3B9BB8C5B466E761C91FB5AB8F6F3A2271E29FEF27C4A623906E1315"
+       "txhash": "E732C9FC3B9BB8C5B466E761C91FB5AB8F6F3A2271E29FEF27C4A623906E1315",
+       "price": {
+        "amount": "55488596",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 26.823331576749602,
+        "usd_basis": "price-history:2024-09-04 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9270,7 +9664,15 @@
        "kind": "lock_create",
        "ts": "2024-09-04T13:17:49Z",
        "height": 11934093,
-       "txhash": "855AAB56040AFD6E8794813CE7E08FD0679A64B9BB5993185292E79359B1505A"
+       "txhash": "855AAB56040AFD6E8794813CE7E08FD0679A64B9BB5993185292E79359B1505A",
+       "price": {
+        "amount": "55488596",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 26.823331576749602,
+        "usd_basis": "price-history:2024-09-04 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      }
@@ -9312,6 +9714,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "55488596",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 26.823331576749602,
+     "usd_basis": "price-history:2024-09-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4834026,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.024Z",
      "role": "to"
     },
     {
@@ -9330,6 +9747,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "55488596",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 26.823331576749602,
+     "usd_basis": "price-history:2024-09-04 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4834026,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.024Z",
      "role": "to"
     }
    ]
@@ -9360,7 +9792,15 @@
        "kind": "lock_create",
        "ts": "2024-10-29T01:26:05Z",
        "height": 12710136,
-       "txhash": "83EF0856D2E3542A5A4783A512C9F7A271BE05394A96D4BBF944B1A8D312E092"
+       "txhash": "83EF0856D2E3542A5A4783A512C9F7A271BE05394A96D4BBF944B1A8D312E092",
+       "price": {
+        "amount": "5400000001",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 2723.070474504272,
+        "usd_basis": "price-history:2024-10-29 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9373,7 +9813,15 @@
        "kind": "lock_create",
        "ts": "2025-05-30T10:50:29.465252031Z",
        "height": 15834297,
-       "txhash": "4E30A058F09EC04265B856EB2F32254D71B3178E773FE0E3843606910D9AD08C"
+       "txhash": "4E30A058F09EC04265B856EB2F32254D71B3178E773FE0E3843606910D9AD08C",
+       "price": {
+        "amount": "1000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 0.18668652,
+        "usd_basis": "price-history:2025-05-30 (coingecko)"
+       }
       },
       "broken": false
      },
@@ -9386,7 +9834,15 @@
        "kind": "lock_create",
        "ts": "2025-05-30T10:50:35.378999886Z",
        "height": 15834298,
-       "txhash": "3059C52DF7A75CDF372653EE6D241D3C0E76280B0C0A20A06AEA7F70489E3330"
+       "txhash": "3059C52DF7A75CDF372653EE6D241D3C0E76280B0C0A20A06AEA7F70489E3330",
+       "price": {
+        "amount": "1000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.31064327,
+        "usd_basis": "price-history:2025-05-30 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      }
@@ -9402,7 +9858,15 @@
        "kind": "lock_create",
        "ts": "2025-04-14T11:57:41.873219228Z",
        "height": 15160760,
-       "txhash": "8C8845B3DA348A84E27C7F83A02CF5586017FB44FD5490DE4A0808F2ED648AEC"
+       "txhash": "8C8845B3DA348A84E27C7F83A02CF5586017FB44FD5490DE4A0808F2ED648AEC",
+       "price": {
+        "amount": "1627314870",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 413.5279822642212,
+        "usd_basis": "price-history:2025-04-14 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -9419,7 +9883,15 @@
        "kind": "lock_create",
        "ts": "2025-05-02T14:32:45.442805065Z",
        "height": 15426162,
-       "txhash": "0B06C0C319457C4BAF4DA8A7BE59847DA525BDA27F94531AE22489B594B6E66C"
+       "txhash": "0B06C0C319457C4BAF4DA8A7BE59847DA525BDA27F94531AE22489B594B6E66C",
+       "price": {
+        "amount": "1000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 0.18400605,
+        "usd_basis": "price-history:2025-05-02 (coingecko)"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -9443,7 +9915,15 @@
        "kind": "lock_create",
        "ts": "2025-05-05T15:30:18.774451533Z",
        "height": 15470598,
-       "txhash": "76FCC25589A89067AEEC980F5C53E338A6EE9CBA1B0797692B728E0C1D633394"
+       "txhash": "76FCC25589A89067AEEC980F5C53E338A6EE9CBA1B0797692B728E0C1D633394",
+       "price": {
+        "amount": "1000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 0.17058919,
+        "usd_basis": "price-history:2025-05-05 (coingecko)"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -9494,6 +9974,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "5400000001",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 2723.070474504272,
+     "usd_basis": "price-history:2024-10-29 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.50427231,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.965Z",
      "role": "to"
     },
     {
@@ -9512,6 +10007,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:15086406-15536405",
+     "price": {
+      "amount": "1627314870",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 413.5279822642212,
+     "usd_basis": "price-history:2025-04-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.25411676,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:06.728Z",
      "role": "to"
     },
     {
@@ -9560,6 +10070,22 @@
       "asset": null
      },
      "source": "tla-flows/raw:15086406-15536405",
+     "price": {
+      "amount": "1000000",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 0.18400605,
+     "usd_basis": "price-history:2025-05-02 (coingecko)",
+     "unit_usd": 0.18400605,
+     "luna_usd": 0.18400605,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:10.592Z",
      "role": "to"
     },
     {
@@ -9578,6 +10104,22 @@
       "asset": null
      },
      "source": "tla-flows/raw:15086406-15536405",
+     "price": {
+      "amount": "1000000",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 0.17058919,
+     "usd_basis": "price-history:2025-05-05 (coingecko)",
+     "unit_usd": 0.17058919,
+     "luna_usd": 0.17058919,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:11.111Z",
      "role": "to"
     },
     {
@@ -9664,6 +10206,22 @@
       "asset": null
      },
      "source": "tla-flows/raw:15471073-15921072",
+     "price": {
+      "amount": "1000000",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 0.18668652,
+     "usd_basis": "price-history:2025-05-30 (coingecko)",
+     "unit_usd": 0.18668652,
+     "luna_usd": 0.18668652,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:18.720Z",
      "role": "to"
     },
     {
@@ -9682,6 +10240,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:15471073-15921072",
+     "price": {
+      "amount": "1000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.31064327,
+     "usd_basis": "price-history:2025-05-30 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.31064327,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:18.721Z",
      "role": "to"
     },
     {
@@ -9737,7 +10310,15 @@
        "kind": "lock_create",
        "ts": "2024-10-20T23:06:37Z",
        "height": 12592560,
-       "txhash": "F05ED4BD007CE70CDB5794450C90F5AF78D121ED1F5E252C462CC8952DCC0B0B"
+       "txhash": "F05ED4BD007CE70CDB5794450C90F5AF78D121ED1F5E252C462CC8952DCC0B0B",
+       "price": {
+        "amount": "2590000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 960.090208,
+        "usd_basis": "price-history:2024-10-20 (coingecko)"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -9788,6 +10369,22 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "2590000000",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 960.090208,
+     "usd_basis": "price-history:2024-10-20 (coingecko)",
+     "unit_usd": 0.3706912,
+     "luna_usd": 0.3706912,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.975Z",
      "role": "to"
     },
     {
@@ -9886,7 +10483,15 @@
        "kind": "lock_create",
        "ts": "2024-09-06T13:17:27Z",
        "height": 11962845,
-       "txhash": "93AC92399D310AAFA1C53922A547F01685FD1E0FA840C56368D2E76196685464"
+       "txhash": "93AC92399D310AAFA1C53922A547F01685FD1E0FA840C56368D2E76196685464",
+       "price": {
+        "amount": "2498882530",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 1043.4940121169777,
+        "usd_basis": "price-history:2024-09-06 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9899,7 +10504,15 @@
        "kind": "lock_create",
        "ts": "2024-09-13T03:23:50Z",
        "height": 12057400,
-       "txhash": "A01B755457A9B2EA4537DEC3A5B9926588E94DA9E60FA0022A72CC3A49E1C5E1"
+       "txhash": "A01B755457A9B2EA4537DEC3A5B9926588E94DA9E60FA0022A72CC3A49E1C5E1",
+       "price": {
+        "amount": "6017030",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 2.4195832063452998,
+        "usd_basis": "price-history:2024-09-13 (coingecko)"
+       }
       },
       "broken": false
      },
@@ -9912,7 +10525,15 @@
        "kind": "lock_create",
        "ts": "2024-12-27T18:07:33Z",
        "height": 13585135,
-       "txhash": "4BA4905579C970B990CBD692FA5B1E91C793F821093A4312E113A43927D0AC8C"
+       "txhash": "4BA4905579C970B990CBD692FA5B1E91C793F821093A4312E113A43927D0AC8C",
+       "price": {
+        "amount": "614455411",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 461.90097154687567,
+        "usd_basis": "price-history:2024-12-27 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9925,7 +10546,15 @@
        "kind": "lock_create",
        "ts": "2025-01-19T12:35:41.539688491Z",
        "height": 13918309,
-       "txhash": "E96660BE69D21337F2FD1727778C38E36F690FE0D5295DF383EDCCB7B5FB5989"
+       "txhash": "E96660BE69D21337F2FD1727778C38E36F690FE0D5295DF383EDCCB7B5FB5989",
+       "price": {
+        "amount": "1362484733",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 1009.7578865221424,
+        "usd_basis": "price-history:2025-01-19 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9938,7 +10567,15 @@
        "kind": "lock_create",
        "ts": "2025-08-11T17:27:21.419738256Z",
        "height": 16908334,
-       "txhash": "007B45EF8C08B923CD109B19AE92247FC1F5D7389F76531DE1E2941E6E6ABF83"
+       "txhash": "007B45EF8C08B923CD109B19AE92247FC1F5D7389F76531DE1E2941E6E6ABF83",
+       "price": {
+        "amount": "337676454",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 124.98743436650747,
+        "usd_basis": "price-history:2025-08-11 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9951,7 +10588,15 @@
        "kind": "lock_create",
        "ts": "2026-01-18T05:29:20.22719086Z",
        "height": 19265553,
-       "txhash": "39C1A0BB7382D232C58AF7207603477152F39F508C50545CC27F25450C91418A"
+       "txhash": "39C1A0BB7382D232C58AF7207603477152F39F508C50545CC27F25450C91418A",
+       "price": {
+        "amount": "1244498",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 0.3009587558621,
+        "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9964,7 +10609,15 @@
        "kind": "lock_create",
        "ts": "2026-01-18T10:19:50.939965988Z",
        "height": 19268568,
-       "txhash": "7B729718C58BF8D44DBB81D780794245CF666085B7A1F5FF5A34C6323A03AE3C"
+       "txhash": "7B729718C58BF8D44DBB81D780794245CF666085B7A1F5FF5A34C6323A03AE3C",
+       "price": {
+        "amount": "10000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 0.8912233,
+        "usd_basis": "price-history:2026-01-18 (coingecko)"
+       }
       },
       "broken": false
      },
@@ -9977,7 +10630,15 @@
        "kind": "lock_create",
        "ts": "2026-01-18T10:21:06.670148171Z",
        "height": 19268581,
-       "txhash": "64963ECFBCE17DDFA82242062C9363E22B7A270F1FB92C2914EE9CB6479FB4C1"
+       "txhash": "64963ECFBCE17DDFA82242062C9363E22B7A270F1FB92C2914EE9CB6479FB4C1",
+       "price": {
+        "amount": "44734166",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 6.51207601091816,
+        "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -9990,7 +10651,15 @@
        "kind": "lock_create",
        "ts": "2026-01-18T10:33:00.23018753Z",
        "height": 19268704,
-       "txhash": "810141CE5A8785D40894B9B021864AF443F484BAA29AEB20BD4C0136E3455B18"
+       "txhash": "810141CE5A8785D40894B9B021864AF443F484BAA29AEB20BD4C0136E3455B18",
+       "price": {
+        "amount": "25000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 4.32620425,
+        "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -10003,7 +10672,15 @@
        "kind": "lock_create",
        "ts": "2026-09-12T05:40:20.292594641Z",
        "height": 22800983,
-       "txhash": "0784F7DB450C6EB66C6CC8140AFA6F60798FB59F99CB999559ADD3FD4E369FF4"
+       "txhash": "0784F7DB450C6EB66C6CC8140AFA6F60798FB59F99CB999559ADD3FD4E369FF4",
+       "price": {
+        "amount": "22224213",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 2.3931428139035518,
+        "usd_basis": "price-history:2026-09-12 (tla)"
+       }
       },
       "broken": false
      },
@@ -10032,7 +10709,15 @@
        "kind": "lock_create",
        "ts": "2024-09-07T11:16:29Z",
        "height": 11976011,
-       "txhash": "F9E245BF0BA9FE3E60B2DC742A0FA3E7AED36544F5797430A28742AD663D403A"
+       "txhash": "F9E245BF0BA9FE3E60B2DC742A0FA3E7AED36544F5797430A28742AD663D403A",
+       "price": {
+        "amount": "1736942618",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 798.7436582372698,
+        "usd_basis": "price-history:2024-09-07 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10049,7 +10734,15 @@
        "kind": "lock_create",
        "ts": "2024-09-08T20:11:30Z",
        "height": 11995706,
-       "txhash": "067ACF4C174395C60D474816362B87E82BF6D2BDBE5B032F836E65A528D69B7A"
+       "txhash": "067ACF4C174395C60D474816362B87E82BF6D2BDBE5B032F836E65A528D69B7A",
+       "price": {
+        "amount": "1758752987",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 825.6298640062437,
+        "usd_basis": "price-history:2024-09-08 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10066,7 +10759,15 @@
        "kind": "lock_create",
        "ts": "2024-09-01T14:44:12Z",
        "height": 11891786,
-       "txhash": "BCB51339AE341EF4C7F96916665212A8ABF9A15DE7C6C3A6E6E97AE95D12F3BC"
+       "txhash": "BCB51339AE341EF4C7F96916665212A8ABF9A15DE7C6C3A6E6E97AE95D12F3BC",
+       "price": {
+        "amount": "1459624776",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 727.6734392570019,
+        "usd_basis": "price-history:2024-09-01 (LUNA×ratio(interpolated_reanchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10083,7 +10784,15 @@
        "kind": "lock_create",
        "ts": "2024-09-16T04:20:52Z",
        "height": 12101067,
-       "txhash": "03312A9A3EB088AD8A6A6F48F057D416B8B1C13A7E0976BB7BDF6ED599F43229"
+       "txhash": "03312A9A3EB088AD8A6A6F48F057D416B8B1C13A7E0976BB7BDF6ED599F43229",
+       "price": {
+        "amount": "2675000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 1536.7743925000002,
+        "usd_basis": "price-history:2024-09-16 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -10118,7 +10827,15 @@
        "kind": "lock_create",
        "ts": "2025-07-01T12:37:09.627929378Z",
        "height": 16303754,
-       "txhash": "6612687EC38C91D132EE200B7AAA134F2C4C5E70B8ABA082B68D9736C7BD1C83"
+       "txhash": "6612687EC38C91D132EE200B7AAA134F2C4C5E70B8ABA082B68D9736C7BD1C83",
+       "price": {
+        "amount": "56206126",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 14.07126996732868,
+        "usd_basis": "price-history:2025-07-01 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -10134,7 +10851,15 @@
        "kind": "lock_create",
        "ts": "2024-12-20T05:59:45Z",
        "height": 13475355,
-       "txhash": "9AA146D724C1B6B67BFF9702F8F3EB375C079A704690B9EE52D9D7518F29EECE"
+       "txhash": "9AA146D724C1B6B67BFF9702F8F3EB375C079A704690B9EE52D9D7518F29EECE",
+       "price": {
+        "amount": "1857869493",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 1369.6324074056934,
+        "usd_basis": "price-history:2024-12-20 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10151,7 +10876,15 @@
        "kind": "lock_create",
        "ts": "2024-09-13T03:23:02Z",
        "height": 12057392,
-       "txhash": "D043222FE8527B42D6DDE5559D96D81AB4EB5B192D589CC408ABB07CEE5D7559"
+       "txhash": "D043222FE8527B42D6DDE5559D96D81AB4EB5B192D589CC408ABB07CEE5D7559",
+       "price": {
+        "amount": "25000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 14.55910975,
+        "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10168,7 +10901,15 @@
        "kind": "lock_create",
        "ts": "2024-09-06T13:21:59Z",
        "height": 11962890,
-       "txhash": "79A44313002652DAEE9415AC9E178A5D2006C621C592AC2352FA35B8E6E33E76"
+       "txhash": "79A44313002652DAEE9415AC9E178A5D2006C621C592AC2352FA35B8E6E33E76",
+       "price": {
+        "amount": "31003",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.0147438517863,
+        "usd_basis": "price-history:2024-09-06 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10185,7 +10926,15 @@
        "kind": "lock_create",
        "ts": "2024-10-03T02:30:39Z",
        "height": 12338314,
-       "txhash": "5DE5771E4A9E7B500CC9E2D451FC7343883F6F5257F5F2FD005EDDC2A1EADFD2"
+       "txhash": "5DE5771E4A9E7B500CC9E2D451FC7343883F6F5257F5F2FD005EDDC2A1EADFD2",
+       "price": {
+        "amount": "100000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 53.368148999999995,
+        "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10202,7 +10951,15 @@
        "kind": "lock_create",
        "ts": "2024-09-17T02:42:44Z",
        "height": 12114467,
-       "txhash": "D066B708654D57A739FB3440FA2B84D8D7F1480E75D120847C3A11B102802203"
+       "txhash": "D066B708654D57A739FB3440FA2B84D8D7F1480E75D120847C3A11B102802203",
+       "price": {
+        "amount": "30000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 16.2877581,
+        "usd_basis": "price-history:2024-09-17 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10219,7 +10976,15 @@
        "kind": "lock_create",
        "ts": "2024-10-09T02:38:21Z",
        "height": 12421012,
-       "txhash": "1F701B5800C240ACC5FCC03F355B324D993E2883CE3FF382B545B1F1A3B843EF"
+       "txhash": "1F701B5800C240ACC5FCC03F355B324D993E2883CE3FF382B545B1F1A3B843EF",
+       "price": {
+        "amount": "5000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 2.690073,
+        "usd_basis": "price-history:2024-10-09 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10236,7 +11001,15 @@
        "kind": "lock_create",
        "ts": "2024-12-13T18:11:08Z",
        "height": 13380264,
-       "txhash": "79E25193F55D8AA3BE441CD1C0E050BE449D51CE842EDC2D675C36E84AD91BCC"
+       "txhash": "79E25193F55D8AA3BE441CD1C0E050BE449D51CE842EDC2D675C36E84AD91BCC",
+       "price": {
+        "amount": "659433091",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 568.1685469495674,
+        "usd_basis": "price-history:2024-12-13 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10253,7 +11026,15 @@
        "kind": "lock_create",
        "ts": "2024-09-13T03:26:09Z",
        "height": 12057423,
-       "txhash": "2146D150FA1FFFC78B2B1B32FB5DB31CBECA5B76383ACF93309D5AE87FEED3C1"
+       "txhash": "2146D150FA1FFFC78B2B1B32FB5DB31CBECA5B76383ACF93309D5AE87FEED3C1",
+       "price": {
+        "amount": "25000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 14.55910975,
+        "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10270,7 +11051,15 @@
        "kind": "lock_create",
        "ts": "2024-09-13T03:27:51Z",
        "height": 12057440,
-       "txhash": "2B47A69C99FB6997A0EF09694A2D69F66132C00970DA4F49CCD89C5E1460F39F"
+       "txhash": "2B47A69C99FB6997A0EF09694A2D69F66132C00970DA4F49CCD89C5E1460F39F",
+       "price": {
+        "amount": "27840052",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 14.229046679592718,
+        "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10287,7 +11076,15 @@
        "kind": "lock_create",
        "ts": "2024-09-14T03:39:15Z",
        "height": 12071914,
-       "txhash": "C90393E9426FC80FE47BB5CBCE5975651879AC4F8F4B8BBA82A4027F3820C090"
+       "txhash": "C90393E9426FC80FE47BB5CBCE5975651879AC4F8F4B8BBA82A4027F3820C090",
+       "price": {
+        "amount": "1000000",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 0.50575597,
+        "usd_basis": "price-history:2024-09-14 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10304,7 +11101,15 @@
        "kind": "lock_create",
        "ts": "2024-09-22T03:07:45Z",
        "height": 12186695,
-       "txhash": "BA5D7DFFCA30CF37942F98A90C5B4B5206CAE33EFE38322B9842E9D04C969B33"
+       "txhash": "BA5D7DFFCA30CF37942F98A90C5B4B5206CAE33EFE38322B9842E9D04C969B33",
+       "price": {
+        "amount": "80093813",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 40.355247656596745,
+        "usd_basis": "price-history:2024-09-22 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10321,7 +11126,15 @@
        "kind": "lock_create",
        "ts": "2024-10-18T05:01:28Z",
        "height": 12552653,
-       "txhash": "945EE16C746FF92E0DA89275E03AD99071B8BC0B9E3212F98752F8BC9202D44B"
+       "txhash": "945EE16C746FF92E0DA89275E03AD99071B8BC0B9E3212F98752F8BC9202D44B",
+       "price": {
+        "amount": "3877651743",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 1814.5431779320722,
+        "usd_basis": "price-history:2024-10-18 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10338,7 +11151,15 @@
        "kind": "lock_create",
        "ts": "2025-01-10T16:47:19.110479482Z",
        "height": 13788329,
-       "txhash": "B4A8552458B06B81CE730A233FDACA9AE610B7B20D8E2983AB3EA2E3523BA2CA"
+       "txhash": "B4A8552458B06B81CE730A233FDACA9AE610B7B20D8E2983AB3EA2E3523BA2CA",
+       "price": {
+        "amount": "549833789",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 410.2950676026701,
+        "usd_basis": "price-history:2025-01-10 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10355,7 +11176,15 @@
        "kind": "lock_create",
        "ts": "2024-09-13T03:26:39Z",
        "height": 12057428,
-       "txhash": "9C874A20683623F4C45B1415FEF647BF8EE28B023091774445C88ED6C633B2D6"
+       "txhash": "9C874A20683623F4C45B1415FEF647BF8EE28B023091774445C88ED6C633B2D6",
+       "price": {
+        "amount": "5000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 2.01061255,
+        "usd_basis": "price-history:2024-09-13 (coingecko)"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10372,7 +11201,15 @@
        "kind": "lock_create",
        "ts": "2025-02-02T19:56:06.502662452Z",
        "height": 14128504,
-       "txhash": "0FE33E3CF888981A2B06B925BC46042D8782D86BAFB1515EA193B8C25F898A7D"
+       "txhash": "0FE33E3CF888981A2B06B925BC46042D8782D86BAFB1515EA193B8C25F898A7D",
+       "price": {
+        "amount": "2953955346",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 1622.566050326975,
+        "usd_basis": "price-history:2025-02-02 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -10388,7 +11225,15 @@
        "kind": "lock_create",
        "ts": "2024-09-17T02:42:19Z",
        "height": 12114463,
-       "txhash": "FF2AD191577E7FA7C85406A0CDCEFF44BB9C0ADCF47FD47F13344B15111B2753"
+       "txhash": "FF2AD191577E7FA7C85406A0CDCEFF44BB9C0ADCF47FD47F13344B15111B2753",
+       "price": {
+        "amount": "25000000",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 13.57313175,
+        "usd_basis": "price-history:2024-09-17 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -10423,7 +11268,15 @@
        "kind": "lock_create",
        "ts": "2024-09-13T03:25:21Z",
        "height": 12057415,
-       "txhash": "2345E99500CCA3F77735FDB6D0FA352619E09818AFF7AC789B151D3DFCE58F31"
+       "txhash": "2345E99500CCA3F77735FDB6D0FA352619E09818AFF7AC789B151D3DFCE58F31",
+       "price": {
+        "amount": "27909820",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 14.2647050946252,
+        "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_merge",
@@ -10440,7 +11293,15 @@
        "kind": "lock_create",
        "ts": "2026-08-03T18:30:32.761477773Z",
        "height": 22207812,
-       "txhash": "56237A91739148B805201E4CB9D5C0D4B69D1C9F9A4EBE96B9EF32A246BD810D"
+       "txhash": "56237A91739148B805201E4CB9D5C0D4B69D1C9F9A4EBE96B9EF32A246BD810D",
+       "price": {
+        "amount": "25000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 1.0291700000000001,
+        "usd_basis": "price-history:2026-08-03 (tla)"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -10464,7 +11325,15 @@
        "kind": "lock_create",
        "ts": "2026-08-03T18:32:58.383735357Z",
        "height": 22207837,
-       "txhash": "FF4649E6B8F9AF2C34785E62DAEC3787E446AE56181591E8A70B88FB4183A3CA"
+       "txhash": "FF4649E6B8F9AF2C34785E62DAEC3787E446AE56181591E8A70B88FB4183A3CA",
+       "price": {
+        "amount": "33414885",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 3.648009798065424,
+        "usd_basis": "price-history:2026-08-03 (tla)"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -10488,7 +11357,15 @@
        "kind": "lock_create",
        "ts": "2026-08-03T18:33:29.5536127Z",
        "height": 22207843,
-       "txhash": "D467D6B6AAFABFF0A6968C28BCC58B6574379680182631C3BEB0BCCB46BDDAC4"
+       "txhash": "D467D6B6AAFABFF0A6968C28BCC58B6574379680182631C3BEB0BCCB46BDDAC4",
+       "price": {
+        "amount": "22224213",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 2.038833109556528,
+        "usd_basis": "price-history:2026-08-03 (tla)"
+       }
       },
       "released": {
        "kind": "lock_withdraw",
@@ -10569,6 +11446,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "1459624776",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 727.6734392570019,
+     "usd_basis": "price-history:2024-09-01 (LUNA×ratio(interpolated_reanchored))",
+     "unit_usd": 0.49853459,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.027Z",
      "role": "to"
     },
     {
@@ -10587,6 +11479,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "2498882530",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 1043.4940121169777,
+     "usd_basis": "price-history:2024-09-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.41758426,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.023Z",
      "role": "to"
     },
     {
@@ -10605,6 +11512,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "31003",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.0147438517863,
+     "usd_basis": "price-history:2024-09-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4755621,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.023Z",
      "role": "to"
     },
     {
@@ -10623,6 +11545,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "1736942618",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 798.7436582372698,
+     "usd_basis": "price-history:2024-09-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.4598561,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.022Z",
      "role": "to"
     },
     {
@@ -10641,6 +11578,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "1758752987",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 825.6298640062437,
+     "usd_basis": "price-history:2024-09-08 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.46944049,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.021Z",
      "role": "to"
     },
     {
@@ -10749,6 +11701,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "25000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 14.55910975,
+     "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.58236439,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.019Z",
      "role": "to"
     },
     {
@@ -10767,6 +11734,22 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "6017030",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 2.4195832063452998,
+     "usd_basis": "price-history:2024-09-13 (coingecko)",
+     "unit_usd": 0.40212251,
+     "luna_usd": 0.40212251,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.019Z",
      "role": "to"
     },
     {
@@ -10785,6 +11768,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "27909820",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 14.2647050946252,
+     "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.51109986,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.019Z",
      "role": "to"
     },
     {
@@ -10803,6 +11801,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "25000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 14.55910975,
+     "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.58236439,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.019Z",
      "role": "to"
     },
     {
@@ -10821,6 +11834,22 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "5000000",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 2.01061255,
+     "usd_basis": "price-history:2024-09-13 (coingecko)",
+     "unit_usd": 0.40212251,
+     "luna_usd": 0.40212251,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.019Z",
      "role": "to"
     },
     {
@@ -10839,6 +11868,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "27840052",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 14.229046679592718,
+     "usd_basis": "price-history:2024-09-13 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.51109986,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.019Z",
      "role": "to"
     },
     {
@@ -10870,6 +11914,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "1000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 0.50575597,
+     "usd_basis": "price-history:2024-09-14 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.50575597,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.018Z",
      "role": "to"
     },
     {
@@ -10888,6 +11947,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "2675000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1536.7743925000002,
+     "usd_basis": "price-history:2024-09-16 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5744951,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.017Z",
      "role": "to"
     },
     {
@@ -10906,6 +11980,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "25000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 13.57313175,
+     "usd_basis": "price-history:2024-09-17 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54292527,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.017Z",
      "role": "to"
     },
     {
@@ -10924,6 +12013,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "30000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 16.2877581,
+     "usd_basis": "price-history:2024-09-17 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54292527,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.017Z",
      "role": "to"
     },
     {
@@ -10946,7 +12050,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "25000000",
@@ -10958,13 +12061,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 12.44042475,
+     "token_id": "151",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "bLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-18 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.49761699,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 11.899386,
+     "usd_basis": "price-history:2024-09-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.47597544,
      "role": "from"
     },
     {
@@ -10974,7 +12078,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "700000000",
@@ -10986,13 +12089,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 348.331893,
+     "token_id": "18",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "bLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-18 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.49761699,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 333.182808,
+     "usd_basis": "price-history:2024-09-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.47597544,
      "role": "from"
     },
     {
@@ -11015,7 +12119,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "2500000000",
@@ -11027,13 +12130,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1576.979875,
+     "token_id": "23",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63079195,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 1426.81485,
+     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57072594,
      "role": "from"
     },
     {
@@ -11043,7 +12147,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "947000000",
@@ -11055,13 +12158,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 597.35997665,
+     "token_id": "226",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.63079195,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 540.47746518,
+     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.57072594,
      "role": "from"
     },
     {
@@ -11071,7 +12175,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "1500000000",
@@ -11083,13 +12186,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 785.1650549999999,
+     "token_id": "18",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "bLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.52344337,
-     "usd_repriced_at": "2026-09-18T19:44:16.142Z",
+     "usd": 750.807645,
+     "usd_basis": "price-history:2024-09-21 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.50053843,
      "role": "from"
     },
     {
@@ -11108,6 +12212,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "80093813",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 40.355247656596745,
+     "usd_basis": "price-history:2024-09-22 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.50384975,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.014Z",
      "role": "to"
     },
     {
@@ -11117,7 +12236,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "5000000000",
@@ -11129,13 +12247,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 2950.9666,
+     "token_id": "23",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59019332,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 2668.4074499999997,
+     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53368149,
      "role": "from"
     },
     {
@@ -11154,6 +12273,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "100000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 53.368148999999995,
+     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53368149,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.996Z",
      "role": "to"
     },
     {
@@ -11163,7 +12297,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "75000000",
@@ -11175,13 +12308,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 44.264499,
+     "token_id": "152",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.59019332,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 40.02611175,
+     "usd_basis": "price-history:2024-10-03 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.53368149,
      "role": "from"
     },
     {
@@ -11200,6 +12334,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "5000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 2.690073,
+     "usd_basis": "price-history:2024-10-09 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.5380146,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.992Z",
      "role": "to"
     },
     {
@@ -11218,6 +12367,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "3877651743",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 1814.5431779320722,
+     "usd_basis": "price-history:2024-10-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.46794898,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.977Z",
      "role": "to"
     },
     {
@@ -11227,7 +12391,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "15000000",
@@ -11239,13 +12402,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 18.8344533,
+     "token_id": "152",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-06 (LUNA×ratio(interpolated))",
-     "unit_usd": 1.25563022,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 17.02559685,
+     "usd_basis": "price-history:2024-12-06 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 1.13503979,
      "role": "from"
     },
     {
@@ -11264,6 +12428,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "659433091",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 568.1685469495674,
+     "usd_basis": "price-history:2024-12-13 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.86160151,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.927Z",
      "role": "to"
     },
     {
@@ -11282,6 +12461,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "1857869493",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 1369.6324074056934,
+     "usd_basis": "price-history:2024-12-20 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.73720593,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.924Z",
      "role": "to"
     },
     {
@@ -11291,7 +12485,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
      "price": {
       "amount": "79992578",
@@ -11303,13 +12496,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 46.4002988128639,
+     "token_id": "18",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "bLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-20 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.58005755,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 44.12751448999358,
+     "usd_basis": "price-history:2024-12-20 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55164511,
      "role": "from"
     },
     {
@@ -11328,6 +12522,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "614455411",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 461.90097154687567,
+     "usd_basis": "price-history:2024-12-27 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.75172415,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.919Z",
      "role": "to"
     },
     {
@@ -11374,6 +12583,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:13737811-14187810",
+     "price": {
+      "amount": "549833789",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 410.2950676026701,
+     "usd_basis": "price-history:2025-01-10 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.74621654,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:49:39.485Z",
      "role": "to"
     },
     {
@@ -11392,6 +12616,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:13737811-14187810",
+     "price": {
+      "amount": "1362484733",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 1009.7578865221424,
+     "usd_basis": "price-history:2025-01-19 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.74111501,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:49:41.935Z",
      "role": "to"
     },
     {
@@ -11438,6 +12677,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:14098866-14548865",
+     "price": {
+      "amount": "2953955346",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 1622.566050326975,
+     "usd_basis": "price-history:2025-02-02 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54928591,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:49:46.927Z",
      "role": "to"
     },
     {
@@ -11923,6 +13177,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:15877439-16327438",
+     "price": {
+      "amount": "56206126",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 14.07126996732868,
+     "usd_basis": "price-history:2025-07-01 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.25035118,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:26.921Z",
      "role": "to"
     },
     {
@@ -13100,6 +14369,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:16735277-17185276",
+     "price": {
+      "amount": "337676454",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 124.98743436650747,
+     "usd_basis": "price-history:2025-08-11 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.37013962,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:40.552Z",
      "role": "to"
     },
     {
@@ -13698,6 +14982,21 @@
       "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:1244498"
      },
      "source": "tla-flows/raw:19094034-19544033",
+     "price": {
+      "amount": "1244498",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 0.3009587558621,
+     "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.24183145,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:51:48.149Z",
      "role": "to"
     },
     {
@@ -13733,6 +15032,22 @@
       "asset": "native:uluna:10000000"
      },
      "source": "tla-flows/raw:19094034-19544033",
+     "price": {
+      "amount": "10000000",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 0.8912233,
+     "usd_basis": "price-history:2026-01-18 (coingecko)",
+     "unit_usd": 0.08912233,
+     "luna_usd": 0.08912233,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:51:48.154Z",
      "role": "to"
     },
     {
@@ -13751,6 +15066,21 @@
       "asset": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml:44734166"
      },
      "source": "tla-flows/raw:19094034-19544033",
+     "price": {
+      "amount": "44734166",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 6.51207601091816,
+     "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.14557276,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:51:48.155Z",
      "role": "to"
     },
     {
@@ -13830,6 +15160,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:25000000"
      },
      "source": "tla-flows/raw:19094034-19544033",
+     "price": {
+      "amount": "25000000",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 4.32620425,
+     "usd_basis": "price-history:2026-01-18 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.17304817,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:51:48.155Z",
      "role": "to"
     },
     {
@@ -14531,6 +15876,22 @@
       "asset": "native:uluna:25000000"
      },
      "source": "tla-locks/raw:22081531-22381530",
+     "price": {
+      "amount": "25000000",
+      "denom": "uluna"
+     },
+     "denom_symbol": "LUNA",
+     "denom_decimals": 6,
+     "usd": 1.0291700000000001,
+     "usd_basis": "price-history:2026-08-03 (tla)",
+     "unit_usd": 0.0411668,
+     "luna_usd": 0.0411668,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.125Z",
      "role": "to"
     },
     {
@@ -14549,6 +15910,21 @@
       "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:33414885"
      },
      "source": "tla-locks/raw:22081531-22381530",
+     "price": {
+      "amount": "33414885",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 3.648009798065424,
+     "usd_basis": "price-history:2026-08-03 (tla)",
+     "unit_usd": 0.10917319625865611,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.125Z",
      "role": "to"
     },
     {
@@ -14567,6 +15943,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:22224213"
      },
      "source": "tla-locks/raw:22081531-22381530",
+     "price": {
+      "amount": "22224213",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 2.038833109556528,
+     "usd_basis": "price-history:2026-08-03 (tla)",
+     "unit_usd": 0.09173927146740936,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.125Z",
      "role": "to"
     },
     {
@@ -14764,6 +16155,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:22224213"
      },
      "source": "tla-locks/raw:22681531-22810116",
+     "price": {
+      "amount": "22224213",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 2.3931428139035518,
+     "usd_basis": "price-history:2026-09-12 (tla)",
+     "unit_usd": 0.10768177995340271,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:38.312Z",
      "role": "to"
     },
     {
@@ -14943,7 +16349,15 @@
        "kind": "lock_create",
        "ts": "2025-09-10T02:02:03.512305341Z",
        "height": 17340083,
-       "txhash": "CB1C25EA022E065CE22CA5AEC521CF774630C5A29C9D061CF0949646AC13C3A4"
+       "txhash": "CB1C25EA022E065CE22CA5AEC521CF774630C5A29C9D061CF0949646AC13C3A4",
+       "price": {
+        "amount": "35807",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.009747188182199999,
+        "usd_basis": "price-history:2025-09-10 (LUNA×ratio(chain_anchored))"
+       }
       },
       "released": {
        "kind": "lock_transfer",
@@ -15467,6 +16881,21 @@
       "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:35807"
      },
      "source": "tla-flows/raw:17226940-17676939",
+     "price": {
+      "amount": "35807",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.009747188182199999,
+     "usd_basis": "price-history:2025-09-10 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.2722146,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:49.032Z",
      "role": "to"
     },
     {
@@ -16937,7 +18366,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1mn0642a3nh7ng0pwtk5rxqmhuz9yk08mf4k6pw",
      "price": {
       "amount": "719720502",
@@ -16949,13 +18377,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 443.29707454219897,
+     "token_id": "233",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.61592948,
-     "usd_repriced_at": "2026-09-18T19:44:18.569Z",
+     "usd": 400.7431392403277,
+     "usd_basis": "price-history:2024-10-07 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.55680384,
      "role": "from"
     }
    ]
@@ -16984,7 +18413,15 @@
        "kind": "lock_create",
        "ts": "2024-10-20T17:34:46Z",
        "height": 12589218,
-       "txhash": "6E7200E97351F6DE88AF1706EBF5994AD9EC0242565E7605A1270812D92BB8B3"
+       "txhash": "6E7200E97351F6DE88AF1706EBF5994AD9EC0242565E7605A1270812D92BB8B3",
+       "price": {
+        "amount": "65146933",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 35.62143611909264,
+        "usd_basis": "price-history:2024-10-20 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -16997,7 +18434,15 @@
        "kind": "lock_create",
        "ts": "2025-04-12T19:57:19.40347651Z",
        "height": 15136331,
-       "txhash": "99004F8BE363187833F478513791639D93DAD91A83EEBDC690807188820B5D6C"
+       "txhash": "99004F8BE363187833F478513791639D93DAD91A83EEBDC690807188820B5D6C",
+       "price": {
+        "amount": "146115",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 0.0331628360931,
+        "usd_basis": "price-history:2025-04-12 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      },
@@ -17010,7 +18455,15 @@
        "kind": "lock_create",
        "ts": "2026-05-01T07:20:45.652937185Z",
        "height": 20800526,
-       "txhash": "B64EDB149F999BA4820D48095E48F0EE0F11C6CDB8FD0C879EF9D4A4F26AC1C6"
+       "txhash": "B64EDB149F999BA4820D48095E48F0EE0F11C6CDB8FD0C879EF9D4A4F26AC1C6",
+       "price": {
+        "amount": "9705844",
+        "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490",
+        "symbol": "arbLUNA",
+        "decimals": 6,
+        "usd": 1.9348291368160802,
+        "usd_basis": "price-history:2026-05-01 (LUNA×ratio(chain_anchored))"
+       }
       },
       "broken": false
      }
@@ -17052,6 +18505,21 @@
       "asset": null
      },
      "source": "fcd:tla-escrow",
+     "price": {
+      "amount": "65146933",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 35.62143611909264,
+     "usd_basis": "price-history:2024-10-20 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.54678608,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:37.975Z",
      "role": "to"
     },
     {
@@ -17061,7 +18529,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1mw650edddjqsz7mwmga0qm688j0wx9mdmu4n0w",
      "price": {
       "amount": "1960842",
@@ -17073,13 +18540,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 1.27488136865154,
+     "token_id": "384",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-11-13 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.65017037,
-     "usd_repriced_at": "2026-09-18T19:44:20.729Z",
+     "usd": 1.15235256788184,
+     "usd_basis": "price-history:2024-11-13 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.58768252,
      "role": "from"
     },
     {
@@ -17089,7 +18557,6 @@
      "msg_index": 0,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": null,
      "from": "terra1mw650edddjqsz7mwmga0qm688j0wx9mdmu4n0w",
      "price": {
       "amount": "1312510",
@@ -17101,13 +18568,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "fcd:tla-escrow",
-     "usd": 0.8925088212654001,
+     "token_id": "384",
+     "token_id_from": "msg_body",
+     "source": "tla-locks/archive/fcd:escrow",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd_basis": "price-history:2024-12-23 (LUNA×ratio(interpolated))",
-     "unit_usd": 0.68000154,
-     "usd_repriced_at": "2026-09-18T19:44:22.671Z",
+     "usd": 0.8069657195134001,
+     "usd_basis": "price-history:2024-12-23 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.61482634,
      "role": "from"
     },
     {
@@ -17322,6 +18790,21 @@
       "asset": null
      },
      "source": "tla-flows/raw:15086406-15536405",
+     "price": {
+      "amount": "146115",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 0.0331628360931,
+     "usd_basis": "price-history:2025-04-12 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.22696394,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:50:06.273Z",
      "role": "to"
     },
     {
@@ -17832,6 +19315,21 @@
       "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:9705844"
      },
      "source": "tla-flows/raw:20593431-21043430",
+     "price": {
+      "amount": "9705844",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 1.9348291368160802,
+     "usd_basis": "price-history:2026-05-01 (LUNA×ratio(chain_anchored))",
+     "unit_usd": 0.19934682,
+     "repaired_by": "classify-1.2.0",
+     "repaired_fields": [
+      "price",
+      "usd"
+     ],
+     "repaired_at": "2026-09-27T14:52:20.893Z",
      "role": "to"
     },
     {
@@ -18056,10 +19554,9 @@
      "txhash": "20082E6F48F13F4C96D9EA4DA517BBF4EFF68315F9299F90DD954C6AEB9BA656",
      "height": 22822118,
      "ts": "2026-09-13T15:29:55.918139362Z",
-     "msg_index": 0,
+     "msg_index": 1,
      "kind": "lock_add",
      "collection": "tla-locks",
-     "token_id": "384",
      "from": "terra1mw650edddjqsz7mwmga0qm688j0wx9mdmu4n0w",
      "price": {
       "amount": "1169712",
@@ -18071,13 +19568,14 @@
       "lock_end": "permanent",
       "asset": null
      },
-     "source": "forward:org-nft-flows",
-     "usd": 0.12399637319495985,
+     "token_id": "384",
+     "token_id_from": "metadata_changed",
+     "source": "tla-locks/raw:forward",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
+     "usd": 0.12399637319495985,
      "usd_basis": "price-history:2026-09-13 (tla)",
      "unit_usd": 0.10600589990951605,
-     "usd_repriced_at": "2026-09-18T19:45:01.439Z",
      "role": "from"
     }
    ]
