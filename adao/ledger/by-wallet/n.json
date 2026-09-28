@@ -4,7 +4,7 @@
  "shard": "n",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 61,
- "records": 408,
+ "records": 409,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -3951,8 +3951,9 @@
    "address": "terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en",
    "first_seen": "2024-10-17T17:55:01Z",
    "last_seen": "2024-10-17T17:55:01Z",
-   "events_count": 1,
+   "events_count": 2,
    "counts": {
+    "unstakes_enterprise": 1,
     "transfers_in": 1
    },
    "holdings_now": {
@@ -3966,8 +3967,9 @@
       "state": "liquid",
       "since": "2024-10-17T17:55:01Z",
       "since_height": 12545916,
-      "acquired": {
-       "kind": "transfer",
+      "acquired": null,
+      "opened_by": {
+       "kind": "unstake_enterprise",
        "ts": "2024-10-17T17:55:01Z",
        "height": 12545916,
        "txhash": "3088E752191464B9E7FA8A90B2606658EDC3D2F7388C8C8A337B7B148BFD15E3"
@@ -4007,6 +4009,20 @@
      "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
      "to": "terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en",
      "source": "fcd:adao-collection",
+     "role": "to"
+    },
+    {
+     "txhash": "3088E752191464B9E7FA8A90B2606658EDC3D2F7388C8C8A337B7B148BFD15E3",
+     "height": 12545916,
+     "ts": "2024-10-17T17:55:01Z",
+     "msg_index": 0,
+     "kind": "unstake_enterprise",
+     "collection": "adao",
+     "token_id": "2474",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en",
+     "custodian": "legacy_staking",
+     "source": "adao/archive/fcd:collection",
      "role": "to"
     }
    ]
