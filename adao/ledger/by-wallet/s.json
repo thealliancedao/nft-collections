@@ -4,7 +4,7 @@
  "shard": "s",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 64,
- "records": 1042,
+ "records": 1043,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -27419,15 +27419,15 @@
   "terra1sg09zu2xxp4sp0pg9qsfugjy4y060wvc7630ys": {
    "address": "terra1sg09zu2xxp4sp0pg9qsfugjy4y060wvc7630ys",
    "first_seen": "2023-12-13T00:30:58Z",
-   "last_seen": "2024-08-05T04:49:02Z",
-   "events_count": 33,
+   "last_seen": "2026-09-28T06:26:51.143017281Z",
+   "events_count": 34,
    "counts": {
     "transfers_in": 3,
     "stakes_enterprise": 6,
     "transfers_out": 1,
     "minted": 3,
     "bought": 1,
-    "bids": 1,
+    "bids": 2,
     "unstakes_enterprise": 6,
     "listings": 6,
     "sold": 6
@@ -28477,6 +28477,28 @@
      "luna_usd": 0.31275504539145454,
      "denom_symbol": "LUNA",
      "denom_decimals": 6,
+     "role": "from"
+    },
+    {
+     "txhash": "C04DE042126354C7921E63B3EE08F318C36D6BB3A1C14B81C6F5393353920219",
+     "height": 23039664,
+     "ts": "2026-09-28T06:26:51.143017281Z",
+     "msg_index": 0,
+     "kind": "bid",
+     "venue": "bbl",
+     "collection": "adao",
+     "token_id": "2124",
+     "auction_id": "17653",
+     "from": "terra1sg09zu2xxp4sp0pg9qsfugjy4y060wvc7630ys",
+     "price": {
+      "amount": "60000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/09",
      "role": "from"
     }
    ]
