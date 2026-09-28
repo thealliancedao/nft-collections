@@ -7,8 +7,8 @@
   900,
   999
  ],
- "tokens_with_records": 94,
- "records": 340,
+ "tokens_with_records": 100,
+ "records": 338,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "900": [
@@ -39,39 +39,39 @@
      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:123781945"
     },
     "source": "tla-flows/raw:17226940-17676939"
-   },
-   {
-    "txhash": "C750DF21CFB9AB605DCC5BDE817D4689086F6C5DC7A3375C2F91BEA71315E8F9",
-    "height": 17363781,
-    "ts": "2025-09-11T16:40:38.283685411Z",
-    "msg_index": 0,
-    "kind": "lock_migrate",
-    "collection": "tla-locks",
-    "token_id": "900",
-    "from": "terra1fu2ddncwngqhwmupq09pf4ed9czunc99fjky2k",
-    "lineage": {
-     "from_ids": [
-      "900"
-     ],
-     "to_ids": [
-      "900"
-     ]
-    },
-    "migrate": {
-     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:123781945",
-     "fixed_power_before": "219622744",
-     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:92490218"
-    },
-    "lock": {
-     "fixed_power": "214582283",
-     "voting_power": "1262734160",
-     "lock_end": "217",
-     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:92490218"
-    },
-    "source": "tla-flows/raw:17226940-17676939"
    }
   ],
   "901": [
+   {
+    "txhash": "0E0CF50EE0B2CC011548FCA0E6AABC21C4B26C16F6069117E19644E3118384E7",
+    "height": 17348052,
+    "ts": "2025-09-10T15:02:34.991155076Z",
+    "msg_index": 1,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "901",
+    "from": "terra1fu2ddncwngqhwmupq09pf4ed9czunc99fjky2k",
+    "lineage": {
+     "from_ids": [
+      "886"
+     ],
+     "to_ids": [
+      "901"
+     ]
+    },
+    "migrate": {
+     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:100000000",
+     "fixed_power_before": "177427123",
+     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:74806529"
+    },
+    "lock": {
+     "fixed_power": "173423490",
+     "voting_power": "1020530536",
+     "lock_end": "217",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:74806529"
+    },
+    "source": "tla-flows/raw:17226940-17676939"
+   },
    {
     "txhash": "CC90C6F8E552909B42673FD3491D8EFAA661AA9B02266374466AA5D1C9F04DEF",
     "height": 17348071,
@@ -310,6 +310,36 @@
    }
   ],
   "903": [
+   {
+    "txhash": "C750DF21CFB9AB605DCC5BDE817D4689086F6C5DC7A3375C2F91BEA71315E8F9",
+    "height": 17363781,
+    "ts": "2025-09-11T16:40:38.283685411Z",
+    "msg_index": 0,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "903",
+    "from": "terra1fu2ddncwngqhwmupq09pf4ed9czunc99fjky2k",
+    "lineage": {
+     "from_ids": [
+      "900"
+     ],
+     "to_ids": [
+      "903"
+     ]
+    },
+    "migrate": {
+     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:123781945",
+     "fixed_power_before": "219622744",
+     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:92490218"
+    },
+    "lock": {
+     "fixed_power": "214582283",
+     "voting_power": "1262734160",
+     "lock_end": "217",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:92490218"
+    },
+    "source": "tla-flows/raw:17226940-17676939"
+   },
    {
     "txhash": "4853939D8B97669C87FF6B0831544A5DF3B7351C4CC5A74278462181993B98B2",
     "height": 17363787,
@@ -696,36 +726,6 @@
     "usd_basis": "price-history:2026-08-30 (tla)",
     "unit_usd": 0.14456673741919793,
     "usd_repriced_at": "2026-09-18T19:44:59.244Z"
-   },
-   {
-    "txhash": "144DF05DCBA4A573258389794AFC67D01E0CDC155C8CD7D1559249E8AB0036F3",
-    "height": 22767373,
-    "ts": "2026-09-09T23:55:54.099702482Z",
-    "msg_index": 1,
-    "kind": "lock_migrate",
-    "collection": "tla-locks",
-    "token_id": "903",
-    "from": "terra1fu2ddncwngqhwmupq09pf4ed9czunc99fjky2k",
-    "lineage": {
-     "from_ids": [
-      "903"
-     ],
-     "to_ids": [
-      "903"
-     ]
-    },
-    "migrate": {
-     "amount_before": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:250000000",
-     "fixed_power_before": "765051427",
-     "into": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:323935625"
-    },
-    "lock": {
-     "fixed_power": "751721496",
-     "voting_power": "6765493464",
-     "lock_end": "permanent",
-     "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:323935625"
-    },
-    "source": "tla-locks/raw:22681531-22810116"
    }
   ],
   "904": [
@@ -852,36 +852,6 @@
     "token_id": "905",
     "token_id_from": "metadata_changed",
     "source": "tla-flows/raw:17226940-17676939"
-   },
-   {
-    "txhash": "AA7A1869B8391233F1471A720103363F266FB3D69AD4848687B203B1D361B84E",
-    "height": 17380098,
-    "ts": "2025-09-12T19:15:47.170373817Z",
-    "msg_index": 1,
-    "kind": "lock_migrate",
-    "collection": "tla-locks",
-    "token_id": "905",
-    "from": "terra1kghs7t46ysmjk0vcxpg8lt4u2yyfw5wav0xf9m",
-    "lineage": {
-     "from_ids": [
-      "905"
-     ],
-     "to_ids": [
-      "905"
-     ]
-    },
-    "migrate": {
-     "amount_before": "native:uluna:254967",
-     "fixed_power_before": "254967",
-     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:109847"
-    },
-    "lock": {
-     "fixed_power": "254966",
-     "voting_power": "2294694",
-     "lock_end": "permanent",
-     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:109847"
-    },
-    "source": "tla-flows/raw:17226940-17676939"
    }
   ],
   "906": [
@@ -937,39 +907,39 @@
     "luna_usd": 0.15421026196293391,
     "denom_symbol": "LUNA",
     "denom_decimals": 6
-   },
-   {
-    "txhash": "550C377E9AD377BB8E45FD98AB392170AE43C1C6397E12214BA9766FC9F5904D",
-    "height": 17380112,
-    "ts": "2025-09-12T19:17:10.107192981Z",
-    "msg_index": 0,
-    "kind": "lock_migrate",
-    "collection": "tla-locks",
-    "token_id": "906",
-    "from": "terra1kghs7t46ysmjk0vcxpg8lt4u2yyfw5wav0xf9m",
-    "lineage": {
-     "from_ids": [
-      "906"
-     ],
-     "to_ids": [
-      "906"
-     ]
-    },
-    "migrate": {
-     "amount_before": "native:uluna:32533",
-     "fixed_power_before": "32533",
-     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:14016"
-    },
-    "lock": {
-     "fixed_power": "32532",
-     "voting_power": "292788",
-     "lock_end": "permanent",
-     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:14016"
-    },
-    "source": "tla-flows/raw:17226940-17676939"
    }
   ],
   "907": [
+   {
+    "txhash": "AA7A1869B8391233F1471A720103363F266FB3D69AD4848687B203B1D361B84E",
+    "height": 17380098,
+    "ts": "2025-09-12T19:15:47.170373817Z",
+    "msg_index": 1,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "907",
+    "from": "terra1kghs7t46ysmjk0vcxpg8lt4u2yyfw5wav0xf9m",
+    "lineage": {
+     "from_ids": [
+      "905"
+     ],
+     "to_ids": [
+      "907"
+     ]
+    },
+    "migrate": {
+     "amount_before": "native:uluna:254967",
+     "fixed_power_before": "254967",
+     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:109847"
+    },
+    "lock": {
+     "fixed_power": "254966",
+     "voting_power": "2294694",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:109847"
+    },
+    "source": "tla-flows/raw:17226940-17676939"
+   },
    {
     "txhash": "C2E6D913B7D6C5B8CE5C9CB1743D6ED76AEF066326075ADF01063F1D26A143D5",
     "height": 17380102,
@@ -1083,6 +1053,38 @@
     "usd_repriced_at": "2026-09-27T11:44:38.500Z"
    }
   ],
+  "908": [
+   {
+    "txhash": "550C377E9AD377BB8E45FD98AB392170AE43C1C6397E12214BA9766FC9F5904D",
+    "height": 17380112,
+    "ts": "2025-09-12T19:17:10.107192981Z",
+    "msg_index": 0,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "908",
+    "from": "terra1kghs7t46ysmjk0vcxpg8lt4u2yyfw5wav0xf9m",
+    "lineage": {
+     "from_ids": [
+      "906"
+     ],
+     "to_ids": [
+      "908"
+     ]
+    },
+    "migrate": {
+     "amount_before": "native:uluna:32533",
+     "fixed_power_before": "32533",
+     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:14016"
+    },
+    "lock": {
+     "fixed_power": "32532",
+     "voting_power": "292788",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:14016"
+    },
+    "source": "tla-flows/raw:17226940-17676939"
+   }
+  ],
   "909": [
    {
     "txhash": "72A5E3F00C90BC5CB6A007B5C2096B2A3797D72EA41992AB79C99439499FBEF2",
@@ -1178,7 +1180,9 @@
     "token_id": "910",
     "token_id_from": "metadata_changed",
     "source": "tla-flows/raw:17226940-17676939"
-   },
+   }
+  ],
+  "911": [
    {
     "txhash": "56DB123FB6CCA6337E80F92E923AA2215FAA879031A2370C2371AEEDBB966BBC",
     "height": 17402905,
@@ -1186,14 +1190,14 @@
     "msg_index": 0,
     "kind": "lock_migrate",
     "collection": "tla-locks",
-    "token_id": "910",
+    "token_id": "911",
     "from": "terra1kghs7t46ysmjk0vcxpg8lt4u2yyfw5wav0xf9m",
     "lineage": {
      "from_ids": [
       "910"
      ],
      "to_ids": [
-      "910"
+      "911"
      ]
     },
     "migrate": {
@@ -1208,9 +1212,7 @@
      "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:10745198"
     },
     "source": "tla-flows/raw:17226940-17676939"
-   }
-  ],
-  "911": [
+   },
    {
     "txhash": "DC76A1B2367144027AC55DD56D170B7C5A200AE6E37727B5EC3859B5B741674B",
     "height": 17402909,
@@ -1354,7 +1356,9 @@
      "usd"
     ],
     "repaired_at": "2026-09-27T14:50:50.214Z"
-   },
+   }
+  ],
+  "913": [
    {
     "txhash": "0EF9CD38A0C921916C3A4A20380A2158BFA17ACCDE541B41C753944D17FF0D77",
     "height": 17406748,
@@ -1362,14 +1366,14 @@
     "msg_index": 0,
     "kind": "lock_migrate",
     "collection": "tla-locks",
-    "token_id": "912",
+    "token_id": "913",
     "from": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
     "lineage": {
      "from_ids": [
       "912"
      ],
      "to_ids": [
-      "912"
+      "913"
      ]
     },
     "migrate": {
@@ -1961,36 +1965,6 @@
      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:6847400"
     },
     "source": "tla-flows/raw:17480495-17930494"
-   },
-   {
-    "txhash": "B19D776BACF7C2FD0EACA202568278C48A8D578B1B978AE6A5E568CF7F03EC68",
-    "height": 18906952,
-    "ts": "2025-12-25T04:55:49.070494042Z",
-    "msg_index": 0,
-    "kind": "lock_migrate",
-    "collection": "tla-locks",
-    "token_id": "915",
-    "from": "terra1rfn8u5ts84hgtwgqljzscvpgwc73vh6s985jx3",
-    "lineage": {
-     "from_ids": [
-      "915"
-     ],
-     "to_ids": [
-      "915"
-     ]
-    },
-    "migrate": {
-     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:6847400",
-     "fixed_power_before": "12232020",
-     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4717595"
-    },
-    "lock": {
-     "fixed_power": "12701268",
-     "voting_power": "114311412",
-     "lock_end": "permanent",
-     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4717595"
-    },
-    "source": "tla-flows/raw:18828556-19278555"
    }
   ],
   "916": [
@@ -2025,7 +1999,9 @@
      "usd"
     ],
     "repaired_at": "2026-09-27T14:50:52.327Z"
-   },
+   }
+  ],
+  "917": [
    {
     "txhash": "1C9B7DD98912E2FE9E49B81628B826A38E06CDBC58D380BC5947A7468016E446",
     "height": 17505347,
@@ -2033,14 +2009,14 @@
     "msg_index": 0,
     "kind": "lock_migrate",
     "collection": "tla-locks",
-    "token_id": "916",
+    "token_id": "917",
     "from": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
     "lineage": {
      "from_ids": [
       "916"
      ],
      "to_ids": [
-      "916"
+      "917"
      ]
     },
     "migrate": {
@@ -2157,7 +2133,9 @@
      "usd"
     ],
     "repaired_at": "2026-09-27T14:50:53.881Z"
-   },
+   }
+  ],
+  "921": [
    {
     "txhash": "2230025CEFBDC834412199FFD7B283DE98764FF83A96691642EC32CB5996EC86",
     "height": 17585001,
@@ -2165,14 +2143,14 @@
     "msg_index": 0,
     "kind": "lock_migrate",
     "collection": "tla-locks",
-    "token_id": "920",
+    "token_id": "921",
     "from": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
     "lineage": {
      "from_ids": [
       "920"
      ],
      "to_ids": [
-      "920"
+      "921"
      ]
     },
     "migrate": {
@@ -4174,7 +4152,9 @@
      "usd"
     ],
     "repaired_at": "2026-09-27T14:50:55.888Z"
-   },
+   }
+  ],
+  "945": [
    {
     "txhash": "D59483C649E5847ABD31256AF7AEC42354B672896EDAB7124397BFF5E3961AE4",
     "height": 17699998,
@@ -4182,14 +4162,14 @@
     "msg_index": 0,
     "kind": "lock_migrate",
     "collection": "tla-locks",
-    "token_id": "944",
+    "token_id": "945",
     "from": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
     "lineage": {
      "from_ids": [
       "944"
      ],
      "to_ids": [
-      "944"
+      "945"
      ]
     },
     "migrate": {
@@ -7516,36 +7496,6 @@
      "usd"
     ],
     "repaired_at": "2026-09-27T14:50:58.863Z"
-   },
-   {
-    "txhash": "22851A2847026CEC8A84E67C0189C63516FD86BCBA5C0918A945DF90CC2138CD",
-    "height": 17812528,
-    "ts": "2025-10-12T03:56:20.147335125Z",
-    "msg_index": 1,
-    "kind": "lock_migrate",
-    "collection": "tla-locks",
-    "token_id": "983",
-    "from": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
-    "lineage": {
-     "from_ids": [
-      "983"
-     ],
-     "to_ids": [
-      "983"
-     ]
-    },
-    "migrate": {
-     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:6240808",
-     "fixed_power_before": "11308967",
-     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4632496"
-    },
-    "lock": {
-     "fixed_power": "10965423",
-     "voting_power": "98688807",
-     "lock_end": "permanent",
-     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4632496"
-    },
-    "source": "tla-flows/raw:17810676-18260675"
    }
   ],
   "984": [
@@ -7602,34 +7552,36 @@
     "usd": 1.06703783174222,
     "usd_basis": "price-history:2025-10-18 (LUNA×ratio(interpolated))",
     "unit_usd": 0.19009246
-   },
+   }
+  ],
+  "985": [
    {
-    "txhash": "BE03FCD5339C2669E78C4C637D5FE2942CEC04DE3ED5CD1DFBA977A66F2585A4",
-    "height": 17905857,
-    "ts": "2025-10-18T11:47:01.407546894Z",
-    "msg_index": 0,
+    "txhash": "22851A2847026CEC8A84E67C0189C63516FD86BCBA5C0918A945DF90CC2138CD",
+    "height": 17812528,
+    "ts": "2025-10-12T03:56:20.147335125Z",
+    "msg_index": 1,
     "kind": "lock_migrate",
     "collection": "tla-locks",
-    "token_id": "984",
+    "token_id": "985",
     "from": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
     "lineage": {
      "from_ids": [
-      "984"
+      "983"
      ],
      "to_ids": [
-      "984"
+      "985"
      ]
     },
     "migrate": {
-     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:5613258",
-     "fixed_power_before": "10221321",
-     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4165282"
+     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:6240808",
+     "fixed_power_before": "11308967",
+     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4632496"
     },
     "lock": {
-     "fixed_power": "9907543",
-     "voting_power": "89167887",
+     "fixed_power": "10965423",
+     "voting_power": "98688807",
      "lock_end": "permanent",
-     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4165282"
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4632496"
     },
     "source": "tla-flows/raw:17810676-18260675"
    }
