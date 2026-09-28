@@ -8,7 +8,7 @@
   8899
  ],
  "tokens_with_records": 100,
- "records": 427,
+ "records": 428,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "8800": [
@@ -256,10 +256,23 @@
     "venue": "boost",
     "from": "terra17nqhlg2esuzuu8mquhe7qhtal3rf5ekn5ulcuu",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
+    "price": {
+     "amount": "5000000",
+     "denom": "ibc/2C962DAB9F57FE0921435426AE75196009FAA1981BF86991203C8411F8980FDB"
+    },
     "listing_id": "451",
-    "source": "tla-flows/raw:18536865-18986864"
+    "source": "tla-flows/raw:18536865-18986864",
+    "denom_symbol": "USDC.n",
+    "denom_decimals": 6,
+    "usd": 5,
+    "usd_basis": "stable_1_1",
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:51:51.679Z"
    },
    {
     "txhash": "9E4779103A7ACBDC77C44A82894C3CAE5EB7F8AA436B18CE804D0F9E6DE0C354",
@@ -345,7 +358,7 @@
     "txhash": "2AE2B6C8CA384A5F925C3CCF60388025B1EDB2F2B593D44BBF2F6A3C77C968B1",
     "height": 19236685,
     "ts": "2026-01-16T07:05:39.83595213Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "8803",
@@ -381,17 +394,11 @@
     "via_offer": false,
     "auction_id": "17674",
     "source": "tla-flows/raw:19094034-19544033",
-    "repair": "buy-now-settle-1.1.4",
-    "repaired_at": "2026-09-14T01:20:59.747Z",
-    "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
-    "usd": 13.954825920000001,
     "denom_symbol": "bLUNA",
     "denom_decimals": 6,
+    "usd": 13.954825920000001,
     "usd_basis": "price-history:2026-01-16 (LUNA×ratio(interpolated))",
-    "unit_usd": 0.14536277,
-    "usd_repriced_at": "2026-09-18T18:49:11.424Z",
-    "usd_prev": 14.349853473669496,
-    "usd_prev_basis": "bluna-usd-daily:2026-01-16"
+    "unit_usd": 0.14536277
    },
    {
     "txhash": "A99D9E6B643B984A30F0159086BB7EA5C963D1BBEC5740C41810FD91728624AA",
@@ -447,10 +454,24 @@
     "venue": "boost",
     "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
+    "price": {
+     "amount": "25000000",
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
+    },
     "listing_id": "469",
-    "source": "tla-flows/raw:20143431-20593430"
+    "source": "tla-flows/raw:20143431-20593430",
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 25.76506675,
+    "usd_basis": "price-history:2026-04-17 (coingecko)",
+    "unit_usd": 1.03060267,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:52:48.168Z"
    },
    {
     "txhash": "E9B6B733668413514223A0B82C63ABC281373AA54846707692F3E005D1BC9645",
@@ -522,16 +543,30 @@
     "venue": "boost",
     "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
+    "price": {
+     "amount": "20000000",
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
+    },
     "listing_id": "475",
-    "source": "tla-flows/raw:20593431-21043430"
+    "source": "tla-flows/raw:20593431-21043430",
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 20.172367,
+    "usd_basis": "price-history:2026-04-23 (coingecko)",
+    "unit_usd": 1.00861835,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:52:49.915Z"
    },
    {
     "txhash": "C57FE026EBA754B80857DA9D3F23F47D8D65BB5E7F41797BFB16AFF558F67110",
     "height": 20687023,
     "ts": "2026-04-23T17:00:30.811868342Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "8803",
@@ -540,7 +575,7 @@
     "to": "terra1d0jq9l5narcgy46v5agnv8hqmn5m8kj3lkh93l",
     "price": {
      "amount": "20000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
     "split": {
      "fee": "400000",
@@ -551,8 +586,11 @@
     "listing_id": "475",
     "done": "1",
     "source": "tla-flows/raw:20593431-21043430",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 20.172367,
+    "usd_basis": "price-history:2026-04-23 (coingecko)",
+    "unit_usd": 1.00861835
    },
    {
     "txhash": "DD33458E7E352DFE45CFEC1DD65220F8882D26578212A906D8B3C656E1E90FFE",
@@ -567,14 +605,23 @@
     "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
     "price": {
      "amount": "10000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
-    "price_reason": "msg_body_not_archived:denom",
     "listing_id": "128",
     "expires_in_blocks": null,
     "source": "tla-flows/raw:21371788-21481530",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 10.2743393,
+    "usd_basis": "price-history:2026-06-08 (coingecko)",
+    "unit_usd": 1.02743393,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price.denom",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:53:07.463Z"
    },
    {
     "txhash": "FEFED2B4D27AFC5C9412355594A75441E458C17C13967CF3AD5220FF8603ABE6",
@@ -620,14 +667,23 @@
     "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
     "price": {
      "amount": "1000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
-    "price_reason": "msg_body_not_archived:denom",
     "listing_id": "152",
     "expires_in_blocks": null,
     "source": "tla-flows/raw:21371788-21481530",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 1.02742584,
+    "usd_basis": "price-history:2026-06-10 (coingecko)",
+    "unit_usd": 1.02742584,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price.denom",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:53:07.720Z"
    },
    {
     "txhash": "0F58E583A7E1D7B1FB608BD193442F0FF11826C6F524245FF26BF51F3AFF4FCA",
@@ -673,14 +729,23 @@
     "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
     "price": {
      "amount": "1000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
-    "price_reason": "msg_body_not_archived:denom",
     "listing_id": "153",
     "expires_in_blocks": null,
     "source": "tla-flows/raw:21371788-21481530",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 1.02742584,
+    "usd_basis": "price-history:2026-06-10 (coingecko)",
+    "unit_usd": 1.02742584,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price.denom",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:53:07.723Z"
    },
    {
     "txhash": "119366DF3695A432584A37B0CB9F2946A70CA30BC0E6894ED573EF9E27CB589C",
@@ -726,14 +791,23 @@
     "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
     "price": {
      "amount": "10000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
-    "price_reason": "msg_body_not_archived:denom",
     "listing_id": "155",
     "expires_in_blocks": null,
     "source": "tla-flows/raw:21371788-21481530",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 10.2264338,
+    "usd_basis": "price-history:2026-06-11 (coingecko)",
+    "unit_usd": 1.02264338,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price.denom",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:53:08.039Z"
    },
    {
     "txhash": "BE431F43C7F41EF07193FE809E9BD7C04481E5CCF5D16F73F6D37B4760676C62",
@@ -770,7 +844,7 @@
     "txhash": "E1CBB340B08DE7D28467539836B9C4F28D1CB5A5476883ECAD8F7A1692DDA9E1",
     "height": 22614355,
     "ts": "2026-08-30T19:44:49.775120484Z",
-    "msg_index": 0,
+    "msg_index": 14,
     "kind": "stake",
     "collection": "adao",
     "token_id": "8803",
@@ -2697,6 +2771,18 @@
     "luna_usd": 0.7269507859457349,
     "denom_symbol": "LUNA",
     "denom_decimals": 6
+   },
+   {
+    "txhash": "7EC8CD05669D65213FFF9542E5C49E1AA5F7C19ADB9DBE2F0FCABB698C9EE6B4",
+    "height": 23048592,
+    "ts": "2026-09-28T20:44:15.584099724Z",
+    "msg_index": 0,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "8832",
+    "from": "terra14hwe4te0aeyg7wtatxc6xk2yd420e7zyu076pw",
+    "to": "terra1xa3pmdxxudegk9wysvjundsknlaa6frgs864vz",
+    "source": "forward:org-nft-flows"
    }
   ],
   "8833": [
@@ -4109,7 +4195,7 @@
     "txhash": "763E5A82CC49B02CC17C38A0DD01050906FF7C71551CF9DD5FC3181F085C5158",
     "height": 20684876,
     "ts": "2026-04-23T13:33:35.896720001Z",
-    "msg_index": 0,
+    "msg_index": 4,
     "kind": "stake",
     "collection": "adao",
     "token_id": "8856",
@@ -4689,7 +4775,7 @@
     "txhash": "A1543AA43A801C328F37298E741260E9CD47A1454BC887C2CA35CAEF0B0B4551",
     "height": 17211118,
     "ts": "2025-09-01T07:48:26.759579902Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "8869",
@@ -4725,15 +4811,11 @@
     "via_offer": false,
     "auction_id": "17462",
     "source": "tla-flows/raw:17005824-17455823",
-    "repair": "buy-now-settle-1.1.4",
-    "repaired_at": "2026-09-14T01:20:59.747Z",
-    "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
-    "usd": 80.733296,
     "denom_symbol": "bLUNA",
     "denom_decimals": 6,
+    "usd": 80.733296,
     "usd_basis": "price-history:2025-09-01 (LUNA×ratio(interpolated))",
-    "unit_usd": 0.23066656,
-    "usd_repriced_at": "2026-09-18T18:49:05.160Z"
+    "unit_usd": 0.23066656
    },
    {
     "txhash": "33594EF238FF728B14705186FD0C57B2B95F330FE0C7B111F3A3C428A4E54DB5",
@@ -5217,7 +5299,7 @@
     "txhash": "72D33A4F49CABB11829850F1CC7F48F8A8E98F926DC1E94D734A8F870F69897F",
     "height": 16660917,
     "ts": "2025-07-25T20:08:21.252107353Z",
-    "msg_index": 0,
+    "msg_index": 2,
     "kind": "stake",
     "collection": "adao",
     "token_id": "8876",
@@ -6255,7 +6337,7 @@
     "txhash": "F066C7A9E23C6912FBC6B0B2A4A5553B121978F28AD051FFAC03EC26D467B03D",
     "height": 17239617,
     "ts": "2025-09-03T06:10:33.929975761Z",
-    "msg_index": 0,
+    "msg_index": 11,
     "kind": "stake",
     "collection": "adao",
     "token_id": "8881",
@@ -6991,7 +7073,7 @@
     "txhash": "48009FBEBC925794A2E810AF28DC54895BE01026EFBAE046DE5AFC1C2DF034A5",
     "height": 18558557,
     "ts": "2025-12-01T16:30:21.950490277Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "8897",
@@ -7027,17 +7109,11 @@
     "via_offer": false,
     "auction_id": "17580",
     "source": "tla-flows/raw:18536865-18986864",
-    "repair": "buy-now-settle-1.1.4",
-    "repaired_at": "2026-09-14T01:20:59.747Z",
-    "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
-    "usd": 117.8109711,
     "denom_symbol": "bLUNA",
     "denom_decimals": 6,
+    "usd": 117.8109711,
     "usd_basis": "price-history:2025-12-01 (LUNA×ratio(interpolated))",
-    "unit_usd": 0.1179289,
-    "usd_repriced_at": "2026-09-18T18:49:09.815Z",
-    "usd_prev": 105.57536771299856,
-    "usd_prev_basis": "bluna-usd-daily:2025-12-01"
+    "unit_usd": 0.1179289
    },
    {
     "txhash": "04DF502B7C3E479B2461E53190AF3E12C05F7B0F86983EAEE91532AAAB10270D",
