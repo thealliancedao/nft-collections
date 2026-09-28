@@ -4,7 +4,7 @@
  "shard": "l",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 63,
- "records": 540,
+ "records": 542,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11078,10 +11078,12 @@
    "address": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
    "first_seen": "2024-02-28T21:33:52Z",
    "last_seen": "2024-10-17T17:55:01Z",
-   "events_count": 2,
+   "events_count": 4,
    "counts": {
     "transfers_in": 1,
-    "transfers_out": 1
+    "gap_closed": 1,
+    "transfers_out": 1,
+    "released_without_acquisition": 1
    },
    "holdings_now": {
     "total": 0,
@@ -11089,7 +11091,7 @@
     "tokens": []
    },
    "held_past": {
-    "total": 1,
+    "total": 2,
     "distinct_tokens": 1,
     "tokens": [
      {
@@ -11101,12 +11103,26 @@
        "txhash": "D46DA1843CD5630868A0473F595CFE0358FBCD9DABCD063FA76064D4C2E06279"
       },
       "released": {
+       "kind": "gap",
+       "ts": "2024-10-17T17:55:01Z",
+       "height": 12545916,
+       "txhash": "3088E752191464B9E7FA8A90B2606658EDC3D2F7388C8C8A337B7B148BFD15E3",
+       "note": "next seen with terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en (unstake_enterprise from terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl); the leg out of this wallet is not in the ledger"
+      },
+      "held_days": 231.8
+     },
+     {
+      "token_id": "2474",
+      "acquired": null,
+      "opened_by": null,
+      "released": {
        "kind": "transfer",
        "ts": "2024-10-17T17:55:01Z",
        "height": 12545916,
        "txhash": "3088E752191464B9E7FA8A90B2606658EDC3D2F7388C8C8A337B7B148BFD15E3"
       },
-      "held_days": 231.8
+      "held_days": null,
+      "note": "no acquisition record in the ledger (pre-ledger holding or a gap) — the release proves it was held, nothing more"
      }
     ]
    },
@@ -11125,6 +11141,20 @@
     "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
    },
    "events": [
+    {
+     "txhash": "D46DA1843CD5630868A0473F595CFE0358FBCD9DABCD063FA76064D4C2E06279",
+     "height": 9235254,
+     "ts": "2024-02-28T21:33:52Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "adao",
+     "token_id": "2474",
+     "from": "terra1e9uee9x65lj20a2pahdjemram5c3hkwa4tkdw3",
+     "to": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "custodian": "legacy_staking",
+     "source": "adao/archive/fcd:collection",
+     "role": "to"
+    },
     {
      "txhash": "D46DA1843CD5630868A0473F595CFE0358FBCD9DABCD063FA76064D4C2E06279",
      "height": 9235254,
@@ -11149,6 +11179,20 @@
      "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
      "to": "terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en",
      "source": "fcd:adao-collection",
+     "role": "from"
+    },
+    {
+     "txhash": "3088E752191464B9E7FA8A90B2606658EDC3D2F7388C8C8A337B7B148BFD15E3",
+     "height": 12545916,
+     "ts": "2024-10-17T17:55:01Z",
+     "msg_index": 0,
+     "kind": "unstake_enterprise",
+     "collection": "adao",
+     "token_id": "2474",
+     "from": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "to": "terra1c690mdrwdetnr09zfk3tf9xz9jhrgd9wpjyf3tuccj74ql09eqmq6sh7en",
+     "custodian": "legacy_staking",
+     "source": "adao/archive/fcd:collection",
      "role": "from"
     }
    ]
