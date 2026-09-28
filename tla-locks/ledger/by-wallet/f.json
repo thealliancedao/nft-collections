@@ -607,58 +607,15 @@
     "lock_adds": 8,
     "listings": 1,
     "delists": 1,
-    "locks_sent": 3,
-    "released_without_acquisition": 1
+    "locks_sent": 3
    },
    "holdings_now": {
-    "total": 6,
+    "total": 4,
     "by_state": {
-     "locked": 5,
-     "liquid": 1
+     "liquid": 1,
+     "locked": 3
     },
     "tokens": [
-     {
-      "token_id": "36",
-      "state": "locked",
-      "since": "2024-08-29T15:01:45Z",
-      "since_height": 11849720,
-      "acquired": {
-       "kind": "lock_create",
-       "ts": "2024-08-29T15:01:45Z",
-       "height": 11849720,
-       "txhash": "B8F82F1BD9B4EAE4595CF5C64D3D8AA624353863AE5114E87B0182EAFE5C2A4D",
-       "price": {
-        "amount": "871829",
-        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
-        "symbol": "ampLUNA",
-        "decimals": 6,
-        "usd": 0.44522542448104,
-        "usd_basis": "price-history:2024-08-29 (LUNA×ratio(interpolated_reanchored))"
-       }
-      },
-      "broken": false
-     },
-     {
-      "token_id": "259",
-      "state": "locked",
-      "since": "2024-09-18T06:20:43Z",
-      "since_height": 12131033,
-      "acquired": {
-       "kind": "lock_create",
-       "ts": "2024-09-18T06:20:43Z",
-       "height": 12131033,
-       "txhash": "E1360C2095432683C749E4533E34803F73D58A6FA3F205F1F70B1FE1B9047591",
-       "price": {
-        "amount": "39336458",
-        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
-        "symbol": "bLUNA",
-        "decimals": 6,
-        "usd": 18.723187904591523,
-        "usd_basis": "price-history:2024-09-18 (LUNA×ratio(chain_anchored))"
-       }
-      },
-      "broken": false
-     },
      {
       "token_id": "567",
       "state": "liquid",
@@ -724,8 +681,8 @@
     ]
    },
    "held_past": {
-    "total": 13,
-    "distinct_tokens": 13,
+    "total": 16,
+    "distinct_tokens": 16,
     "tokens": [
      {
       "token_id": "255",
@@ -956,6 +913,74 @@
       "held_days": 103
      },
      {
+      "token_id": "36",
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2024-08-29T15:01:45Z",
+       "height": 11849720,
+       "txhash": "B8F82F1BD9B4EAE4595CF5C64D3D8AA624353863AE5114E87B0182EAFE5C2A4D",
+       "price": {
+        "amount": "871829",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.44522542448104,
+        "usd_basis": "price-history:2024-08-29 (LUNA×ratio(interpolated_reanchored))"
+       }
+      },
+      "released": {
+       "kind": "lock_migrate",
+       "ts": "2025-08-19T12:42:32.039030013Z",
+       "height": 17022863,
+       "txhash": "0FAE33AAC8A355156BA739011238948C99B3F241096C03136F9FFA9228C8DA8A",
+       "note": "migrated to 816"
+      },
+      "held_days": 354.9
+     },
+     {
+      "token_id": "816",
+      "acquired": null,
+      "opened_by": {
+       "kind": "lock_migrate",
+       "ts": "2025-08-19T12:42:32.039030013Z",
+       "height": 17022863,
+       "txhash": "0FAE33AAC8A355156BA739011238948C99B3F241096C03136F9FFA9228C8DA8A"
+      },
+      "released": {
+       "kind": "lock_merge",
+       "ts": "2025-08-19T12:43:26.330430998Z",
+       "height": 17022872,
+       "txhash": "4568480465C1DA62731128FE25FF35E8CA0CD80A1EF7E394E78D2D66A8E8A762",
+       "note": "merged into 567"
+      },
+      "held_days": 0
+     },
+     {
+      "token_id": "259",
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2024-09-18T06:20:43Z",
+       "height": 12131033,
+       "txhash": "E1360C2095432683C749E4533E34803F73D58A6FA3F205F1F70B1FE1B9047591",
+       "price": {
+        "amount": "39336458",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": 18.723187904591523,
+        "usd_basis": "price-history:2024-09-18 (LUNA×ratio(chain_anchored))"
+       }
+      },
+      "released": {
+       "kind": "lock_migrate",
+       "ts": "2025-08-19T12:43:55.801096915Z",
+       "height": 17022877,
+       "txhash": "2F79A679B9A3E28C0F56129BCF135726170B35D4CC70FC69E7067E14F9A95CFF",
+       "note": "migrated to 817"
+      },
+      "held_days": 335.3
+     },
+     {
       "token_id": "815",
       "acquired": {
        "kind": "lock_split",
@@ -974,15 +999,19 @@
      {
       "token_id": "817",
       "acquired": null,
-      "opened_by": null,
+      "opened_by": {
+       "kind": "lock_migrate",
+       "ts": "2025-08-19T12:43:55.801096915Z",
+       "height": 17022877,
+       "txhash": "2F79A679B9A3E28C0F56129BCF135726170B35D4CC70FC69E7067E14F9A95CFF"
+      },
       "released": {
        "kind": "lock_transfer",
        "ts": "2025-10-04T05:55:36.609896612Z",
        "height": 17695895,
        "txhash": "5E3A46CD5755062FA3EFE434CFC15FD712D6C415FC9AF7AFA42D5A84C6243C62"
       },
-      "held_days": null,
-      "note": "no acquisition record in the ledger (pre-ledger holding or a gap) — the release proves it was held, nothing more"
+      "held_days": 45.7
      },
      {
       "token_id": "942",
@@ -1011,7 +1040,7 @@
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 19,
+   "held_ever_distinct": 20,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -1886,14 +1915,14 @@
      "msg_index": 1,
      "kind": "lock_migrate",
      "collection": "tla-locks",
-     "token_id": "36",
+     "token_id": "816",
      "from": "terra1rnwr9zjgf6204lyk37w0l6hhtaptke5m2cfpmf",
      "lineage": {
       "from_ids": [
        "36"
       ],
       "to_ids": [
-       "36"
+       "816"
       ]
      },
      "migrate": {
@@ -1947,14 +1976,14 @@
      "msg_index": 0,
      "kind": "lock_migrate",
      "collection": "tla-locks",
-     "token_id": "259",
+     "token_id": "817",
      "from": "terra1rnwr9zjgf6204lyk37w0l6hhtaptke5m2cfpmf",
      "lineage": {
       "from_ids": [
        "259"
       ],
       "to_ids": [
-       "259"
+       "817"
       ]
      },
      "migrate": {
