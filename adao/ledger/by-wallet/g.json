@@ -4,7 +4,7 @@
  "shard": "g",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 73,
- "records": 386,
+ "records": 388,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -5608,25 +5608,25 @@
    "address": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
    "first_seen": "2024-02-28T14:09:54Z",
    "last_seen": "2026-09-18T10:30:32.289073479Z",
-   "events_count": 13,
+   "events_count": 15,
    "counts": {
     "minted": 3,
     "stakes_enterprise": 3,
     "unstakes_enterprise": 3,
     "stakes": 3,
-    "unstakes": 1
+    "unstakes": 3
    },
    "holdings_now": {
     "total": 3,
     "by_state": {
-     "staked": 3
+     "unstaking": 3
     },
     "tokens": [
      {
       "token_id": "7147",
-      "state": "staked",
-      "since": "2024-10-29T11:28:29Z",
-      "since_height": 12716205,
+      "state": "unstaking",
+      "since": "2026-09-18T10:30:32.289073479Z",
+      "since_height": 22893829,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-06-02T15:42:54Z",
@@ -5641,13 +5641,14 @@
         "usd_basis": "price-history:2024-06-02 (coingecko)"
        }
       },
-      "broken": false
+      "broken": false,
+      "claim_duration": "time: 604800"
      },
      {
       "token_id": "7254",
-      "state": "staked",
-      "since": "2024-10-29T11:28:29Z",
-      "since_height": 12716205,
+      "state": "unstaking",
+      "since": "2026-09-18T10:30:32.289073479Z",
+      "since_height": 22893829,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-28T14:09:54Z",
@@ -5662,13 +5663,14 @@
         "usd_basis": "price-history:2024-02-28 (coingecko)"
        }
       },
-      "broken": false
+      "broken": false,
+      "claim_duration": "time: 604800"
      },
      {
       "token_id": "8283",
-      "state": "staked",
-      "since": "2024-10-29T11:28:29Z",
-      "since_height": 12716205,
+      "state": "unstaking",
+      "since": "2026-09-18T10:30:32.289073479Z",
+      "since_height": 22893829,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-06-02T15:42:54Z",
@@ -5683,7 +5685,8 @@
         "usd_basis": "price-history:2024-06-02 (coingecko)"
        }
       },
-      "broken": false
+      "broken": false,
+      "claim_duration": "time: 604800"
      }
     ]
    },
@@ -5918,13 +5921,42 @@
      "msg_index": 0,
      "kind": "unstake",
      "collection": "adao",
-     "token_id": null,
+     "token_id": "7147",
      "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
      "to": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
      "custodian": "daodao_voting",
      "claim_duration": "time: 604800",
-     "note": "token ids live in the msg body (not archived in raw parts) — resolve at claim",
-     "source": "forward:org-nft-flows",
+     "source": "adao/raw:forward",
+     "role": "to"
+    },
+    {
+     "txhash": "709E2E673C24532DC6F4C5F74D6E6EA1B69FB787EB49576320E4CE554EE04322",
+     "height": 22893829,
+     "ts": "2026-09-18T10:30:32.289073479Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "adao",
+     "token_id": "7254",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 604800",
+     "source": "adao/raw:forward",
+     "role": "to"
+    },
+    {
+     "txhash": "709E2E673C24532DC6F4C5F74D6E6EA1B69FB787EB49576320E4CE554EE04322",
+     "height": 22893829,
+     "ts": "2026-09-18T10:30:32.289073479Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "adao",
+     "token_id": "8283",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 604800",
+     "source": "adao/raw:forward",
      "role": "to"
     }
    ]
