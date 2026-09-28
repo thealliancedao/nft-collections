@@ -652,9 +652,9 @@
     "locks_sent": 1
    },
    "holdings_now": {
-    "total": 6,
+    "total": 3,
     "by_state": {
-     "locked": 6
+     "locked": 3
     },
     "tokens": [
      {
@@ -671,71 +671,16 @@
       "broken": false
      },
      {
-      "token_id": "115",
-      "state": "locked",
-      "since": "2024-09-29T09:39:27Z",
-      "since_height": 12291125,
-      "acquired": {
-       "kind": "lock_transfer",
-       "ts": "2024-09-29T09:39:27Z",
-       "height": 12291125,
-       "txhash": "370B5C235273391001C7B1A7C77E9B75CF442E702EA9F3B7C40A62048102B89B"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1167",
-      "state": "locked",
-      "since": "2026-01-21T05:11:09.890653102Z",
-      "since_height": 19310138,
-      "acquired": {
-       "kind": "lock_create",
-       "ts": "2026-01-21T05:11:09.890653102Z",
-       "height": 19310138,
-       "txhash": "EB0049F927EE62A584914B6F5EB928B0AFA0A361F9C86F0380A59520E6914B0A",
-       "price": {
-        "amount": "211645",
-        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
-        "symbol": "ampLUNA",
-        "decimals": 6,
-        "usd": 0.03228317060185,
-        "usd_basis": "price-history:2026-01-21 (LUNA×ratio(chain_anchored))"
-       }
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1169",
-      "state": "locked",
-      "since": "2026-01-22T10:20:02.248792159Z",
-      "since_height": 19328194,
-      "acquired": {
-       "kind": "lock_create",
-       "ts": "2026-01-22T10:20:02.248792159Z",
-       "height": 19328194,
-       "txhash": "919F738EFFCDE9035D64886CF5DD6A13DC7666F694FCBC0A467594760F13E6C3",
-       "price": {
-        "amount": "163357",
-        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
-        "symbol": "ampLUNA",
-        "decimals": 6,
-        "usd": 0.02562368241472,
-        "usd_basis": "price-history:2026-01-22 (LUNA×ratio(chain_anchored))"
-       }
-      },
-      "broken": false
-     },
-     {
       "token_id": "1172",
       "state": "locked",
-      "since": "2026-01-28T17:19:12.706494969Z",
-      "since_height": 19421615,
+      "since": "2026-01-28T17:18:25.849879222Z",
+      "since_height": 19421607,
       "acquired": null,
       "opened_by": {
-       "kind": "lock_merge",
-       "ts": "2026-01-28T17:19:12.706494969Z",
-       "height": 19421615,
-       "txhash": "B5637253B55B84A4B01E6B8C340A743EB1ADF2414D2CF6A1DFE7B6E9D8B1A808"
+       "kind": "lock_migrate",
+       "ts": "2026-01-28T17:18:25.849879222Z",
+       "height": 19421607,
+       "txhash": "6C2CFC0F8149F7F1D4543870C8ECEB1EE5C1BBEEBBD2CD6C8C636FA5567CBD59"
       },
       "broken": false
      },
@@ -763,8 +708,8 @@
     ]
    },
    "held_past": {
-    "total": 5,
-    "distinct_tokens": 5,
+    "total": 9,
+    "distinct_tokens": 9,
     "tokens": [
      {
       "token_id": "201",
@@ -825,13 +770,98 @@
       "held_days": 147.5
      },
      {
-      "token_id": "1168",
+      "token_id": "115",
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2024-09-29T09:39:27Z",
+       "height": 12291125,
+       "txhash": "370B5C235273391001C7B1A7C77E9B75CF442E702EA9F3B7C40A62048102B89B"
+      },
+      "released": {
+       "kind": "lock_migrate",
+       "ts": "2026-01-20T16:21:34.404242954Z",
+       "height": 19302187,
+       "txhash": "DB76CCF74A7CD5F7CF951557ECCC12A4459C368331975361B5EF74E1E381AAC6",
+       "note": "migrated to 1166"
+      },
+      "held_days": 478.3
+     },
+     {
+      "token_id": "1167",
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2026-01-21T05:11:09.890653102Z",
+       "height": 19310138,
+       "txhash": "EB0049F927EE62A584914B6F5EB928B0AFA0A361F9C86F0380A59520E6914B0A",
+       "price": {
+        "amount": "211645",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.03228317060185,
+        "usd_basis": "price-history:2026-01-21 (LUNA×ratio(chain_anchored))"
+       }
+      },
+      "released": {
+       "kind": "lock_migrate",
+       "ts": "2026-01-21T05:11:27.377031258Z",
+       "height": 19310141,
+       "txhash": "5DE32369D7C89074A9135D31D29597E0BC9D8CF0020ABC16B0F60D83062B2C12",
+       "note": "migrated to 1168"
+      },
+      "held_days": 0
+     },
+     {
+      "token_id": "1169",
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2026-01-22T10:20:02.248792159Z",
+       "height": 19328194,
+       "txhash": "919F738EFFCDE9035D64886CF5DD6A13DC7666F694FCBC0A467594760F13E6C3",
+       "price": {
+        "amount": "163357",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.02562368241472,
+        "usd_basis": "price-history:2026-01-22 (LUNA×ratio(chain_anchored))"
+       }
+      },
+      "released": {
+       "kind": "lock_migrate",
+       "ts": "2026-01-28T17:18:25.849879222Z",
+       "height": 19421607,
+       "txhash": "6C2CFC0F8149F7F1D4543870C8ECEB1EE5C1BBEEBBD2CD6C8C636FA5567CBD59",
+       "note": "migrated to 1172"
+      },
+      "held_days": 6.3
+     },
+     {
+      "token_id": "1166",
       "acquired": null,
       "opened_by": {
+       "kind": "lock_migrate",
+       "ts": "2026-01-20T16:21:34.404242954Z",
+       "height": 19302187,
+       "txhash": "DB76CCF74A7CD5F7CF951557ECCC12A4459C368331975361B5EF74E1E381AAC6"
+      },
+      "released": {
        "kind": "lock_merge",
        "ts": "2026-01-28T17:18:49.43198468Z",
        "height": 19421611,
-       "txhash": "3B0072929F65DFF2D68E4F9523C4F35251E56E9588468CEB641DAC482F6B626D"
+       "txhash": "3B0072929F65DFF2D68E4F9523C4F35251E56E9588468CEB641DAC482F6B626D",
+       "note": "merged into 1168"
+      },
+      "held_days": 8
+     },
+     {
+      "token_id": "1168",
+      "acquired": null,
+      "opened_by": {
+       "kind": "lock_migrate",
+       "ts": "2026-01-21T05:11:27.377031258Z",
+       "height": 19310141,
+       "txhash": "5DE32369D7C89074A9135D31D29597E0BC9D8CF0020ABC16B0F60D83062B2C12"
       },
       "released": {
        "kind": "lock_merge",
@@ -840,7 +870,7 @@
        "txhash": "B5637253B55B84A4B01E6B8C340A743EB1ADF2414D2CF6A1DFE7B6E9D8B1A808",
        "note": "merged into 1172"
       },
-      "held_days": 0
+      "held_days": 7.5
      },
      {
       "token_id": "1260",
@@ -862,7 +892,7 @@
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 11,
+   "held_ever_distinct": 12,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -4183,14 +4213,14 @@
      "msg_index": 0,
      "kind": "lock_migrate",
      "collection": "tla-locks",
-     "token_id": "115",
+     "token_id": "1166",
      "from": "terra1gedunjdcgnmz5uu8mdc0x0y8jlsajfmfrt9q6n",
      "lineage": {
       "from_ids": [
        "115"
       ],
       "to_ids": [
-       "115"
+       "1166"
       ]
      },
      "migrate": {
@@ -4247,14 +4277,14 @@
      "msg_index": 0,
      "kind": "lock_migrate",
      "collection": "tla-locks",
-     "token_id": "1167",
+     "token_id": "1168",
      "from": "terra1gedunjdcgnmz5uu8mdc0x0y8jlsajfmfrt9q6n",
      "lineage": {
       "from_ids": [
        "1167"
       ],
       "to_ids": [
-       "1167"
+       "1168"
       ]
      },
      "migrate": {
@@ -4365,14 +4395,14 @@
      "msg_index": 0,
      "kind": "lock_migrate",
      "collection": "tla-locks",
-     "token_id": "1169",
+     "token_id": "1172",
      "from": "terra1gedunjdcgnmz5uu8mdc0x0y8jlsajfmfrt9q6n",
      "lineage": {
       "from_ids": [
        "1169"
       ],
       "to_ids": [
-       "1169"
+       "1172"
       ]
      },
      "migrate": {
