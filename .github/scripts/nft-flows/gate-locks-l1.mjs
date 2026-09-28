@@ -9,6 +9,7 @@
 //   L7 lock_add rows from the gauge (claim_rebase) are labelled by `from` = the registry's gauge (income to the lock, not a deposit)
 //   L8 a corrected lock payment keeps the old value as repair.was
 //   L9 a msg depositing into two locks keeps one row per lock
+//   L10 a migrate names the lock it creates (classify 1.2.1)
 import fs from 'fs'; import path from 'path'; import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const ROOT = process.argv[2] || '.'; const L = path.join(ROOT, 'tla-locks/ledger');
@@ -56,4 +57,7 @@ ok(cor.every(r => r.repair.was && r.repair.was.price && (r.repair.was.price.amou
 const perMsg = {}; for (const r of K('lock_add')) if (r.token_id != null) (perMsg[r.txhash + '|' + r.msg_index] ||= new Set()).add(r.token_id);
 const multi = Object.values(perMsg).filter(s => s.size > 1).length;
 ok(multi >= 4, `L9 ${multi} msgs deposit into more than one lock and keep a row per lock`, multi);
+// L10 (classify 1.2.1): a migrate names the lock it creates — to_ids ≠ from_ids
+{ const mg = K('lock_migrate'); const selfRef = mg.filter(r => r.lineage && String(r.lineage.to_ids) === String(r.lineage.from_ids));
+  ok(mg.length > 0 && selfRef.length <= mg.length * 0.01, `L10 ${mg.length - selfRef.length}/${mg.length} migrates name a new lock (to ≠ from)`, selfRef.slice(0, 5).map(r => [r.txhash.slice(0, 12), r.lineage])); }
 console.log(`\n${pass}/${pass + fail} passed`); process.exit(fail ? 1 : 0);

@@ -1,6 +1,8 @@
 'use strict';
 // derive.js — nft-flows derive 1.3.0 (SPEC-nft-flows.md). Runs inside the repo checkout (workflows nft-flows-derive.yml,
 // nft-flows-forward.yml):
+//   1.3.1 (2026-09-28, classifier 1.2.1): a lock_migrate now names the lock it CREATES (was: the burned one). Its row re-keys
+//       (token_id old→new); the 1.2.0 row of the same (kind, msg, from_ids) is superseded, reason "classify-1.2.1: token_id a→b".
 //   1.3.0 (2026-09-27, SPEC-portfolio-locks L1, classifier 1.2.0): (a) <slug>/raw/forward/*.json.gz (the Render cron's daily
 //       parts, same {h,x,t,c,e} shape) are re-read too, so rows the forward stream wrote under an older classifier are repaired
 //       or superseded like any archive's — they add NO coverage (the forward stream owns that span). (b) lock rows the 1.1.x
@@ -102,7 +104,7 @@ function txsOf(a) {
 }
 
 // ---------------------------------------------------------------- 1.2: labeled merge (repair in place · supersede re-keyed)
-const CLASSIFIER_REV = '1.2.0';
+const CLASSIFIER_REV = '1.2.1';
 const REPAIR_FIELDS = ['from', 'to', 'split', 'listing_type', 'auction_type', 'cancelled_by', 'accepted_offer_id'];
 function repairInPlace(o, e, r) {   // e: the row on disk, r: what the classifier now produces for the SAME key — fill nulls only
   const filled = [];
@@ -128,7 +130,7 @@ function correctLockPrice(o, e, r) {
   e.repair = { was, by: 'classify-' + CLASSIFIER_REV, why: 'the payment is the send into the escrow just before this deposit, not the msg\'s first leg', at: new Date().toISOString() };
   o.corrected = (o.corrected || 0) + 1; return true;
 }
-function whatDiffers(e, r) { const d = []; if (e.msg_index !== r.msg_index) d.push(`msg_index ${e.msg_index}→${r.msg_index}`); if ((e.token_id == null) !== (r.token_id == null)) d.push(`token_id ${e.token_id == null ? '-' : 'n'}→${r.token_id == null ? '-' : 'n'}`); for (const f of ['listing_id', 'auction_id', 'offer_id']) if ((e[f] || null) !== (r[f] || null)) d.push(`${f} ${e[f] || '-'}→${r[f] || '-'}`); return d.join(', ') || 'key'; }
+function whatDiffers(e, r) { const d = []; if (e.msg_index !== r.msg_index) d.push(`msg_index ${e.msg_index}→${r.msg_index}`); if ((e.token_id == null) !== (r.token_id == null)) d.push(`token_id ${e.token_id == null ? '-' : 'n'}→${r.token_id == null ? '-' : 'n'}`); else if (e.token_id != null && String(e.token_id) !== String(r.token_id)) d.push(`token_id ${e.token_id}→${r.token_id}`); for (const f of ['listing_id', 'auction_id', 'offer_id']) if ((e[f] || null) !== (r[f] || null)) d.push(`${f} ${e[f] || '-'}→${r[f] || '-'}`); return d.join(', ') || 'key'; }
 function mergeTx(o, txhash, list) {
   const newKeys = new Set(list.map(recordKey));
   // rows on disk for this tx whose key the classifier no longer produces = candidates to be superseded (1.1.5 mis-keyed twins)
@@ -141,6 +143,7 @@ function mergeTx(o, txhash, list) {
     const key = recordKey(r);
     if (o.seen.has(key)) { nullTwin(r, key); const e = o.byKey.get(key); if (e && !e.superseded_by && correctLockPrice(o, e, r)) continue; if (e && !e.superseded_by && repairInPlace(o, e, r)) continue; o.dup++; continue; }
     let twinAt = stale.findIndex(x => x.kind === r.kind && x.collection === r.collection && String(x.token_id || '') === String(r.token_id || ''));
+    if (twinAt < 0 && r.lineage && r.lineage.from_ids && r.lineage.from_ids.length) twinAt = stale.findIndex(x => x.kind === r.kind && x.collection === r.collection && x.msg_index === r.msg_index && x.lineage && String(x.lineage.from_ids) === String(r.lineage.from_ids));   // 1.3.1: a re-keyed lineage row (migrate → its real new lock) is the same event
     if (twinAt < 0 && r.token_id != null) twinAt = stale.findIndex(x => x.kind === r.kind && x.collection === r.collection && x.token_id == null && (x.msg_index === r.msg_index || x.msg_index === 0));   // 1.2.1: the token-less 1.1.5 row (ids were in the body) is the twin of the first per-token row
     if (twinAt >= 0) { const t = stale.splice(twinAt, 1)[0]; sup(t, key, whatDiffers(t, r)); }
     nullTwin(r, key);
