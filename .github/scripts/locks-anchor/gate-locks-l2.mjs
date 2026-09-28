@@ -4,8 +4,8 @@
 //      (token, height, side) twice; a lock answer carries asset.amount
 //   A2 creates: the lock's asset at the create block = the payment the ledger recorded for that create (amount AND denom)
 //      — ≥ 99 % of the creates read (an add in the same block is the known exception, listed)
-//   A3 splits: parent before = parent after + child after, in asset amount — ≥ 99 % of complete triples (the escrow conserves)
-//   A4 migrates: the old lock's asset before the block = the amount the ledger's migrate row says left it — ≥ 99 %
+//   A3 conservation per lock per block: before = after + Σ split children + migrated out — ≥ 99 % (split + migrate in one block together)
+//   A4 migrates: the new lock's asset right after = the ledger's migrate `into` — ≥ 99 % of those read
 //   A5 coverage: planned points on disk + pending = planned (index.json), and a run that was not stopped leaves 0 pending
 //   A6 answers are honest: an `error` row names the node's answer; no lock answer where the plan said skip
 // Usage: node gate-locks-l2.mjs <repo root> [slug]
@@ -30,15 +30,25 @@ const sameBlockAdds = new Set(live.filter(r => r.kind === 'lock_add' && r.token_
 { let n = 0, eq = 0; const miss = [];
   for (const r of live.filter(x => x.kind === 'lock_create' && x.price && x.price.amount)) { const a = at(String(r.token_id), r.height, 'after'); if (!a || !a.lock) continue; n++; const same = String(amt(a)) === String(r.price.amount) && denomOf(a.lock.asset.info) === r.price.denom; if (same) eq++; else if (!sameBlockAdds.has(r.token_id + '|' + r.height)) miss.push([r.token_id, r.height, r.price, a.lock.asset]); }
   ok(n === 0 ? true : (eq + (n - eq - miss.length)) >= n * 0.99, `A2 ${eq}/${n} creates: the escrow's asset at the create block = the recorded payment (${n - eq - miss.length} with an add in the same block)`, miss.slice(0, 5)); }
-// A3 splits
-{ let n = 0, eq = 0; const miss = []; const grp = new Map();   // a parent split several times in one block: before = after + Σ children
-  for (const r of live.filter(x => x.kind === 'lock_split' && x.lineage && x.lineage.from_ids && x.lineage.from_ids[0] && x.token_id)) { const k = String(r.lineage.from_ids[0]) + '|' + r.height; (grp.get(k) || grp.set(k, []).get(k)).push(String(r.token_id)); }
-  for (const [k, kids] of grp) { const [par, hs] = k.split('|'); const h = Number(hs); const b = at(par, h - 1, 'before'), a = at(par, h, 'after'), cs = kids.map(c => at(c, h, 'after')); if (!(b && b.lock && a && a.lock && cs.every(c => c && c.lock))) continue; n++; const sum = cs.reduce((s, c) => s + amt(c), 0n); if (amt(b) === amt(a) + sum) eq++; else miss.push([par, kids, h, String(amt(b)), String(amt(a)), String(sum)]); }
-  ok(n === 0 ? true : eq >= n * 0.99, `A3 ${eq}/${n} splits conserve the asset: parent before = parent after + Σ children (per parent per block)`, miss.slice(0, 5)); }
-// A4 migrates
-{ let n = 0, eq = 0; const miss = [];
-  for (const r of live.filter(x => x.kind === 'lock_migrate' && x.migrate && x.migrate.amount_before && x.lineage)) { const old = String(r.lineage.from_ids[0]); const b = at(old, r.height - 1, 'before'); if (!b || !b.lock) continue; n++; const m = String(r.migrate.amount_before).match(/:(\d+)$/); if (m && String(amt(b)) === m[1]) eq++; else miss.push([old, r.height, r.migrate.amount_before, b.lock.asset]); }
-  ok(n === 0 ? true : eq >= n * 0.99, `A4 ${eq}/${n} migrates: the old lock's asset before the block = the ledger's migrate amount`, miss.slice(0, 5)); }
+// A3 + A4 — conservation PER LOCK PER BLOCK (the migration tool splits a lock and migrates the rest in ONE block, so a split and a
+// migrate of the same lock are checked together): before(h-1) = after(h) + Σ split children after(h) + Σ migrated out (the ledger's
+// amount_before; a migrated lock is burned, after = 0). Blocks where the lock also merges / receives an add / is withdrawn are left
+// to L3 (counted as not checked).
+const grp = new Map(); const addG = (t, h, e) => { const k = t + '|' + h; (grp.get(k) || grp.set(k, []).get(k)).push(e); };
+for (const r of live) { if (r.kind === 'lock_split' && r.lineage && r.lineage.from_ids && r.lineage.from_ids[0] && r.token_id) addG(String(r.lineage.from_ids[0]), r.height, { k: 'split', child: String(r.token_id) });
+  if (r.kind === 'lock_migrate' && r.lineage && r.lineage.from_ids) { const m = String((r.migrate && r.migrate.amount_before) || '').match(/:(\d+)$/); const mi = String((r.migrate && r.migrate.into) || '').match(/:(\d+)$/); addG(String(r.lineage.from_ids[0]), r.height, { k: 'migrate', out: m ? BigInt(m[1]) : null, into: mi ? BigInt(mi[1]) : null, to: String((r.lineage.to_ids && r.lineage.to_ids[0]) || '') }); }
+  if (r.kind === 'lock_merge' && r.lineage) { for (const b of r.lineage.burned || []) addG(String(b), r.height, { k: 'other' }); addG(String(r.token_id), r.height, { k: 'other' }); }
+  if ((r.kind === 'lock_add' || r.kind === 'lock_withdraw') && r.token_id) addG(String(r.token_id), r.height, { k: 'other' }); }
+{ let n = 0, eq = 0, notChecked = 0; const miss = []; let mn = 0, meq = 0; const mmiss = [];
+  for (const [k, es] of grp) { if (!es.some(e => e.k === 'split' || e.k === 'migrate')) continue; if (es.some(e => e.k === 'other')) { notChecked++; continue; }
+    const [t, hs] = k.split('|'); const h = Number(hs); const b = at(t, h - 1, 'before'); const mig = es.filter(e => e.k === 'migrate');
+    const kids = es.filter(e => e.k === 'split').map(e => at(e.child, h, 'after')); const a = mig.length ? null : at(t, h, 'after');
+    if (!(b && b.lock) || kids.some(c => !(c && c.lock)) || (!mig.length && !(a && a.lock)) || mig.some(e => e.out == null)) { notChecked++; continue; }
+    n++; const total = (mig.length ? 0n : amt(a)) + kids.reduce((s, c) => s + amt(c), 0n) + mig.reduce((s, e) => s + e.out, 0n);
+    if (amt(b) === total) eq++; else miss.push([t, h, es.map(e => e.k).join('+'), String(amt(b)), String(total)]);
+    for (const e of mig) { const nl = at(e.to, h, 'after'); if (!nl || !nl.lock || e.into == null) continue; mn++; if (amt(nl) === e.into) meq++; else mmiss.push([t, e.to, h, String(e.into), String(amt(nl))]); } }
+  ok(n > 0 ? eq >= n * 0.99 : true, `A3 ${eq}/${n} lock-blocks conserve the asset: before = after + Σ split children + migrated out (${notChecked} blocks with a merge / add / withdraw left to L3)`, miss.slice(0, 5));
+  ok(mn === 0 ? true : meq >= mn * 0.99, `A4 ${meq}/${mn} migrates: the NEW lock holds exactly what the ledger says the migration put in (${mn === 0 ? 'no new-lock reads yet — the next locks-anchor run reads them' : 'the escrow agrees'})`, mmiss.slice(0, 5)); }
 // A5 coverage
 { const planned = idx.plan && idx.plan.points; const run = idx.this_run || {}; const onDisk = n;
   ok(planned != null && onDisk + (run.pending || 0) >= planned && (run.stopped || run.pending === 0), `A5 ${onDisk} on disk + ${run.pending || 0} pending ≥ ${planned} planned${run.stopped ? ' (run stopped: ' + run.stopped + ' — the next run continues)' : ''}`, { planned, onDisk, run }); }
