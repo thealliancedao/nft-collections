@@ -4,7 +4,7 @@
  "shard": "3",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 62,
- "records": 1512,
+ "records": 1513,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -17966,15 +17966,33 @@
    "address": "terra1e9uee9x65lj20a2pahdjemram5c3hkwa4tkdw3",
    "first_seen": "2024-02-28T19:26:18Z",
    "last_seen": "2024-02-28T21:33:52Z",
-   "events_count": 2,
+   "events_count": 3,
    "counts": {
     "minted": 1,
-    "transfers_out": 1
+    "transfers_out": 1,
+    "stakes_enterprise": 1
    },
    "holdings_now": {
-    "total": 0,
-    "by_state": {},
-    "tokens": []
+    "total": 1,
+    "by_state": {
+     "staked_enterprise": 1
+    },
+    "tokens": [
+     {
+      "token_id": "2474",
+      "state": "staked_enterprise",
+      "since": "2024-02-28T21:33:52Z",
+      "since_height": 9235254,
+      "acquired": null,
+      "opened_by": {
+       "kind": "stake_enterprise",
+       "ts": "2024-02-28T21:33:52Z",
+       "height": 9235254,
+       "txhash": "D46DA1843CD5630868A0473F595CFE0358FBCD9DABCD063FA76064D4C2E06279"
+      },
+      "broken": false
+     }
+    ]
    },
    "held_past": {
     "total": 1,
@@ -18046,6 +18064,20 @@
      "repair": "mint-phase-1.1.5",
      "repair_note": "paid mint: the token left a candy machine with LUNA attached (classifier 1.1.5, launchpad.addresses)",
      "role": "to"
+    },
+    {
+     "txhash": "D46DA1843CD5630868A0473F595CFE0358FBCD9DABCD063FA76064D4C2E06279",
+     "height": 9235254,
+     "ts": "2024-02-28T21:33:52Z",
+     "msg_index": 0,
+     "kind": "stake_enterprise",
+     "collection": "adao",
+     "token_id": "2474",
+     "from": "terra1e9uee9x65lj20a2pahdjemram5c3hkwa4tkdw3",
+     "to": "terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl",
+     "custodian": "legacy_staking",
+     "source": "adao/archive/fcd:collection",
+     "role": "from"
     },
     {
      "txhash": "D46DA1843CD5630868A0473F595CFE0358FBCD9DABCD063FA76064D4C2E06279",
