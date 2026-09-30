@@ -4,7 +4,7 @@
  "shard": "m",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 76,
- "records": 666,
+ "records": 667,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -15176,8 +15176,8 @@
   "terra1v0k9r7csmknkcafvkem0kt4ul65qzpykjy9mpm": {
    "address": "terra1v0k9r7csmknkcafvkem0kt4ul65qzpykjy9mpm",
    "first_seen": "2024-01-07T12:53:59Z",
-   "last_seen": "2026-08-21T14:41:42.098994738Z",
-   "events_count": 136,
+   "last_seen": "2026-09-30T00:50:02.921319123Z",
+   "events_count": 137,
    "counts": {
     "bought": 19,
     "bids": 19,
@@ -15185,7 +15185,7 @@
     "stakes_enterprise": 16,
     "minted": 1,
     "sold": 3,
-    "delists": 3,
+    "delists": 4,
     "unstakes_enterprise": 16,
     "stakes": 18,
     "claims": 18
@@ -15193,7 +15193,8 @@
    "holdings_now": {
     "total": 17,
     "by_state": {
-     "listed:bbl": 17
+     "listed:bbl": 16,
+     "liquid": 1
     },
     "tokens": [
      {
@@ -15329,9 +15330,9 @@
      },
      {
       "token_id": "2639",
-      "state": "listed:bbl",
-      "since": "2026-08-21T14:41:42.098994738Z",
-      "since_height": 22475766,
+      "state": "liquid",
+      "since": "2026-09-30T00:50:02.921319123Z",
+      "since_height": 23066141,
       "acquired": {
        "kind": "sale",
        "ts": "2024-01-09T05:50:38Z",
@@ -18765,6 +18766,23 @@
      "unit_usd": 0.08661533739916401,
      "usd_repriced_at": "2026-09-18T18:49:21.981Z",
      "role": "from"
+    },
+    {
+     "txhash": "F8DDC8ECBA8C58BBA0F81D35D093BCD5BE17ABEC083E258DCF7CF1205B7462F9",
+     "height": 23066141,
+     "ts": "2026-09-30T00:50:02.921319123Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "adao",
+     "token_id": "2639",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra1v0k9r7csmknkcafvkem0kt4ul65qzpykjy9mpm",
+     "listing_id": null,
+     "auction_id": "17856",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
