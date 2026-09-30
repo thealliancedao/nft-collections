@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "capturedAt": "2026-09-30T00:42:11.371Z",
-  "capturedAtUnix": 1790728931371,
+  "capturedAt": "2026-09-30T00:57:10.208Z",
+  "capturedAtUnix": 1790729830208,
   "epoch": 205,
   "contracts": {
     "nft": "terra1phr9fngjv7a8an4dhmhd0u0f98wazxfnzccqtyheq4zqrrp4fpuqw3apw9",
@@ -26,15 +26,15 @@
   "daodao_staked_count": 1655,
   "daodao_pending_claim_count": 5,
   "daodao_custody_unattributed_count": 6,
-  "bbl_listed_count": 43,
+  "bbl_listed_count": 42,
   "atrium_listed_count": 2,
   "boost_listed_count": 2,
-  "user_held_count": 1056,
+  "user_held_count": 1057,
   "daodao_staked_broken_count": 66,
   "user_held_broken_count": 26,
   "minted_count": 4172,
   "dao_held_count": 5828,
-  "user_liquid_count": 1056,
+  "user_liquid_count": 1057,
   "unique_holders": 751,
   "dao_members_count": 153,
   "non_custody_holders_count": 746,
@@ -50,7 +50,7 @@
     "terra1xa3pmdxxudegk9wysvjundsknlaa6frgs864vz": 57,
     "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53": 56,
     "terra1ha6xxq0gf774v0gvx5cwrwafzsuyu8xcj2505r": 1,
-    "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9": 43,
+    "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9": 42,
     "terra1hrcurgmgac972nw34nvjrrjc6nr3gny3sg8nay": 1,
     "terra1apeyehuxqzz0c2gegg8p84w25ptqk8u6h39drz": 15,
     "terra1drwt52wuqd2p3z5y9pgylhnmqaaznga8xwfcds": 1,
@@ -176,6 +176,7 @@
     "terra13n7are9cagecn90rdqwddzkp5wjdz4z8axajl7": 2,
     "terra1k0p5flc2ltw38xtc8xkq3ylum4g4s77ny38ne5": 1,
     "terra1c4rv7445zl5cjzpkywpgczpavltw4sk9e5awnj": 1,
+    "terra1v0k9r7csmknkcafvkem0kt4ul65qzpykjy9mpm": 1,
     "terra13ae3h9rr9fhjmtt6scpx8xgctyea4xthkcntej": 1,
     "terra1y4059q78s3ua85cje49stpyx5f7x574f4nrzgj": 2,
     "terra1wpe99uz9kjyu6ppc79p9wqt97tndehmjrp6r0d": 1,
@@ -1164,14 +1165,14 @@
   "marketplaces": {
     "bbl": {
       "count": 43,
-      "count_resolved": 43,
+      "count_resolved": 42,
       "chain_only_count": 0,
       "by_token": {
         "bLUNA": {
-          "count": 43,
-          "total": 210179,
+          "count": 42,
+          "total": 190179,
           "min": 1000,
-          "total_usd": 18993.606946999993
+          "total_usd": 17186.232570999993
         }
       }
     },
@@ -1255,9 +1256,9 @@
     ],
     "unattributed": 6,
     "sweep": {
-      "addresses_queried": 488,
+      "addresses_queried": 489,
       "failed": 0,
-      "rebuilt_at": "2026-09-30T00:42:31.823Z"
+      "rebuilt_at": "2026-09-30T00:57:30.335Z"
     }
   },
   "daodao_stakers": [
@@ -3130,19 +3131,29 @@
     "warnings": []
   },
   "listing_resolver": {
-    "warning_count": 0,
-    "warnings": [],
+    "warning_count": 1,
+    "warnings": [
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17856",
+        "token_id": "2639",
+        "seller": "terra1v0k9r7csmknkcafvkem0kt4ul65qzpykjy9mpm",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      }
+    ],
     "bbl_sweep": {
       "asked": 100,
-      "page_size": 43,
+      "page_size": 42,
       "pages": 3,
       "cursor": "stuck",
-      "rows": 43,
+      "rows": 42,
       "complete": true,
       "completed_by_id": 0,
       "completed_by_token": 0,
       "query_shapes": {},
-      "owned": 43
+      "owned": 42
     }
   }
 }
