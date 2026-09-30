@@ -8,7 +8,7 @@
   2699
  ],
  "tokens_with_records": 100,
- "records": 352,
+ "records": 353,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "2600": [
@@ -1549,10 +1549,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
+    "price": {
+     "amount": "50000000000",
+     "denom": "uluna"
+    },
     "listing_id": "283",
-    "source": "tla-flows/raw:15471073-15921072"
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 10308.767,
+    "usd_basis": "price-history:2025-05-23 (coingecko)",
+    "unit_usd": 0.20617534,
+    "luna_usd": 0.20617534,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.417Z"
    },
    {
     "txhash": "4E535687934757329F2699978AEA9EE013125819DC303F7A9BAD48AED42EDE54",
@@ -1972,6 +1987,22 @@
     "usd_basis": "price-history:2026-08-21 (tla)",
     "unit_usd": 0.08661533739916401,
     "usd_repriced_at": "2026-09-18T18:49:21.981Z"
+   },
+   {
+    "txhash": "F8DDC8ECBA8C58BBA0F81D35D093BCD5BE17ABEC083E258DCF7CF1205B7462F9",
+    "height": 23066141,
+    "ts": "2026-09-30T00:50:02.921319123Z",
+    "msg_index": 0,
+    "kind": "delist",
+    "collection": "adao",
+    "token_id": "2639",
+    "venue": "bbl",
+    "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+    "to": "terra1v0k9r7csmknkcafvkem0kt4ul65qzpykjy9mpm",
+    "listing_id": null,
+    "auction_id": "17856",
+    "cancelled_by": null,
+    "source": "forward:org-nft-flows"
    }
   ],
   "2640": [
@@ -3701,10 +3732,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
+    "price": {
+     "amount": "500000000",
+     "denom": "uluna"
+    },
     "listing_id": "293",
-    "source": "tla-flows/raw:15471073-15921072"
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 94.744975,
+    "usd_basis": "price-history:2025-05-24 (coingecko)",
+    "unit_usd": 0.18948995,
+    "luna_usd": 0.18948995,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.608Z"
    },
    {
     "txhash": "94D2327EA8F9A06474C8D3F0E48FB50357DF7626AEDA7654ED063EC714400F94",
@@ -4772,7 +4818,7 @@
     "txhash": "08740E763F37109B61BC845000B517CD7A59C849CCB851822266E34BDD9CDDAA",
     "height": 20712054,
     "ts": "2026-04-25T09:14:26.86645557Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "stake",
     "collection": "adao",
     "token_id": "2689",
