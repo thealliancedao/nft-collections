@@ -3,8 +3,8 @@
  "collection": "pixel-lions",
  "shard": "g",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
- "wallets_in_shard": 42,
- "records": 1443,
+ "wallets_in_shard": 43,
+ "records": 1444,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11204,6 +11204,61 @@
      "to": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
      "custodian": "daodao_voting",
      "source": "nfts/raw/pixel:16137811-16437810",
+     "role": "from"
+    }
+   ]
+  },
+  "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng": {
+   "address": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+   "first_seen": "2026-10-02T12:04:28.443504431Z",
+   "last_seen": "2026-10-02T12:04:28.443504431Z",
+   "events_count": 1,
+   "counts": {},
+   "holdings_now": {
+    "total": 0,
+    "by_state": {},
+    "tokens": []
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 0,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "124AA130EB41F9799CC437B4043273E87A07B2B8F49515B274C465236456056F",
+     "height": 23103158,
+     "ts": "2026-10-02T12:04:28.443504431Z",
+     "msg_index": 0,
+     "kind": "venue_deposit",
+     "venue": "bbl",
+     "collection": "pixel-lions",
+     "from": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+     "to": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "price": {
+      "amount": "5000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": 0.46056012227629145,
+     "usd_basis": "price-history:2026-10-02 (tla)",
+     "unit_usd": 0.09211202445525829,
      "role": "from"
     }
    ]
