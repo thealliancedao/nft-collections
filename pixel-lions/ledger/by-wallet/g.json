@@ -4,7 +4,7 @@
  "shard": "g",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 43,
- "records": 1444,
+ "records": 1445,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11211,8 +11211,8 @@
   "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng": {
    "address": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
    "first_seen": "2026-10-02T12:04:28.443504431Z",
-   "last_seen": "2026-10-02T12:04:28.443504431Z",
-   "events_count": 1,
+   "last_seen": "2026-10-02T20:44:32.994756558Z",
+   "events_count": 2,
    "counts": {},
    "holdings_now": {
     "total": 0,
@@ -11260,6 +11260,25 @@
      "usd_basis": "price-history:2026-10-02 (tla)",
      "unit_usd": 0.09211202445525829,
      "role": "from"
+    },
+    {
+     "txhash": "BA04B89F13942C52612B5B757F07DF680C7055CBAD236B64F79B245986334679",
+     "height": 23108568,
+     "ts": "2026-10-02T20:44:32.994756558Z",
+     "msg_index": 0,
+     "kind": "venue_withdraw",
+     "venue": "bbl",
+     "collection": "pixel-lions",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+     "price": {
+      "amount": "5000000",
+      "denom": null
+     },
+     "source": "forward:org-nft-flows",
+     "usd": null,
+     "usd_reason": "no_price",
+     "role": "to"
     }
    ]
   },
