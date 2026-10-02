@@ -4,7 +4,7 @@
  "shard": "g",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 73,
- "records": 389,
+ "records": 392,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -5607,26 +5607,27 @@
   "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng": {
    "address": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
    "first_seen": "2024-02-28T14:09:54Z",
-   "last_seen": "2026-10-02T12:04:28.443504431Z",
-   "events_count": 16,
+   "last_seen": "2026-10-02T14:36:40.057403888Z",
+   "events_count": 19,
    "counts": {
     "minted": 3,
     "stakes_enterprise": 3,
     "unstakes_enterprise": 3,
     "stakes": 3,
-    "unstakes": 3
+    "unstakes": 3,
+    "claims": 3
    },
    "holdings_now": {
     "total": 3,
     "by_state": {
-     "unstaking": 3
+     "liquid": 3
     },
     "tokens": [
      {
       "token_id": "7147",
-      "state": "unstaking",
-      "since": "2026-09-18T10:30:32.289073479Z",
-      "since_height": 22893829,
+      "state": "liquid",
+      "since": "2026-10-02T14:36:40.057403888Z",
+      "since_height": 23104742,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-06-02T15:42:54Z",
@@ -5646,9 +5647,9 @@
      },
      {
       "token_id": "7254",
-      "state": "unstaking",
-      "since": "2026-09-18T10:30:32.289073479Z",
-      "since_height": 22893829,
+      "state": "liquid",
+      "since": "2026-10-02T14:36:40.057403888Z",
+      "since_height": 23104742,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-28T14:09:54Z",
@@ -5668,9 +5669,9 @@
      },
      {
       "token_id": "8283",
-      "state": "unstaking",
-      "since": "2026-09-18T10:30:32.289073479Z",
-      "since_height": 22893829,
+      "state": "liquid",
+      "since": "2026-10-02T14:36:40.057403888Z",
+      "since_height": 23104742,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-06-02T15:42:54Z",
@@ -5981,6 +5982,48 @@
      "unit_usd": 0.09181999863081533,
      "usd_repriced_at": "2026-10-02T14:04:35.700Z",
      "role": "from"
+    },
+    {
+     "txhash": "4503847C6D4D6AE38DB8362598567EDB5710B1E1F97CC2124C625D6D20BC9478",
+     "height": 23104742,
+     "ts": "2026-10-02T14:36:40.057403888Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "adao",
+     "token_id": "7147",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "4503847C6D4D6AE38DB8362598567EDB5710B1E1F97CC2124C625D6D20BC9478",
+     "height": 23104742,
+     "ts": "2026-10-02T14:36:40.057403888Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "adao",
+     "token_id": "7254",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "4503847C6D4D6AE38DB8362598567EDB5710B1E1F97CC2124C625D6D20BC9478",
+     "height": 23104742,
+     "ts": "2026-10-02T14:36:40.057403888Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "adao",
+     "token_id": "8283",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra1fgqgr342dhaz6e747tpakwuknwhane0lg09wng",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
