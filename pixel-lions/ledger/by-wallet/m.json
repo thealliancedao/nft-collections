@@ -4,7 +4,7 @@
  "shard": "m",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 46,
- "records": 1244,
+ "records": 1252,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -3201,8 +3201,8 @@
   "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m": {
    "address": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
    "first_seen": "2023-06-10T03:54:17Z",
-   "last_seen": "2026-06-04T03:47:06.751401404Z",
-   "events_count": 200,
+   "last_seen": "2026-10-02T12:23:01.149760917Z",
+   "events_count": 208,
    "counts": {
     "minted": 12,
     "transfers_out": 22,
@@ -3212,14 +3212,14 @@
     "unstakes_enterprise": 22,
     "transfers_in": 3,
     "listings": 47,
-    "delists": 26,
+    "delists": 34,
     "sold": 6
    },
    "holdings_now": {
     "total": 16,
     "by_state": {
-     "liquid": 1,
-     "listed:bbl": 15
+     "liquid": 9,
+     "listed:bbl": 7
     },
     "tokens": [
      {
@@ -3245,9 +3245,9 @@
      },
      {
       "token_id": "910",
-      "state": "listed:bbl",
-      "since": "2024-09-06T13:30:04Z",
-      "since_height": 11962971,
+      "state": "liquid",
+      "since": "2026-10-02T12:06:28.920788078Z",
+      "since_height": 23103179,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-10T03:54:17Z",
@@ -3266,9 +3266,9 @@
      },
      {
       "token_id": "1403",
-      "state": "listed:bbl",
-      "since": "2024-09-06T12:35:13Z",
-      "since_height": 11962424,
+      "state": "liquid",
+      "since": "2026-10-02T12:10:10.207611849Z",
+      "since_height": 23103218,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-10T23:05:13Z",
@@ -3287,9 +3287,9 @@
      },
      {
       "token_id": "1415",
-      "state": "listed:bbl",
-      "since": "2024-09-06T12:36:31Z",
-      "since_height": 11962437,
+      "state": "liquid",
+      "since": "2026-10-02T12:15:29.668624209Z",
+      "since_height": 23103274,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-10T23:05:13Z",
@@ -3308,9 +3308,9 @@
      },
      {
       "token_id": "2298",
-      "state": "listed:bbl",
-      "since": "2024-09-06T12:43:29Z",
-      "since_height": 11962506,
+      "state": "liquid",
+      "since": "2026-10-02T12:16:21.785671528Z",
+      "since_height": 23103283,
       "acquired": {
        "kind": "sale",
        "ts": "2023-06-12T15:05:47Z",
@@ -3330,9 +3330,9 @@
      },
      {
       "token_id": "2306",
-      "state": "listed:bbl",
-      "since": "2024-09-06T12:45:14Z",
-      "since_height": 11962524,
+      "state": "liquid",
+      "since": "2026-10-02T12:18:44.688747059Z",
+      "since_height": 23103308,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-10T23:05:13Z",
@@ -3351,9 +3351,9 @@
      },
      {
       "token_id": "2378",
-      "state": "listed:bbl",
-      "since": "2024-09-06T13:24:05Z",
-      "since_height": 11962911,
+      "state": "liquid",
+      "since": "2026-10-02T12:21:29.077926941Z",
+      "since_height": 23103336,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-10T23:05:13Z",
@@ -3372,9 +3372,9 @@
      },
      {
       "token_id": "2495",
-      "state": "listed:bbl",
-      "since": "2024-09-06T13:24:29Z",
-      "since_height": 11962915,
+      "state": "liquid",
+      "since": "2026-10-02T12:23:01.149760917Z",
+      "since_height": 23103352,
       "acquired": {
        "kind": "sale",
        "ts": "2023-08-09T14:11:57Z",
@@ -3545,9 +3545,9 @@
      },
      {
       "token_id": "4738",
-      "state": "listed:bbl",
-      "since": "2024-09-06T13:29:04Z",
-      "since_height": 11962961,
+      "state": "liquid",
+      "since": "2026-10-02T12:08:54.699126677Z",
+      "since_height": 23103205,
       "acquired": {
        "kind": "sale",
        "ts": "2023-06-18T22:28:06Z",
@@ -7752,6 +7752,142 @@
      "usd_basis": "price-history:2026-06-04 (LUNA×ratio(chain_exact))",
      "unit_usd": 0.09975626,
      "role": "from"
+    },
+    {
+     "txhash": "75F762B8EFDFBC205B01FCA0451A213C1FCBC899E79DA24B3306D5495512D887",
+     "height": 23103179,
+     "ts": "2026-10-02T12:06:28.920788078Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "910",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13584",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "E00195F91659C391855F6054A83D6F22806E9A1305940937F1F76A6B7B8A0216",
+     "height": 23103205,
+     "ts": "2026-10-02T12:08:54.699126677Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "4738",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13582",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "269AC4E18B04647DDB53B388CA8BDBFA9AEFD52877D58ACE53082F715B6B6C66",
+     "height": 23103218,
+     "ts": "2026-10-02T12:10:10.207611849Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "1403",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13568",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "B8A5A5D8E0DEEC253C0614A89835E67FEF6D1FE735448E97343E8C07AE215DA3",
+     "height": 23103274,
+     "ts": "2026-10-02T12:15:29.668624209Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "1415",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13570",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "DF687AE939EBFF4A57D28214F201362F47EBE56056D56487ACEA82B9FDEC7AA0",
+     "height": 23103283,
+     "ts": "2026-10-02T12:16:21.785671528Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "2298",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13572",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6B62469F78B2872C6829C78BB52ED8A19F9DD8921873DA8636E76C426504A1B0",
+     "height": 23103308,
+     "ts": "2026-10-02T12:18:44.688747059Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "2306",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13573",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "46B9698965C4105D035C3B8AF9AF3275B0A3DA0181FCEEC7101BFB93E6C1A3AD",
+     "height": 23103336,
+     "ts": "2026-10-02T12:21:29.077926941Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "2378",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13574",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6686900B69775DD4C972904AF6C213E08330215369DEED054216D4EC9B86B65B",
+     "height": 23103352,
+     "ts": "2026-10-02T12:23:01.149760917Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "pixel-lions",
+     "token_id": "2495",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra16pcv5qmdg6ym2ce0xz93gfeyn9enmyt66xcc8m",
+     "listing_id": null,
+     "auction_id": "13575",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
