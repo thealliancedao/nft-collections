@@ -4,7 +4,7 @@
  "shard": "9",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 3,
- "records": 698,
+ "records": 699,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -54,13 +54,13 @@
   "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9": {
    "address": "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9",
    "first_seen": "2025-08-07T14:07:19.639930225Z",
-   "last_seen": "2026-10-02T20:42:44.359358029Z",
-   "events_count": 661,
+   "last_seen": "2026-10-03T10:01:14.265371914Z",
+   "events_count": 662,
    "counts": {
     "locks_created": 1,
     "locks_received": 42,
     "lock_merges": 42,
-    "lock_adds": 576
+    "lock_adds": 577
    },
    "holdings_now": {
     "total": 1,
@@ -18795,6 +18795,34 @@
      "to": "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9",
      "source": "forward:org-nft-flows",
      "role": "to"
+    },
+    {
+     "txhash": "9B42884E4A2E310D30B016BEBF858D0EF8FDA8589C1883668808853F7E447121",
+     "height": 23116887,
+     "ts": "2026-10-03T10:01:14.265371914Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9",
+     "price": {
+      "amount": "10718865",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "lock": {
+      "fixed_power": "735734693872",
+      "voting_power": "6621612244848",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "748",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": 1.6322783324302161,
+     "usd_basis": "price-history:2026-10-03 (tla)",
+     "unit_usd": 0.15228089283988708,
+     "role": "from"
     }
    ]
   },
