@@ -8,7 +8,7 @@
   7799
  ],
  "tokens_with_records": 100,
- "records": 427,
+ "records": 428,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "7700": [
@@ -2637,7 +2637,7 @@
     "txhash": "52676125C1BFE4611C90FF13EC076F04ED8724BF8D6697B39C2AC5A212653BBE",
     "height": 16741684,
     "ts": "2025-07-31T08:04:11.810203905Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "7740",
@@ -2673,15 +2673,11 @@
     "via_offer": false,
     "auction_id": "17243",
     "source": "tla-flows/raw:16735277-17185276",
-    "repair": "buy-now-settle-1.1.4",
-    "repaired_at": "2026-09-14T01:20:59.747Z",
-    "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
-    "usd": 124.51357,
     "denom_symbol": "bLUNA",
     "denom_decimals": 6,
+    "usd": 124.51357,
     "usd_basis": "price-history:2025-07-31 (LUNA×ratio(interpolated))",
-    "unit_usd": 0.24902714,
-    "usd_repriced_at": "2026-09-18T18:49:01.692Z"
+    "unit_usd": 0.24902714
    },
    {
     "txhash": "1842EF4DC397D68BA5BD73EEB1F0D5498C144F4538BBEBAE2DD5F5FEEC2E5AD2",
@@ -3705,10 +3701,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
-    "listing_id": "284",
-    "source": "tla-flows/raw:15471073-15921072"
+    "price": {
+     "amount": "500000000",
+     "denom": "uluna"
+    },
+    "listing_id": "288",
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 103.08767,
+    "usd_basis": "price-history:2025-05-23 (coingecko)",
+    "unit_usd": 0.20617534,
+    "luna_usd": 0.20617534,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.417Z"
    },
    {
     "txhash": "D1FDCF9169F64B942F37017F6EA0ABC171A54780B6DCB62C716AF1DD7767B6C2",
@@ -3725,6 +3736,18 @@
     "auction_id": null,
     "cancelled_by": null,
     "source": "tla-flows/raw:17005824-17455823"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 23,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "7760",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "7761": [
@@ -3944,14 +3967,23 @@
     "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
     "price": {
      "amount": "150000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
-    "price_reason": "msg_body_not_archived:denom",
     "listing_id": "392",
     "expires_in_blocks": null,
     "source": "adao/raw:21781531-22081530",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 152.43502839258497,
+    "usd_basis": "price-history:2026-07-07 (tla)",
+    "unit_usd": 1.0162335226172332,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price.denom",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:53:09.716Z"
    },
    {
     "txhash": "4F0CA08F1FD1594FC3B197A1704D4A424145B67B46C77868741AF111662455B8",
@@ -3973,7 +4005,7 @@
     "txhash": "E1CBB340B08DE7D28467539836B9C4F28D1CB5A5476883ECAD8F7A1692DDA9E1",
     "height": 22614355,
     "ts": "2026-08-30T19:44:49.775120484Z",
-    "msg_index": 0,
+    "msg_index": 10,
     "kind": "stake",
     "collection": "adao",
     "token_id": "7761",
@@ -4393,7 +4425,7 @@
     "txhash": "C693AE0B81CB9584F7E76C14A4F6C647CDC3B7C41A52F93EA431BDC58B3216F2",
     "height": 20684833,
     "ts": "2026-04-23T13:29:29.325457512Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "stake",
     "collection": "adao",
     "token_id": "7770",
@@ -5114,7 +5146,7 @@
     "txhash": "C693AE0B81CB9584F7E76C14A4F6C647CDC3B7C41A52F93EA431BDC58B3216F2",
     "height": 20684833,
     "ts": "2026-04-23T13:29:29.325457512Z",
-    "msg_index": 0,
+    "msg_index": 2,
     "kind": "stake",
     "collection": "adao",
     "token_id": "7775",
@@ -6716,7 +6748,7 @@
     "txhash": "70C479A66A35E2C1C3A125F705052F3F202B68AD4AF9DDA44C99A77A0C0BB7D0",
     "height": 17802881,
     "ts": "2025-10-11T12:15:25.348110653Z",
-    "msg_index": 0,
+    "msg_index": 2,
     "kind": "stake",
     "collection": "adao",
     "token_id": "7798",
