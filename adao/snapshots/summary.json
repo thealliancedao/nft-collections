@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "capturedAt": "2026-10-04T06:42:15.210Z",
-  "capturedAtUnix": 1791096135210,
+  "capturedAt": "2026-10-04T06:57:09.825Z",
+  "capturedAtUnix": 1791097029825,
   "epoch": 205,
   "contracts": {
     "nft": "terra1phr9fngjv7a8an4dhmhd0u0f98wazxfnzccqtyheq4zqrrp4fpuqw3apw9",
@@ -26,15 +26,15 @@
   "daodao_staked_count": 1665,
   "daodao_pending_claim_count": 7,
   "daodao_custody_unattributed_count": 6,
-  "bbl_listed_count": 42,
+  "bbl_listed_count": 28,
   "atrium_listed_count": 2,
   "boost_listed_count": 2,
-  "user_held_count": 1045,
+  "user_held_count": 1059,
   "daodao_staked_broken_count": 66,
   "user_held_broken_count": 29,
   "minted_count": 4172,
   "dao_held_count": 5828,
-  "user_liquid_count": 1045,
+  "user_liquid_count": 1059,
   "unique_holders": 751,
   "dao_members_count": 153,
   "non_custody_holders_count": 746,
@@ -50,7 +50,7 @@
     "terra1xa3pmdxxudegk9wysvjundsknlaa6frgs864vz": 57,
     "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t": 56,
     "terra1ha6xxq0gf774v0gvx5cwrwafzsuyu8xcj2505r": 1,
-    "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9": 42,
+    "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53": 14,
     "terra1hrcurgmgac972nw34nvjrrjc6nr3gny3sg8nay": 1,
     "terra1apeyehuxqzz0c2gegg8p84w25ptqk8u6h39drz": 15,
     "terra1drwt52wuqd2p3z5y9pgylhnmqaaznga8xwfcds": 1,
@@ -102,6 +102,7 @@
     "terra1sljvft675xeesc6a8a8w0vj0nmt6vqzqtv0eqd": 5,
     "terra1yknmtn62y07fug7rct0f6xyd4lfrsesh2n5slg": 2,
     "terra1dv982f7wm7czfjva6x4v02naj56qs9efcyd0ez": 1,
+    "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9": 28,
     "terra155ngmxg2us7pnq2n0mf3pc59a89hplnpyhqywk": 2,
     "terra1njtruaz8zm0yyxtetgy70hqmqq8l9w0l2glw60": 1,
     "terra12hdw3zhlgvfjhwefwh6tfq2wu3vs66p62rf7ws": 1,
@@ -1165,15 +1166,15 @@
   },
   "marketplaces": {
     "bbl": {
-      "count": 42,
-      "count_resolved": 42,
+      "count": 41,
+      "count_resolved": 28,
       "chain_only_count": 0,
       "by_token": {
         "bLUNA": {
-          "count": 42,
-          "total": 190179,
+          "count": 28,
+          "total": 101679,
           "min": 1000,
-          "total_usd": 17249.174705999998
+          "total_usd": 9222.252903
         }
       }
     },
@@ -1272,9 +1273,9 @@
     ],
     "unattributed": 6,
     "sweep": {
-      "addresses_queried": 489,
+      "addresses_queried": 490,
       "failed": 0,
-      "rebuilt_at": "2026-10-04T06:42:34.882Z"
+      "rebuilt_at": "2026-10-04T06:57:32.919Z"
     }
   },
   "daodao_stakers": [
@@ -3147,19 +3148,137 @@
     "warnings": []
   },
   "listing_resolver": {
-    "warning_count": 0,
-    "warnings": [],
+    "warning_count": 13,
+    "warnings": [
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17799",
+        "token_id": "3389",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17801",
+        "token_id": "2282",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17798",
+        "token_id": "3008",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17802",
+        "token_id": "3162",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17797",
+        "token_id": "2096",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17716",
+        "token_id": "457",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17707",
+        "token_id": "4392",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17696",
+        "token_id": "116",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17698",
+        "token_id": "196",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17399",
+        "token_id": "3972",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17398",
+        "token_id": "4231",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17420",
+        "token_id": "4621",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      },
+      {
+        "scope": "bbl",
+        "reason": "warlock_only_by_id_failed",
+        "auction_id": "17540",
+        "token_id": "2633",
+        "seller": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+        "detail": "HTTP 500 {\"code\":2, \"message\":\"type: bbl_necropolis_auction::state::Auction; key: [00, 07, 64, 65, 61, 6C, 65, 72, 73, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 0",
+        "recovered": true
+      }
+    ],
     "bbl_sweep": {
       "asked": 100,
-      "page_size": 42,
+      "page_size": 28,
       "pages": 3,
       "cursor": "stuck",
-      "rows": 42,
+      "rows": 28,
       "complete": true,
       "completed_by_id": 0,
       "completed_by_token": 0,
       "query_shapes": {},
-      "owned": 42
+      "owned": 28
     }
   }
 }
