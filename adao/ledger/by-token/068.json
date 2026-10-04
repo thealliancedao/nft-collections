@@ -8,7 +8,7 @@
   6899
  ],
  "tokens_with_records": 100,
- "records": 415,
+ "records": 418,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "6800": [
@@ -277,7 +277,7 @@
     "txhash": "1B4802F80523C02E32F49B2887116327BF84D9345CE0D4E4E0DA39E5D5607640",
     "height": 20684817,
     "ts": "2026-04-23T13:27:57.57116512Z",
-    "msg_index": 0,
+    "msg_index": 2,
     "kind": "stake",
     "collection": "adao",
     "token_id": "6804",
@@ -849,7 +849,7 @@
     "txhash": "1B4802F80523C02E32F49B2887116327BF84D9345CE0D4E4E0DA39E5D5607640",
     "height": 20684817,
     "ts": "2026-04-23T13:27:57.57116512Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "stake",
     "collection": "adao",
     "token_id": "6812",
@@ -1541,7 +1541,7 @@
     "txhash": "F066C7A9E23C6912FBC6B0B2A4A5553B121978F28AD051FFAC03EC26D467B03D",
     "height": 17239617,
     "ts": "2025-09-03T06:10:33.929975761Z",
-    "msg_index": 0,
+    "msg_index": 7,
     "kind": "stake",
     "collection": "adao",
     "token_id": "6822",
@@ -4230,10 +4230,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
-    "listing_id": "293",
-    "source": "tla-flows/raw:15471073-15921072"
+    "price": {
+     "amount": "500000000",
+     "denom": "uluna"
+    },
+    "listing_id": "309",
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 94.744975,
+    "usd_basis": "price-history:2025-05-24 (coingecko)",
+    "unit_usd": 0.18948995,
+    "luna_usd": 0.18948995,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.608Z"
    },
    {
     "txhash": "127DE1FE4BD20F536E55B25C628843BAF06A093DC0F99FBADE62E5D190143E2D",
@@ -4250,6 +4265,18 @@
     "auction_id": null,
     "cancelled_by": null,
     "source": "tla-flows/raw:16327439-16777438"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 31,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "6870",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "6871": [
@@ -4546,7 +4573,7 @@
     "txhash": "1B4802F80523C02E32F49B2887116327BF84D9345CE0D4E4E0DA39E5D5607640",
     "height": 20684817,
     "ts": "2026-04-23T13:27:57.57116512Z",
-    "msg_index": 0,
+    "msg_index": 4,
     "kind": "stake",
     "collection": "adao",
     "token_id": "6874",
@@ -5216,14 +5243,23 @@
     "to": "terra15du229lqcxkn939pmjgklqunftf604q4wz87kt5awj6reghec5jqs0w0kj",
     "price": {
      "amount": "150000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
-    "price_reason": "msg_body_not_archived:denom",
     "listing_id": "390",
     "expires_in_blocks": null,
     "source": "adao/raw:21781531-22081530",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 152.43502839258497,
+    "usd_basis": "price-history:2026-07-07 (tla)",
+    "unit_usd": 1.0162335226172332,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price.denom",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:53:09.716Z"
    },
    {
     "txhash": "23E3E5B4D44AD142D8B685105FA3911B7F73DBFB416F85F2E10BE4B1A2129A43",
@@ -5245,7 +5281,7 @@
     "txhash": "E1CBB340B08DE7D28467539836B9C4F28D1CB5A5476883ECAD8F7A1692DDA9E1",
     "height": 22614355,
     "ts": "2026-08-30T19:44:49.775120484Z",
-    "msg_index": 0,
+    "msg_index": 8,
     "kind": "stake",
     "collection": "adao",
     "token_id": "6880",
@@ -5372,10 +5408,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
-    "listing_id": "293",
-    "source": "tla-flows/raw:15471073-15921072"
+    "price": {
+     "amount": "500000000",
+     "denom": "uluna"
+    },
+    "listing_id": "310",
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 94.744975,
+    "usd_basis": "price-history:2025-05-24 (coingecko)",
+    "unit_usd": 0.18948995,
+    "luna_usd": 0.18948995,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.608Z"
    },
    {
     "txhash": "6E6A4A69E37A8F142E098057ED62FB557446B7A4425E92EEF6D1886271AAFD9F",
@@ -5392,6 +5443,18 @@
     "auction_id": null,
     "cancelled_by": null,
     "source": "tla-flows/raw:16327439-16777438"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 16,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "6881",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "6882": [
@@ -5739,6 +5802,18 @@
     "to": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "custodian": "enterprise_staking",
     "source": "fcd:adao-collection"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 47,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "6883",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "6884": [
