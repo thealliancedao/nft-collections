@@ -1,0 +1,42 @@
+{
+ "product": "tla-locks/ledger/by-token",
+ "collection": "tla-locks",
+ "shard": "028",
+ "shard_size": 100,
+ "range": [
+  2800,
+  2899
+ ],
+ "tokens_with_records": 1,
+ "records": 1,
+ "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
+ "tokens": {
+  "2800": [
+   {
+    "txhash": "09AD7B7962CC6C91F2EB33FC36ECBEC416FD95F626B6A0B314C7F51925CCD9E3",
+    "height": 23131013,
+    "ts": "2026-10-04T08:34:02.867729134Z",
+    "msg_index": 0,
+    "kind": "lock_split",
+    "collection": "tla-locks",
+    "token_id": "2800",
+    "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+    "lineage": {
+     "from_ids": [
+      "2500"
+     ],
+     "to_ids": [
+      "2800"
+     ]
+    },
+    "lock": {
+     "fixed_power": "764679696907",
+     "voting_power": "6882117272163",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:5959932786"
+    },
+    "source": "forward:org-nft-flows"
+   }
+  ]
+ }
+}
