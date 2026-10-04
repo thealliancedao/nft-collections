@@ -8,7 +8,7 @@
   6399
  ],
  "tokens_with_records": 100,
- "records": 416,
+ "records": 417,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "6300": [
@@ -2388,7 +2388,7 @@
     "txhash": "8A6CED5C9825A69F2DF1DAB4516E1D75FD0F43FF3B9604F34915D7936AD11C3D",
     "height": 17788357,
     "ts": "2025-10-10T12:37:00.167285147Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "6333",
@@ -2424,17 +2424,11 @@
     "via_offer": false,
     "auction_id": "17617",
     "source": "tla-flows/raw:17480495-17930494",
-    "repair": "buy-now-settle-1.1.4",
-    "repaired_at": "2026-09-14T01:20:59.747Z",
-    "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
-    "usd": 33.3295973,
     "denom_symbol": "bLUNA",
     "denom_decimals": 6,
+    "usd": 33.3295973,
     "usd_basis": "price-history:2025-10-10 (LUNA×ratio(interpolated))",
-    "unit_usd": 0.21502966,
-    "usd_repriced_at": "2026-09-18T18:49:06.852Z",
-    "usd_prev": 31.50292659055252,
-    "usd_prev_basis": "bluna-usd-daily:2025-10-10"
+    "unit_usd": 0.21502966
    },
    {
     "txhash": "70586820AC4F270AFA087069056756C53ED71B381B80F30630DCCE335673C2C0",
@@ -2492,7 +2486,7 @@
     "txhash": "3F562FC4024F08C60EABBD5D461383A2E55384C363A63C94B53E867A69264466",
     "height": 19557858,
     "ts": "2026-02-06T21:35:24.670647486Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "6333",
@@ -2528,23 +2522,17 @@
     "via_offer": false,
     "auction_id": "17625",
     "source": "tla-flows/raw:19376345-19826344",
-    "repair": "buy-now-settle-1.1.4",
-    "repaired_at": "2026-09-14T01:20:59.747Z",
-    "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
-    "usd": 29.122653140024,
     "denom_symbol": "bLUNA",
     "denom_decimals": 6,
+    "usd": 29.122653140024,
     "usd_basis": "price-history:2026-02-06 (LUNA×ratio(interpolated))",
-    "unit_usd": 0.09740008,
-    "usd_repriced_at": "2026-09-18T18:49:12.996Z",
-    "usd_prev": 31.089439253279227,
-    "usd_prev_basis": "bluna-usd-daily:2026-02-07 (nearest, Δ1d)"
+    "unit_usd": 0.09740008
    },
    {
     "txhash": "A04B8D0DD64232EB60408285C027C05EEC16352EF8DB932A95CA7BB98D97E1DB",
     "height": 19557941,
     "ts": "2026-02-06T21:43:22.043546192Z",
-    "msg_index": 0,
+    "msg_index": 5,
     "kind": "stake",
     "collection": "adao",
     "token_id": "6333",
@@ -4513,10 +4501,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
-    "listing_id": "293",
-    "source": "tla-flows/raw:15471073-15921072"
+    "price": {
+     "amount": "500000000",
+     "denom": "uluna"
+    },
+    "listing_id": "308",
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 94.744975,
+    "usd_basis": "price-history:2025-05-24 (coingecko)",
+    "unit_usd": 0.18948995,
+    "luna_usd": 0.18948995,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.608Z"
    },
    {
     "txhash": "F4076BCAD845760F5D78E43246F454A0CA43E659D58E567462CC6F0B96FF9818",
@@ -4533,6 +4536,18 @@
     "auction_id": null,
     "cancelled_by": null,
     "source": "tla-flows/raw:16327439-16777438"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 11,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "6373",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "6374": [
@@ -6613,7 +6628,7 @@
     "txhash": "F066C7A9E23C6912FBC6B0B2A4A5553B121978F28AD051FFAC03EC26D467B03D",
     "height": 17239617,
     "ts": "2025-09-03T06:10:33.929975761Z",
-    "msg_index": 0,
+    "msg_index": 6,
     "kind": "stake",
     "collection": "adao",
     "token_id": "6393",
