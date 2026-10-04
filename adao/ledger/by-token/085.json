@@ -8,7 +8,7 @@
   8599
  ],
  "tokens_with_records": 100,
- "records": 353,
+ "records": 354,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "8500": [
@@ -2382,10 +2382,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
-    "listing_id": "284",
-    "source": "tla-flows/raw:15471073-15921072"
+    "price": {
+     "amount": "500000000",
+     "denom": "uluna"
+    },
+    "listing_id": "290",
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 103.08767,
+    "usd_basis": "price-history:2025-05-23 (coingecko)",
+    "unit_usd": 0.20617534,
+    "luna_usd": 0.20617534,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.417Z"
    },
    {
     "txhash": "95C8693BDCACBC939DD248BF5E443C13F39195FDA6F2BC5038175DE7EE618311",
@@ -2402,6 +2417,18 @@
     "auction_id": null,
     "cancelled_by": null,
     "source": "tla-flows/raw:16327439-16777438"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 37,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "8542",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "8543": [
@@ -3704,7 +3731,7 @@
     "txhash": "48B7FEBBE2D365B1E43379BD56831F62D87A020DD7D49099E9627D9121CB64CB",
     "height": 20684861,
     "ts": "2026-04-23T13:32:09.331792199Z",
-    "msg_index": 0,
+    "msg_index": 3,
     "kind": "stake",
     "collection": "adao",
     "token_id": "8564",
@@ -5161,7 +5188,7 @@
     "txhash": "A5C0A8B7C468C2F4491B550BDCD3CA9F932006BECFBEB2A83FDBF97295FFFF91",
     "height": 17802919,
     "ts": "2025-10-11T12:19:07.862224163Z",
-    "msg_index": 0,
+    "msg_index": 2,
     "kind": "stake",
     "collection": "adao",
     "token_id": "8595",
