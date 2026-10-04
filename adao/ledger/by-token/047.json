@@ -8,7 +8,7 @@
   4799
  ],
  "tokens_with_records": 100,
- "records": 425,
+ "records": 427,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "4700": [
@@ -1857,7 +1857,7 @@
     "txhash": "1D856510EB3A1378D1E14C15E8B4879AF48F4ABE6DFB36546B90AE2A9DB719BB",
     "height": 20684741,
     "ts": "2026-04-23T13:20:36.71574856Z",
-    "msg_index": 0,
+    "msg_index": 3,
     "kind": "stake",
     "collection": "adao",
     "token_id": "4723",
@@ -2143,6 +2143,18 @@
     "auction_id": "17857",
     "cancelled_by": null,
     "source": "adao/raw:22681531-22809971"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 33,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "4729",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "4730": [
@@ -4337,7 +4349,7 @@
     "txhash": "1D856510EB3A1378D1E14C15E8B4879AF48F4ABE6DFB36546B90AE2A9DB719BB",
     "height": 20684741,
     "ts": "2026-04-23T13:20:36.71574856Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "stake",
     "collection": "adao",
     "token_id": "4768",
@@ -4425,6 +4437,18 @@
     "to": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "custodian": "enterprise_staking",
     "source": "fcd:adao-collection"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 54,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "4769",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "4770": [
@@ -5410,10 +5434,23 @@
     "venue": "boost",
     "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
+    "price": {
+     "amount": "30000000",
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
+    },
     "listing_id": "413",
-    "source": "tla-flows/raw:16735277-17185276"
+    "source": "tla-flows/raw:16735277-17185276",
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 30,
+    "usd_basis": "stable_1_1",
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:51:20.173Z"
    },
    {
     "txhash": "1BF3B5D0CF822E7518BBC78F8824D2291EFE3C9D4DB98256B3AE7814284F6D35",
@@ -5442,16 +5479,29 @@
     "venue": "boost",
     "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
+    "price": {
+     "amount": "20000000",
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
+    },
     "listing_id": "416",
-    "source": "tla-flows/raw:17005824-17455823"
+    "source": "tla-flows/raw:17005824-17455823",
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 20,
+    "usd_basis": "stable_1_1",
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:51:23.110Z"
    },
    {
     "txhash": "AD783482C9208F55F320285753E269010F4F84A845B72E521FC57C8CA75BBA76",
     "height": 17133067,
     "ts": "2025-08-27T00:44:20.330728045Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "4781",
@@ -5460,7 +5510,7 @@
     "to": "terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq",
     "price": {
      "amount": "20000000",
-     "denom": null
+     "denom": "cw20:terra10aa3zdkrc7jwuf8ekl3zq7e7m42vmzqehcmu74e4egc7xkm5kr2s0muyst"
     },
     "split": {
      "fee": "400000",
@@ -5471,8 +5521,10 @@
     "listing_id": "416",
     "done": "1",
     "source": "tla-flows/raw:17005824-17455823",
-    "usd": null,
-    "usd_reason": "no_price"
+    "denom_symbol": "SOLID",
+    "denom_decimals": 6,
+    "usd": 20,
+    "usd_basis": "stable_1_1"
    },
    {
     "txhash": "9E13160AD806B7AF89C5CD2C0B013D3C303CDFC8453DC3A1AD7350614E97F673",
@@ -5571,7 +5623,7 @@
     "txhash": "0CADA27AF8CCF5AD1B8D8287EDF6B9D997BBF9E1174BF07F9A212EA3DAD899CF",
     "height": 17365006,
     "ts": "2025-09-11T18:40:22.427675732Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "sale",
     "collection": "adao",
     "token_id": "4781",
@@ -5607,17 +5659,11 @@
     "via_offer": false,
     "auction_id": "17562",
     "source": "tla-flows/raw:17226940-17676939",
-    "repair": "buy-now-settle-1.1.4",
-    "repaired_at": "2026-09-14T01:20:59.747Z",
-    "repair_note": "sale re-derived from the raw tx with classify.js 1.1.4 (BBL buy-now = place_bid + settle in one tx); supersedes the verb-less venue_out of the same tx",
-    "usd": 60.03252552,
     "denom_symbol": "bLUNA",
     "denom_decimals": 6,
+    "usd": 60.03252552,
     "usd_basis": "price-history:2025-09-11 (LUNA×ratio(interpolated))",
-    "unit_usd": 0.24109448,
-    "usd_repriced_at": "2026-09-18T18:49:05.160Z",
-    "usd_prev": 56.88581419572358,
-    "usd_prev_basis": "bluna-usd-daily:2025-09-11"
+    "unit_usd": 0.24109448
    },
    {
     "txhash": "4F531C70350410ED8E4B072204CC7FA11ECD1D82E88E4CB73340055D6BBE1107",
@@ -6474,7 +6520,7 @@
     "txhash": "FB81E121F2C04AF1EF886CCD8A88798284FC2D3637CED8328D6BFC81DDE1E85F",
     "height": 20684751,
     "ts": "2026-04-23T13:21:35.02724847Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "stake",
     "collection": "adao",
     "token_id": "4793",
