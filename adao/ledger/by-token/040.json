@@ -8,7 +8,7 @@
   4099
  ],
  "tokens_with_records": 100,
- "records": 410,
+ "records": 411,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "4000": [
@@ -1375,10 +1375,25 @@
     "venue": "boost",
     "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
     "to": "terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at",
-    "price": null,
-    "price_reason": "msg_body_not_archived:price",
-    "listing_id": "293",
-    "source": "tla-flows/raw:15471073-15921072"
+    "price": {
+     "amount": "500000000",
+     "denom": "uluna"
+    },
+    "listing_id": "297",
+    "source": "tla-flows/raw:15471073-15921072",
+    "denom_symbol": "LUNA",
+    "denom_decimals": 6,
+    "usd": 94.744975,
+    "usd_basis": "price-history:2025-05-24 (coingecko)",
+    "unit_usd": 0.18948995,
+    "luna_usd": 0.18948995,
+    "repaired_by": "classify-1.1.6",
+    "repaired_fields": [
+     "price",
+     "usd",
+     "price_reason"
+    ],
+    "repaired_at": "2026-09-19T19:50:56.608Z"
    },
    {
     "txhash": "92A73A82271230C7F294D36D3C9337D0A06EC3E62F8C254E31B2F07B6E7BCD1A",
@@ -1395,6 +1410,18 @@
     "auction_id": null,
     "cancelled_by": null,
     "source": "tla-flows/raw:16327439-16777438"
+   },
+   {
+    "txhash": "15EB3639D2795F612C42941FFE96A50AB8F0864D290F10B33B60A7F9CAEF74F3",
+    "height": 23129787,
+    "ts": "2026-10-04T06:36:35.246592085Z",
+    "msg_index": 32,
+    "kind": "transfer",
+    "collection": "adao",
+    "token_id": "4013",
+    "from": "terra1my2fdaqu523g2vfv72p43wkaaa8lqf0ks2xt53",
+    "to": "terra1xmc2w9mhahkqv0rtg8dd3d0nrtzm6fpdk29r5t",
+    "source": "forward:org-nft-flows"
    }
   ],
   "4014": [
@@ -2181,7 +2208,7 @@
     "txhash": "7589DD40F64963E9533456183B6F3447A08483DD96FA781F6B17BE6AF3461D6B",
     "height": 20684727,
     "ts": "2026-04-23T13:19:17.278877545Z",
-    "msg_index": 0,
+    "msg_index": 1,
     "kind": "stake",
     "collection": "adao",
     "token_id": "4020",
