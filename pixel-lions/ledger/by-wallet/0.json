@@ -3,8 +3,8 @@
  "collection": "pixel-lions",
  "shard": "0",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
- "wallets_in_shard": 36,
- "records": 566,
+ "wallets_in_shard": 37,
+ "records": 573,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11379,6 +11379,226 @@
      "custodian": "enterprise_staking",
      "source": "fcd:pixel-collection",
      "role": "holder"
+    }
+   ]
+  },
+  "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920": {
+   "address": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+   "first_seen": "2026-10-05T13:54:50.045835225Z",
+   "last_seen": "2026-10-05T13:54:50.045835225Z",
+   "events_count": 7,
+   "counts": {
+    "transfers_in": 7
+   },
+   "holdings_now": {
+    "total": 7,
+    "by_state": {
+     "liquid": 7
+    },
+    "tokens": [
+     {
+      "token_id": "599",
+      "state": "liquid",
+      "since": "2026-10-05T13:54:50.045835225Z",
+      "since_height": 23149380,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "885",
+      "state": "liquid",
+      "since": "2026-10-05T13:54:50.045835225Z",
+      "since_height": 23149380,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "894",
+      "state": "liquid",
+      "since": "2026-10-05T13:54:50.045835225Z",
+      "since_height": 23149380,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "947",
+      "state": "liquid",
+      "since": "2026-10-05T13:54:50.045835225Z",
+      "since_height": 23149380,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "1010",
+      "state": "liquid",
+      "since": "2026-10-05T13:54:50.045835225Z",
+      "since_height": 23149380,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "1079",
+      "state": "liquid",
+      "since": "2026-10-05T13:54:50.045835225Z",
+      "since_height": 23149380,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "4097",
+      "state": "liquid",
+      "since": "2026-10-05T13:54:50.045835225Z",
+      "since_height": 23149380,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 7,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 0,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "1010",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 1,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "1079",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 2,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "4097",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 3,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "599",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 4,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "885",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 5,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "894",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 6,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "947",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
