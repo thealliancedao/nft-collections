@@ -4,7 +4,7 @@
  "shard": "e",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 57,
- "records": 400,
+ "records": 401,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -3073,25 +3073,26 @@
   "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee": {
    "address": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
    "first_seen": "2024-02-29T00:54:41Z",
-   "last_seen": "2024-12-12T02:46:56Z",
-   "events_count": 4,
+   "last_seen": "2026-10-05T14:01:47.455720594Z",
+   "events_count": 5,
    "counts": {
     "minted": 1,
     "stakes_enterprise": 1,
     "unstakes_enterprise": 1,
-    "stakes": 1
+    "stakes": 1,
+    "unstakes": 1
    },
    "holdings_now": {
     "total": 1,
     "by_state": {
-     "staked": 1
+     "unstaking": 1
     },
     "tokens": [
      {
       "token_id": "7668",
-      "state": "staked",
-      "since": "2024-12-12T02:46:56Z",
-      "since_height": 13356309,
+      "state": "unstaking",
+      "since": "2026-10-05T14:01:47.455720594Z",
+      "since_height": 23149452,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-29T00:54:41Z",
@@ -3106,7 +3107,8 @@
         "usd_basis": "price-history:2024-02-29 (coingecko)"
        }
       },
-      "broken": false
+      "broken": false,
+      "claim_duration": "time: 604800"
      }
     ]
    },
@@ -3197,6 +3199,21 @@
      "custodian": "daodao_voting",
      "source": "fcd:adao-collection",
      "role": "from"
+    },
+    {
+     "txhash": "8979C26CB3D3C3891D744EF3F6814B83930B77EFC702ABC2ED3348A2235AE95A",
+     "height": 23149452,
+     "ts": "2026-10-05T14:01:47.455720594Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "adao",
+     "token_id": "7668",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 604800",
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
