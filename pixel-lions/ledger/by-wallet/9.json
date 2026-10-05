@@ -4,7 +4,7 @@
  "shard": "9",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 28,
- "records": 603,
+ "records": 604,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -2287,27 +2287,28 @@
   "terra14cr2qm7haac4y2rgndlvuvtgqykc8tayvxxjz9": {
    "address": "terra14cr2qm7haac4y2rgndlvuvtgqykc8tayvxxjz9",
    "first_seen": "2023-06-09T22:02:14Z",
-   "last_seen": "2024-12-12T10:16:33Z",
-   "events_count": 8,
+   "last_seen": "2026-10-05T15:48:27.712612424Z",
+   "events_count": 9,
    "counts": {
     "minted": 2,
     "listings": 1,
     "transfers_out": 1,
     "stakes_enterprise": 1,
     "sold": 1,
-    "unstakes_enterprise": 1
+    "unstakes_enterprise": 1,
+    "stakes": 1
    },
    "holdings_now": {
     "total": 1,
     "by_state": {
-     "liquid": 1
+     "staked": 1
     },
     "tokens": [
      {
       "token_id": "2009",
-      "state": "liquid",
-      "since": "2024-12-12T10:16:33Z",
-      "since_height": 13360877,
+      "state": "staked",
+      "since": "2026-10-05T15:48:27.712612424Z",
+      "since_height": 23150560,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2023-06-09T22:02:14Z",
@@ -2545,6 +2546,20 @@
      "custodian": "enterprise_staking",
      "source": "fcd:pixel-collection",
      "role": "to"
+    },
+    {
+     "txhash": "C4C05B47FE52C766CB78DC7A41A7D35AFFDD3DBD8AFD226897E2FA118A7B16FA",
+     "height": 23150560,
+     "ts": "2026-10-05T15:48:27.712612424Z",
+     "msg_index": 0,
+     "kind": "stake",
+     "collection": "pixel-lions",
+     "token_id": "2009",
+     "from": "terra14cr2qm7haac4y2rgndlvuvtgqykc8tayvxxjz9",
+     "to": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "from"
     }
    ]
   },
