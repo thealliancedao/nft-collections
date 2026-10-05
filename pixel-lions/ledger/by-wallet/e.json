@@ -4,7 +4,7 @@
  "shard": "e",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 51,
- "records": 1765,
+ "records": 1786,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -1111,122 +1111,30 @@
   "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee": {
    "address": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
    "first_seen": "2023-06-10T02:12:08Z",
-   "last_seen": "2024-10-16T18:30:41Z",
-   "events_count": 41,
+   "last_seen": "2026-10-05T13:54:50.045835225Z",
+   "events_count": 62,
    "counts": {
     "minted": 2,
     "bids": 3,
     "listings": 5,
     "delists": 3,
-    "transfers_out": 2,
+    "transfers_out": 9,
     "transfers_in": 9,
     "stakes_enterprise": 4,
     "sold": 2,
     "stakes": 7,
-    "unstakes_enterprise": 4
+    "unstakes_enterprise": 4,
+    "unstakes": 7,
+    "claims": 7
    },
    "holdings_now": {
-    "total": 7,
-    "by_state": {
-     "staked": 7
-    },
-    "tokens": [
-     {
-      "token_id": "599",
-      "state": "staked",
-      "since": "2024-10-16T18:30:41Z",
-      "since_height": 12531731,
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-12-04T04:31:58Z",
-       "height": 7991137,
-       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "885",
-      "state": "staked",
-      "since": "2024-10-11T03:32:51Z",
-      "since_height": 12450431,
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-12-04T04:31:58Z",
-       "height": 7991137,
-       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "894",
-      "state": "staked",
-      "since": "2024-10-11T03:32:51Z",
-      "since_height": 12450431,
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-12-04T04:31:58Z",
-       "height": 7991137,
-       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "947",
-      "state": "staked",
-      "since": "2024-10-16T18:30:41Z",
-      "since_height": 12531731,
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-12-04T04:31:58Z",
-       "height": 7991137,
-       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1010",
-      "state": "staked",
-      "since": "2024-10-11T03:32:51Z",
-      "since_height": 12450431,
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-12-04T04:28:34Z",
-       "height": 7991103,
-       "txhash": "C1509EF6A20D613C457CE1946169244D8B701AFB23685DF945CB428F1F5168C8"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "1079",
-      "state": "staked",
-      "since": "2024-10-16T18:30:41Z",
-      "since_height": 12531731,
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-12-04T04:31:58Z",
-       "height": 7991137,
-       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
-      },
-      "broken": false
-     },
-     {
-      "token_id": "4097",
-      "state": "staked",
-      "since": "2024-10-16T18:30:41Z",
-      "since_height": 12531731,
-      "acquired": {
-       "kind": "transfer",
-       "ts": "2023-12-12T23:55:55Z",
-       "height": 8118079,
-       "txhash": "B034500B08903EE630B1E9FC09633008B27F2A67462CDF500566FB60EF236558"
-      },
-      "broken": false
-     }
-    ]
+    "total": 0,
+    "by_state": {},
+    "tokens": []
    },
    "held_past": {
-    "total": 4,
-    "distinct_tokens": 3,
+    "total": 11,
+    "distinct_tokens": 10,
     "tokens": [
      {
       "token_id": "3048",
@@ -1325,6 +1233,118 @@
        }
       },
       "held_days": 102.2
+     },
+     {
+      "token_id": "1010",
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-12-04T04:28:34Z",
+       "height": 7991103,
+       "txhash": "C1509EF6A20D613C457CE1946169244D8B701AFB23685DF945CB428F1F5168C8"
+      },
+      "released": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "held_days": 1036.4
+     },
+     {
+      "token_id": "1079",
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-12-04T04:31:58Z",
+       "height": 7991137,
+       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
+      },
+      "released": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "held_days": 1036.4
+     },
+     {
+      "token_id": "4097",
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-12-12T23:55:55Z",
+       "height": 8118079,
+       "txhash": "B034500B08903EE630B1E9FC09633008B27F2A67462CDF500566FB60EF236558"
+      },
+      "released": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "held_days": 1027.6
+     },
+     {
+      "token_id": "599",
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-12-04T04:31:58Z",
+       "height": 7991137,
+       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
+      },
+      "released": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "held_days": 1036.4
+     },
+     {
+      "token_id": "885",
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-12-04T04:31:58Z",
+       "height": 7991137,
+       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
+      },
+      "released": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "held_days": 1036.4
+     },
+     {
+      "token_id": "894",
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-12-04T04:31:58Z",
+       "height": 7991137,
+       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
+      },
+      "released": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "held_days": 1036.4
+     },
+     {
+      "token_id": "947",
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2023-12-04T04:31:58Z",
+       "height": 7991137,
+       "txhash": "144C9F898A32C0EAFC34CF4B700CC2A0E14F24766D9211361E810157DAA021F5"
+      },
+      "released": {
+       "kind": "transfer",
+       "ts": "2026-10-05T13:54:50.045835225Z",
+       "height": 23149380,
+       "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601"
+      },
+      "held_days": 1036.4
      }
     ]
    },
@@ -2067,6 +2087,300 @@
      "to": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
      "custodian": "daodao_voting",
      "source": "fcd:pixel-collection",
+     "role": "from"
+    },
+    {
+     "txhash": "F8C1A9BA0D448EB99B6AD831619A070C3551B3A0EADBA1ABC0AECE22D948676F",
+     "height": 23149364,
+     "ts": "2026-10-05T13:53:19.019325296Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "1010",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "F8C1A9BA0D448EB99B6AD831619A070C3551B3A0EADBA1ABC0AECE22D948676F",
+     "height": 23149364,
+     "ts": "2026-10-05T13:53:19.019325296Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "4097",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "F8C1A9BA0D448EB99B6AD831619A070C3551B3A0EADBA1ABC0AECE22D948676F",
+     "height": 23149364,
+     "ts": "2026-10-05T13:53:19.019325296Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "1079",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "F8C1A9BA0D448EB99B6AD831619A070C3551B3A0EADBA1ABC0AECE22D948676F",
+     "height": 23149364,
+     "ts": "2026-10-05T13:53:19.019325296Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "599",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "F8C1A9BA0D448EB99B6AD831619A070C3551B3A0EADBA1ABC0AECE22D948676F",
+     "height": 23149364,
+     "ts": "2026-10-05T13:53:19.019325296Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "885",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "F8C1A9BA0D448EB99B6AD831619A070C3551B3A0EADBA1ABC0AECE22D948676F",
+     "height": 23149364,
+     "ts": "2026-10-05T13:53:19.019325296Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "894",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "F8C1A9BA0D448EB99B6AD831619A070C3551B3A0EADBA1ABC0AECE22D948676F",
+     "height": 23149364,
+     "ts": "2026-10-05T13:53:19.019325296Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "947",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6CA06242C357DB6148B08B2CB4FB78259F5ECEB2A5C0B650868976960D0B3A4B",
+     "height": 23149374,
+     "ts": "2026-10-05T13:54:16.972522239Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "1010",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6CA06242C357DB6148B08B2CB4FB78259F5ECEB2A5C0B650868976960D0B3A4B",
+     "height": 23149374,
+     "ts": "2026-10-05T13:54:16.972522239Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "4097",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6CA06242C357DB6148B08B2CB4FB78259F5ECEB2A5C0B650868976960D0B3A4B",
+     "height": 23149374,
+     "ts": "2026-10-05T13:54:16.972522239Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "1079",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6CA06242C357DB6148B08B2CB4FB78259F5ECEB2A5C0B650868976960D0B3A4B",
+     "height": 23149374,
+     "ts": "2026-10-05T13:54:16.972522239Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "599",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6CA06242C357DB6148B08B2CB4FB78259F5ECEB2A5C0B650868976960D0B3A4B",
+     "height": 23149374,
+     "ts": "2026-10-05T13:54:16.972522239Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "885",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6CA06242C357DB6148B08B2CB4FB78259F5ECEB2A5C0B650868976960D0B3A4B",
+     "height": 23149374,
+     "ts": "2026-10-05T13:54:16.972522239Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "894",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "6CA06242C357DB6148B08B2CB4FB78259F5ECEB2A5C0B650868976960D0B3A4B",
+     "height": 23149374,
+     "ts": "2026-10-05T13:54:16.972522239Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "947",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 0,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "1010",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 1,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "1079",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 2,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "4097",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 3,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "599",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 4,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "885",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 5,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "894",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "C9D7F08D25541C66C8E2EF123891A9BAC70C80B73E2EF7A27B82C24CEA439601",
+     "height": 23149380,
+     "ts": "2026-10-05T13:54:50.045835225Z",
+     "msg_index": 6,
+     "kind": "transfer",
+     "collection": "pixel-lions",
+     "token_id": "947",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
      "role": "from"
     }
    ]
