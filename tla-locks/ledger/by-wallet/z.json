@@ -1714,12 +1714,13 @@
     "delists": 4,
     "locks_received": 1,
     "lock_merges": 1,
-    "locks_sent": 3
+    "locks_sent": 3,
+    "gap_closed": 1
    },
    "holdings_now": {
-    "total": 3,
+    "total": 2,
     "by_state": {
-     "listed:boost": 2,
+     "listed:boost": 1,
      "locked": 1
     },
     "tokens": [
@@ -1756,25 +1757,12 @@
        "txhash": "6A7A51F64CF95CFBF560FA0490CBA16E0BB4935D4C4F8F9B47400792E7B23D8D"
       },
       "broken": false
-     },
-     {
-      "token_id": "1146",
-      "state": "listed:boost",
-      "since": "2026-01-13T00:33:01.255758598Z",
-      "since_height": 19187780,
-      "acquired": {
-       "kind": "lock_split",
-       "ts": "2026-01-13T00:31:21.534210997Z",
-       "height": 19187763,
-       "txhash": "79B841C92A9A2BE8069F16D1CECFB3DF7B34AAC5235D324748DB2F70E0142A3E"
-      },
-      "broken": false
      }
     ]
    },
    "held_past": {
-    "total": 5,
-    "distinct_tokens": 5,
+    "total": 6,
+    "distinct_tokens": 6,
     "tokens": [
      {
       "token_id": "467",
@@ -1866,6 +1854,23 @@
        "txhash": "6B93C26F8776189AC16B09FEFC3DC03C5629BDD2D231448A93E6C109EEEF8743"
       },
       "held_days": 0
+     },
+     {
+      "token_id": "1146",
+      "acquired": {
+       "kind": "lock_split",
+       "ts": "2026-01-13T00:31:21.534210997Z",
+       "height": 19187763,
+       "txhash": "79B841C92A9A2BE8069F16D1CECFB3DF7B34AAC5235D324748DB2F70E0142A3E"
+      },
+      "released": {
+       "kind": "gap",
+       "ts": "2026-01-14T15:30:49.343602633Z",
+       "height": 19212023,
+       "txhash": "C484695B7F35FE88032F5A254F7BEC0F6588CF34CFC9FA3D91A2039312AB178B",
+       "note": "next seen with terra1fjd6thl0dqh6e5wv9z7rdrqzmtp0xau7fdejpq (venue_out from terra1kj7pasyahtugajx9qud02r5jqaf60mtm7g5v9utr94rmdfftx0vqspf4at); the leg out of this wallet is not in the ledger"
+      },
+      "held_days": 1.6
      }
     ]
    },
@@ -33491,8 +33496,10 @@
      "source": "forward:org-nft-flows",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd": null,
-     "usd_reason": "price_history_month_missing:2026/10",
+     "usd": 62.44440624292565,
+     "usd_basis": "price-history:2026-10-05 (tla)",
+     "unit_usd": 0.11880799408844775,
+     "usd_repriced_at": "2026-10-05T02:44:28.705Z",
      "role": "from"
     }
    ]
