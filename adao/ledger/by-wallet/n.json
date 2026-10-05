@@ -4,7 +4,7 @@
  "shard": "n",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 61,
- "records": 409,
+ "records": 410,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -2413,24 +2413,25 @@
   "terra18vujrcz02t5qcp96d5d33enzldxy7vngmuxhsn": {
    "address": "terra18vujrcz02t5qcp96d5d33enzldxy7vngmuxhsn",
    "first_seen": "2024-02-28T14:58:44Z",
-   "last_seen": "2024-12-12T10:20:21Z",
-   "events_count": 3,
+   "last_seen": "2026-10-05T15:46:07.127669251Z",
+   "events_count": 4,
    "counts": {
     "minted": 1,
     "stakes_enterprise": 1,
-    "unstakes_enterprise": 1
+    "unstakes_enterprise": 1,
+    "stakes": 1
    },
    "holdings_now": {
     "total": 1,
     "by_state": {
-     "liquid": 1
+     "staked": 1
     },
     "tokens": [
      {
       "token_id": "4373",
-      "state": "liquid",
-      "since": "2024-12-12T10:20:21Z",
-      "since_height": 13360916,
+      "state": "staked",
+      "since": "2026-10-05T15:46:07.127669251Z",
+      "since_height": 23150536,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-28T14:58:44Z",
@@ -2522,6 +2523,20 @@
      "custodian": "enterprise_staking",
      "source": "fcd:adao-collection",
      "role": "to"
+    },
+    {
+     "txhash": "5988783DCAFC2106D5C19CE809A6BA5BEAD367274CE2088E827F79E310E46FC9",
+     "height": 23150536,
+     "ts": "2026-10-05T15:46:07.127669251Z",
+     "msg_index": 0,
+     "kind": "stake",
+     "collection": "adao",
+     "token_id": "4373",
+     "from": "terra18vujrcz02t5qcp96d5d33enzldxy7vngmuxhsn",
+     "to": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "from"
     }
    ]
   },
