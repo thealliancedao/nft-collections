@@ -4,7 +4,7 @@
  "shard": "s",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 547,
+ "records": 548,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11236,40 +11236,19 @@
   "terra1re2zywqcy5j9a55mzln0c8wya35qluen2pc3rs": {
    "address": "terra1re2zywqcy5j9a55mzln0c8wya35qluen2pc3rs",
    "first_seen": "2026-10-03T11:43:09.801923699Z",
-   "last_seen": "2026-10-08T16:11:21.797184256Z",
-   "events_count": 17,
+   "last_seen": "2026-10-08T18:02:05.904884665Z",
+   "events_count": 18,
    "counts": {
     "locks_created": 9,
-    "lock_merges": 7,
+    "lock_merges": 8,
     "lock_adds": 1
    },
    "holdings_now": {
-    "total": 2,
+    "total": 1,
     "by_state": {
-     "locked": 2
+     "locked": 1
     },
     "tokens": [
-     {
-      "token_id": "2961",
-      "state": "locked",
-      "since": "2026-10-05T00:10:10.927341605Z",
-      "since_height": 23140782,
-      "acquired": {
-       "kind": "lock_create",
-       "ts": "2026-10-05T00:10:10.927341605Z",
-       "height": 23140782,
-       "txhash": "4A6A551B01705BEAEC68C1E54F7B5E1E9E9DC54FAD5219C0778694A895C4E3FB",
-       "price": {
-        "amount": "970711",
-        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
-        "symbol": "ampLUNA",
-        "decimals": 6,
-        "usd": 0.1153282267495912,
-        "usd_basis": "price-history:2026-10-05 (tla)"
-       }
-      },
-      "broken": false
-     },
      {
       "token_id": "3072",
       "state": "locked",
@@ -11294,8 +11273,8 @@
     ]
    },
    "held_past": {
-    "total": 7,
-    "distinct_tokens": 7,
+    "total": 8,
+    "distinct_tokens": 8,
     "tokens": [
      {
       "token_id": "2739",
@@ -11471,6 +11450,31 @@
        "note": "merged into 2961"
       },
       "held_days": 0
+     },
+     {
+      "token_id": "2961",
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2026-10-05T00:10:10.927341605Z",
+       "height": 23140782,
+       "txhash": "4A6A551B01705BEAEC68C1E54F7B5E1E9E9DC54FAD5219C0778694A895C4E3FB",
+       "price": {
+        "amount": "970711",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.1153282267495912,
+        "usd_basis": "price-history:2026-10-05 (tla)"
+       }
+      },
+      "released": {
+       "kind": "lock_merge",
+       "ts": "2026-10-08T18:02:05.904884665Z",
+       "height": 23196089,
+       "txhash": "3E362EEFDB8F7CD311039FFCA9BE91645A74C86108E3A68A73292DF14C93F22E",
+       "note": "merged into 3072"
+      },
+      "held_days": 3.7
      }
     ]
    },
@@ -11977,6 +11981,36 @@
      "unit_usd": 0.11056764571131705,
      "usd_repriced_at": "2026-10-08T17:44:28.510Z",
      "role": "to"
+    },
+    {
+     "txhash": "3E362EEFDB8F7CD311039FFCA9BE91645A74C86108E3A68A73292DF14C93F22E",
+     "height": 23196089,
+     "ts": "2026-10-08T18:02:05.904884665Z",
+     "msg_index": 1,
+     "kind": "lock_merge",
+     "collection": "tla-locks",
+     "token_id": "3072",
+     "from": "terra1re2zywqcy5j9a55mzln0c8wya35qluen2pc3rs",
+     "lineage": {
+      "from_ids": [
+       "3072",
+       "2961"
+      ],
+      "to_ids": [
+       "3072"
+      ],
+      "burned": [
+       "2961"
+      ]
+     },
+     "lock": {
+      "fixed_power": "4330728914",
+      "voting_power": "38976560168",
+      "lock_end": "309",
+      "asset": null
+     },
+     "source": "forward:org-nft-flows",
+     "role": "from"
     }
    ]
   },
