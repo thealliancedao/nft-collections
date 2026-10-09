@@ -7,8 +7,8 @@
   3000,
   3099
  ],
- "tokens_with_records": 85,
- "records": 310,
+ "tokens_with_records": 86,
+ "records": 311,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "3000": [
@@ -6898,6 +6898,38 @@
     "usd_basis": "price-history:2026-10-08 (tla)",
     "unit_usd": 0.10539356116891196,
     "usd_repriced_at": "2026-10-08T23:44:33.846Z"
+   }
+  ],
+  "3085": [
+   {
+    "txhash": "305205CE892CC14AF6E2C5A8D07EDECE9C59B9932BEEDBBA15ADD65C2107E6B6",
+    "height": 23203850,
+    "ts": "2026-10-09T06:29:14.749509691Z",
+    "msg_index": 0,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "3085",
+    "from": "terra1w2vmuy5exxl7guxlypyz06cwm4cvpua2qall66",
+    "lineage": {
+     "from_ids": [
+      "1286"
+     ],
+     "to_ids": [
+      "3085"
+     ]
+    },
+    "migrate": {
+     "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:36",
+     "fixed_power_before": "78",
+     "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:26"
+    },
+    "lock": {
+     "fixed_power": "80",
+     "voting_power": "720",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:26"
+    },
+    "source": "forward:org-nft-flows"
    }
   ]
  }
