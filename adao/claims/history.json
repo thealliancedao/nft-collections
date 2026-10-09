@@ -1,19 +1,19 @@
 {
  "schemaVersion": 1,
  "product": "adao/claims",
- "updated_at": "2026-10-08T23:43:34.501Z",
+ "updated_at": "2026-10-09T23:42:56.281Z",
  "semantics": "One row per daily alliance_claim_rewards tx on the aDAO NFT contract (chain events, write-once by tx_hash). luna_claimed → bonded to Eris → ampluna_minted, split ampluna_to_backing (NFT holders, 90%) + ampluna_to_treasury (aDAO treasury, 10%). Windows are sums of CAPTURED rows only; the ledger starts at first capture (public LCDs prune ~2–3 weeks) — never a projection.",
- "count": 106,
+ "count": 107,
  "first_date": "2026-06-23",
  "last": {
-  "tx_hash": "F9A3235785DB1BB48F1C8E588E7F78393E60B87DA40FF70834675F472F9E11A4",
-  "height": 23190370,
-  "timestamp": "2026-10-08T08:51:01Z",
-  "date": "2026-10-08",
-  "luna_claimed": 3899.052175,
-  "ampluna_minted": 1639.096456,
-  "ampluna_to_backing": 1475.186811,
-  "ampluna_to_treasury": 163.909645,
+  "tx_hash": "4D5526377669C7AE708C25360F96C47EB9E7543EEBF301E6CC5CCE80B7148742",
+  "height": 23205313,
+  "timestamp": "2026-10-09T08:50:02Z",
+  "date": "2026-10-09",
+  "luna_claimed": 1951.736429,
+  "ampluna_minted": 819.735888,
+  "ampluna_to_backing": 737.7623,
+  "ampluna_to_treasury": 81.973588,
   "treasury_recipient": "terra1sffd4efk2jpdt894r04qwmtjqrrjfc52tmj6vkzjxqhd8qqu2drs3m5vzm",
   "take_rate": 0.1,
   "sender": "terra1gtuvt6eh4m67tvd2dnfqhgks9ec6ff08c5vlup"
@@ -21,35 +21,35 @@
  "windows": {
   "d7": {
    "claims": 6,
-   "luna_claimed": 14027.81131,
-   "ampluna_to_backing": 5320.959988,
-   "ampluna_to_treasury": 591.217773,
-   "per_day_to_treasury": 98.536296,
-   "per_day_to_backing": 886.826665
+   "luna_claimed": 13962.278252,
+   "ampluna_to_backing": 5291.416573,
+   "ampluna_to_treasury": 587.935171,
+   "per_day_to_treasury": 97.989195,
+   "per_day_to_backing": 881.902762
   },
   "d30": {
    "claims": 29,
-   "luna_claimed": 58987.81614,
-   "ampluna_to_backing": 22601.5356,
-   "ampluna_to_treasury": 2511.281719,
-   "per_day_to_treasury": 86.595921,
-   "per_day_to_backing": 779.363297
+   "luna_claimed": 58984.452812,
+   "ampluna_to_backing": 22580.639028,
+   "ampluna_to_treasury": 2508.959877,
+   "per_day_to_treasury": 86.515858,
+   "per_day_to_backing": 778.642725
   },
   "d90": {
    "claims": 89,
-   "luna_claimed": 180824.712899,
-   "ampluna_to_backing": 71063.73665,
-   "ampluna_to_treasury": 7895.970695,
-   "per_day_to_treasury": 88.718772,
-   "per_day_to_backing": 798.468951
+   "luna_claimed": 180806.525892,
+   "ampluna_to_backing": 70999.244055,
+   "ampluna_to_treasury": 7888.804851,
+   "per_day_to_treasury": 88.638257,
+   "per_day_to_backing": 797.744315
   },
   "all": {
-   "claims": 106,
-   "luna_claimed": 215834.282968,
-   "ampluna_to_backing": 85424.877174,
-   "ampluna_to_treasury": 9491.652967,
-   "per_day_to_treasury": 89.543896,
-   "per_day_to_backing": 805.895068
+   "claims": 107,
+   "luna_claimed": 217786.019397,
+   "ampluna_to_backing": 86162.639474,
+   "ampluna_to_treasury": 9573.626555,
+   "per_day_to_treasury": 89.473145,
+   "per_day_to_backing": 805.258313
   }
  },
  "rows": [
@@ -1427,6 +1427,19 @@
    "ampluna_minted": 1639.096456,
    "ampluna_to_backing": 1475.186811,
    "ampluna_to_treasury": 163.909645,
+   "treasury_recipient": "terra1sffd4efk2jpdt894r04qwmtjqrrjfc52tmj6vkzjxqhd8qqu2drs3m5vzm",
+   "take_rate": 0.1,
+   "sender": "terra1gtuvt6eh4m67tvd2dnfqhgks9ec6ff08c5vlup"
+  },
+  {
+   "tx_hash": "4D5526377669C7AE708C25360F96C47EB9E7543EEBF301E6CC5CCE80B7148742",
+   "height": 23205313,
+   "timestamp": "2026-10-09T08:50:02Z",
+   "date": "2026-10-09",
+   "luna_claimed": 1951.736429,
+   "ampluna_minted": 819.735888,
+   "ampluna_to_backing": 737.7623,
+   "ampluna_to_treasury": 81.973588,
    "treasury_recipient": "terra1sffd4efk2jpdt894r04qwmtjqrrjfc52tmj6vkzjxqhd8qqu2drs3m5vzm",
    "take_rate": 0.1,
    "sender": "terra1gtuvt6eh4m67tvd2dnfqhgks9ec6ff08c5vlup"
