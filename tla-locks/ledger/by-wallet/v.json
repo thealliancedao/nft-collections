@@ -4,7 +4,7 @@
  "shard": "v",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 11,
- "records": 79,
+ "records": 80,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -2164,17 +2164,17 @@
   "terra1rmmnrzcz3vah6kk82qj9mvhlpun6556s56vlpv": {
    "address": "terra1rmmnrzcz3vah6kk82qj9mvhlpun6556s56vlpv",
    "first_seen": "2026-10-05T02:38:23.514624584Z",
-   "last_seen": "2026-10-11T20:19:09.380105997Z",
-   "events_count": 13,
+   "last_seen": "2026-10-11T23:27:18.386389267Z",
+   "events_count": 14,
    "counts": {
     "locks_created": 10,
-    "locks_received": 1,
+    "locks_received": 2,
     "locks_sent": 1
    },
    "holdings_now": {
-    "total": 11,
+    "total": 12,
     "by_state": {
-     "locked": 11
+     "locked": 12
     },
     "tokens": [
      {
@@ -2334,6 +2334,19 @@
        "ts": "2026-10-08T20:50:49.064310572Z",
        "height": 23197838,
        "txhash": "264E05F316C3A4F711ECA33F056AF546E25B005127542CDA05AB16B257D3AD9E"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3083",
+      "state": "locked",
+      "since": "2026-10-11T23:27:18.386389267Z",
+      "since_height": 23244291,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2026-10-11T23:27:18.386389267Z",
+       "height": 23244291,
+       "txhash": "052D26B8CB4AC0F78019C2B334B5FCD532FBB77219BCFE26CACB540F75C73491"
       },
       "broken": false
      },
@@ -2766,6 +2779,19 @@
      "usd_basis": "price-history:2026-10-11 (tla)",
      "unit_usd": 0.11105027613561595,
      "usd_repriced_at": "2026-10-11T21:44:25.890Z",
+     "role": "to"
+    },
+    {
+     "txhash": "052D26B8CB4AC0F78019C2B334B5FCD532FBB77219BCFE26CACB540F75C73491",
+     "height": 23244291,
+     "ts": "2026-10-11T23:27:18.386389267Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "3083",
+     "from": "terra1re2zywqcy5j9a55mzln0c8wya35qluen2pc3rs",
+     "to": "terra1rmmnrzcz3vah6kk82qj9mvhlpun6556s56vlpv",
+     "source": "forward:org-nft-flows",
      "role": "to"
     }
    ]
