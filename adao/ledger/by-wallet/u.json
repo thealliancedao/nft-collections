@@ -4,7 +4,7 @@
  "shard": "u",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 53,
- "records": 408,
+ "records": 409,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -1757,8 +1757,8 @@
   "terra18au39029aa4mey00fap4l74c936l8efjuqhf6u": {
    "address": "terra18au39029aa4mey00fap4l74c936l8efjuqhf6u",
    "first_seen": "2024-01-02T12:00:16Z",
-   "last_seen": "2026-05-19T01:47:13.33464701Z",
-   "events_count": 125,
+   "last_seen": "2026-10-11T10:57:52.757357102Z",
+   "events_count": 126,
    "counts": {
     "bought": 16,
     "bids": 16,
@@ -1766,7 +1766,7 @@
     "transfers_in": 8,
     "listings": 3,
     "minted": 11,
-    "delists": 2,
+    "delists": 3,
     "unstakes_enterprise": 22,
     "stakes": 25
    },
@@ -1774,8 +1774,7 @@
     "total": 35,
     "by_state": {
      "staked": 25,
-     "liquid": 9,
-     "listed:bbl": 1
+     "liquid": 10
     },
     "tokens": [
      {
@@ -1907,9 +1906,9 @@
      },
      {
       "token_id": "3073",
-      "state": "listed:bbl",
-      "since": "2024-09-13T12:14:36Z",
-      "since_height": 12062699,
+      "state": "liquid",
+      "since": "2026-10-11T10:57:52.757357102Z",
+      "since_height": 23236490,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-06-02T11:45:29Z",
@@ -5038,6 +5037,23 @@
      "custodian": "daodao_voting",
      "source": "tla-flows/raw:21003435-21453434",
      "role": "from"
+    },
+    {
+     "txhash": "63EA9D2216D2979A4971B789753144790856123570CEE158ADD161C730532D79",
+     "height": 23236490,
+     "ts": "2026-10-11T10:57:52.757357102Z",
+     "msg_index": 0,
+     "kind": "delist",
+     "collection": "adao",
+     "token_id": "3073",
+     "venue": "bbl",
+     "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "to": "terra18au39029aa4mey00fap4l74c936l8efjuqhf6u",
+     "listing_id": null,
+     "auction_id": "13806",
+     "cancelled_by": null,
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
