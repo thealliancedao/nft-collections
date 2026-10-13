@@ -3,8 +3,8 @@
  "collection": "adao",
  "shard": "0",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
- "wallets_in_shard": 71,
- "records": 746,
+ "wallets_in_shard": 72,
+ "records": 747,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -19308,6 +19308,70 @@
      "custodian": "enterprise_staking",
      "source": "fcd:adao-collection",
      "role": "from"
+    }
+   ]
+  },
+  "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920": {
+   "address": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+   "first_seen": "2026-10-13T04:27:53.456649601Z",
+   "last_seen": "2026-10-13T04:27:53.456649601Z",
+   "events_count": 1,
+   "counts": {
+    "transfers_in": 1
+   },
+   "holdings_now": {
+    "total": 1,
+    "by_state": {
+     "liquid": 1
+    },
+    "tokens": [
+     {
+      "token_id": "7668",
+      "state": "liquid",
+      "since": "2026-10-13T04:27:53.456649601Z",
+      "since_height": 23262450,
+      "acquired": {
+       "kind": "transfer",
+       "ts": "2026-10-13T04:27:53.456649601Z",
+       "height": 23262450,
+       "txhash": "05433D66B338C5A36DD1348E4D4A77E6512F8D4A6013B4591C61D1779A5438D1"
+      },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 1,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "05433D66B338C5A36DD1348E4D4A77E6512F8D4A6013B4591C61D1779A5438D1",
+     "height": 23262450,
+     "ts": "2026-10-13T04:27:53.456649601Z",
+     "msg_index": 0,
+     "kind": "transfer",
+     "collection": "adao",
+     "token_id": "7668",
+     "from": "terra162kt3ja8nwh7kr2ed67y054g42wqfs8ts7y4ee",
+     "to": "terra1pug47ksspgk3yvy9w34tp5dre35xgmn0mg5920",
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
