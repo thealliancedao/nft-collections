@@ -1,0 +1,43 @@
+{
+ "product": "tla-locks/ledger/by-token",
+ "collection": "tla-locks",
+ "shard": "031",
+ "shard_size": 100,
+ "range": [
+  3100,
+  3199
+ ],
+ "tokens_with_records": 1,
+ "records": 1,
+ "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
+ "tokens": {
+  "3100": [
+   {
+    "txhash": "BCF0CFAC14965B44F4F11605D5D4FF7522E91A81863A8C42919BEEEA6B1F9C50",
+    "height": 23276769,
+    "ts": "2026-10-14T03:19:44.567918373Z",
+    "msg_index": 0,
+    "kind": "lock_split",
+    "collection": "tla-locks",
+    "token_id": "3100",
+    "to": "terra1alxk3fmhcl0ga80gl9yj9zp3ezjm4sdh8a9l9c",
+    "lineage": {
+     "from_ids": [
+      "3099"
+     ],
+     "to_ids": [
+      "3100"
+     ],
+     "source_unknown": "msg body not archived — parent id from wasm-metadata_changed"
+    },
+    "lock": {
+     "fixed_power": "194343994",
+     "voting_power": "1749095946",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:10000000"
+    },
+    "source": "forward:org-nft-flows"
+   }
+  ]
+ }
+}
