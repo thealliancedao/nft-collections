@@ -1,0 +1,56 @@
+# backup-images — person-started only. A safe copy of a collection's ORIGINAL pictures, kept as GitHub Release assets (one .tar per
+# 2,500 ids, each with a manifest of sizes + sha256) — outside git, so the repo stays light. For collections whose pictures live only
+# on IPFS (aDAO: 10,000 PNGs, ~1 GB), now that most public IPFS gateways refuse to serve (2026-10-16). Re-runs skip ranges already saved.
+# Restore: download a .tar from the release (gh release download images-<slug>) and untar.
+name: backup-images
+on:
+  workflow_dispatch:
+    inputs:
+      collection:
+        description: 'collection'
+        type: choice
+        default: adao
+        options: [adao]
+permissions:
+  contents: write
+concurrency:
+  group: backup-images-${{ inputs.collection }}
+  cancel-in-progress: false
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/scripts/backup-images
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: save each range of 2,500 as a release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ inputs.collection }}
+        run: |
+          set -e
+          case "$SLUG" in
+            adao) CID=bafybeiek4cv2w6ot767nriveyzagejnvzpw3qr2b7iyc6ccddid6jj77za; SUPPLY=10000 ;;
+          esac
+          TAG="images-$SLUG"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "$SLUG original images (backup)" --notes "Original pictures of every $SLUG NFT, copied once from IPFS (CID $CID) as a backup. One .tar per 2,500 ids; manifest.json inside each has every file's size and sha256. Made by the backup-images workflow."
+          HAVE=$(gh release view "$TAG" --json assets --jq '.assets[].name')
+          for ((B=1; B<=SUPPLY; B+=2500)); do
+            E=$((B+2499)); [ $E -gt $SUPPLY ] && E=$SUPPLY
+            NAME=$(printf "%s-images-%05d-%05d.tar" "$SLUG" $B $E)
+            if echo "$HAVE" | grep -qx "$NAME"; then echo "$NAME already saved"; continue; fi
+            DIR="out/$SLUG-$B-$E"
+            if CID=$CID FROM=$B TO=$E OUT=$DIR node .github/scripts/backup-images/fetch.js; then
+              tar -cf "$NAME" -C out "$SLUG-$B-$E"
+              gh release upload "$TAG" "$NAME"
+              rm -rf "$DIR" "$NAME"
+            else
+              echo "::warning::$NAME had failures — not uploaded; run again to retry this range"
+              rm -rf "$DIR"
+            fi
+          done
