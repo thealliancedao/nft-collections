@@ -4,7 +4,7 @@
  "shard": "w",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 38,
- "records": 1934,
+ "records": 1936,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -8556,16 +8556,19 @@
   "terra16w2e8tcrdesf8rw6wrx4sk3954ecw9ddpx4mxw": {
    "address": "terra16w2e8tcrdesf8rw6wrx4sk3954ecw9ddpx4mxw",
    "first_seen": "2026-10-11T13:27:51.8563976Z",
-   "last_seen": "2026-10-11T13:29:36.581369519Z",
-   "events_count": 38,
+   "last_seen": "2026-10-18T10:37:47.282972136Z",
+   "events_count": 40,
    "counts": {
     "transfers_in": 19,
-    "stakes": 19
+    "stakes": 19,
+    "unstakes": 1,
+    "claims": 1
    },
    "holdings_now": {
     "total": 19,
     "by_state": {
-     "staked": 19
+     "staked": 18,
+     "liquid": 1
     },
     "tokens": [
      {
@@ -8687,16 +8690,17 @@
      },
      {
       "token_id": "2082",
-      "state": "staked",
-      "since": "2026-10-11T13:29:36.581369519Z",
-      "since_height": 23238070,
+      "state": "liquid",
+      "since": "2026-10-18T10:37:47.282972136Z",
+      "since_height": 23341193,
       "acquired": {
        "kind": "transfer",
        "ts": "2026-10-11T13:29:01.807814374Z",
        "height": 23238064,
        "txhash": "6FF55FF6C359FF300738E3B8FF69FDA8A302A1966090ADDD9959C1A3A16D2E83"
       },
-      "broken": false
+      "broken": false,
+      "claim_duration": "time: 1"
      },
      {
       "token_id": "2288",
@@ -9349,6 +9353,35 @@
      "custodian": "daodao_voting",
      "source": "forward:org-nft-flows",
      "role": "from"
+    },
+    {
+     "txhash": "3BA7C15CEA910CB59DFE9BA8C59938AAD519964552E020C67244C8AF15274A8B",
+     "height": 23341187,
+     "ts": "2026-10-18T10:37:12.597536727Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "pixel-lions",
+     "token_id": "2082",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra16w2e8tcrdesf8rw6wrx4sk3954ecw9ddpx4mxw",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 1",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "64D20A6A3A3519D3477E456D30A92C39C129010E8A543CEE3B72F92FE4AA489D",
+     "height": 23341193,
+     "ts": "2026-10-18T10:37:47.282972136Z",
+     "msg_index": 0,
+     "kind": "claim",
+     "collection": "pixel-lions",
+     "token_id": "2082",
+     "from": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "to": "terra16w2e8tcrdesf8rw6wrx4sk3954ecw9ddpx4mxw",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
