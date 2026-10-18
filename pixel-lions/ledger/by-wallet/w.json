@@ -4,7 +4,7 @@
  "shard": "w",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 38,
- "records": 1936,
+ "records": 1937,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -8556,19 +8556,18 @@
   "terra16w2e8tcrdesf8rw6wrx4sk3954ecw9ddpx4mxw": {
    "address": "terra16w2e8tcrdesf8rw6wrx4sk3954ecw9ddpx4mxw",
    "first_seen": "2026-10-11T13:27:51.8563976Z",
-   "last_seen": "2026-10-18T10:37:47.282972136Z",
-   "events_count": 40,
+   "last_seen": "2026-10-18T11:40:19.767491176Z",
+   "events_count": 41,
    "counts": {
     "transfers_in": 19,
-    "stakes": 19,
+    "stakes": 20,
     "unstakes": 1,
     "claims": 1
    },
    "holdings_now": {
     "total": 19,
     "by_state": {
-     "staked": 18,
-     "liquid": 1
+     "staked": 19
     },
     "tokens": [
      {
@@ -8690,9 +8689,9 @@
      },
      {
       "token_id": "2082",
-      "state": "liquid",
-      "since": "2026-10-18T10:37:47.282972136Z",
-      "since_height": 23341193,
+      "state": "staked",
+      "since": "2026-10-18T11:40:19.767491176Z",
+      "since_height": 23341843,
       "acquired": {
        "kind": "transfer",
        "ts": "2026-10-11T13:29:01.807814374Z",
@@ -9382,6 +9381,20 @@
      "custodian": "daodao_voting",
      "source": "forward:org-nft-flows",
      "role": "to"
+    },
+    {
+     "txhash": "D921A59713C3C25D6EF7A53181027E1E56403031A81C9FB41F2243342BE8A6A3",
+     "height": 23341843,
+     "ts": "2026-10-18T11:40:19.767491176Z",
+     "msg_index": 0,
+     "kind": "stake",
+     "collection": "pixel-lions",
+     "token_id": "2082",
+     "from": "terra16w2e8tcrdesf8rw6wrx4sk3954ecw9ddpx4mxw",
+     "to": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "from"
     }
    ]
   },
