@@ -4,7 +4,7 @@
  "shard": "0",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 6,
- "records": 473,
+ "records": 474,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -14204,11 +14204,11 @@
   "terra1mzelg87h36y6wvtgj6fh9s4crgx9acw63l3zc6f9px6pc5f8h8lqs0sux0": {
    "address": "terra1mzelg87h36y6wvtgj6fh9s4crgx9acw63l3zc6f9px6pc5f8h8lqs0sux0",
    "first_seen": "2025-08-12T13:04:07.945455157Z",
-   "last_seen": "2026-10-22T13:29:28.365882601Z",
-   "events_count": 31,
+   "last_seen": "2026-10-22T13:52:10.85728618Z",
+   "events_count": 32,
    "counts": {
     "locks_created": 1,
-    "lock_adds": 30
+    "lock_adds": 31
    },
    "holdings_now": {
     "total": 1,
@@ -15127,8 +15127,38 @@
      "source": "forward:org-nft-flows",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd": null,
-     "usd_reason": "price_history_month_missing:2026/10",
+     "usd": 2.1608735220822157,
+     "usd_basis": "price-history:2026-10-22 (tla)",
+     "unit_usd": 0.10389490826409122,
+     "usd_repriced_at": "2026-10-22T14:44:41.732Z",
+     "role": "from"
+    },
+    {
+     "txhash": "E4564053DE7C00E4AB4FFD9F906BEE0F92423F732236082A534ABA27BA75B26C",
+     "height": 23403193,
+     "ts": "2026-10-22T13:52:10.85728618Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1mzelg87h36y6wvtgj6fh9s4crgx9acw63l3zc6f9px6pc5f8h8lqs0sux0",
+     "price": {
+      "amount": "19484147",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "101931573",
+      "voting_power": "8821000",
+      "lock_end": "208",
+      "asset": null
+     },
+     "token_id": "755",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 2.024303665169068,
+     "usd_basis": "price-history:2026-10-22 (tla)",
+     "unit_usd": 0.10389490826409122,
      "role": "from"
     }
    ]
