@@ -48818,5 +48818,89 @@
   "usd_basis": "price-history:2026-10-23 (tla)",
   "unit_usd": 0.10332264516723974,
   "usd_repriced_at": "2026-10-23T15:44:47.965Z"
+ },
+ {
+  "txhash": "BB55826238F44C184A82CCFC3AC7B6FA202153B5BD5ACAACAF03C94D8D70F788",
+  "height": 23419183,
+  "ts": "2026-10-23T15:27:27.61859523Z",
+  "msg_index": 0,
+  "kind": "lock_split",
+  "collection": "tla-locks",
+  "token_id": "3221",
+  "to": "terra1j08lkgpmth3pvmme9md55u8l2md3hnruz4hj48",
+  "lineage": {
+   "from_ids": [
+    "3102"
+   ],
+   "to_ids": [
+    "3221"
+   ]
+  },
+  "lock": {
+   "fixed_power": "624609131",
+   "voting_power": "5621482179",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:663269788"
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "BB55826238F44C184A82CCFC3AC7B6FA202153B5BD5ACAACAF03C94D8D70F788",
+  "height": 23419183,
+  "ts": "2026-10-23T15:27:27.61859523Z",
+  "msg_index": 1,
+  "kind": "lock_migrate",
+  "collection": "tla-locks",
+  "token_id": "3222",
+  "from": "terra1j08lkgpmth3pvmme9md55u8l2md3hnruz4hj48",
+  "lineage": {
+   "from_ids": [
+    "3102"
+   ],
+   "to_ids": [
+    "3222"
+   ]
+  },
+  "migrate": {
+   "amount_before": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:200000000",
+   "fixed_power_before": "624609131",
+   "into": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:246450403"
+  },
+  "lock": {
+   "fixed_power": "594255260",
+   "voting_power": "5348297340",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:246450403"
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "6B8EB88407A14B6C1277A3676243A1EFDBE1986A03417B114767EFAD6D6B850D",
+  "height": 23419190,
+  "ts": "2026-10-23T15:28:06.692897021Z",
+  "msg_index": 0,
+  "kind": "lock_merge",
+  "collection": "tla-locks",
+  "token_id": "2158",
+  "from": "terra1j08lkgpmth3pvmme9md55u8l2md3hnruz4hj48",
+  "lineage": {
+   "from_ids": [
+    "2158",
+    "3222"
+   ],
+   "to_ids": [
+    "2158"
+   ],
+   "burned": [
+    "3222"
+   ]
+  },
+  "lock": {
+   "fixed_power": "12999635287",
+   "voting_power": "116996717583",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "source": "forward:org-nft-flows"
  }
 ]
