@@ -4,7 +4,7 @@
  "shard": "q",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 11,
- "records": 1196,
+ "records": 1197,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -32472,37 +32472,39 @@
   "terra1spe027w5ts7dezsvxpx6tkkf5q6djpd7emjzwq": {
    "address": "terra1spe027w5ts7dezsvxpx6tkkf5q6djpd7emjzwq",
    "first_seen": "2026-05-25T09:32:16.177002165Z",
-   "last_seen": "2026-08-16T08:48:41.783625004Z",
-   "events_count": 2,
+   "last_seen": "2026-10-23T12:26:44.430578542Z",
+   "events_count": 3,
    "counts": {
     "locks_received": 1,
-    "lock_adds": 1
+    "lock_adds": 1,
+    "locks_sent": 1
    },
    "holdings_now": {
+    "total": 0,
+    "by_state": {},
+    "tokens": []
+   },
+   "held_past": {
     "total": 1,
-    "by_state": {
-     "locked": 1
-    },
+    "distinct_tokens": 1,
     "tokens": [
      {
       "token_id": "1263",
-      "state": "locked",
-      "since": "2026-05-25T09:32:16.177002165Z",
-      "since_height": 21160141,
       "acquired": {
        "kind": "lock_transfer",
        "ts": "2026-05-25T09:32:16.177002165Z",
        "height": 21160141,
        "txhash": "F81A75362D7258AFF5A19C0D14E3222DBA2CE01CF5A1AAFCC0CBDEF93A4FBA9B"
       },
-      "broken": false
+      "released": {
+       "kind": "lock_transfer",
+       "ts": "2026-10-23T12:26:44.430578542Z",
+       "height": 23417300,
+       "txhash": "586BBBEE9C038148082B6653AF50E5849CFCEA0032EFC5479CFDCA1BDE66CD81"
+      },
+      "held_days": 151.1
      }
     ]
-   },
-   "held_past": {
-    "total": 0,
-    "distinct_tokens": 0,
-    "tokens": []
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 1,
@@ -32557,6 +32559,19 @@
      "usd": 0.13938547668024273,
      "usd_basis": "price-history:2026-08-16 (tla)",
      "unit_usd": 0.09535305628827448,
+     "role": "from"
+    },
+    {
+     "txhash": "586BBBEE9C038148082B6653AF50E5849CFCEA0032EFC5479CFDCA1BDE66CD81",
+     "height": 23417300,
+     "ts": "2026-10-23T12:26:44.430578542Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "1263",
+     "from": "terra1spe027w5ts7dezsvxpx6tkkf5q6djpd7emjzwq",
+     "to": "terra1xjusp8m8vzj9lgzj9guddfdfmsxaz8mhukmc6ffyvzc89usqjvts09nxcs",
+     "source": "forward:org-nft-flows",
      "role": "from"
     }
    ]
