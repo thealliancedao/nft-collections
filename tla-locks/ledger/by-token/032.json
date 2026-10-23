@@ -7,8 +7,8 @@
   3200,
   3299
  ],
- "tokens_with_records": 21,
- "records": 46,
+ "tokens_with_records": 23,
+ "records": 48,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "3200": [
@@ -1018,6 +1018,65 @@
     "token_id": "3220",
     "from": "terra1l6wfz4mp9rzmug7h90d6xa6ce7eclye6cecr66",
     "to": "terra1xjusp8m8vzj9lgzj9guddfdfmsxaz8mhukmc6ffyvzc89usqjvts09nxcs",
+    "source": "forward:org-nft-flows"
+   }
+  ],
+  "3221": [
+   {
+    "txhash": "BB55826238F44C184A82CCFC3AC7B6FA202153B5BD5ACAACAF03C94D8D70F788",
+    "height": 23419183,
+    "ts": "2026-10-23T15:27:27.61859523Z",
+    "msg_index": 0,
+    "kind": "lock_split",
+    "collection": "tla-locks",
+    "token_id": "3221",
+    "to": "terra1j08lkgpmth3pvmme9md55u8l2md3hnruz4hj48",
+    "lineage": {
+     "from_ids": [
+      "3102"
+     ],
+     "to_ids": [
+      "3221"
+     ]
+    },
+    "lock": {
+     "fixed_power": "624609131",
+     "voting_power": "5621482179",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:663269788"
+    },
+    "source": "forward:org-nft-flows"
+   }
+  ],
+  "3222": [
+   {
+    "txhash": "BB55826238F44C184A82CCFC3AC7B6FA202153B5BD5ACAACAF03C94D8D70F788",
+    "height": 23419183,
+    "ts": "2026-10-23T15:27:27.61859523Z",
+    "msg_index": 1,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "3222",
+    "from": "terra1j08lkgpmth3pvmme9md55u8l2md3hnruz4hj48",
+    "lineage": {
+     "from_ids": [
+      "3102"
+     ],
+     "to_ids": [
+      "3222"
+     ]
+    },
+    "migrate": {
+     "amount_before": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:200000000",
+     "fixed_power_before": "624609131",
+     "into": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:246450403"
+    },
+    "lock": {
+     "fixed_power": "594255260",
+     "voting_power": "5348297340",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:246450403"
+    },
     "source": "forward:org-nft-flows"
    }
   ]
