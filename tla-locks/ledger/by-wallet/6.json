@@ -3,8 +3,8 @@
  "collection": "tla-locks",
  "shard": "6",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
- "wallets_in_shard": 10,
- "records": 145,
+ "wallets_in_shard": 11,
+ "records": 147,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -521,6 +521,98 @@
      "from": "terra1e3tzzc6hu4l6a73lkm2430ssumyjvw677f6j46",
      "to": "terra1ktq0g9c3343ruk2lvuxkd2lnr9c9me3dttm0af",
      "source": "fcd:tla-escrow",
+     "role": "from"
+    }
+   ]
+  },
+  "terra1l6wfz4mp9rzmug7h90d6xa6ce7eclye6cecr66": {
+   "address": "terra1l6wfz4mp9rzmug7h90d6xa6ce7eclye6cecr66",
+   "first_seen": "2026-10-23T05:53:01.984483442Z",
+   "last_seen": "2026-10-23T05:53:24.940032505Z",
+   "events_count": 2,
+   "counts": {
+    "locks_sent": 1
+   },
+   "holdings_now": {
+    "total": 0,
+    "by_state": {},
+    "tokens": []
+   },
+   "held_past": {
+    "total": 1,
+    "distinct_tokens": 1,
+    "tokens": [
+     {
+      "token_id": "3220",
+      "acquired": {
+       "kind": "lock_split",
+       "ts": "2026-10-23T05:53:01.984483442Z",
+       "height": 23413199,
+       "txhash": "CFCBBC93C4533A9390C819D9FEB6A324920F319A12AFEF3404466DB3902EAB7E"
+      },
+      "released": {
+       "kind": "lock_transfer",
+       "ts": "2026-10-23T05:53:24.940032505Z",
+       "height": 23413203,
+       "txhash": "0952C7C9F597ED7A53B9C5177D62923348E7199B75F64850F43815365759AA36"
+      },
+      "held_days": 0
+     }
+    ]
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 1,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "CFCBBC93C4533A9390C819D9FEB6A324920F319A12AFEF3404466DB3902EAB7E",
+     "height": 23413199,
+     "ts": "2026-10-23T05:53:01.984483442Z",
+     "msg_index": 0,
+     "kind": "lock_split",
+     "collection": "tla-locks",
+     "token_id": "3220",
+     "to": "terra1l6wfz4mp9rzmug7h90d6xa6ce7eclye6cecr66",
+     "lineage": {
+      "from_ids": [
+       "754"
+      ],
+      "to_ids": [
+       "3220"
+      ],
+      "source_unknown": "msg body not archived — parent id from wasm-metadata_changed"
+     },
+     "lock": {
+      "fixed_power": "145290718596",
+      "voting_power": "1307616467364",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:6326020730"
+     },
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "0952C7C9F597ED7A53B9C5177D62923348E7199B75F64850F43815365759AA36",
+     "height": 23413203,
+     "ts": "2026-10-23T05:53:24.940032505Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "3220",
+     "from": "terra1l6wfz4mp9rzmug7h90d6xa6ce7eclye6cecr66",
+     "to": "terra1xjusp8m8vzj9lgzj9guddfdfmsxaz8mhukmc6ffyvzc89usqjvts09nxcs",
+     "source": "forward:org-nft-flows",
      "role": "from"
     }
    ]
