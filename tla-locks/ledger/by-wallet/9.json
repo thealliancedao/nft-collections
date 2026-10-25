@@ -4,7 +4,7 @@
  "shard": "9",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 3,
- "records": 719,
+ "records": 720,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -54,13 +54,13 @@
   "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9": {
    "address": "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9",
    "first_seen": "2025-08-07T14:07:19.639930225Z",
-   "last_seen": "2026-10-24T10:00:27.026662706Z",
-   "events_count": 682,
+   "last_seen": "2026-10-25T10:00:25.398326406Z",
+   "events_count": 683,
    "counts": {
     "locks_created": 1,
     "locks_received": 44,
     "lock_merges": 44,
-    "lock_adds": 593
+    "lock_adds": 594
    },
    "holdings_now": {
     "total": 1,
@@ -19404,6 +19404,33 @@
      "usd_basis": "price-history:2026-10-24 (tla)",
      "unit_usd": 0.12846503308863383,
      "usd_repriced_at": "2026-10-24T11:44:36.352Z",
+     "role": "from"
+    },
+    {
+     "txhash": "7077053F8E5EEADD5DF7691DC7298B294B78D4E8A9D622C7771E7899DE617E8E",
+     "height": 23445767,
+     "ts": "2026-10-25T10:00:25.398326406Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9",
+     "price": {
+      "amount": "6795714",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "lock": {
+      "fixed_power": "817150228042",
+      "voting_power": "7354352052378",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "748",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/10",
      "role": "from"
     }
    ]
