@@ -4,7 +4,7 @@
  "shard": "z",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 1281,
+ "records": 1282,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11328,13 +11328,13 @@
   "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz": {
    "address": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
    "first_seen": "2025-08-12T12:35:59.811123252Z",
-   "last_seen": "2026-10-26T00:04:12.791127566Z",
-   "events_count": 821,
+   "last_seen": "2026-10-26T00:59:33.71189827Z",
+   "events_count": 822,
    "counts": {
     "locks_created": 1,
     "locks_received": 45,
     "lock_merges": 45,
-    "lock_adds": 730
+    "lock_adds": 731
    },
    "holdings_now": {
     "total": 1,
@@ -34585,8 +34585,38 @@
      "source": "forward:org-nft-flows",
      "denom_symbol": "ampLUNA",
      "denom_decimals": 6,
-     "usd": null,
-     "usd_reason": "price_history_month_missing:2026/10",
+     "usd": 0.24163502149345417,
+     "usd_basis": "price-history:2026-10-26 (tla)",
+     "unit_usd": 0.09925410893673188,
+     "usd_repriced_at": "2026-10-26T01:44:34.969Z",
+     "role": "from"
+    },
+    {
+     "txhash": "86968D48AD52ADE0E75C30A2B2552BE1B256040220C4BB92D216C1A5299DE081",
+     "height": 23455131,
+     "ts": "2026-10-26T00:59:33.71189827Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
+     "price": {
+      "amount": "601949264",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "147114427726",
+      "voting_power": "1324029849534",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "754",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 59.74593782344157,
+     "usd_basis": "price-history:2026-10-26 (tla)",
+     "unit_usd": 0.09925410893673188,
      "role": "from"
     }
    ]
