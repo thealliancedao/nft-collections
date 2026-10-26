@@ -7,8 +7,8 @@
   3300,
   3399
  ],
- "tokens_with_records": 41,
- "records": 123,
+ "tokens_with_records": 43,
+ "records": 125,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "3300": [
@@ -2386,6 +2386,65 @@
     },
     "token_id": "3340",
     "token_id_from": "metadata_changed",
+    "source": "forward:org-nft-flows"
+   }
+  ],
+  "3341": [
+   {
+    "txhash": "18CDD1E5EA133D18598168CA16D58D21D98EB1ACAFC2508DACF05A681F263D2E",
+    "height": 23464229,
+    "ts": "2026-10-26T15:32:22.98470506Z",
+    "msg_index": 0,
+    "kind": "lock_split",
+    "collection": "tla-locks",
+    "token_id": "3341",
+    "to": "terra1j08lkgpmth3pvmme9md55u8l2md3hnruz4hj48",
+    "lineage": {
+     "from_ids": [
+      "3287"
+     ],
+     "to_ids": [
+      "3341"
+     ]
+    },
+    "lock": {
+     "fixed_power": "255096625",
+     "voting_power": "2295869625",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:81634894"
+    },
+    "source": "forward:org-nft-flows"
+   }
+  ],
+  "3342": [
+   {
+    "txhash": "18CDD1E5EA133D18598168CA16D58D21D98EB1ACAFC2508DACF05A681F263D2E",
+    "height": 23464229,
+    "ts": "2026-10-26T15:32:22.98470506Z",
+    "msg_index": 1,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "3342",
+    "from": "terra1j08lkgpmth3pvmme9md55u8l2md3hnruz4hj48",
+    "lineage": {
+     "from_ids": [
+      "3287"
+     ],
+     "to_ids": [
+      "3342"
+     ]
+    },
+    "migrate": {
+     "amount_before": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:81634894",
+     "fixed_power_before": "255096625",
+     "into": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:101792731"
+    },
+    "lock": {
+     "fixed_power": "246162488",
+     "voting_power": "2215462392",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:101792731"
+    },
     "source": "forward:org-nft-flows"
    }
   ]
