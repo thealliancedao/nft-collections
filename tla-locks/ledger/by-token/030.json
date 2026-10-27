@@ -8,7 +8,7 @@
   3099
  ],
  "tokens_with_records": 100,
- "records": 583,
+ "records": 585,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "3000": [
@@ -8755,6 +8755,62 @@
     "usd_basis": "price-history:2026-10-26 (tla)",
     "unit_usd": 0.12212140880115618,
     "usd_repriced_at": "2026-10-26T18:44:45.104Z"
+   },
+   {
+    "txhash": "C85265D084AA664B97CE7DAD7104F35A681B8DD67D0C69A35C0CA35877D162B3",
+    "height": 23479660,
+    "ts": "2026-10-27T16:18:11.17471863Z",
+    "msg_index": 1,
+    "kind": "lock_merge",
+    "collection": "tla-locks",
+    "token_id": "3000",
+    "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+    "lineage": {
+     "from_ids": [
+      "3000",
+      "3346"
+     ],
+     "to_ids": [
+      "3000"
+     ],
+     "burned": [
+      "3346"
+     ]
+    },
+    "lock": {
+     "fixed_power": "848750378382",
+     "voting_power": "7638753405438",
+     "lock_end": "permanent",
+     "asset": null
+    },
+    "source": "forward:org-nft-flows"
+   },
+   {
+    "txhash": "627778B4912200B9DA70334FCC21E63EB8681FB9A8A54F37CA7013E1AEBDF3BC",
+    "height": 23479663,
+    "ts": "2026-10-27T16:18:28.677031403Z",
+    "msg_index": 0,
+    "kind": "lock_add",
+    "collection": "tla-locks",
+    "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+    "price": {
+     "amount": "436013652",
+     "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+    },
+    "lock": {
+     "fixed_power": "850113308049",
+     "voting_power": "7651019772441",
+     "lock_end": "permanent",
+     "asset": null
+    },
+    "token_id": "3000",
+    "token_id_from": "metadata_changed",
+    "source": "forward:org-nft-flows",
+    "denom_symbol": "arbLUNA",
+    "denom_decimals": 6,
+    "usd": 53.057913192678015,
+    "usd_basis": "price-history:2026-10-27 (tla)",
+    "unit_usd": 0.12168865114498299
    }
   ],
   "3001": [
