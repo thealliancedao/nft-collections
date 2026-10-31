@@ -4,7 +4,7 @@
  "shard": "w",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 649,
+ "records": 651,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -10807,8 +10807,8 @@
   "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw": {
    "address": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
    "first_seen": "2024-09-01T14:44:12Z",
-   "last_seen": "2026-10-17T09:55:08.403910897Z",
-   "events_count": 183,
+   "last_seen": "2026-10-31T19:32:24.929552936Z",
+   "events_count": 185,
    "counts": {
     "locks_created": 35,
     "lock_merges": 21,
@@ -10820,9 +10820,9 @@
     "delists": 1
    },
    "holdings_now": {
-    "total": 13,
+    "total": 15,
     "by_state": {
-     "locked": 6,
+     "locked": 8,
      "liquid": 2,
      "listed:boost": 5
     },
@@ -11067,6 +11067,32 @@
        "ts": "2026-09-12T05:40:55.085206002Z",
        "height": 22800989,
        "txhash": "9EB9B0A64D239A3A6D4A4F5FCD8A307C9A0B946A1F9224E7BB25E96958514596"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3465",
+      "state": "locked",
+      "since": "2026-10-31T19:31:55.535989586Z",
+      "since_height": 23541638,
+      "acquired": {
+       "kind": "lock_split",
+       "ts": "2026-10-31T19:31:55.535989586Z",
+       "height": 23541638,
+       "txhash": "C56DB44634A70645A9F8BBDDFDF17076DC5DAAEB15C20FDFD50D8130B79F27D3"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3466",
+      "state": "locked",
+      "since": "2026-10-31T19:32:24.929552936Z",
+      "since_height": 23541643,
+      "acquired": {
+       "kind": "lock_split",
+       "ts": "2026-10-31T19:32:24.929552936Z",
+       "height": 23541643,
+       "txhash": "8A51CB985DCF6CD54D4AF642D6B11028A0BA48FF1C06D895CE16E09860C0FEF7"
       },
       "broken": false
      }
@@ -11818,7 +11844,7 @@
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 43,
+   "held_ever_distinct": 45,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -16951,6 +16977,60 @@
      "unit_usd": 0.13643711930621621,
      "usd_repriced_at": "2026-10-17T11:44:31.272Z",
      "role": "from"
+    },
+    {
+     "txhash": "C56DB44634A70645A9F8BBDDFDF17076DC5DAAEB15C20FDFD50D8130B79F27D3",
+     "height": 23541638,
+     "ts": "2026-10-31T19:31:55.535989586Z",
+     "msg_index": 0,
+     "kind": "lock_split",
+     "collection": "tla-locks",
+     "token_id": "3465",
+     "to": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
+     "lineage": {
+      "from_ids": [
+       "754"
+      ],
+      "to_ids": [
+       "3465"
+      ],
+      "source_unknown": "msg body not archived — parent id from wasm-metadata_changed"
+     },
+     "lock": {
+      "fixed_power": "118616392727",
+      "voting_power": "1067547534543",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:1403274551"
+     },
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "8A51CB985DCF6CD54D4AF642D6B11028A0BA48FF1C06D895CE16E09860C0FEF7",
+     "height": 23541643,
+     "ts": "2026-10-31T19:32:24.929552936Z",
+     "msg_index": 0,
+     "kind": "lock_split",
+     "collection": "tla-locks",
+     "token_id": "3466",
+     "to": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
+     "lineage": {
+      "from_ids": [
+       "748"
+      ],
+      "to_ids": [
+       "3466"
+      ],
+      "source_unknown": "msg body not archived — parent id from wasm-metadata_changed"
+     },
+     "lock": {
+      "fixed_power": "810705172979",
+      "voting_power": "7296346556811",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:4997434684"
+     },
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
