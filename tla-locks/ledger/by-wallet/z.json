@@ -4,7 +4,7 @@
  "shard": "z",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 1290,
+ "records": 1291,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11378,13 +11378,13 @@
   "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz": {
    "address": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
    "first_seen": "2025-08-12T12:35:59.811123252Z",
-   "last_seen": "2026-10-30T10:01:36.295755927Z",
-   "events_count": 828,
+   "last_seen": "2026-10-31T10:02:03.969956557Z",
+   "events_count": 829,
    "counts": {
     "locks_created": 1,
     "locks_received": 45,
     "lock_merges": 45,
-    "lock_adds": 737
+    "lock_adds": 738
    },
    "holdings_now": {
     "total": 1,
@@ -34841,6 +34841,34 @@
      "usd_basis": "price-history:2026-10-30 (tla)",
      "unit_usd": 0.09411997905955882,
      "usd_repriced_at": "2026-10-30T11:44:38.671Z",
+     "role": "from"
+    },
+    {
+     "txhash": "4CA3981ABEC732539911A1219F71DA7572F162797274CD6D5AA36BFC6EB04A3C",
+     "height": 23535694,
+     "ts": "2026-10-31T10:02:03.969956557Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
+     "price": {
+      "amount": "1931697",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "121989012720",
+      "voting_power": "1097901114480",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "754",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.18490802277385687,
+     "usd_basis": "price-history:2026-10-31 (tla)",
+     "unit_usd": 0.09572309879544094,
      "role": "from"
     }
    ]
