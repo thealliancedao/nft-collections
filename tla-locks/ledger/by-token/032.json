@@ -8,7 +8,7 @@
   3299
  ],
  "tokens_with_records": 100,
- "records": 261,
+ "records": 263,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "3200": [
@@ -4609,6 +4609,61 @@
     "usd": 10.405613074863789,
     "usd_basis": "price-history:2026-11-01 (tla)",
     "unit_usd": 0.0950045711795518
+   },
+   {
+    "txhash": "98745DB5D3DFA83F1125EADE61C7D7EA82D39788D93B76DE9EDDF2EE47D76EDD",
+    "height": 23555575,
+    "ts": "2026-11-01T17:56:13.258007636Z",
+    "msg_index": 1,
+    "kind": "lock_add",
+    "collection": "tla-locks",
+    "from": "terra1drpy2kdrz9l4m67quvrxnnn6tqxjkch5c9fq92",
+    "price": {
+     "amount": "1365714",
+     "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+    },
+    "lock": {
+     "fixed_power": "23179777281",
+     "voting_power": "208617995529",
+     "lock_end": "permanent",
+     "asset": null
+    },
+    "token_id": "3283",
+    "token_id_from": "metadata_changed",
+    "source": "forward:org-nft-flows",
+    "denom_symbol": "ampLUNA",
+    "denom_decimals": 6,
+    "usd": null,
+    "usd_reason": "price_history_month_missing:2026/11"
+   },
+   {
+    "txhash": "A3510850615697F2021C84ED6E3D6FC8AA6AA97F6FB8E5B4845CE1793DF47526",
+    "height": 23555596,
+    "ts": "2026-11-01T17:58:13.423161422Z",
+    "msg_index": 0,
+    "kind": "lock_merge",
+    "collection": "tla-locks",
+    "token_id": "3283",
+    "from": "terra1drpy2kdrz9l4m67quvrxnnn6tqxjkch5c9fq92",
+    "lineage": {
+     "from_ids": [
+      "3283",
+      "3574"
+     ],
+     "to_ids": [
+      "3283"
+     ],
+     "burned": [
+      "3574"
+     ]
+    },
+    "lock": {
+     "fixed_power": "23242632495",
+     "voting_power": "209183692455",
+     "lock_end": "permanent",
+     "asset": null
+    },
+    "source": "forward:org-nft-flows"
    }
   ],
   "3284": [
