@@ -7,8 +7,8 @@
   3500,
   3599
  ],
- "tokens_with_records": 73,
- "records": 79,
+ "tokens_with_records": 75,
+ "records": 81,
  "note": "every live ledger record of these tokens (superseded rows excluded), sorted; rebuilt by org-nft-flows when a token in this shard gains or re-prices a record",
  "tokens": {
   "3500": [
@@ -2177,6 +2177,65 @@
     "usd_basis": "price-history:2026-11-01 (tla)",
     "unit_usd": 0.09490057972595144,
     "usd_repriced_at": "2026-11-01T17:44:39.556Z"
+   }
+  ],
+  "3573": [
+   {
+    "txhash": "CAAA1BA9DC8B2F96111C1DC60A1943BF2C9BD7294803B9A6696798CD0FDEA61E",
+    "height": 23555591,
+    "ts": "2026-11-01T17:57:44.299004018Z",
+    "msg_index": 0,
+    "kind": "lock_split",
+    "collection": "tla-locks",
+    "token_id": "3573",
+    "to": "terra1drpy2kdrz9l4m67quvrxnnn6tqxjkch5c9fq92",
+    "lineage": {
+     "from_ids": [
+      "1269"
+     ],
+     "to_ids": [
+      "3573"
+     ]
+    },
+    "lock": {
+     "fixed_power": "62547014",
+     "voting_power": "562923126",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:12159961863"
+    },
+    "source": "forward:org-nft-flows"
+   }
+  ],
+  "3574": [
+   {
+    "txhash": "CAAA1BA9DC8B2F96111C1DC60A1943BF2C9BD7294803B9A6696798CD0FDEA61E",
+    "height": 23555591,
+    "ts": "2026-11-01T17:57:44.299004018Z",
+    "msg_index": 1,
+    "kind": "lock_migrate",
+    "collection": "tla-locks",
+    "token_id": "3574",
+    "from": "terra1drpy2kdrz9l4m67quvrxnnn6tqxjkch5c9fq92",
+    "lineage": {
+     "from_ids": [
+      "1269"
+     ],
+     "to_ids": [
+      "3574"
+     ]
+    },
+    "migrate": {
+     "amount_before": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:20000000",
+     "fixed_power_before": "62547014",
+     "into": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:25858756"
+    },
+    "lock": {
+     "fixed_power": "62855213",
+     "voting_power": "565696917",
+     "lock_end": "permanent",
+     "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:25858756"
+    },
+    "source": "forward:org-nft-flows"
    }
   ]
  }
