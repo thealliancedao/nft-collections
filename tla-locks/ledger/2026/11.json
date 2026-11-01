@@ -6396,5 +6396,90 @@
   "usd": 1.9865640299872989,
   "usd_basis": "price-history:2026-11-01 (tla)",
   "unit_usd": 0.09492218877096421
+ },
+ {
+  "txhash": "417DC5BF8EB26C0F62C825BBA4813033BA1E0A2BE8BB344A47FAF440D1ABB96E",
+  "height": 23557945,
+  "ts": "2026-11-01T21:44:47.381392686Z",
+  "msg_index": 0,
+  "kind": "lock_migrate",
+  "collection": "tla-locks",
+  "token_id": "3576",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3575"
+   ],
+   "to_ids": [
+    "3576"
+   ]
+  },
+  "migrate": {
+   "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:35587233",
+   "fixed_power_before": "86502348",
+   "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:27221353"
+  },
+  "lock": {
+   "fixed_power": "85131064",
+   "voting_power": "766179576",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:27221353"
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "147E97AF9686B173CEE6AB87A5221150856CB237442E78DAFF936239C847A7CC",
+  "height": 23557949,
+  "ts": "2026-11-01T21:45:10.677637805Z",
+  "msg_index": 0,
+  "kind": "lock_merge",
+  "collection": "tla-locks",
+  "token_id": "3000",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3000",
+    "3576"
+   ],
+   "to_ids": [
+    "3000"
+   ],
+   "burned": [
+    "3576"
+   ]
+  },
+  "lock": {
+   "fixed_power": "863744813742",
+   "voting_power": "7773703323678",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "21BDD6AA7489D727C43DFCA6CA4814EF7FD3F85E37ECAEAC5F50D1BE4E5AFC85",
+  "height": 23557975,
+  "ts": "2026-11-01T21:47:40.278066151Z",
+  "msg_index": 0,
+  "kind": "lock_add",
+  "collection": "tla-locks",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "price": {
+   "amount": "5543743",
+   "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+  },
+  "lock": {
+   "fixed_power": "863762151041",
+   "voting_power": "7773859359369",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "token_id": "3000",
+  "token_id_from": "metadata_changed",
+  "source": "forward:org-nft-flows",
+  "denom_symbol": "arbLUNA",
+  "denom_decimals": 6,
+  "usd": null,
+  "usd_reason": "price_history_month_missing:2026/11"
  }
 ]
