@@ -4,7 +4,7 @@
  "shard": "7",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 8,
- "records": 1270,
+ "records": 1272,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -375,17 +375,18 @@
   "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57": {
    "address": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
    "first_seen": "2026-09-30T16:58:42.809499702Z",
-   "last_seen": "2026-11-01T11:56:18.419266543Z",
-   "events_count": 1194,
+   "last_seen": "2026-11-01T19:08:18.59193927Z",
+   "events_count": 1196,
    "counts": {
     "locks_received": 581,
     "lock_merges": 583,
-    "lock_adds": 27
+    "lock_adds": 28,
+    "locks_created": 1
    },
    "holdings_now": {
-    "total": 1,
+    "total": 2,
     "by_state": {
-     "locked": 1
+     "locked": 2
     },
     "tokens": [
      {
@@ -398,6 +399,27 @@
        "ts": "2026-10-05T12:54:08.923955609Z",
        "height": 23148749,
        "txhash": "679E748E79984E9382FEF285A6EA9F18DA78E772EFB0083D21C0C82525D885E8"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3575",
+      "state": "locked",
+      "since": "2026-11-01T19:07:55.532348073Z",
+      "since_height": 23556318,
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2026-11-01T19:07:55.532348073Z",
+       "height": 23556318,
+       "txhash": "D6A96859AFE01EDC9C2CD11C7F2F53898465C2ADD0A28A9A5F997E731ABB5AD8",
+       "price": {
+        "amount": "14658891",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 1.3914540186749884,
+        "usd_basis": "price-history:2026-11-01 (tla)"
+       }
       },
       "broken": false
      }
@@ -10321,7 +10343,7 @@
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 584,
+   "held_ever_distinct": 585,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -36232,6 +36254,61 @@
       "asset": null
      },
      "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "D6A96859AFE01EDC9C2CD11C7F2F53898465C2ADD0A28A9A5F997E731ABB5AD8",
+     "height": 23556318,
+     "ts": "2026-11-01T19:07:55.532348073Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "3575",
+     "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "lock": {
+      "fixed_power": "35631556",
+      "voting_power": "320684004",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:14658891"
+     },
+     "price": {
+      "amount": "14658891",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1.3914540186749884,
+     "usd_basis": "price-history:2026-11-01 (tla)",
+     "unit_usd": 0.09492218877096421,
+     "role": "to"
+    },
+    {
+     "txhash": "AA97FEB6D40875CEC2F598E2FEA0D6EEF0965724F6C2343F998E891BC65A4C92",
+     "height": 23556322,
+     "ts": "2026-11-01T19:08:18.59193927Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "price": {
+      "amount": "20928342",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "86502348",
+      "voting_power": "778521132",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "3575",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 1.9865640299872989,
+     "usd_basis": "price-history:2026-11-01 (tla)",
+     "unit_usd": 0.09492218877096421,
      "role": "from"
     }
    ]
