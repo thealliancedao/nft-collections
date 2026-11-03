@@ -4,7 +4,7 @@
  "shard": "z",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 1294,
+ "records": 1295,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11378,13 +11378,13 @@
   "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz": {
    "address": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
    "first_seen": "2025-08-12T12:35:59.811123252Z",
-   "last_seen": "2026-11-02T00:59:02.872735422Z",
-   "events_count": 832,
+   "last_seen": "2026-11-03T10:02:18.912861689Z",
+   "events_count": 833,
    "counts": {
     "locks_created": 1,
     "locks_received": 45,
     "lock_merges": 45,
-    "lock_adds": 741
+    "lock_adds": 742
    },
    "holdings_now": {
     "total": 1,
@@ -34955,6 +34955,34 @@
      "usd": 40.27758080004785,
      "usd_basis": "price-history:2026-11-02 (tla)",
      "unit_usd": 0.09468491250469377,
+     "role": "from"
+    },
+    {
+     "txhash": "15DA53A9202CD0FB822E687E7DBCE056962343AA98986D856DCA42EEE1A40E93",
+     "height": 23580529,
+     "ts": "2026-11-03T10:02:18.912861689Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
+     "price": {
+      "amount": "2544301",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "104614395018",
+      "voting_power": "941529555162",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "754",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.2361793447038059,
+     "usd_basis": "price-history:2026-11-03 (tla)",
+     "unit_usd": 0.09282680968321197,
      "role": "from"
     }
    ]
