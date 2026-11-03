@@ -4,7 +4,7 @@
  "shard": "7",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 8,
- "records": 1285,
+ "records": 1287,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -375,19 +375,19 @@
   "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57": {
    "address": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
    "first_seen": "2026-09-30T16:58:42.809499702Z",
-   "last_seen": "2026-11-03T05:06:10.339560997Z",
-   "events_count": 1209,
+   "last_seen": "2026-11-03T07:31:07.068942831Z",
+   "events_count": 1211,
    "counts": {
     "locks_received": 581,
     "lock_merges": 585,
-    "lock_adds": 33,
-    "locks_created": 1,
+    "lock_adds": 34,
+    "locks_created": 2,
     "locks_sent": 1
    },
    "holdings_now": {
-    "total": 1,
+    "total": 2,
     "by_state": {
-     "locked": 1
+     "locked": 2
     },
     "tokens": [
      {
@@ -400,6 +400,27 @@
        "ts": "2026-11-02T07:40:02.385190419Z",
        "height": 23564114,
        "txhash": "427EF7A0D3B8923E130FC1E34D520BA6D08C69665E028C0C7D4C8D060ED675C7"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3582",
+      "state": "locked",
+      "since": "2026-11-03T07:31:07.068942831Z",
+      "since_height": 23578960,
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2026-11-03T07:31:07.068942831Z",
+       "height": 23578960,
+       "txhash": "166C3A46BDFD7B19CE9CA4600428FD2D7CE83C00E1845455527FFA4472F7F7DD",
+       "price": {
+        "amount": "826856",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": null,
+        "usd_basis": null
+       }
       },
       "broken": false
      }
@@ -10435,7 +10456,7 @@
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 590,
+   "held_ever_distinct": 591,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -36764,6 +36785,59 @@
      "unit_usd": 0.11594946109321715,
      "usd_repriced_at": "2026-11-03T06:44:38.529Z",
      "role": "from"
+    },
+    {
+     "txhash": "A72D9122B6E0D70A3917E5CD29FF0CB5B77E5DECE468550E82AF13A4D65294C2",
+     "height": 23578884,
+     "ts": "2026-11-03T07:23:48.321379543Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "price": {
+      "amount": "653470",
+      "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+     },
+     "lock": {
+      "fixed_power": "875667593993",
+      "voting_power": "7881008345937",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "3577",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "arbLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
+     "role": "from"
+    },
+    {
+     "txhash": "166C3A46BDFD7B19CE9CA4600428FD2D7CE83C00E1845455527FFA4472F7F7DD",
+     "height": 23578960,
+     "ts": "2026-11-03T07:31:07.068942831Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "3582",
+     "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "lock": {
+      "fixed_power": "2012916",
+      "voting_power": "18116244",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:826856"
+     },
+     "price": {
+      "amount": "826856",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
+     "role": "to"
     }
    ]
   },
