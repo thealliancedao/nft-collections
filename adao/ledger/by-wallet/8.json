@@ -4,7 +4,7 @@
  "shard": "8",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 79,
- "records": 1205,
+ "records": 1207,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -31892,15 +31892,16 @@
   "terra1rr0mlysgrclyhl0mau2uhjsftjtwm9j3g8tan8": {
    "address": "terra1rr0mlysgrclyhl0mau2uhjsftjtwm9j3g8tan8",
    "first_seen": "2024-02-28T14:07:01Z",
-   "last_seen": "2024-06-05T11:23:14Z",
-   "events_count": 10,
+   "last_seen": "2026-11-05T08:52:42.033095117Z",
+   "events_count": 12,
    "counts": {
     "minted": 2,
     "stakes_enterprise": 1,
     "unstakes_enterprise": 1,
     "listings": 3,
     "sold": 2,
-    "delists": 1
+    "delists": 1,
+    "bids": 1
    },
    "holdings_now": {
     "total": 0,
@@ -32271,6 +32272,49 @@
      "luna_usd": 0.6477153602949107,
      "denom_symbol": "LUNA",
      "denom_decimals": 6,
+     "role": "from"
+    },
+    {
+     "txhash": "3058079E6675C0B8295AFCC9222E39BC901C9E37DE2C72CB2BB22E643CF59675",
+     "height": 23609573,
+     "ts": "2026-11-05T08:48:05.33473336Z",
+     "msg_index": 1,
+     "kind": "bid",
+     "venue": "bbl",
+     "collection": "adao",
+     "token_id": "4887",
+     "auction_id": "17819",
+     "from": "terra1rr0mlysgrclyhl0mau2uhjsftjtwm9j3g8tan8",
+     "price": {
+      "amount": "70000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
+     "role": "from"
+    },
+    {
+     "txhash": "13605E4A5DA1AAD042672BB9AE75992E8CEAA949AB0F0D3F43A21681C58DE9E9",
+     "height": 23609621,
+     "ts": "2026-11-05T08:52:42.033095117Z",
+     "msg_index": 1,
+     "kind": "venue_deposit",
+     "venue": "bbl",
+     "collection": "adao",
+     "from": "terra1rr0mlysgrclyhl0mau2uhjsftjtwm9j3g8tan8",
+     "to": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "price": {
+      "amount": "158205186",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
      "role": "from"
     }
    ]
