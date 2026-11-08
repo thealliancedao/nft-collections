@@ -4,7 +4,7 @@
  "shard": "z",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 1300,
+ "records": 1301,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11378,13 +11378,13 @@
   "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz": {
    "address": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
    "first_seen": "2025-08-12T12:35:59.811123252Z",
-   "last_seen": "2026-11-07T10:01:27.536349809Z",
-   "events_count": 838,
+   "last_seen": "2026-11-08T10:01:42.182074907Z",
+   "events_count": 839,
    "counts": {
     "locks_created": 1,
     "locks_received": 45,
     "lock_merges": 45,
-    "lock_adds": 747
+    "lock_adds": 748
    },
    "holdings_now": {
     "total": 1,
@@ -35127,6 +35127,34 @@
      "usd": 0.49900662709290905,
      "usd_basis": "price-history:2026-11-07 (tla)",
      "unit_usd": 0.11240943773791717,
+     "role": "from"
+    },
+    {
+     "txhash": "AD822C64DC8707C1D5729265C1EED855782821B73BA6D67199F47E9184E0F4C7",
+     "height": 23655000,
+     "ts": "2026-11-08T10:01:42.182074907Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
+     "price": {
+      "amount": "2681992",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "105260244995",
+      "voting_power": "947342204955",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "754",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.24259726127958287,
+     "usd_basis": "price-history:2026-11-08 (tla)",
+     "unit_usd": 0.09045413307704976,
      "role": "from"
     }
    ]
