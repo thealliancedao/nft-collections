@@ -4,7 +4,7 @@
  "shard": "3",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 62,
- "records": 1601,
+ "records": 1602,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -35893,29 +35893,28 @@
   "terra1uaxwcjuswy60cvr2lknks2j6kpwpqqhnuxlvu3": {
    "address": "terra1uaxwcjuswy60cvr2lknks2j6kpwpqqhnuxlvu3",
    "first_seen": "2024-01-01T13:27:19Z",
-   "last_seen": "2026-05-04T19:46:29.228803728Z",
-   "events_count": 15,
+   "last_seen": "2026-11-08T10:18:28.906946211Z",
+   "events_count": 16,
    "counts": {
     "bought": 2,
     "bids": 2,
     "stakes_enterprise": 3,
     "minted": 1,
     "unstakes_enterprise": 3,
-    "stakes": 3,
+    "stakes": 4,
     "claims": 1
    },
    "holdings_now": {
     "total": 3,
     "by_state": {
-     "liquid": 1,
-     "staked": 2
+     "staked": 3
     },
     "tokens": [
      {
       "token_id": "1665",
-      "state": "liquid",
-      "since": "2026-05-04T19:46:29.228803728Z",
-      "since_height": 20853086,
+      "state": "staked",
+      "since": "2026-11-08T10:18:28.906946211Z",
+      "since_height": 23655175,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-29T14:28:44Z",
@@ -36299,6 +36298,20 @@
      "custodian": "daodao_voting",
      "source": "tla-flows/raw:20593431-21043430",
      "role": "to"
+    },
+    {
+     "txhash": "08586EE38B90C8AB359CDB647F34F08CC013A534A76BC2614AA05ABF93B6B40C",
+     "height": 23655175,
+     "ts": "2026-11-08T10:18:28.906946211Z",
+     "msg_index": 0,
+     "kind": "stake",
+     "collection": "adao",
+     "token_id": "1665",
+     "from": "terra1uaxwcjuswy60cvr2lknks2j6kpwpqqhnuxlvu3",
+     "to": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "custodian": "daodao_voting",
+     "source": "forward:org-nft-flows",
+     "role": "from"
     }
    ]
   },
