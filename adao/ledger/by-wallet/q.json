@@ -4,7 +4,7 @@
  "shard": "q",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 80,
- "records": 623,
+ "records": 624,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -2324,25 +2324,26 @@
   "terra15amg7the2325htty5wlemd63ul3tpqnq79lu4q": {
    "address": "terra15amg7the2325htty5wlemd63ul3tpqnq79lu4q",
    "first_seen": "2024-02-29T03:02:47Z",
-   "last_seen": "2026-06-30T13:41:58.179839554Z",
-   "events_count": 4,
+   "last_seen": "2026-11-12T16:52:56.651226405Z",
+   "events_count": 5,
    "counts": {
     "minted": 1,
     "stakes_enterprise": 1,
     "unstakes_enterprise": 1,
-    "listings": 1
+    "listings": 1,
+    "sold": 1
    },
    "holdings_now": {
+    "total": 0,
+    "by_state": {},
+    "tokens": []
+   },
+   "held_past": {
     "total": 1,
-    "by_state": {
-     "listed:bbl": 1
-    },
+    "distinct_tokens": 1,
     "tokens": [
      {
       "token_id": "8446",
-      "state": "listed:bbl",
-      "since": "2026-06-30T13:41:58.179839554Z",
-      "since_height": 21699276,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-29T03:02:47Z",
@@ -2357,19 +2358,34 @@
         "usd_basis": "price-history:2024-02-29 (coingecko)"
        }
       },
-      "broken": false
+      "released": {
+       "kind": "sale",
+       "ts": "2026-11-12T16:52:56.651226405Z",
+       "height": 23719129,
+       "txhash": "FFC826F626868F221871BD1F0A1BCB83340F31E562CDF1AF4A640559EE82EA82",
+       "venue": "bbl",
+       "price": {
+        "amount": "1000000000",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml",
+        "symbol": "bLUNA",
+        "decimals": 6,
+        "usd": null,
+        "usd_basis": null
+       }
+      },
+      "held_days": 987.6,
+      "pnl": {
+       "usd": null,
+       "token": null,
+       "note": "bought in LUNA, sold in bLUNA — no single-token basis"
+      }
      }
     ]
-   },
-   "held_past": {
-    "total": 0,
-    "distinct_tokens": 0,
-    "tokens": []
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
    "held_ever_distinct": 1,
    "realized": {
-    "round_trips": 0,
+    "round_trips": 1,
     "usd": {
      "priced": 0,
      "total": null
@@ -2459,6 +2475,52 @@
      "usd_basis": "price-history:2026-06-30 (LUNA×ratio(chain_exact))",
      "unit_usd": 0.08516157,
      "usd_repriced_at": "2026-09-18T18:49:19.138Z",
+     "role": "from"
+    },
+    {
+     "txhash": "FFC826F626868F221871BD1F0A1BCB83340F31E562CDF1AF4A640559EE82EA82",
+     "height": 23719129,
+     "ts": "2026-11-12T16:52:56.651226405Z",
+     "msg_index": 1,
+     "kind": "sale",
+     "collection": "adao",
+     "token_id": "8446",
+     "venue": "bbl",
+     "from": "terra15amg7the2325htty5wlemd63ul3tpqnq79lu4q",
+     "to": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
+     "price": {
+      "amount": "1000000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "split": {
+      "legs": [
+       {
+        "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+        "to": "terra1jgk8dhtv0qf5s08jxrwecf4a04hdmeznqpty75",
+        "amount": "20000000",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+       },
+       {
+        "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+        "to": "terra1sffd4efk2jpdt894r04qwmtjqrrjfc52tmj6vkzjxqhd8qqu2drs3m5vzm",
+        "amount": "50000000",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+       },
+       {
+        "from": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+        "to": "terra15amg7the2325htty5wlemd63ul3tpqnq79lu4q",
+        "amount": "930000000",
+        "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+       }
+      ]
+     },
+     "via_offer": false,
+     "auction_id": "17806",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
      "role": "from"
     }
    ]
