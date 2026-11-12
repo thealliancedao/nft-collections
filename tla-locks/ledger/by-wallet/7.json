@@ -4,7 +4,7 @@
  "shard": "7",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 8,
- "records": 1561,
+ "records": 1562,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -375,19 +375,19 @@
   "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57": {
    "address": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
    "first_seen": "2026-09-30T16:58:42.809499702Z",
-   "last_seen": "2026-11-11T19:34:58.03615702Z",
-   "events_count": 1484,
+   "last_seen": "2026-11-12T04:40:36.662911837Z",
+   "events_count": 1485,
    "counts": {
-    "locks_received": 586,
+    "locks_received": 587,
     "lock_merges": 641,
     "lock_adds": 102,
     "locks_created": 16,
     "locks_sent": 11
    },
    "holdings_now": {
-    "total": 1,
+    "total": 2,
     "by_state": {
-     "locked": 1
+     "locked": 2
     },
     "tokens": [
      {
@@ -400,6 +400,19 @@
        "ts": "2026-11-11T17:36:33.491482916Z",
        "height": 23704627,
        "txhash": "ED8B950A5395584CB5D786AE5D2548B502E9CC46D5AA9DF3A301EEAB53B71812"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3724",
+      "state": "locked",
+      "since": "2026-11-12T04:40:36.662911837Z",
+      "since_height": 23711525,
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2026-11-12T04:40:36.662911837Z",
+       "height": 23711525,
+       "txhash": "58422C7849635108278E6137D68F9F09EC9B484493E6EE5DB9C077B20F74B358"
       },
       "broken": false
      }
@@ -12999,7 +13012,7 @@
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 729,
+   "held_ever_distinct": 730,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -47084,6 +47097,19 @@
      },
      "source": "forward:org-nft-flows",
      "role": "from"
+    },
+    {
+     "txhash": "58422C7849635108278E6137D68F9F09EC9B484493E6EE5DB9C077B20F74B358",
+     "height": 23711525,
+     "ts": "2026-11-12T04:40:36.662911837Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "3724",
+     "from": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
+     "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
