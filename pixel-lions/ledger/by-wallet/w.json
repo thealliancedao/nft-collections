@@ -4,7 +4,7 @@
  "shard": "w",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 38,
- "records": 1939,
+ "records": 1941,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -26099,11 +26099,11 @@
   "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw": {
    "address": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
    "first_seen": "2024-02-21T17:15:32Z",
-   "last_seen": "2026-09-22T03:58:16.286717986Z",
-   "events_count": 289,
+   "last_seen": "2026-11-12T16:55:31.070496757Z",
+   "events_count": 291,
    "counts": {
     "bought": 82,
-    "bids": 82,
+    "bids": 84,
     "stakes_enterprise": 13,
     "unstakes_enterprise": 13,
     "stakes": 61,
@@ -35904,6 +35904,50 @@
      "to": "terra127dehd2d6t7ynnezkxkre2w83ze0t7lmghpu6vn4y5mfmwfj5x9qqdh4sz",
      "custodian": "daodao_voting",
      "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "FFC826F626868F221871BD1F0A1BCB83340F31E562CDF1AF4A640559EE82EA82",
+     "height": 23719129,
+     "ts": "2026-11-12T16:52:56.651226405Z",
+     "msg_index": 0,
+     "kind": "bid",
+     "venue": "bbl",
+     "collection": "pixel-lions",
+     "token_id": "8446",
+     "auction_id": "17806",
+     "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
+     "price": {
+      "amount": "1000000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
+     "role": "from"
+    },
+    {
+     "txhash": "C47CC902792247FBB629CD24BACD118589AC60D58D609E0AB1508A6897624A3C",
+     "height": 23719156,
+     "ts": "2026-11-12T16:55:31.070496757Z",
+     "msg_index": 0,
+     "kind": "bid",
+     "venue": "bbl",
+     "collection": "pixel-lions",
+     "token_id": "8265",
+     "auction_id": "17873",
+     "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
+     "price": {
+      "amount": "999000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
      "role": "from"
     }
    ]
