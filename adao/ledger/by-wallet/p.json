@@ -4,7 +4,7 @@
  "shard": "p",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 62,
- "records": 407,
+ "records": 409,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11983,25 +11983,26 @@
   "terra1wqfxpzm508ejuv5a20zv4xa4pqzz48k3guujhp": {
    "address": "terra1wqfxpzm508ejuv5a20zv4xa4pqzz48k3guujhp",
    "first_seen": "2024-02-28T14:13:17Z",
-   "last_seen": "2024-10-07T00:18:44Z",
-   "events_count": 4,
+   "last_seen": "2026-11-11T23:32:28.053471127Z",
+   "events_count": 6,
    "counts": {
     "minted": 1,
     "stakes_enterprise": 1,
     "transfers_in": 1,
-    "unstakes_enterprise": 1
+    "unstakes_enterprise": 1,
+    "listings": 2
    },
    "holdings_now": {
     "total": 2,
     "by_state": {
-     "liquid": 2
+     "listed:bbl": 2
     },
     "tokens": [
      {
       "token_id": "6045",
-      "state": "liquid",
-      "since": "2024-08-10T12:08:29Z",
-      "since_height": 11575117,
+      "state": "listed:bbl",
+      "since": "2026-11-11T23:32:28.053471127Z",
+      "since_height": 23708320,
       "acquired": {
        "kind": "transfer",
        "ts": "2024-08-10T12:08:29Z",
@@ -12012,9 +12013,9 @@
      },
      {
       "token_id": "8265",
-      "state": "liquid",
-      "since": "2024-10-07T00:18:44Z",
-      "since_height": 12391608,
+      "state": "listed:bbl",
+      "since": "2026-11-11T23:31:53.708538895Z",
+      "since_height": 23708314,
       "acquired": {
        "kind": "mint_purchase",
        "ts": "2024-02-28T14:13:17Z",
@@ -12119,6 +12120,54 @@
      "custodian": "enterprise_staking",
      "source": "fcd:adao-collection",
      "role": "to"
+    },
+    {
+     "txhash": "99702F4FEB1B9080187BD3536F964E3345FEAAB0E2BD392031BF2618ABFA5DD8",
+     "height": 23708314,
+     "ts": "2026-11-11T23:31:53.708538895Z",
+     "msg_index": 0,
+     "kind": "list",
+     "collection": "adao",
+     "token_id": "8265",
+     "venue": "bbl",
+     "from": "terra1wqfxpzm508ejuv5a20zv4xa4pqzz48k3guujhp",
+     "to": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "price": {
+      "amount": "999000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "auction_id": "17873",
+     "auction_type": "buy_now",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
+     "role": "from"
+    },
+    {
+     "txhash": "74DA993AAA81AF154AB0826D7A777DAEEBA156F4770606A5FC4D68C9027575D7",
+     "height": 23708320,
+     "ts": "2026-11-11T23:32:28.053471127Z",
+     "msg_index": 0,
+     "kind": "list",
+     "collection": "adao",
+     "token_id": "6045",
+     "venue": "bbl",
+     "from": "terra1wqfxpzm508ejuv5a20zv4xa4pqzz48k3guujhp",
+     "to": "terra1ej4cv98e9g2zjefr5auf2nwtq4xl3dm7x0qml58yna2ml2hk595s7gccs9",
+     "price": {
+      "amount": "20000000000",
+      "denom": "cw20:terra17aj4ty4sz4yhgm08na8drc0v03v2jwr3waxcqrwhajj729zhl7zqnpc0ml"
+     },
+     "auction_id": "17874",
+     "auction_type": "buy_now",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "bLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
+     "role": "from"
     }
    ]
   },
