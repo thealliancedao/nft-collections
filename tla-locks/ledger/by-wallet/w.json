@@ -4,7 +4,7 @@
  "shard": "w",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 657,
+ "records": 658,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -10951,14 +10951,14 @@
   "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw": {
    "address": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
    "first_seen": "2024-09-01T14:44:12Z",
-   "last_seen": "2026-11-02T01:52:52.776041997Z",
-   "events_count": 186,
+   "last_seen": "2026-11-12T16:34:56.410973433Z",
+   "events_count": 187,
    "counts": {
     "locks_created": 35,
     "lock_merges": 21,
     "locks_received": 2,
     "locks_sent": 5,
-    "lock_adds": 105,
+    "lock_adds": 106,
     "listings": 6,
     "locks_withdrawn": 3,
     "delists": 1
@@ -17203,6 +17203,34 @@
      "usd_basis": "price-history:2026-11-02 (tla)",
      "unit_usd": 0.09468491250469377,
      "usd_repriced_at": "2026-11-02T03:44:37.300Z",
+     "role": "from"
+    },
+    {
+     "txhash": "ABBC1C2B868A872D95C7CBD28ECDE4E2B84D6D424C4517696DF25D6439719CF5",
+     "height": 23718942,
+     "ts": "2026-11-12T16:34:56.410973433Z",
+     "msg_index": 1,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1hr8zsfpch47qygc96c8e6rzkd2t7mafqx77ulw",
+     "price": {
+      "amount": "40583687",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "28202388608",
+      "voting_power": "253821497472",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "118",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 3.502047440236403,
+     "usd_basis": "price-history:2026-11-12 (tla)",
+     "unit_usd": 0.08629199806898775,
      "role": "from"
     }
    ]
