@@ -20148,5 +20148,89 @@
    "asset": null
   },
   "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "0B41EF819AEC41769A484F034F4EB32F0392E76805C7E17A5DAA0841E05FA10D",
+  "height": 23759141,
+  "ts": "2026-11-15T09:02:04.475049914Z",
+  "msg_index": 0,
+  "kind": "lock_create",
+  "collection": "tla-locks",
+  "token_id": "3775",
+  "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lock": {
+   "fixed_power": "6285007751",
+   "voting_power": "56565069759",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:2553751586"
+  },
+  "price": {
+   "amount": "2553751586",
+   "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+  },
+  "source": "forward:org-nft-flows",
+  "denom_symbol": "ampLUNA",
+  "denom_decimals": 6,
+  "usd": null,
+  "usd_reason": "price_history_month_missing:2026/11"
+ },
+ {
+  "txhash": "A9A55EE10A5D837F2A25ED2C1AB4BBF3EE1F32A68CDEDD047283DBD1EC40ECC9",
+  "height": 23759485,
+  "ts": "2026-11-15T09:35:17.985501418Z",
+  "msg_index": 0,
+  "kind": "lock_migrate",
+  "collection": "tla-locks",
+  "token_id": "3776",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3775"
+   ],
+   "to_ids": [
+    "3776"
+   ]
+  },
+  "migrate": {
+   "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:2553751586",
+   "fixed_power_before": "6285007751",
+   "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:1983388393"
+  },
+  "lock": {
+   "fixed_power": "6215909880",
+   "voting_power": "55943188920",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:1983388393"
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "DC0F1E32BC7E8621C12ECCB696963B71EAF5969A9CB86FEEE4376EBC55BEAE3C",
+  "height": 23759488,
+  "ts": "2026-11-15T09:35:33.552905363Z",
+  "msg_index": 0,
+  "kind": "lock_merge",
+  "collection": "tla-locks",
+  "token_id": "3770",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3770",
+    "3776"
+   ],
+   "to_ids": [
+    "3770"
+   ],
+   "burned": [
+    "3776"
+   ]
+  },
+  "lock": {
+   "fixed_power": "960579234905",
+   "voting_power": "8645213114145",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "source": "forward:org-nft-flows"
  }
 ]
