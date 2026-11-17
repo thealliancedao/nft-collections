@@ -4,7 +4,7 @@
  "shard": "7",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 8,
- "records": 1697,
+ "records": 1700,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -375,11 +375,11 @@
   "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57": {
    "address": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
    "first_seen": "2026-09-30T16:58:42.809499702Z",
-   "last_seen": "2026-11-17T13:05:37.492146165Z",
-   "events_count": 1619,
+   "last_seen": "2026-11-17T18:28:27.4285783Z",
+   "events_count": 1622,
    "counts": {
-    "locks_received": 592,
-    "lock_merges": 674,
+    "locks_received": 593,
+    "lock_merges": 675,
     "lock_adds": 118,
     "locks_created": 22,
     "locks_sent": 12
@@ -406,8 +406,8 @@
     ]
    },
    "held_past": {
-    "total": 814,
-    "distinct_tokens": 813,
+    "total": 816,
+    "distinct_tokens": 815,
     "tokens": [
      {
       "token_id": "2631",
@@ -14538,11 +14538,46 @@
        "note": "merged into 3800"
       },
       "held_days": 0
+     },
+     {
+      "token_id": "3815",
+      "acquired": {
+       "kind": "lock_transfer",
+       "ts": "2026-11-17T18:07:07.698315113Z",
+       "height": 23794715,
+       "txhash": "78CCAC32DA4313B4AD3C6D1C0AEF6072A0BFF1C79E3D76A45CDB85FE8A996A33"
+      },
+      "released": {
+       "kind": "lock_migrate",
+       "ts": "2026-11-17T18:28:09.656363122Z",
+       "height": 23794933,
+       "txhash": "24941982AB1560FDE00AE5C92AEBB762BDD73CD32F765CA3A86688B5EA62B25D",
+       "note": "migrated to 3816"
+      },
+      "held_days": 0
+     },
+     {
+      "token_id": "3816",
+      "acquired": null,
+      "opened_by": {
+       "kind": "lock_migrate",
+       "ts": "2026-11-17T18:28:09.656363122Z",
+       "height": 23794933,
+       "txhash": "24941982AB1560FDE00AE5C92AEBB762BDD73CD32F765CA3A86688B5EA62B25D"
+      },
+      "released": {
+       "kind": "lock_merge",
+       "ts": "2026-11-17T18:28:27.4285783Z",
+       "height": 23794936,
+       "txhash": "F9467099738350D7F4488DA3F774037C165C6EDE332F19FC11BE7F954977BD8C",
+       "note": "merged into 3800"
+      },
+      "held_days": 0
      }
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 814,
+   "held_ever_distinct": 816,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -52481,6 +52516,80 @@
      "lock": {
       "fixed_power": "982746879202",
       "voting_power": "8844721912818",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "78CCAC32DA4313B4AD3C6D1C0AEF6072A0BFF1C79E3D76A45CDB85FE8A996A33",
+     "height": 23794715,
+     "ts": "2026-11-17T18:07:07.698315113Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "3815",
+     "from": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
+     "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "24941982AB1560FDE00AE5C92AEBB762BDD73CD32F765CA3A86688B5EA62B25D",
+     "height": 23794933,
+     "ts": "2026-11-17T18:28:09.656363122Z",
+     "msg_index": 0,
+     "kind": "lock_migrate",
+     "collection": "tla-locks",
+     "token_id": "3816",
+     "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "lineage": {
+      "from_ids": [
+       "3815"
+      ],
+      "to_ids": [
+       "3816"
+      ]
+     },
+     "migrate": {
+      "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:279659",
+      "fixed_power_before": "689687",
+      "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:217401"
+     },
+     "lock": {
+      "fixed_power": "682482",
+      "voting_power": "6142338",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:217401"
+     },
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "F9467099738350D7F4488DA3F774037C165C6EDE332F19FC11BE7F954977BD8C",
+     "height": 23794936,
+     "ts": "2026-11-17T18:28:27.4285783Z",
+     "msg_index": 0,
+     "kind": "lock_merge",
+     "collection": "tla-locks",
+     "token_id": "3800",
+     "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "lineage": {
+      "from_ids": [
+       "3800",
+       "3816"
+      ],
+      "to_ids": [
+       "3800"
+      ],
+      "burned": [
+       "3816"
+      ]
+     },
+     "lock": {
+      "fixed_power": "982751933007",
+      "voting_power": "8844767397063",
       "lock_end": "permanent",
       "asset": null
      },
