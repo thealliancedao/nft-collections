@@ -4,7 +4,7 @@
  "shard": "0",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 7,
- "records": 512,
+ "records": 513,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -10631,11 +10631,11 @@
   "terra19xma25ppv8ugwtvzpx5n5mde67ngazy434fqe0": {
    "address": "terra19xma25ppv8ugwtvzpx5n5mde67ngazy434fqe0",
    "first_seen": "2026-11-02T14:09:40.536779999Z",
-   "last_seen": "2026-11-09T00:33:46.989538263Z",
-   "events_count": 5,
+   "last_seen": "2026-11-18T14:20:23.206820324Z",
+   "events_count": 6,
    "counts": {
     "locks_created": 1,
-    "lock_adds": 4
+    "lock_adds": 5
    },
    "holdings_now": {
     "total": 1,
@@ -10826,6 +10826,33 @@
      "usd_basis": "price-history:2026-11-09 (tla)",
      "unit_usd": 0.08800823828395907,
      "usd_repriced_at": "2026-11-09T01:44:38.469Z",
+     "role": "from"
+    },
+    {
+     "txhash": "D9D50AB20639CA5172245BD375A19F7114C953B40CA5686AFAF055D87D6FCDC2",
+     "height": 23807275,
+     "ts": "2026-11-18T14:20:23.206820324Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra19xma25ppv8ugwtvzpx5n5mde67ngazy434fqe0",
+     "price": {
+      "amount": "4072039",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "32157701",
+      "voting_power": "139143750",
+      "lock_end": "261",
+      "asset": null
+     },
+     "token_id": "3581",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
      "role": "from"
     }
    ]
