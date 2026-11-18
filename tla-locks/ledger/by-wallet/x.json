@@ -4,7 +4,7 @@
  "shard": "x",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 5,
- "records": 1825,
+ "records": 1827,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -54,12 +54,12 @@
   "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx": {
    "address": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
    "first_seen": "2026-09-25T17:59:08.103529581Z",
-   "last_seen": "2026-11-18T11:08:06.473225388Z",
-   "events_count": 1774,
+   "last_seen": "2026-11-18T17:09:10.370485018Z",
+   "events_count": 1776,
    "counts": {
     "locks_received": 13,
-    "locks_created": 859,
-    "locks_sent": 606,
+    "locks_created": 860,
+    "locks_sent": 607,
     "lock_merges": 272,
     "lock_adds": 9,
     "listings": 1,
@@ -71,8 +71,8 @@
     "tokens": []
    },
    "held_past": {
-    "total": 885,
-    "distinct_tokens": 882,
+    "total": 886,
+    "distinct_tokens": 883,
     "tokens": [
      {
       "token_id": "2500",
@@ -21393,11 +21393,35 @@
        "txhash": "A378C9E7068707425BE0C0166ADBA4DF33931A02EC5BA49065639E0A0C9E08BA"
       },
       "held_days": 0
+     },
+     {
+      "token_id": "3832",
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2026-11-18T17:08:52.669174875Z",
+       "height": 23809020,
+       "txhash": "6FBB10CB6D77E6D98727CCC6AF89883F890B8534456FA40E783159896F9CD443",
+       "price": {
+        "amount": "248421081",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 19.83172636870818,
+        "usd_basis": "price-history:2026-11-18 (tla)"
+       }
+      },
+      "released": {
+       "kind": "lock_transfer",
+       "ts": "2026-11-18T17:09:10.370485018Z",
+       "height": 23809023,
+       "txhash": "0CE511CBBF188F8CD86AE9A976B1B166311C375D0E05F8ACF121C9A158BC9B00"
+      },
+      "held_days": 0
      }
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 882,
+   "held_ever_distinct": 883,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -62031,6 +62055,46 @@
      "kind": "lock_transfer",
      "collection": "tla-locks",
      "token_id": "3828",
+     "from": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
+     "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "6FBB10CB6D77E6D98727CCC6AF89883F890B8534456FA40E783159896F9CD443",
+     "height": 23809020,
+     "ts": "2026-11-18T17:08:52.669174875Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "3832",
+     "to": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
+     "lock": {
+      "fixed_power": "612999998",
+      "voting_power": "5516999982",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:248421081"
+     },
+     "price": {
+      "amount": "248421081",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 19.83172636870818,
+     "usd_basis": "price-history:2026-11-18 (tla)",
+     "unit_usd": 0.07983109279163059,
+     "role": "to"
+    },
+    {
+     "txhash": "0CE511CBBF188F8CD86AE9A976B1B166311C375D0E05F8ACF121C9A158BC9B00",
+     "height": 23809023,
+     "ts": "2026-11-18T17:09:10.370485018Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "3832",
      "from": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
      "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
      "source": "forward:org-nft-flows",
