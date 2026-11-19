@@ -4,7 +4,7 @@
  "shard": "s",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 14,
- "records": 591,
+ "records": 592,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -16647,13 +16647,13 @@
   "terra1xjusp8m8vzj9lgzj9guddfdfmsxaz8mhukmc6ffyvzc89usqjvts09nxcs": {
    "address": "terra1xjusp8m8vzj9lgzj9guddfdfmsxaz8mhukmc6ffyvzc89usqjvts09nxcs",
    "first_seen": "2026-10-14T03:06:46.317250786Z",
-   "last_seen": "2026-11-08T23:31:41.824318983Z",
-   "events_count": 16,
+   "last_seen": "2026-11-19T15:02:31.122281728Z",
+   "events_count": 17,
    "counts": {
     "locks_created": 1,
     "locks_received": 6,
     "lock_merges": 6,
-    "lock_adds": 3
+    "lock_adds": 4
    },
    "holdings_now": {
     "total": 1,
@@ -17179,6 +17179,33 @@
      "to": "terra1xjusp8m8vzj9lgzj9guddfdfmsxaz8mhukmc6ffyvzc89usqjvts09nxcs",
      "source": "forward:org-nft-flows",
      "role": "to"
+    },
+    {
+     "txhash": "913F9C17D8E8A0E010BDE65E66499897EAE0BBA3B2809830BD9939FD6425CD06",
+     "height": 23822574,
+     "ts": "2026-11-19T15:02:31.122281728Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1xjusp8m8vzj9lgzj9guddfdfmsxaz8mhukmc6ffyvzc89usqjvts09nxcs",
+     "price": {
+      "amount": "134722640",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "65785109395",
+      "voting_power": "592065984555",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "3098",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
+     "role": "from"
     }
    ]
   },
