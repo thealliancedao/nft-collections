@@ -4,7 +4,7 @@
  "shard": "z",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 12,
- "records": 1322,
+ "records": 1323,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -11407,13 +11407,13 @@
   "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz": {
    "address": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
    "first_seen": "2025-08-12T12:35:59.811123252Z",
-   "last_seen": "2026-11-18T10:01:53.797564649Z",
-   "events_count": 859,
+   "last_seen": "2026-11-19T10:02:06.008785946Z",
+   "events_count": 860,
    "counts": {
     "locks_created": 1,
     "locks_received": 46,
     "lock_merges": 46,
-    "lock_adds": 766
+    "lock_adds": 767
    },
    "holdings_now": {
     "total": 1,
@@ -35757,6 +35757,33 @@
      "usd_basis": "price-history:2026-11-18 (tla)",
      "unit_usd": 0.08925712945970073,
      "usd_repriced_at": "2026-11-18T11:44:36.609Z",
+     "role": "from"
+    },
+    {
+     "txhash": "D401E1E9C1B107B7C2D8BB79E6CE151726EA0B846BC59C9790C24D3B4EC247F5",
+     "height": 23819511,
+     "ts": "2026-11-19T10:02:06.008785946Z",
+     "msg_index": 0,
+     "kind": "lock_add",
+     "collection": "tla-locks",
+     "from": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
+     "price": {
+      "amount": "2115684",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "lock": {
+      "fixed_power": "118541365097",
+      "voting_power": "1066872285873",
+      "lock_end": "permanent",
+      "asset": null
+     },
+     "token_id": "754",
+     "token_id_from": "metadata_changed",
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": null,
+     "usd_reason": "price_history_month_missing:2026/11",
      "role": "from"
     }
    ]
