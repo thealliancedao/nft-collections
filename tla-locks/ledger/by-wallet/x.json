@@ -4,7 +4,7 @@
  "shard": "x",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 5,
- "records": 1850,
+ "records": 1852,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -54,12 +54,12 @@
   "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx": {
    "address": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
    "first_seen": "2026-09-25T17:59:08.103529581Z",
-   "last_seen": "2026-11-20T08:39:08.774422679Z",
-   "events_count": 1799,
+   "last_seen": "2026-11-20T11:18:29.388214424Z",
+   "events_count": 1801,
    "counts": {
     "locks_received": 14,
-    "locks_created": 870,
-    "locks_sent": 618,
+    "locks_created": 871,
+    "locks_sent": 619,
     "lock_merges": 272,
     "lock_adds": 9,
     "listings": 1,
@@ -71,8 +71,8 @@
     "tokens": []
    },
    "held_past": {
-    "total": 898,
-    "distinct_tokens": 895,
+    "total": 899,
+    "distinct_tokens": 896,
     "tokens": [
      {
       "token_id": "2500",
@@ -21691,11 +21691,35 @@
        "txhash": "AA5060640021BAC00B5D90872BDFA4F09F6D9C57E52EEAAAF56C9AAF47B0807A"
       },
       "held_days": 0
+     },
+     {
+      "token_id": "3880",
+      "acquired": {
+       "kind": "lock_create",
+       "ts": "2026-11-20T11:18:17.594734199Z",
+       "height": 23835235,
+       "txhash": "1E7E0186B8FD791DEE939F86092D1711EB1DF0C07C0DE216E04393653E36BF27",
+       "price": {
+        "amount": "344814",
+        "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct",
+        "symbol": "ampLUNA",
+        "decimals": 6,
+        "usd": 0.02756254317700931,
+        "usd_basis": "price-history:2026-11-20 (tla)"
+       }
+      },
+      "released": {
+       "kind": "lock_transfer",
+       "ts": "2026-11-20T11:18:29.388214424Z",
+       "height": 23835237,
+       "txhash": "A7C4921E6B53774D34C404352B0D7FB64C38F241E6A24FD5676035CFF67D1072"
+      },
+      "held_days": 0
      }
     ]
    },
    "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
-   "held_ever_distinct": 895,
+   "held_ever_distinct": 896,
    "realized": {
     "round_trips": 0,
     "usd": {
@@ -62833,6 +62857,46 @@
      "kind": "lock_transfer",
      "collection": "tla-locks",
      "token_id": "3875",
+     "from": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
+     "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+     "source": "forward:org-nft-flows",
+     "role": "from"
+    },
+    {
+     "txhash": "1E7E0186B8FD791DEE939F86092D1711EB1DF0C07C0DE216E04393653E36BF27",
+     "height": 23835235,
+     "ts": "2026-11-20T11:18:17.594734199Z",
+     "msg_index": 0,
+     "kind": "lock_create",
+     "collection": "tla-locks",
+     "token_id": "3880",
+     "to": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
+     "lock": {
+      "fixed_power": "852342",
+      "voting_power": "7671078",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:344814"
+     },
+     "price": {
+      "amount": "344814",
+      "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+     },
+     "source": "forward:org-nft-flows",
+     "denom_symbol": "ampLUNA",
+     "denom_decimals": 6,
+     "usd": 0.02756254317700931,
+     "usd_basis": "price-history:2026-11-20 (tla)",
+     "unit_usd": 0.07993452463359756,
+     "role": "to"
+    },
+    {
+     "txhash": "A7C4921E6B53774D34C404352B0D7FB64C38F241E6A24FD5676035CFF67D1072",
+     "height": 23835237,
+     "ts": "2026-11-20T11:18:29.388214424Z",
+     "msg_index": 0,
+     "kind": "lock_transfer",
+     "collection": "tla-locks",
+     "token_id": "3880",
      "from": "terra1529udnr992z5qc856t5ng0hx6ay4jxjry47mxx",
      "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
      "source": "forward:org-nft-flows",
