@@ -26791,5 +26791,221 @@
   "usd_basis": "price-history:2026-11-21 (tla)",
   "unit_usd": 0.07336295304810264,
   "usd_repriced_at": "2026-11-21T08:44:35.410Z"
+ },
+ {
+  "txhash": "C6A245FF3335887935B10A86A30EC73327B3E4AC3083402A683ED612E9AAF0F0",
+  "height": 23849250,
+  "ts": "2026-11-21T09:44:51.126602788Z",
+  "msg_index": 0,
+  "kind": "lock_create",
+  "collection": "tla-locks",
+  "token_id": "3898",
+  "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lock": {
+   "fixed_power": "57191150",
+   "voting_power": "514720350",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:23116358"
+  },
+  "price": {
+   "amount": "23116358",
+   "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+  },
+  "source": "forward:org-nft-flows",
+  "denom_symbol": "ampLUNA",
+  "denom_decimals": 6,
+  "usd": null,
+  "usd_reason": "price_history_month_missing:2026/11"
+ },
+ {
+  "txhash": "E7E9420CFCA4B90BE3F2066701FE523E3EE7D7766963AEE7992A3073C1F3E5E7",
+  "height": 23849272,
+  "ts": "2026-11-21T09:46:58.990978401Z",
+  "msg_index": 0,
+  "kind": "lock_migrate",
+  "collection": "tla-locks",
+  "token_id": "3899",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3898"
+   ],
+   "to_ids": [
+    "3899"
+   ]
+  },
+  "migrate": {
+   "amount_before": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:23116358",
+   "fixed_power_before": "57191150",
+   "into": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:17951302"
+  },
+  "lock": {
+   "fixed_power": "56492210",
+   "voting_power": "508429890",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:17951302"
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "E504A561B2107DA3DA33ABD993E138CD4771F984C22C819EE0B0651FE6D86BEC",
+  "height": 23849277,
+  "ts": "2026-11-21T09:47:28.722961322Z",
+  "msg_index": 0,
+  "kind": "lock_split",
+  "collection": "tla-locks",
+  "token_id": "3900",
+  "to": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3899"
+   ],
+   "to_ids": [
+    "3900"
+   ]
+  },
+  "lock": {
+   "fixed_power": "3",
+   "voting_power": "27",
+   "lock_end": "permanent",
+   "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:17951301"
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "410BE6EA060CE213374F3549F6DFBA6B3B15441FF13A1F5B2ECAF728D3F6F41A",
+  "height": 23849280,
+  "ts": "2026-11-21T09:47:46.216553154Z",
+  "msg_index": 0,
+  "kind": "lock_merge",
+  "collection": "tla-locks",
+  "token_id": "3900",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3900",
+    "3884"
+   ],
+   "to_ids": [
+    "3900"
+   ],
+   "burned": [
+    "3884"
+   ]
+  },
+  "lock": {
+   "fixed_power": "986601538343",
+   "voting_power": "8879413845087",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "F92AC0338D5AD521CE7CBE075E97E6CE6E83F31BE5674AC03858F128796597A2",
+  "height": 23849283,
+  "ts": "2026-11-21T09:48:03.462297153Z",
+  "msg_index": 0,
+  "kind": "lock_merge",
+  "collection": "tla-locks",
+  "token_id": "3900",
+  "from": "terra1e0hutvqwsfyd937726dt9cw3t468mexylltx57",
+  "lineage": {
+   "from_ids": [
+    "3900",
+    "3899"
+   ],
+   "to_ids": [
+    "3900"
+   ],
+   "burned": [
+    "3899"
+   ]
+  },
+  "lock": {
+   "fixed_power": "986601538346",
+   "voting_power": "8879413845114",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "source": "forward:org-nft-flows"
+ },
+ {
+  "txhash": "29D48E53ABFED55990D21F1D0ADCF1C00B00FCABC888FD6E9E2B9DBE2D86B89F",
+  "height": 23849417,
+  "ts": "2026-11-21T10:00:55.416267318Z",
+  "msg_index": 0,
+  "kind": "lock_add",
+  "collection": "tla-locks",
+  "from": "terra13aae4futz6jk7hmdv0gwm2xs6p4nxv4xwz5tc0c2vt4960u4j6jqpqmye9",
+  "price": {
+   "amount": "27787905",
+   "denom": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490"
+  },
+  "lock": {
+   "fixed_power": "832949788758",
+   "voting_power": "7496548098822",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "token_id": "748",
+  "token_id_from": "metadata_changed",
+  "source": "forward:org-nft-flows",
+  "denom_symbol": "arbLUNA",
+  "denom_decimals": 6,
+  "usd": null,
+  "usd_reason": "price_history_month_missing:2026/11"
+ },
+ {
+  "txhash": "62287D9A7B2E6352BFD944D496C48F59A30D82352032445487982B6EB3E4A5DD",
+  "height": 23849419,
+  "ts": "2026-11-21T10:01:07.078911732Z",
+  "msg_index": 0,
+  "kind": "lock_add",
+  "collection": "tla-locks",
+  "from": "terra1v7aw9eartqrjrhwd6c7hkmlkspcy5q4tvc07gjmvzqezk3fttr4s3mffyz",
+  "price": {
+   "amount": "5097936",
+   "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+  },
+  "lock": {
+   "fixed_power": "118769863499",
+   "voting_power": "1068928771491",
+   "lock_end": "permanent",
+   "asset": null
+  },
+  "token_id": "754",
+  "token_id_from": "metadata_changed",
+  "source": "forward:org-nft-flows",
+  "denom_symbol": "ampLUNA",
+  "denom_decimals": 6,
+  "usd": null,
+  "usd_reason": "price_history_month_missing:2026/11"
+ },
+ {
+  "txhash": "686EE92D487615E42457910919B6654FA9C55C3CB0CFB03C1FA9E71BF8EF7053",
+  "height": 23849429,
+  "ts": "2026-11-21T10:02:05.32927112Z",
+  "msg_index": 0,
+  "kind": "lock_add",
+  "collection": "tla-locks",
+  "from": "terra1mzelg87h36y6wvtgj6fh9s4crgx9acw63l3zc6f9px6pc5f8h8lqs0sux0",
+  "price": {
+   "amount": "69118",
+   "denom": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct"
+  },
+  "lock": {
+   "fixed_power": "510582920",
+   "voting_power": "44185057",
+   "lock_end": "212",
+   "asset": null
+  },
+  "token_id": "755",
+  "token_id_from": "metadata_changed",
+  "source": "forward:org-nft-flows",
+  "denom_symbol": "ampLUNA",
+  "denom_decimals": 6,
+  "usd": null,
+  "usd_reason": "price_history_month_missing:2026/11"
  }
 ]
