@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "capturedAt": "2026-11-23T02:42:21.742Z",
-  "capturedAtUnix": 1795401741742,
+  "capturedAt": "2026-11-23T02:57:16.513Z",
+  "capturedAtUnix": 1795402636513,
   "epoch": 213,
   "contracts": {
     "nft": "terra1phr9fngjv7a8an4dhmhd0u0f98wazxfnzccqtyheq4zqrrp4fpuqw3apw9",
@@ -23,8 +23,8 @@
   "dao_wallet_8ywv_held_count": 2,
   "enterprise_staked_count": 403,
   "enterprise_dao_broken_count": 100,
-  "daodao_staked_count": 1671,
-  "daodao_pending_claim_count": 2,
+  "daodao_staked_count": 1670,
+  "daodao_pending_claim_count": 3,
   "daodao_custody_unattributed_count": 6,
   "bbl_listed_count": 25,
   "atrium_listed_count": 2,
@@ -1208,12 +1208,20 @@
   },
   "daodao_pending_claim": {
     "count": 8,
-    "tracked": 2,
+    "tracked": 3,
     "reconciled": false,
     "active_staked": 1671,
     "custody": 1679,
     "unstake_window_seconds": 604800,
-    "in_window": [],
+    "in_window": [
+      {
+        "token_id": 725,
+        "address": "terra1825czwm8d69kk30c82zmlc03s47cjvudsn5ag2",
+        "unstaked_at": "2026-11-23T02:57:19.934Z",
+        "release_at": "2026-11-30T02:57:19.934Z",
+        "source": "chain_state"
+      }
+    ],
     "claimable": [
       {
         "token_id": 1319,
@@ -1230,11 +1238,11 @@
         "source": "chain_state"
       }
     ],
-    "unattributed": 6,
+    "unattributed": 5,
     "sweep": {
       "addresses_queried": 488,
       "failed": 0,
-      "rebuilt_at": "2026-11-23T02:42:43.123Z"
+      "rebuilt_at": "2026-11-23T02:57:38.458Z"
     }
   },
   "daodao_stakers": [
