@@ -4,7 +4,7 @@
  "shard": "2",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
  "wallets_in_shard": 69,
- "records": 491,
+ "records": 492,
  "system_addresses_excluded": 16,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -2553,8 +2553,8 @@
   "terra1825czwm8d69kk30c82zmlc03s47cjvudsn5ag2": {
    "address": "terra1825czwm8d69kk30c82zmlc03s47cjvudsn5ag2",
    "first_seen": "2024-02-01T10:54:06Z",
-   "last_seen": "2026-04-23T15:38:12.539811139Z",
-   "events_count": 25,
+   "last_seen": "2026-11-23T02:57:19.93410369Z",
+   "events_count": 26,
    "counts": {
     "bought": 1,
     "bids": 1,
@@ -2565,12 +2565,14 @@
     "delists": 3,
     "stakes": 4,
     "claims": 2,
-    "sold": 2
+    "sold": 2,
+    "unstakes": 1
    },
    "holdings_now": {
     "total": 2,
     "by_state": {
-     "staked": 2
+     "staked": 1,
+     "unstaking": 1
     },
     "tokens": [
      {
@@ -2588,9 +2590,9 @@
      },
      {
       "token_id": "725",
-      "state": "staked",
-      "since": "2024-10-30T05:42:32Z",
-      "since_height": 12727210,
+      "state": "unstaking",
+      "since": "2026-11-23T02:57:19.93410369Z",
+      "since_height": 23874949,
       "acquired": {
        "kind": "sale",
        "ts": "2024-02-01T10:54:06Z",
@@ -2606,7 +2608,8 @@
         "usd_basis": null
        }
       },
-      "broken": false
+      "broken": false,
+      "claim_duration": "time: 604800"
      }
     ]
    },
@@ -3197,6 +3200,21 @@
      "usd_basis": "price-history:2026-04-23 (LUNA×ratio(interpolated))",
      "unit_usd": 0.10054933,
      "role": "from"
+    },
+    {
+     "txhash": "59C3793844986AE0BA2F9FA2B02DAC717F9585644E6613A96C5912E15FE93D80",
+     "height": 23874949,
+     "ts": "2026-11-23T02:57:19.93410369Z",
+     "msg_index": 0,
+     "kind": "unstake",
+     "collection": "adao",
+     "token_id": "725",
+     "from": "terra1c57ur376szdv8rtes6sa9nst4k536dynunksu8tx5zu4z5u3am6qmvqx47",
+     "to": "terra1825czwm8d69kk30c82zmlc03s47cjvudsn5ag2",
+     "custodian": "daodao_voting",
+     "claim_duration": "time: 604800",
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
@@ -3214,15 +3232,58 @@
     "unstakes_enterprise": 22,
     "listings": 5,
     "delists": 4,
-    "gap_closed": 9,
     "sold": 1
    },
    "holdings_now": {
-    "total": 12,
+    "total": 21,
     "by_state": {
-     "liquid": 12
+     "liquid": 21
     },
     "tokens": [
+     {
+      "token_id": "443",
+      "state": "liquid",
+      "since": "2024-05-02T20:13:08Z",
+      "since_height": 10152666,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-03-01T21:48:51Z",
+       "height": 9264159,
+       "txhash": "19F27FB0E595FFB4FAEFFDB0C878967DF86FD5014365B5EAA1F9C3DE21D8F9BD",
+       "venue": "bbl",
+       "price": {
+        "amount": "180000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 127.99351106651223,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "812",
+      "state": "liquid",
+      "since": "2024-05-02T20:13:08Z",
+      "since_height": 10152666,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-03-01T20:33:22Z",
+       "height": 9263424,
+       "txhash": "8B9112C46414DFCF3EFC7F2730C4A3BC9575A26B4364BBD4463E142703C8C741",
+       "venue": "bbl",
+       "price": {
+        "amount": "185000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 131.54888637391534,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
      {
       "token_id": "1091",
       "state": "liquid",
@@ -3241,6 +3302,27 @@
         "decimals": 6,
         "usd": 92.35273787627298,
         "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "2126",
+      "state": "liquid",
+      "since": "2024-05-03T22:24:32Z",
+      "since_height": 10168377,
+      "acquired": {
+       "kind": "mint_purchase",
+       "ts": "2024-02-28T14:07:01Z",
+       "height": 9230777,
+       "txhash": "089B14F7D8D6957B1BEA67C7E2EE928444AD6897BA178A754F933947FE32AACF",
+       "price": {
+        "amount": "75000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 52.82168625,
+        "usd_basis": "price-history:2024-02-28 (coingecko)"
        }
       },
       "broken": false
@@ -3275,6 +3357,72 @@
         "symbol": "LUNA",
         "decimals": 6,
         "usd": 85.75611374225348,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3353",
+      "state": "liquid",
+      "since": "2024-05-02T20:13:08Z",
+      "since_height": 10152666,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-03-03T19:27:41Z",
+       "height": 9291490,
+       "txhash": "DE5A5E72D74CF7B92D967DECCE119AF4465F2C9B28C833539EA734DFB45AB95E",
+       "venue": "bbl",
+       "price": {
+        "amount": "179000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 154.4569349394351,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3408",
+      "state": "liquid",
+      "since": "2024-05-02T20:13:08Z",
+      "since_height": 10152666,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-02-29T03:36:38Z",
+       "height": 9238889,
+       "txhash": "93DFE48BA2DF867122FEC41A80010FC8550D61E70DCA85677B969EFD7A92567E",
+       "venue": "bbl",
+       "price": {
+        "amount": "180000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 127.24184509128612,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "4391",
+      "state": "liquid",
+      "since": "2024-05-02T20:13:08Z",
+      "since_height": 10152666,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-03-11T14:35:05Z",
+       "height": 9403587,
+       "txhash": "154F0FBF44135B274741266DB891890A6FB22C498E51CEB46B6D0F665B01FEA7",
+       "venue": "bbl",
+       "price": {
+        "amount": "162000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 175.77432312408237,
         "usd_basis": null
        }
       },
@@ -3347,6 +3495,50 @@
       "broken": false
      },
      {
+      "token_id": "7093",
+      "state": "liquid",
+      "since": "2024-05-02T20:13:08Z",
+      "since_height": 10152666,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-03-04T18:03:30Z",
+       "height": 9305069,
+       "txhash": "D4CC8638ED6B789A6BB53C06A012D8A4922B632834FB3E8B49B68DE1DD4E906D",
+       "venue": "bbl",
+       "price": {
+        "amount": "179000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 148.74189203519734,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "7182",
+      "state": "liquid",
+      "since": "2024-05-03T22:25:44Z",
+      "since_height": 10168389,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-01-02T15:18:41Z",
+       "height": 8412151,
+       "txhash": "74A8AD8ABAC01EAF3ACA7592F55B856C7C1EB73A125A8B8A63A2B9C2A1419D9A",
+       "venue": "bbl",
+       "price": {
+        "amount": "99000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 85.22774373120339,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
       "token_id": "7367",
       "state": "liquid",
       "since": "2024-05-02T20:13:08Z",
@@ -3385,6 +3577,28 @@
         "symbol": "LUNA",
         "decimals": 6,
         "usd": 86.08863003151858,
+        "usd_basis": null
+       }
+      },
+      "broken": false
+     },
+     {
+      "token_id": "7574",
+      "state": "liquid",
+      "since": "2024-05-02T20:13:08Z",
+      "since_height": 10152666,
+      "acquired": {
+       "kind": "sale",
+       "ts": "2024-02-28T21:28:42Z",
+       "height": 9235202,
+       "txhash": "B72FA16F31B902843268D9EA1D1CCE9E5C1AD670E8F79A0E6EACA6D20EE790A5",
+       "venue": "bbl",
+       "price": {
+        "amount": "165000000",
+        "denom": "uluna",
+        "symbol": "LUNA",
+        "decimals": 6,
+        "usd": 116.20770977274823,
         "usd_basis": null
        }
       },
@@ -3481,242 +3695,9 @@
     ]
    },
    "held_past": {
-    "total": 10,
-    "distinct_tokens": 10,
+    "total": 1,
+    "distinct_tokens": 1,
     "tokens": [
-     {
-      "token_id": "7574",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-02-28T21:28:42Z",
-       "height": 9235202,
-       "txhash": "B72FA16F31B902843268D9EA1D1CCE9E5C1AD670E8F79A0E6EACA6D20EE790A5",
-       "venue": "bbl",
-       "price": {
-        "amount": "165000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 116.20770977274823,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 65.2
-     },
-     {
-      "token_id": "3408",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-02-29T03:36:38Z",
-       "height": 9238889,
-       "txhash": "93DFE48BA2DF867122FEC41A80010FC8550D61E70DCA85677B969EFD7A92567E",
-       "venue": "bbl",
-       "price": {
-        "amount": "180000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 127.24184509128612,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 64.9
-     },
-     {
-      "token_id": "812",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-03-01T20:33:22Z",
-       "height": 9263424,
-       "txhash": "8B9112C46414DFCF3EFC7F2730C4A3BC9575A26B4364BBD4463E142703C8C741",
-       "venue": "bbl",
-       "price": {
-        "amount": "185000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 131.54888637391534,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 63.2
-     },
-     {
-      "token_id": "443",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-03-01T21:48:51Z",
-       "height": 9264159,
-       "txhash": "19F27FB0E595FFB4FAEFFDB0C878967DF86FD5014365B5EAA1F9C3DE21D8F9BD",
-       "venue": "bbl",
-       "price": {
-        "amount": "180000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 127.99351106651223,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 63.2
-     },
-     {
-      "token_id": "3353",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-03-03T19:27:41Z",
-       "height": 9291490,
-       "txhash": "DE5A5E72D74CF7B92D967DECCE119AF4465F2C9B28C833539EA734DFB45AB95E",
-       "venue": "bbl",
-       "price": {
-        "amount": "179000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 154.4569349394351,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 61.3
-     },
-     {
-      "token_id": "7093",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-03-04T18:03:30Z",
-       "height": 9305069,
-       "txhash": "D4CC8638ED6B789A6BB53C06A012D8A4922B632834FB3E8B49B68DE1DD4E906D",
-       "venue": "bbl",
-       "price": {
-        "amount": "179000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 148.74189203519734,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 60.3
-     },
-     {
-      "token_id": "4391",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-03-11T14:35:05Z",
-       "height": 9403587,
-       "txhash": "154F0FBF44135B274741266DB891890A6FB22C498E51CEB46B6D0F665B01FEA7",
-       "venue": "bbl",
-       "price": {
-        "amount": "162000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 175.77432312408237,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 53.5
-     },
-     {
-      "token_id": "7182",
-      "acquired": {
-       "kind": "sale",
-       "ts": "2024-01-02T15:18:41Z",
-       "height": 8412151,
-       "txhash": "74A8AD8ABAC01EAF3ACA7592F55B856C7C1EB73A125A8B8A63A2B9C2A1419D9A",
-       "venue": "bbl",
-       "price": {
-        "amount": "99000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 85.22774373120339,
-        "usd_basis": null
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 122.5
-     },
-     {
-      "token_id": "2126",
-      "acquired": {
-       "kind": "mint_purchase",
-       "ts": "2024-02-28T14:07:01Z",
-       "height": 9230777,
-       "txhash": "089B14F7D8D6957B1BEA67C7E2EE928444AD6897BA178A754F933947FE32AACF",
-       "price": {
-        "amount": "75000000",
-        "denom": "uluna",
-        "symbol": "LUNA",
-        "decimals": 6,
-        "usd": 52.82168625,
-        "usd_basis": "price-history:2024-02-28 (coingecko)"
-       }
-      },
-      "released": {
-       "kind": "gap",
-       "ts": "2024-05-04T02:10:51Z",
-       "height": 10170637,
-       "txhash": "4C3C6EC44827F6003431C1C4D6965C4EE1DD3EED35477C73AEF3275424AAC3A0",
-       "note": "next seen with terra175qc8zprp4e0tn2d57rsajrw7pr52mvny6hld0 (venue_out from terra1vvwcxnrhzvwjw7c0t7ks3pe0fvj82rcyrmpsejj22csg0rawpc9qs9fyv4); the leg out of this wallet is not in the ledger"
-      },
-      "held_days": 65.5
-     },
      {
       "token_id": "8982",
       "acquired": {
