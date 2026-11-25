@@ -3,8 +3,8 @@
  "collection": "tla-locks",
  "shard": "l",
  "shard_of": "last character of the bech32 address (terra1…x77ulw → w); non-terra → x",
- "wallets_in_shard": 9,
- "records": 80,
+ "wallets_in_shard": 10,
+ "records": 82,
  "system_addresses_excluded": 7,
  "rules": {
   "replay_order": "by height, then acquisition → return-from-custody → transfer → custody-entry → destruction (a wallet cannot move what it has not received), then msg_index",
@@ -1373,6 +1373,122 @@
      "unit_usd": 0.19031288,
      "usd_repriced_at": "2026-09-18T19:44:41.473Z",
      "role": "from"
+    }
+   ]
+  },
+  "terra16h72wwyu6xzummfdj03c0kshydhyy70s275zgl": {
+   "address": "terra16h72wwyu6xzummfdj03c0kshydhyy70s275zgl",
+   "first_seen": "2026-11-25T15:02:56.786330969Z",
+   "last_seen": "2026-11-25T15:03:14.843689957Z",
+   "events_count": 2,
+   "counts": {},
+   "holdings_now": {
+    "total": 2,
+    "by_state": {
+     "locked": 2
+    },
+    "tokens": [
+     {
+      "token_id": "3934",
+      "state": "locked",
+      "since": "2026-11-25T15:02:56.786330969Z",
+      "since_height": 23912368,
+      "acquired": {
+       "kind": "lock_split",
+       "ts": "2026-11-25T15:02:56.786330969Z",
+       "height": 23912368,
+       "txhash": "C8524D6A51D38A47735281DA2F3460301B62B93D6381E6F01AE6092869748850"
+      },
+      "broken": false
+     },
+     {
+      "token_id": "3935",
+      "state": "locked",
+      "since": "2026-11-25T15:03:14.843689957Z",
+      "since_height": 23912371,
+      "acquired": {
+       "kind": "lock_split",
+       "ts": "2026-11-25T15:03:14.843689957Z",
+       "height": 23912371,
+       "txhash": "12028C4EED57E7E6102D8EE8C577EE20D4813D0433DEBDEF0E674C98A1DFD707"
+      },
+      "broken": false
+     }
+    ]
+   },
+   "held_past": {
+    "total": 0,
+    "distinct_tokens": 0,
+    "tokens": []
+   },
+   "held_past_note": "closed positions; acquired:null = the ledger never saw the wallet get the token (it saw it leave, list, stake or come back), never a guess",
+   "held_ever_distinct": 2,
+   "realized": {
+    "round_trips": 0,
+    "usd": {
+     "priced": 0,
+     "total": null
+    },
+    "luna": {
+     "priced": 0,
+     "total": null
+    },
+    "note": "P&L two ways: USD at each end (oracle day), and LUNA-terms only when both ends were LUNA — a buy in LUNA sold for bLUNA/USDC has no LUNA number (null)"
+   },
+   "events": [
+    {
+     "txhash": "C8524D6A51D38A47735281DA2F3460301B62B93D6381E6F01AE6092869748850",
+     "height": 23912368,
+     "ts": "2026-11-25T15:02:56.786330969Z",
+     "msg_index": 0,
+     "kind": "lock_split",
+     "collection": "tla-locks",
+     "token_id": "3934",
+     "to": "terra16h72wwyu6xzummfdj03c0kshydhyy70s275zgl",
+     "lineage": {
+      "from_ids": [
+       "748"
+      ],
+      "to_ids": [
+       "3934"
+      ],
+      "source_unknown": "msg body not archived — parent id from wasm-metadata_changed"
+     },
+     "lock": {
+      "fixed_power": "838351366124",
+      "voting_power": "7545162295116",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1se7rvuerys4kd2snt6vqswh9wugu49vhyzls8ymc02wl37g2p2ms5yz490:763983458"
+     },
+     "source": "forward:org-nft-flows",
+     "role": "to"
+    },
+    {
+     "txhash": "12028C4EED57E7E6102D8EE8C577EE20D4813D0433DEBDEF0E674C98A1DFD707",
+     "height": 23912371,
+     "ts": "2026-11-25T15:03:14.843689957Z",
+     "msg_index": 0,
+     "kind": "lock_split",
+     "collection": "tla-locks",
+     "token_id": "3935",
+     "to": "terra16h72wwyu6xzummfdj03c0kshydhyy70s275zgl",
+     "lineage": {
+      "from_ids": [
+       "754"
+      ],
+      "to_ids": [
+       "3935"
+      ],
+      "source_unknown": "msg body not archived — parent id from wasm-metadata_changed"
+     },
+     "lock": {
+      "fixed_power": "112415806034",
+      "voting_power": "1011742254306",
+      "lock_end": "permanent",
+      "asset": "cw20:terra1ecgazyd0waaj3g7l9cmy5gulhxkps2gmxu9ghducvuypjq68mq2s5lvsct:3538197885"
+     },
+     "source": "forward:org-nft-flows",
+     "role": "to"
     }
    ]
   },
